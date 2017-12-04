@@ -96,7 +96,7 @@ let webpackConfig = {
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'client/html/index.html'),
-      filename: path.resolve(__dirname, './build/static/index.html'),
+      filename: path.resolve(__dirname, './build/html/index.html'),
       bundleName: bundleConfig.vendor.js,
       inject: true
     }),
