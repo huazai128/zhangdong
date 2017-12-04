@@ -54,7 +54,7 @@ module.exports = {
                 test: /\.(eot|woff|woff2|ttf|png|jpe?g|gif|mp4|webm)(\?\S*)?$/,
                 exclude: [nodeModulesPath],
                 include: [srcDir],
-                loader: 'url-loader?limit=8192&name=img/[name].[ext]',
+                loader: 'url-loader?limit=8192&name=img/[name].[hash:5].[ext]',
             }, {
                 test: /\.(scss|sass|css)$/,
                 use: ["style-loader", {
