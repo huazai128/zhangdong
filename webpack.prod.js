@@ -22,7 +22,7 @@ let webpackConfig = {
     index: [path.join(__dirname, "client/views/index.jsx")]
   },
   output: {
-    publicPath: './',
+    publicPath: '/',
     path: path.join(__dirname, "build/static/"), //文件输出目录
     filename: "core/[name].[hash:5].js", //根据入口文件输出的对应多个文件名
     chunkFilename: "core/[name].[chunkhash:5].js"
@@ -97,7 +97,7 @@ let webpackConfig = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'client/html/index.html'),
       filename: path.resolve(__dirname, './build/static/index.html'),
-      bundleName: './' + bundleConfig.vendor.js,
+      bundleName: bundleConfig.vendor.js,
       inject: true
     }),
   ]
