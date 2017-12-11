@@ -1,6 +1,6 @@
 import React from 'react';
 import './compatible.scss';
-
+import { Link, hashHistory } from 'react-router';
 class Function extends React.Component {
     render() {
         return <div id="function"> 
@@ -8,22 +8,22 @@ class Function extends React.Component {
                 <div className="content">
                     <div className="flex">
                         <ul className="flex-vcenter flex-g-1">
-                            <li><a href="#"><img src={require("img/logo.png")} alt="" /></a></li>
-                            <li className="item"><a href="#">产品与服务</a></li>
-                            <li className="item"><a href="#">解决方案</a></li>
-                            <li className="item"><a href="#">动态新闻</a></li>
-                            <li className="item"><a href="#">关于我们</a></li></ul>
+                            <li><a href="javascript:void(0);"><img src={require("img/logo.png")} alt="" /></a></li>
+                            <li className="item"><Link to="/service">产品与服务</Link></li>
+                            <li className="item"><Link to="/function">解决方案</Link></li>
+                            <li className="item"><Link to="/new">新闻动态</Link></li>
+                            <li className="item"><Link to="/our">关于我们</Link></li></ul>
                         <ul className="topBoxright flex-vcenter">
-                            <li><a href="#">注册</a></li><li><a href="#">登陆</a></li><li className="blueBtn"><a href="#">测试者社区</a></li>
+                        <li><Link to='/main'>注册</Link></li><li><Link to='/login'>登陆</Link></li><li className="blueBtn"><Link to='/creative'>测试者社区</Link></li>
                         </ul>
-                    </div>
+                    </div> 
                     <div className="count">
                         <h2>功能测试</h2>
                         <span>专家啊分析走查+自动化功能测试</span>
                         <span>
                             测试团队通过专家结合工具的测试方法进行功能测试服务
                         </span>
-                        <a href="#"><p>立即申请</p></a>
+                        <a href="javascript:void(0);"><p>立即申请</p></a>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@ class Function extends React.Component {
                         <h3>我们的优势</h3>
                        
                         <div className="flex-center jc-between soft" >
-                            <a href="#">
+                            <a href="javascript:void(0);">
                                 <div className="item" >
                                     <img src={require("img/gong1.jpg")} alt="" />
                                     <h5>标准化测试流程</h5>
@@ -44,7 +44,7 @@ class Function extends React.Component {
                           </p>
                                 </div>
                             </a>
-                            <a href="#">
+                            <a href="javascript:void(0);">
                                 <div className="item" >
                                     <img src={require("img/gong2.jpg")} alt="" />
                                     <h5>专家真机测试</h5>
@@ -54,7 +54,7 @@ class Function extends React.Component {
                           </p>
                                 </div>
                             </a>
-                            <a href="#">
+                            <a href="javascript:void(0);">
                                 <div className="item" >
                                     <img src={require("img/gong3.jpg")} alt="" />
                                     <h5>海量用例数据库</h5>
@@ -79,10 +79,10 @@ class Function extends React.Component {
                   <p className='flex'>药渡头条app是一款药物资讯应用，药渡头条app为用户提供最新的全球药物研发资讯，让用户可以随时了解医药研发数据，为医药发展提供帮助。药渡致力于建设全球专业的药物信息数据 <br></br>
                   中心，为医药研发专业人士提供实用的药物信息移动检索服务，让医药研发数据触手可得。</p>
                   <ul className='flex-hcenter'>
-                      <li><a href="#"><img src={require("img/图1.jpg")} alt=""/></a></li>
-                      <li><a href="#"><img src={require("img/图2.jpg")} alt=""/></a></li>
-                      <li><a href="#"><img src={require("img/图3.jpg")} alt=""/></a></li>
-                      <li><a href="#"><img src={require("img/图4.jpg")} alt=""/></a></li>
+                      <li><a href="javascript:void(0);"><img src={require("img/图1.jpg")} alt=""/></a></li>
+                      <li><a href="javascript:void(0);"><img src={require("img/图2.jpg")} alt=""/></a></li>
+                      <li><a href="javascript:void(0);"><img src={require("img/图3.jpg")} alt=""/></a></li>
+                      <li><a href="javascript:void(0);"><img src={require("img/图4.jpg")} alt=""/></a></li>
                   </ul>
                   <div className='flex-vcenter' style={{height:70}}>
                  <div className='blue'></div>
@@ -97,7 +97,7 @@ class Function extends React.Component {
                   <p className='flex'>针对药渡头条APP进行兼容性测试，验证该产品对于智能手机品牌和机型的兼容性。通过正式环境下的兼容性测试，检查APP在各Android终端的适配率，主要检查APP能否正常进行安<br></br>
                   装、基本功能运行、卸载和升级，并且检查APP在运行过程中是否存在运行问题及UI展示问题。
                   </p>
-                    <a href="#"><span className='bottomp'>立即申请</span></a>
+                    <a href="javascript:void(0);"><span className='bottomp'>立即申请</span></a>
                   </div>
 
               </div>

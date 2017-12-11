@@ -1,18 +1,18 @@
-a{
-    text-decoration: none;
-    color: inherit;
-}
+
 #app{
     width: 100%;
     min-width: 1380px;
     margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
     background-color: #fff;
     letter-spacing: 1px;
-    
+    a{
+			text-decoration: none;
+			color: inherit;
+	}
     .box{
         width: 100%;
         text-align: center;
-        // margin-top: 110px; 
+        // margin-top: 110px;
     }
     // 顶部
     .topBox {
@@ -29,14 +29,14 @@ a{
         margin-left: 40px;
           img{
             width:200px;
-            display: block 
+            display: block
           }
           &.item{
             width: 110px;
             text-align: center;
           }
         }
-        
+
         .topBoxleft {
           li {
             width: 100px;
@@ -107,7 +107,8 @@ a{
   }
 .boxcontent {
     h3{
-        font-size: 30px;
+				font-size: 30px;
+				margin-top: 54px;
     }
 
     .soft{
@@ -125,7 +126,7 @@ a{
              position: absolute;
              left: 39%;
              top: 60%;
-           
+
            }
            .two{
             display:block;
@@ -135,7 +136,7 @@ a{
             position: absolute;
             left: 39%;
             top: 60%;
-          
+
            }
            .three{
             display:block;
@@ -145,7 +146,7 @@ a{
             position: absolute;
             left: 39%;
             top: 60%;
-          
+
            }
             img{
                 margin-top: 55px;
@@ -161,26 +162,30 @@ a{
             h5{
             font-size: 20px;
             color: #333333;
-            padding-top: 20px;
+						padding-top: 20px;
+						margin-top: 25px;
             }
             p{
      font-size: 14px;
      color: #737373;
      line-height: 26px;
-    
+
             }
         }
         .item:last-child{
             margin-right: 0px;
         }
     }
-   
+
 }
   // 案例
   .contentcar{
     width: 1380px;
     margin: 0 auto;
     .box{
+			&.mybox{
+				margin-top: 70px;
+			}
         h3{
             font-size: 30px;
             font-weight: 400;
@@ -204,14 +209,16 @@ a{
         font-size: 16px;
         line-height: 30px;
         width: 1488px;
-        // margin-top: 44px;
     }
     ul{
-        padding-top: 80px;
         li{
             margin-right: 38px;
             list-style: none;
-            padding-bottom: 80px;
+						padding-bottom: 50px;
+						img{
+							width: 250px;
+							height: 350px;
+					}
         }
     }
 
@@ -220,7 +227,7 @@ a{
       display: inline-block;
     .bottomp{
         display: block;
-        width: 224px;   
+        width: 224px;
         height: 50px;
         background-color: #0bc9ff;
         line-height: 50px;
@@ -254,7 +261,7 @@ background-color: #202528;
     line-height: 40px;
     font-size: 14px;
     list-style: none;
-   
+
   }
  }
 }

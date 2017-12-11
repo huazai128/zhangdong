@@ -1,18 +1,18 @@
-a{
-    text-decoration: none;
-    color: inherit;
-}
+
 #app{
     width: 100%;
     min-width: 1380px;
     margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
     background-color: #fff;
     letter-spacing: 1px;
-    
+		a{
+			text-decoration: none;
+			color: inherit;
+	}
     .box{
         width: 100%;
         text-align: center;
-        margin-top: 110px; 
+        margin-top: 110px;
     }
     // 顶部
     .topBox {
@@ -29,14 +29,14 @@ a{
         margin-left: 40px;
           img{
             width:200px;
-            display: block 
+            display: block
           }
           &.item{
             width: 110px;
             text-align: center;
           }
         }
-        
+
         .topBoxleft {
           li {
             width: 100px;
@@ -125,7 +125,7 @@ a{
              position: absolute;
              left: 39%;
              top: 60%;
-           
+
            }
            .two{
             display:block;
@@ -135,7 +135,7 @@ a{
             position: absolute;
             left: 39%;
             top: 60%;
-          
+
            }
            .three{
             display:block;
@@ -145,7 +145,7 @@ a{
             position: absolute;
             left: 39%;
             top: 60%;
-          
+
            }
             img{
                 margin-top: 55px;
@@ -161,20 +161,21 @@ a{
             h5{
             font-size: 20px;
             color: #333333;
-            padding-top: 20px;
+						padding-top: 20px;
+						margin-top: 25px;
             }
             p{
      font-size: 14px;
      color: #737373;
      line-height: 26px;
-    
+
             }
         }
         .item:last-child{
             margin-right: 0px;
         }
     }
-   
+
 }
   // 案例
   .contentcar{
@@ -207,13 +208,12 @@ a{
         // margin-top: 44px;
     }
     ul{
-        padding-top: 80px;
         li{
             margin-right: 38px;
             list-style: none;
             padding-bottom: 80px;
             img{
-                width: 432px;
+                width: 340px;
                 height: 400px;
             }
         }
@@ -224,7 +224,7 @@ a{
       display: inline-block;
     .bottomp{
         display: block;
-        width: 224px;   
+        width: 224px;
         height: 50px;
         background-color: #0bc9ff;
         line-height: 50px;
@@ -258,7 +258,7 @@ background-color: #202528;
     line-height: 40px;
     font-size: 14px;
     list-style: none;
-   
+
   }
  }
 }

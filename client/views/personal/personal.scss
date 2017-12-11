@@ -1,0 +1,137 @@
+#personal{
+  width: 100%;
+  min-width: 1380px;
+  background-color: #f4f7fc;// background: url('~img/main.jpg') no-repeat center top;
+	letter-spacing: 1px;
+	a{
+		color: inherit;
+		display: inline-block;
+		width: 100%;
+	}
+  .personTop{
+    width: 1380px;
+    margin: 28px auto 0;
+    padding:34px 42px 0 36px;
+    background-color: #fff;
+    .leftPerson{
+         height: 155px;
+         background: url('~img/tuoyuan1.png') no-repeat left top;
+         padding-left: 113px;
+         p{
+           font-size: 17px;
+           &:first-child{
+             margin: 10px 0 17px 0;
+             color: #333333;
+           }
+           &:last-child{
+             color: #7f7f7f;
+             >span{
+           margin-left: 33px;
+             }
+           }
+         }
+    }
+    .rightPerson{
+      padding-top: 12px;
+      p{
+        width: 168px;
+        height: 44px;
+        border:1px solid #31abfb;
+        color: #31abfb;
+        line-height: 44px;
+        text-align: center;
+        font-size: 16px;
+        border-radius: 8px;
+
+        &:first-child{
+          margin-right: 18px;
+        }
+      }
+    }
+  }
+  .tabContent{
+    width: 1380px;
+    margin: 20px auto 0;
+    background-color: #fff;
+    div{
+      margin:0;
+    }
+    .shenOne{
+      height: 103px;
+      padding:30px 0 20px 37px;
+      border-bottom: 1px solid #666666;
+      .firstPer{
+       p{
+         margin:0;
+         &.firstP{
+           margin:0 23px 12px 0;
+           font-size: 17px;
+           color: #5a5a5a;
+           font-weight: 500;
+         }
+         &.secondP{
+           width: 72px;
+           height: 24px;
+           background-color: #f6b414;
+           font-size: 14px;
+           color: #fff;
+           border-radius: 20px;
+           line-height: 24px;
+           text-align: center;
+           &.jieP{
+            background-color: #25d9b5;
+           }
+           &.ceP{
+            background-color: #aa91fc;
+           }
+           &.yiP{
+            background-color: #31abfb;
+           }
+         }
+       }
+      }
+      .bottomContent{
+        font-size: 15px;
+        color: #999999;
+
+      }
+      &.btn{
+        border:none;
+      }
+     }
+  }
+  .ant-tabs-nav-scroll{
+    height: 58px;
+    line-height: 34px;
+    font-size: 17px;
+    color: #333;
+  }
+  .theme{
+    height: 103px;
+    padding:30px 0 20px 37px;
+    border-bottom: 1px solid #666666;
+    .themeContent{
+      height: 62px;
+      background: url('~img/ta3.png') no-repeat left center;
+      div{
+        margin:0;
+        padding-left: 80px;
+        &.one{
+          font-size: 17px;
+          color: #bcbcbc;
+        }
+        &.two{
+          font-size: 13px;
+          color: #a0a0a0;
+          margin-top: 12px;
+          >span{
+            margin-right: 22px;
+          }
+        }
+      }
+    }
+    &.theLast{
+      border: none;
+    }
+  }
+}

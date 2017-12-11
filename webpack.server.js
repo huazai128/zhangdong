@@ -8,14 +8,13 @@ var path = require('path'),
     viewsPath = path.join(srcDir, 'views'),
     nodeModulesPath = path.join(__dirname, 'node_modules'),
     CopyWebpackPlugin = require('copy-webpack-plugin'),
-    publicPath = config.domain + '/',
     HtmlWebpackPlugin = require('html-webpack-plugin'),
-    pxtorem = require('postcss-pxtorem'),
     bundleConfig = require("./build/bundle-config.json"),
     autoprefixer = require('autoprefixer');
 
-module.exports = {
+module.exports = { 
     cache: true,
+    devtool: 'cheap-module-eval-source-map',
     entry: {
         index: [
             'babel-polyfill',//为了支持es6语法

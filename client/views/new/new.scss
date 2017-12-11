@@ -4,5 +4,74 @@
     margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
     background-color:#fff;
     letter-spacing: 1px;
+    .company{
+        // height: 330px;
+        width: 1380px;
+        margin: 0 auto;
+        // border-bottom: 2px solid #dddddd;
+        .new-top{
+            margin: 0 auto;
+            width: 1380px;
+            height: 98px;
 
-} 
+       .new-message{
+           width: 1380px;
+           font-size: 20px;
+           color: #595959;
+
+      .lefttop{
+          display: inline-block;
+          width: 12px;
+          height: 25px;
+          background-color: #11c3fe;
+          margin-right: 20px;
+      }
+       }
+       .more{
+           width: 90px;
+           font-size: 15px;
+           color: #6b6b6b;
+       }
+       .youIcon{
+        display: inline-block;
+        width: 20px;
+        height: 40px;
+      background: url('~img/you2.png') no-repeat center;
+    }
+    }
+    .new-item {
+        height: 260px;
+        width: 1380px;
+        margin: 0 auto;
+        padding: 15px 0;
+        border-bottom: 1px solid #ddd;
+    }
+    .leftcompahy{
+        img{
+            width: 302px;
+            height: 204px;
+        }
+    }
+    .rightcompany{
+        padding-left: 38px;
+        .lianTop{
+            margin:0;
+            font-size: 20px;
+            color: #333333;
+            padding-bottom: 27px;
+        }
+        .time{
+            font-size: 14px;
+            color: #8a8a8a;
+            padding-bottom: 56px;
+        }
+        .contentone{
+            font-size: 14px;
+            color: #7f7f7f;
+            line-height: 24px;
+        }
+    }
+}
+
+}
+

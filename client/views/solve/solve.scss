@@ -1,14 +1,15 @@
-a{
-    text-decoration: none;
-    color: inherit;
-}
+
 #solve{
     width: 100%;
     min-width: 1380px;
     margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
     background-color:#fff;
-    letter-spacing: 1px;
-    .box{ 
+		letter-spacing: 1px;
+		a{
+			text-decoration: none;
+			color: inherit;
+	}
+    .box{
         width: 100%;
         text-align: center;
         // margin-top: 110px;
@@ -17,7 +18,7 @@ a{
 
     .topBox {
         height: 1082px;
-        color: #fff; 
+        color: #fff;
         background: url('~img/solve11.jpg') no-repeat center top;
         background-size: cover;
         // position: relative;
@@ -29,14 +30,14 @@ a{
         margin-left: 40px;
           img{
             width:200px;
-            display: block 
+            display: block
           }
           &.item{
             width: 110px;
             text-align: center;
           }
         }
-        
+
         .topBoxleft {
           li {
             width: 100px;
@@ -57,7 +58,7 @@ a{
         }
         .count {//定位修改质量云平台
             margin: 860px auto;
-      
+
          h2{
              font-size: 46px;
              font-weight: 400;
@@ -69,7 +70,7 @@ a{
             font-size: 20px;
          }
         p{
-           
+
             border: 1px solid #fff;
             width: 302px;
             height: 64px;
@@ -99,15 +100,15 @@ a{
     //   内容
    .boxcontent{
     height: 1082px;
-    color: #fff; 
+    color: #fff;
     background: url('~img/solve12.jpg') no-repeat center top;
     background-size: cover;
-   
-   } 
+
+   }
    .bbb{
         padding-top: 960px;
     p{
-       
+
         margin:0;
         border: 1px solid #fff;
         width: 302px;
@@ -119,14 +120,14 @@ a{
    }
 .threecont{
     height: 1082px;
-    color: #fff; 
+    color: #fff;
     background: url('~img/solve13.jpg') no-repeat center top;
     background-size: cover;
     position: relative;
 .aaa{
     padding-top: 960px;
     p{
-        
+
          margin:0;
          border: 1px solid #fff;
          width: 302px;
@@ -139,14 +140,14 @@ a{
 }
 .fourcont{
     height: 1082px;
-    color: #fff; 
+    color: #fff;
     background: url('~img/solve14.jpg') no-repeat center top;
     background-size: cover;
     position: relative;
     .ccc{
        padding-top:400px;
     p{
-        
+
          margin:0;
          border: 1px solid #fff;
          width: 302px;

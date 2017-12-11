@@ -1,4 +1,10 @@
 #common{
+  .common-top {
+    width: 1380px;
+    margin: 0 auto;
+    padding-left: 200px;
+    padding-top: 10px;
+  }
     width: 100%;
     min-width: 1380px;
     margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
@@ -14,10 +20,7 @@
         color: #fff; 
         background: url('~img/newbanner.jpg') no-repeat center top;
         background-size: cover;
-        ul {
-          margin-top: 9px;
-          margin-left: 440px;
-        }
+
         li {
           list-style: none;
         margin-left: 40px;

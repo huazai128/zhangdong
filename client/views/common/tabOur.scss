@@ -1,0 +1,123 @@
+#tabOur{
+  width: 1380px;
+   margin:0 auto;
+  .ant-tabs-nav-scroll {
+    // text-align:  center;
+    height: 80px;
+    line-height: 56px;
+  }
+  .rc-tabs-top{
+   overflow: visible;
+  }
+  .rc-tabs-content .rc-tabs-tabpane {
+    overflow:hidden;
+  } 
+  .messageOne{
+    background-color: #eeeeee;
+    .messageTop{
+      width: 1380px;
+      margin:0 auto;
+      height: 80px;
+      font-size: 20ox;
+      color: #333333;
+      line-height: 80px;
+      text-align: center;
+      div{
+        width: 128px;
+        height: 80px;
+  
+      }
+      div:first-child{
+        border-bottom: 2px solid #3ea2fa;
+      }
+    };
+    .bgContent{
+      background-color: #ffffff;
+      padding-bottom: 114px;
+    }
+    .messageContent{
+      padding-top: 76px;
+      width: 1382px;
+      margin: 0 auto;
+      margin-bottom: 94px;
+      img{
+        width: 470px;
+        height: 354px;
+      }
+      .rightMes{
+        padding-left: 45px;
+        p{
+          font-size: 17px;
+          line-height: 36px;
+          color: #8b8b8b;
+        }
+        .firstMes{
+          padding-top: 14px;
+          margin-bottom: 45px;
+        };
+        .secondMes{
+          margin-bottom: 22px;
+        }
+      }
+    }
+  .ulImg{
+    width: 1380px;
+    margin:0 auto;
+    li{
+      width: 408px;
+      height: 318px;
+      margin-right:76px;
+    }
+    li:last-child{
+      margin-right: 0;
+    }
+  }
+  }
+  // 招贤纳士
+  .find{
+    .findOne{
+      // height: 662px;
+      border-bottom: 1px solid #cccccc;
+      .email{
+        width: 428px;
+        height: 68px;
+        font-size: 17px;
+        background-color: #17c0fe;
+        line-height: 68px;
+        text-align: center;
+        margin-top:52px;
+        a{
+          color: #ffffff;
+        }
+      }
+    }
+    .findCont{
+      .textTop{
+        margin-top: 60px;
+      }
+      .findBlue{
+        display: inline-block;
+        width: 8px;
+        height: 22px;
+        background-color: #10c4fe;
+        margin-right: 20px;
+      }
+      .findTitle{
+        font-size: 18px;
+        color: #323232;
+        font-weight: 600;
+      }
+      .station{
+        padding-left: 26px;
+        margin-top: 32px;
+        li{
+          font-size: 15px;
+          padding-top: 15px;
+        }
+       .lastBottom{
+         padding-bottom: 52px;
+        }
+      }
+    }
+  }
+} 

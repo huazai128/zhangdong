@@ -1,0 +1,64 @@
+#common{
+  .common-top {
+    width: 1380px;
+    margin: 0 auto;
+    padding-left: 200px;
+    padding-top: 10px;
+  }
+    width: 100%;
+    min-width: 1380px;
+    margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
+    background-color:#fff;
+    letter-spacing: 1px;
+    .box{ 
+        width: 100%;
+        text-align: center;
+        margin-top: 110px;
+    }
+    .topBox {
+        height: 500px;
+        color: #fff; 
+        background: url('~img/ourbanner.jpg') no-repeat center top;
+        background-size: cover;
+
+        li {
+          list-style: none;
+        margin-left: 40px;
+        a{
+          color: #fff;
+        }
+          img{
+            width:200px;
+            display: block 
+          }
+          &.item{
+            width: 110px;
+            text-align: center;
+          }
+        }
+        
+        .topBoxleft {
+          li {
+            width: 100px;
+          }
+        }
+        .topBoxright {
+          li {
+            width: 60px;
+          }
+          .blueBtn {
+            margin-left: 10px;
+            width: 135px;
+            height: 46px;
+            line-height: 46px;
+            text-align: center;
+            background-color: #3FA3FB;
+          }
+        }
+        .content {
+          position: relative;
+        }
+      
+      }
+
+}

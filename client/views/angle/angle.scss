@@ -1,22 +1,22 @@
-a{
-    text-decoration: none;
-    color: inherit;
-  }
+
   #function{
     width: 100%;
     min-width: 1380px;
     margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
     background-color:#fff;
     letter-spacing: 1px;
-  
-    .box{ 
+		a{
+			text-decoration: none;
+			color: inherit;
+		}
+    .box{
         width: 100%;
         text-align: center;
         margin-top: 110px;
     }
     .topBox {
         height: 500px;
-        color: #fff; 
+        color: #fff;
         background: url('~img/banner.jpg') no-repeat center top;
         background-size: cover;
         ul {
@@ -27,14 +27,14 @@ a{
         margin-left: 40px;
           img{
             width:200px;
-            display: block 
+            display: block
           }
           &.item{
             width: 110px;
             text-align: center;
           }
         }
-        
+
         .topBoxleft {
           li {
             width: 100px;
@@ -97,7 +97,7 @@ a{
           }
         }
       }
-  
+
       // 内容
       .content {
         margin: 0 auto;
@@ -108,7 +108,7 @@ a{
         h3{
             font-size: 30px;
         }
-    
+
         .soft{
             margin-top: 50px;
             .item{
@@ -132,16 +132,16 @@ a{
          font-size: 14px;
          color: #737373;
          line-height: 26px;
-        
+
                 }
             }
             .item:last-child{
                 margin-right: 0px;
             }
         }
-       
+
     }
-  
+
     // 案例
     .contentcar{
         width: 1380px;
@@ -178,18 +178,18 @@ a{
                 list-style: none;
                 padding-bottom: 80px;
                 img{
-                    width: 378px;
+                    width: 300px;
                     height: 405px;
                 }
             }
         }
-  
+
       a{
           margin-top: 108px;
           display: inline-block;
         .bottomp{
             display: block;
-            width: 224px;   
+            width: 224px;
             height: 50px;
             background-color: #0bc9ff;
             line-height: 50px;
@@ -199,7 +199,7 @@ a{
       }
     }
   }
-  
+
   .bottomBox {
     margin-top: 42px;
     height: 280px;
@@ -208,7 +208,7 @@ a{
       padding-left: 30px;
     }
     .item {
-    
+
       width: 220px;
       color: #fff;
       padding-top: 54px;
@@ -223,12 +223,12 @@ a{
         line-height: 40px;
         font-size: 14px;
         list-style: none;
-       
+
       }
      }
     }
     .bottomRight {
-    
+
       padding-top: 54px;
       width: 310px;
       .text {
@@ -238,7 +238,7 @@ a{
       }
     }
   }
-  
+
   .footer {
     background-color: #2D3236;
     height: 80px;

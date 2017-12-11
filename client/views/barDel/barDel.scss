@@ -1,0 +1,236 @@
+#barDel{
+  width: 100%;
+  min-width: 1380px;
+  margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
+  background-color:#f4f7fc;
+  letter-spacing: 1px;
+	position: relative;
+	a{
+		color: inherit;
+	}
+  .nav{
+    height: 62px;
+    // width: 1380px;
+    background-color: #f4f7fc;
+    .navText{
+      height: 52px;
+      width: 1380px;
+      line-height: 52px;
+      margin: 0 auto;
+      color: #666666;
+      font-size: 20px;
+    }
+  }
+  .toolContent{
+    width: 1380px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding:26px 30px 0 20px;
+    .toolTop{
+      height: 80px;
+      border-bottom: 1px solid #dddddd;
+      .toolLeft{
+        height: 80px;
+        // line-height: 106px;
+        p{
+          margin:0;
+        }
+        .textOne{
+          font-size: 20px;
+          color: #060001;
+        }
+        .textTwo{
+          font-size: 12px;
+          color: #b6b6b6;
+          padding-top: 20px;
+        }
+      }
+      .toolRight{
+        p{
+          margin: 0;
+        }
+        .ourOne{
+             width: 61px;
+             height: 61px;
+             background: url('~img/ta3.png') no-repeat center top;
+        }
+      }
+    }
+    .toolBottom{
+      height: 638px;
+      margin-top: 32px;
+      border-bottom:1px solid #dddddd;
+      div{
+        font-size: 15px;
+        color: #818181;
+        line-height: 26px;
+      }
+      .imgAn{
+        width: 604px;
+        height: 330px;
+        background-color: #e1e1e1;
+       margin: 28px 0 30px 0;
+
+      }
+    }
+    .disBtn{
+    height: 84px;
+    background-color: #ffffff;
+    div{
+      height: 38px;
+      width: 120px;
+      font-size: 17px;
+    }
+    .shou{
+      line-height: 38px;
+      text-align: center;
+      background-color: #f0f0f0;
+      margin-right: 30px;
+      .shouOne{
+        display: inline-block;
+        width: 20px;
+        height: 22px;
+        background:url('~img/p1.png') no-repeat center 1px;
+      }
+    }
+    .dis{
+      line-height: 38px;
+      text-align: center;
+      background-color: #1fb8fd;
+      color: #ffffff;
+      a{
+        color: inherit;
+        display: inline-block;
+      }
+      .pingOne{
+        display: inline-block;
+        width: 40px;
+        height: 22px;
+        background:url('~img/s1.png') no-repeat center 6px;
+      }
+    }
+    }
+  }
+  .discuss{
+    width: 1380px;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: #ffffff;
+    .disContent{
+      padding-left: 20px;
+      .contOne{
+        height: 48px;
+        line-height: 48px;
+        font-size: 17px;
+        color: #a0a0a0;
+        border-bottom: 1px solid #dddddd;
+        .cirlOne{
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: #3da2fa;
+        }
+      }
+      .disOne{
+        padding-right:16px;
+        height:101px;
+        border-bottom: 1px solid #dddddd;
+        .leftOne{
+      .imgLeft{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background:url('~img/ta3.png') no-repeat center center;
+        margin-right: 22px;
+      }
+      .contentLeft{
+        .title{
+      font-size: 16px;
+      color: #333333;
+        }
+        .huiContent{
+          font-size: 14px;
+          color: #7a7a7a;
+          margin-top: 18px;
+        }
+      }
+        }
+        .rightOne{
+          .huiTu{
+            width: 100px;
+            height: 30px;
+            font-size: 17px;
+            color: #cccccc;
+            .huiImg{
+              display: inline-block;
+              width: 24px;
+              height: 24px;
+              background:url('~img/hui1.png') no-repeat center center;
+              margin-right: 10px;
+            }
+          }
+          .zan{
+            width: 64px;
+            height: 30px;
+            font-size: 17px;
+            color: #cccccc;
+            .zanImg{
+              display: inline-block;
+              width: 24px;
+              height: 24px;
+              background:url('~img/zan1.png') no-repeat center center;
+              margin-right: 10px;
+            }
+            .zanLan{
+              display: inline-block;
+              width: 24px;
+              height: 24px;
+              background:url('~img/zan3.png') no-repeat center center;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .comment{
+    width: 600px;
+    // height: 100%;
+    padding:0 10px;
+    z-index: 100;
+    position: absolute;
+    top: 30%;
+    left: 39%;
+    border:1px solid #cccccc;
+    display: none;
+    .topThree{
+      line-height: 30px;
+      height: 30px;
+      border-bottom: 1px solid #cccccc;
+      .Icon{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+       background: url('~img/bad.png') no-repeat center center;
+      }
+    }
+    textarea{
+      width: 378px;
+      height: 210px;
+      // margin-top: 10px;
+    }
+    .ti{
+
+        color: inherit;
+        display: inline-block;
+        width: 60px;
+        height: 40px;
+        background-color: #1fb8fd;
+        line-height: 40px;
+        text-align: center;
+
+    }
+
+  }
+}

@@ -7,7 +7,7 @@ import RoutesConfig from './routes';
 import { AppContainer } from 'react-hot-loader';
 const mountNode = document.getElementById('root');
 
-
+import 'antd/dist/antd.css';
 
 // ReactDOM.render(
 // 	<RoutesConfig />

@@ -9,7 +9,7 @@ var config = {
 var envbuild = 'development';
 if (process.env.config_env) {
     envbuild = process.env.config_env;
-} else {
+} else { 
     if (process.argv.length > 2) {
         for (var i in config) {
             if (process.argv.indexOf(i) !== -1) {

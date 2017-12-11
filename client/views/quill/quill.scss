@@ -1,0 +1,63 @@
+#quill{
+  width: 100%;
+  min-width: 1380px;
+  height: 1080px;
+  margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
+  background-color:#f4f7fc;
+	letter-spacing: 1px;
+	a{
+		color: inherit;
+	}
+  .nav{
+    height: 62px;
+    // width: 1380px;
+    background-color: #f4f7fc;
+    .navText{
+      height: 62px;
+      width: 1380px;
+      line-height: 52px;
+      margin: 0 auto;
+      color: #666666;
+      font-size: 20px;
+    }
+  }
+  .textContent{
+    height: 830px;
+    width: 1380px;
+    margin:0 auto;
+    background-color: #ffffff;
+    .ql-toolbar.ql-snow{
+     height: 62px;
+    padding-top: 20px
+    }
+    .textQuill{
+      height: 770px;
+      margin:0 auto;
+    }
+    .lastQuill{
+      margin-top: 62px;
+      padding-top: 5px;
+      background-color: #ffffff;
+      height: 60px;
+      border: 1px solid #dddddd;
+      border-top: none;
+      .firstOne{
+        width: 174px;
+        height: 46px;
+        background-color: #3aa4fa;
+        font-size: 17px;
+        color: #ffffff;
+        line-height: 46px;
+        text-align: center;
+        margin-right: 20px;
+        border-radius: 4px;
+        a{
+          display: inline-block;
+          width: 174px;
+          height: 46px;
+          color: inherit;
+        }
+      }
+    }
+  }
+}

@@ -1,14 +1,13 @@
-// 自己编写需要的样式
-a{
-    text-decoration: none;
-    color: inherit;
-} 
+
 #service{
     width: 100%;
     min-width: 1380px;
     margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
     background-color: #fff;
     letter-spacing: 1px;
+    a {
+      color: inherit;
+    }
     .box{
         width: 100%;
         text-align: center;
@@ -31,14 +30,14 @@ a{
         margin-left: 40px;
           img{
             width:200px;
-            display: block 
+            display: block
           }
           &.item{
             width: 110px;
             text-align: center;
           }
         }
-        
+
         .topBoxleft {
           li {
             width: 100px;
@@ -68,7 +67,8 @@ a{
              font-size: 46px;
              font-weight: 400;
              line-height: 20px;
-              margin: 0.83em 0;
+							margin: 0.83em 0;
+							color: #fff;
          }
          span{
             display: block;
@@ -127,7 +127,7 @@ a{
                   display: none;
                 }
                 &.first:hover {
-                  background: #3ea2fa;
+                  background-color: #3ea2fa;
                   background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
@@ -146,7 +146,7 @@ a{
                       border: 1px solid #fff;
                       text-align: center;
                       line-height: 50px;
-                      margin-top: 250px;
+                      margin-top: 300px;
                     }
                   }
                   .one{
@@ -154,7 +154,7 @@ a{
                   }
                 }
                 &.second:hover {
-                  background: #3ea2fa;
+                  background-color: #3ea2fa;
                   background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
@@ -173,7 +173,7 @@ a{
                       border: 1px solid #fff;
                       text-align: center;
                       line-height: 50px;
-                      margin-top: 250px;
+                      margin-top: 300px;
                     }
                   }
                   .two{
@@ -181,7 +181,7 @@ a{
                   }
                 }
                 &.three:hover {
-                  background: #3ea2fa;
+                  background-color: #3ea2fa;
                   background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
@@ -200,7 +200,7 @@ a{
                       border: 1px solid #fff;
                       text-align: center;
                       line-height: 50px;
-                      margin-top: 250px;
+                      margin-top: 300px;
                     }
                   }
                   .threen{
@@ -208,7 +208,7 @@ a{
                   }
                 }
                 &.four:hover {
-                  background: #3ea2fa;
+                  background-color: #3ea2fa;
                   background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
@@ -223,11 +223,11 @@ a{
                     .firstWatch{
                       display: inline-block;
                       width: 130px;
-                      height: 50px; 
+                      height: 50px;
                       border: 1px solid #fff;
                       text-align: center;
                       line-height: 50px;
-                      margin-top: 250px;
+                      margin-top: 300px;
                     }
                   }
                   .fourn{
@@ -235,7 +235,7 @@ a{
                   }
                 }
                 &.five:hover {
-                  background: #3ea2fa;
+                  background-color: #3ea2fa;
                   background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
@@ -250,11 +250,11 @@ a{
                     .firstWatch{
                       display: inline-block;
                       width: 130px;
-                      height: 50px; 
+                      height: 50px;
                       border: 1px solid #fff;
                       text-align: center;
                       line-height: 50px;
-                      margin-top: 250px;
+                      margin-top: 300px;
                     }
                   }
                   .fiven{
@@ -262,7 +262,7 @@ a{
                   }
                 }
                 &.six:hover {
-                  background: #3ea2fa;
+                  background-color: #3ea2fa;
                   background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
@@ -277,11 +277,11 @@ a{
                     .firstWatch{
                       display: inline-block;
                       width: 130px;
-                      height: 50px; 
+                      height: 50px;
                       border: 1px solid #fff;
                       text-align: center;
                       line-height: 50px;
-                      margin-top: 250px;
+                      margin-top: 300px;
                     }
                   }
                   .sixn{
@@ -289,7 +289,7 @@ a{
                   }
                 }
                 &.seven:hover {
-                  background: #3ea2fa;
+                  background-color: #3ea2fa;
                   background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
@@ -304,11 +304,11 @@ a{
                     .firstWatch{
                       display: inline-block;
                       width: 130px;
-                      height: 50px; 
+                      height: 50px;
                       border: 1px solid #fff;
                       text-align: center;
                       line-height: 50px;
-                      margin-top: 250px;
+                      margin-top: 300px;
                     }
                   }
                   .sevenn{
@@ -316,7 +316,7 @@ a{
                   }
                 }
                 &.eight:hover {
-                  background: #3ea2fa;
+                  background-color: #3ea2fa;
                   background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
                   background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
@@ -331,11 +331,11 @@ a{
                     .firstWatch{
                       display: inline-block;
                       width: 130px;
-                      height: 50px; 
+                      height: 50px;
                       border: 1px solid #fff;
                       text-align: center;
                       line-height: 50px;
-                      margin-top: 250px;
+                      margin-top: 300px;
                     }
                   }
                   .eightn{
@@ -360,14 +360,14 @@ a{
          font-size: 14px;
          color: #737373;
          line-height: 26px;
-        
+
                 }
             }
             .item:last-child{
                 margin-right: 0px;
             }
         }
-       
+
     }
 
     .bottomBox {
@@ -378,7 +378,7 @@ a{
           padding-left: 30px;
         }
         .item {
-        
+
           width: 220px;
           color: #fff;
           padding-top: 54px;
@@ -393,12 +393,12 @@ a{
             line-height: 40px;
             font-size: 14px;
             list-style: none;
-           
+
           }
          }
         }
         .bottomRight {
-        
+
           padding-top: 54px;
           width: 310px;
           .text {
