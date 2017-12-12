@@ -25,7 +25,7 @@ export default class Top extends React.Component {
 			<div id='partytop'>
 				<div className="party flex jc-between">
 					<div className="leftTop flex-vcenter">
-						<img src={require('img/partyTop1.png')} alt="" />
+						<Link to='/'><img src={require('img/partyTop1.png')} alt="" /></Link>
 						<div className='ceOne'>测试者社区</div>
 					</div>
 					<div className="rightTop flex-vcenter">

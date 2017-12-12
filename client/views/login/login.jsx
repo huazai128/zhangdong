@@ -30,13 +30,13 @@ class Login extends React.Component {
 							{getFieldDecorator('userName', {
 								rules: [{ required: true, message: 'Please input your username!' }],
 							})(
-								<Input className='use flex-center' prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)', fontSize: '24px' }} />} placeholder="账号" />)}
+								<Input className='use flex-center' prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)', fontSize: '28px' }} />} placeholder="账号" />)}
 						</FormItem>
 						<FormItem>
 							{getFieldDecorator('password', {
 								rules: [{ required: true, message: 'Please input your Password!' }],
 							})(
-								<Input className='use flex-center' prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)', fontSize: '24px' }} />} type="password" placeholder="密码" />	)}
+								<Input className='use flex-center' prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)', fontSize: '28px' }} />} type="password" placeholder="密码" />	)}
 						</FormItem>
 						<Button htmlType="submit" className="login-form-button">
 							登录</Button>

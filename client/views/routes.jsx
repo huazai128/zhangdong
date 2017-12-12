@@ -7,21 +7,21 @@ const routes = [
 		path: '/',
 		getComponent: (nextState, cb) => {
 			require.ensure([], (require) => {//按需加载
-				cb(null, require('views/login/login').default);
-			}, 'login');//main表示在调试工具network中显示的名字
+				cb(null, require('views/main/main').default);
+			}, 'main');//main表示在调试工具network中显示的名字
 		},
 		childRoutes: [
 
 		]
 	},
-	{ //首页
-		path: '/main',
-		getComponent: (nextState, cb) => {
-			require.ensure([], (require) => {
-				cb(null, require('views/main/main').default);
-			}, 'main');
-		}
-	},
+	// { //首页
+	// 	path: '/main',
+	// 	getComponent: (nextState, cb) => {
+	// 		require.ensure([], (require) => {
+	// 			cb(null, require('views/main/main').default);
+	// 		}, 'main');
+	// 	}
+	// },
 	{
 		path: '/service',
 		getComponent: (nextState, cb) => {
