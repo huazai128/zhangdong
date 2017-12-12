@@ -12,7 +12,11 @@
       width: 640px;
       height: 320px;
       background-color: #ffffff;
-      padding:26px 38px 0 46px;
+			padding:26px 38px 0 46px;
+			margin-right: 50px;
+			&.rightNone{
+				margin-right: 0;
+			}
       .imgTop{
         margin-bottom: 30px;
         .leftImg{

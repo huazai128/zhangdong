@@ -15,7 +15,7 @@ export default class Tab extends React.Component {
 					animated={false}
 				>
 					<TabPane tab='全部类型' key="1" className='tabOne'>
-						<Link to="/tooldetails">
+						<Link to="/creative/tooldetails">
 							<div className="content">
 								<div className="oneTop flex jc-between">
 									<div className="oneContent">
@@ -32,7 +32,7 @@ export default class Tab extends React.Component {
 											<p>内容文本简介,内容文本简介内容文本简介内容文本简介内容文本简介内容文本简介内容文本简，介内容文本简介内容文本.</p>
 										</div>
 									</div>
-									<div className="oneContent">
+									<div className="oneContent rightNone">
 										<div className="imgTop flex">
 											<div className="leftImg"></div>
 											<div className="rightText">
@@ -62,7 +62,7 @@ export default class Tab extends React.Component {
 											<p>内容文本简介,内容文本简介内容文本简介内容文本简介内容文本简介内容文本简介内容文本简，介内容文本简介内容文本.</p>
 										</div>
 									</div>
-									<div className="oneContent">
+									<div className="oneContent rightNone">
 										<div className="imgTop flex">
 											<div className="leftImg"></div>
 											<div className="rightText">

@@ -1,6 +1,13 @@
 #tabOur{
+// width: 100%;
+// background-color: #eaebec;
+	.zhang{
   width: 1380px;
-   margin:0 auto;
+	 margin:0 auto;
+	 background-color: #fff;
+	 .ant-tabs-tab{
+		 color: #333333 !important;
+	 }
   .ant-tabs-nav-scroll {
     // text-align:  center;
     height: 80px;
@@ -11,7 +18,7 @@
   }
   .rc-tabs-content .rc-tabs-tabpane {
     overflow:hidden;
-  } 
+  }
   .messageOne{
     background-color: #eeeeee;
     .messageTop{
@@ -25,7 +32,7 @@
       div{
         width: 128px;
         height: 80px;
-  
+
       }
       div:first-child{
         border-bottom: 2px solid #3ea2fa;
@@ -49,14 +56,14 @@
         p{
           font-size: 17px;
           line-height: 36px;
-          color: #8b8b8b;
+          color: #555555;
         }
         .firstMes{
           padding-top: 14px;
-          margin-bottom: 45px;
+          // margin-bottom: 45px;
         };
         .secondMes{
-          margin-bottom: 22px;
+          // margin-bottom: 22px;
         }
       }
     }
@@ -89,7 +96,10 @@
         a{
           color: #ffffff;
         }
-      }
+			}
+			&.borderOne{
+				border:none;
+			}
     }
     .findCont{
       .textTop{
@@ -104,20 +114,22 @@
       }
       .findTitle{
         font-size: 18px;
-        color: #323232;
-        font-weight: 600;
+        color: #333333;
+        font-weight: 400;
       }
       .station{
         padding-left: 26px;
         margin-top: 32px;
         li{
           font-size: 15px;
-          padding-top: 15px;
+					padding-top: 15px;
+					color: #333333;
         }
        .lastBottom{
          padding-bottom: 52px;
         }
       }
     }
-  }
-} 
+	}
+}
+}

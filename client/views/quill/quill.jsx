@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './quill.scss';
 import Top from '../common/partyTop.jsx';
 import Open from '../preview/preview.jsx';
@@ -47,7 +47,7 @@ export default class New extends React.Component {
 			<div id='quill'>
 				{/* <Top></Top> */}
 				<div className="nav flex">
-					<div className="navText"><Link to="/main">首页</Link>&nbsp;>&nbsp;我要发帖</div>
+					<div className="navText"><Link to="/creative">首页</Link>&nbsp;>&nbsp;我要发帖</div>
 				</div>
 				<div className="textContent">
 					<ReactQuill className='textQuill'

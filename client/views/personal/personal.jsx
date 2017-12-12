@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './personal.scss';
 import Top from '../common/partyTop.jsx';
 import Footer from '../common/lastFooter.jsx';
@@ -58,7 +58,8 @@ export default class Personal extends React.Component {
 										<p className='firstP'>申请名称申请名称</p>
 										<p className='secondP jieP '>已接单</p>
 									</div>
-									<div className="bottomContent"> </div>
+									<div className="bottomContent">
+									申请类型A.条件1.条件2.3天前申请</div>
 								</div>
 								<div className='shenOne'>
 									<div className="firstPer flex">
@@ -320,7 +321,7 @@ export default class Personal extends React.Component {
 						</TabPane>
 					</Tabs>
 				</div>
-				<Footer></Footer>
+				{/* <Footer></Footer> */}
 			</div>
 		);
 	}

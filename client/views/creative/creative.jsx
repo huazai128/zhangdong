@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './creative.scss';
 import Top from '../common/partyTop.jsx';
 import Tab from '../common/tabCreative.jsx';

@@ -56,7 +56,8 @@
         margin-bottom: 12px;
         >i{
           display: inline-block;
-          height: 10px;
+					height: 10px;
+					width: 10px;
           border-radius: 50%;
           background-color: #27b3fc;
           margin-right: 12px;
@@ -67,7 +68,10 @@
     }
   }
   .toolBottom{
-    height: 917px;
+		height: 917px;
+		.commonNone{
+			color: #555555;
+		 }
     .toolTop{
       font-size: 18px;
       font-weight: 500;

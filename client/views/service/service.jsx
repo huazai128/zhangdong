@@ -31,7 +31,7 @@ class Service extends React.Component {
 				<div className="content">
 					<div className="flex">
 						<ul className="flex-vcenter flex-g-1">
-							<li><a href="javascript:void(0);"><img src={require('img/logo.png')} alt="" /></a></li>
+							<li className='liOne'><a href="javascript:void(0);"><img src={require('img/logo.png')} alt="" /></a></li>
 							<li className="item"><Link to="/service">产品与服务</Link></li>
 							<li className="item"><Link to="/solve">解决方案</Link></li>
 							<li className="item"><Link to="/new">新闻动态</Link></li>

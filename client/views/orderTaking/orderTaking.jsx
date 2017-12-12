@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './orderTaking.scss';
 import Top from '../common/partyTop.jsx';
 import Footer from '../common/lastFooter.jsx';
@@ -9,7 +9,7 @@ export default class Ordertaking extends React.Component {
 			<div id='taking'>
 				{/* <Top></Top> */}
 				<div className="nav flex">
-					<div className="navText"><Link to="/main">首页</Link>&nbsp;>&nbsp;<Link to="/creative/personal">个人中心</Link>&nbsp;>&nbsp;测试接单</div>
+					<div className="navText"><Link to="/creative">首页</Link>&nbsp;>&nbsp;<Link to="/creative/personal">个人中心</Link>&nbsp;>&nbsp;测试接单</div>
 				</div>
 				<div className="takingTop">
 					<div className="takingOne flex">
@@ -29,14 +29,14 @@ export default class Ordertaking extends React.Component {
 					</div>
 					<div className="toolBottom">
 						<div className='toolTop'>项目详情:</div>
-						<div className="tuTop">图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍
+						<div className="tuTop commonNone">图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍
           图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍 图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍.</div>
-						<div className="wenTop">文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图
+						<div className="wenTop commonNone">文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图
           文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图 文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图. </div>
 						<div className="imgAn"></div>
-						<div>文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图
+						<div className='commonNone'>文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图
           文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图.</div>
-						<div>文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图
+						<div className='commonNone'>文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图
           文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图 文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图
           文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图 文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图.</div>
 					</div>
@@ -80,7 +80,7 @@ export default class Ordertaking extends React.Component {
 						</div>
 					</div>
 				</div>
-				<Footer></Footer>
+				{/* <Footer></Footer> */}
 			</div>
 		);
 	}

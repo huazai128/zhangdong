@@ -69,7 +69,7 @@ class Main extends React.Component {
 					<div className="content">
 						<div>
 							<ul className="topBoxleft float-left"><li><Link to='/service'>产品与服务</Link></li><li><Link to='/solve'>解决方案</Link></li><li><Link to='/new'>动态新闻</Link></li><li><Link to='/our'>关于我们</Link></li></ul>
-							<ul className="topBoxright float-right"><li><Link to='/main'>注册</Link></li><li><Link to='/login'>登陆</Link></li><li className="blueBtn"><Link to='/creative'>测试者社区</Link></li></ul>
+							<ul className="topBoxright float-right"><li><a href="javascript:void(0);">注册</a></li><li><a href="javascript:void(0);">登陆</a></li><li className="blueBtn"><Link to='/login'>测试者社区</Link></li></ul>
 						</div>
 
 						<div id="count"></div>

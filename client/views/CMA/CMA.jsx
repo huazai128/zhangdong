@@ -8,7 +8,7 @@ class Function extends React.Component {
 				<div className="content">
 					<div className="flex">
 						<ul className="flex-vcenter flex-g-1">
-							<li><a href="javascript:void(0);"><img src={require("img/logo.png")} alt="" /></a></li>
+							<li className='liOne'><a href="javascript:void(0);"><img src={require('img/logo.png')} alt="" /></a></li>
 							<li className="item"><Link to="/service">产品与服务</Link></li>
 							<li className="item"><Link to="/solve">解决方案</Link></li>
 							<li className="item"><Link to="/new">新闻动态</Link></li>
@@ -35,8 +35,8 @@ class Function extends React.Component {
 						<div className="flex-center jc-between soft" >
 							<a href="javascript:void(0);">
 								<div className="item" >
-									<img src={require("img/gong1.jpg")} alt="" />
-									<h5>标准化测试流程</h5>
+									<img src={require('img/gong1.jpg')} alt="" />
+									<h5 className='commonOne'>标准化测试流程</h5>
 									<p>国际标准规范针对检测国际标准规范针对检测<br></br>
 										覆盖全面，重现测试轨迹<br></br>
 										深入识别APP隐藏的功能缺陷 </p>
@@ -44,8 +44,8 @@ class Function extends React.Component {
 							</a>
 							<a href="javascript:void(0);">
 								<div className="item" >
-									<img src={require("img/gong2.jpg")} alt="" />
-									<h5>专家真机测试</h5>
+									<img src={require('img/gong2.jpg')} alt="" />
+									<h5 className='zhuanOne'>专家真机测试</h5>
 									<p>国内领先技术<br></br>
 										十年测试经验专家团队<br></br>
 										真人真机全方位测试</p>
@@ -53,8 +53,8 @@ class Function extends React.Component {
 							</a>
 							<a href="javascript:void(0);">
 								<div className="item" >
-									<img src={require("img/gong3.jpg")} alt="" />
-									<h5>海量用例数据库</h5>
+									<img src={require('img/gong3.jpg')} alt="" />
+									<h5 className='haiOne'>海量用例数据库</h5>
 									<p>十年累计千万用例<br></br>
 										为产品提供全面测试用例<br></br>
 										大数据为产品测试达到全面化</p>
@@ -75,15 +75,15 @@ class Function extends React.Component {
 					<p className='flex'>自1997年6月创立以来，凭借先进的技术和优质的服务，网易深受广大网民的欢迎，曾两次被中国互联网络信息中心（CNNIC）评选为中国十佳网站之首。在开发互联网应用、服务及其它<br></br>
 						技术方面，网易始终保持业界的领先地位，并取得了中国互联网行业的多项第一。</p>
 					<ul className='flex-hcenter'>
-						<li><a href="javascript:void(0);"><img src={require("img/wei1.jpg")} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require("img/wei2.jpg")} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require("img/wei3.jpg")} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/wei1.jpg')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/wei2.jpg')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/wei3.jpg')} alt="" /></a></li>
 					</ul>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
 						<h5 className="">现状问题</h5>
 					</div>
-					<p className='flex'>处于验收建设关键阶段需要申请政府科技计划项目资助、申报各类科技成果奖，以及软件产品入市的准备，需要反映成果的技术水平和市场价值。 </p>
+					<p className='flex centerOne'>处于验收建设关键阶段需要申请政府科技计划项目资助、申报各类科技成果奖，以及软件产品入市的准备，需要反映成果的技术水平和市场价值。 </p>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
 						<h5 className="">解决方案</h5>
@@ -138,9 +138,9 @@ class Function extends React.Component {
 						</ul>
 					</div>
 					<div className="bottomRight flex-g-1">
-						<img src={require("img/logo.png")} />
+						<img src={require('img/logo.png')} />
 						<div className="text">关注我们</div>
-						<img src={require("img/share.png")} />
+						<img src={require('img/share.png')} />
 					</div>
 				</div>
 			</div>

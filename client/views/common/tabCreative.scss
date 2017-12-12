@@ -6,6 +6,9 @@
 	a{
 		color: inherit;
 		display: inline-block;
+		&.border_bottom{
+			width: 100%;
+		}
 	}
   .ant-tabs-tab-active{
     height: 56px;

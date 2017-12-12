@@ -65,14 +65,18 @@
    }
    .toolBottom{
      height: 917px;
-     margin-top: 46px;
+		 margin-top: 46px;
+		 .commonNone{
+			color: #555555;
+		 }
      div{
        font-size: 17px;
        color: #818181;
        line-height: 26px;
      }
      .tuTop{
-       margin-bottom: 48px;
+			 margin-bottom: 48px;
+
      }
      .imgAn{
        width: 604px;

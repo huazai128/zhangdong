@@ -215,17 +215,17 @@ const routes = [
 					}, 'barDel');
 				}
 			},
-		]
-	},
-	{//工具详情
-		path: '/tooldetails',
-		getComponent: (nextState, cb) => {
-			require.ensure([], (require) => {
-				cb(null, require('views/tooldetails/tooldetails').default);
-			}, 'tooldetails');
-		}
-	},
+			{//工具详情
+				path: 'tooldetails',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/tooldetails/tooldetails').default);
+					}, 'tooldetails');
+				}
+			},
 
+		]
+	}
 
 ];
 

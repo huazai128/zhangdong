@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './our.scss';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
@@ -12,6 +12,6 @@ export default class Our extends React.Component {
 				<Tab></Tab>
 				<Footer></Footer>
 			</div>
-		)
+		);
 	}
 }

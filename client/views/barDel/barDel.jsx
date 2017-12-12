@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './barDel.scss';
 import Top from '../common/partyTop.jsx';
 import Footer from '../common/lastFooter.jsx';
@@ -7,20 +7,22 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Link, hashHistory } from 'react-router';
 
-const data = [
-	{ time: '18分钟前', content: '回复内容回复内容回复内容回复内容回gdfg复内容回复内容回复内容回复内容回复内容回复内回复', title: '879' },
-	{ time: '23分钟前', content: '回复内容回复内容回复内容回复内容fdsf回复内容回复内容回复内容回复内容回复内容回复内回复', title: 'gdgf' },
-	{ time: '15分钟前', content: '回复内容回复内容回复内容回复内容ds回复内容回复内容回复内容回复内容回复内容回复内回复', title: '456' },
-	{ time: '11分钟前', content: 'fg', title: '456' },
-	{ time: '15分钟前', content: '回复内容回复内容回复内容回复内sdf容回复内容回复内容回复内容回复内容回复内容回复内回复', title: '123' },
-	{ time: '19分钟前', content: '回复内容回复内容回复内容回复内容回复dfg内容回复内容回复内容回复内容回复内容回复内回复', title: 'dfgdgf' }
-];
 
 export default class New extends React.Component {
 	// 上传图片
 	constructor(props) {
 		super(props);
-		this.state = { text: '' }; // You can also pass a Quill Delta here
+		this.state = {
+			text: '',
+			data: [
+				{ time: '18分钟前', content: '回复内容回复内容回复内容回复内容回gdfg复内容回复内容回复内容回复内容回复内容回复内回复', title: '879' },
+				{ time: '23分钟前', content: '回复内容回复内容回复内容回复内容fdsf回复内容回复内容回复内容回复内容回复内容回复内回复', title: 'gdgf' },
+				{ time: '15分钟前', content: '回复内容回复内容回复内容回复内容ds回复内容回复内容回复内容回复内容回复内容回复内回复', title: '456' },
+				{ time: '11分钟前', content: 'fg', title: '456' },
+				{ time: '15分钟前', content: '回复内容回复内容回复内容回复内sdf容回复内容回复内容回复内容回复内容回复内容回复内回复', title: '123' },
+				{ time: '19分钟前', content: '回复内容回复内容回复内容回复内容回复dfg内容回复内容回复内容回复内容回复内容回复内回复', title: 'dfgdgf' }
+			]
+		}; // You can also pass a Quill Delta here
 		this.handleChange = this.handleChange.bind(this);
 
 		this.toolbarOptions = [
@@ -57,15 +59,17 @@ export default class New extends React.Component {
 	};
 	// 提交评论
 	handle = () => {
-		console.log(this.state.text);
-		// $.ajax({
-		// 	url: '',
-		// 	type: 'post',
-		// 	data: { data: this.state.text },
-		// 	success: (result) => {
-		// 		console.log(4432);
-		// 	}
-		// });
+		// this.state.text='';
+		var ctime = new Date().getMinutes();
+		const { data } = this.state;
+
+		data.unshift({
+			time: 'ctime',
+			content: this.state.text,
+			title: '砖头'
+		});
+
+		this.setState({ data });
 	}
 
 	render() {
@@ -74,7 +78,7 @@ export default class New extends React.Component {
 			<div id="barDel">
 				{/* <Top></Top> */}
 				<div className="nav flex">
-					<div className="navText"><Link to="/main">首页</Link>&nbsp;>&nbsp;最新话题</div>
+					<div className="navText flex"><Link to="/creative">首页</Link>&nbsp;>&nbsp;<Link to="/creative/barDel">最新话题</Link></div>
 				</div>
 				<div className="toolContent">
 					<div className="toolTop flex jc-between">
@@ -123,13 +127,13 @@ export default class New extends React.Component {
 				<div className="discuss">
 					<div className="disContent">
 						<div className='contOne'><i className='cirlOne'></i> 全部3条回复</div>
-						{data.map(item => {
+						{this.state.data.map(item => {
 							return (
 								<div className="disOne flex jc-between">
 									<div className="leftOne flex-vcenter">
 										<div className="imgLeft"></div>
 										<div className="contentLeft">
-											<div className='title'>{item.title}<span>{item.time}</span></div>
+											<div className='title'>{item.title}<span className='timeOne'>{item.time}</span></div>
 											<div className='huiContent'>{item.content}</div>
 										</div>
 									</div>
@@ -143,7 +147,7 @@ export default class New extends React.Component {
 
 					</div>
 				</div>
-				<Footer></Footer>
+				{/* <Footer></Footer> */}
 			</div>
 		);
 	}

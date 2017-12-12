@@ -40,7 +40,7 @@ export default class Top extends React.Component {
 							<img src={require('img/top2.png')} alt="" />
 							<div className="drop">
 								用户名称&nbsp;&nbsp;
-                <Select defaultValue="224" style={{ width: 120 }} onChange={handleChange}>
+								<Select defaultValue="224" style={{ width: 120 }} onChange={handleChange}>
 									<Option value="个人中心">个人中心</Option>
 									<Option value="退出登录">退出登录</Option>
 								</Select>

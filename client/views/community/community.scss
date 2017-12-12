@@ -4,6 +4,9 @@
   margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
   background-color:#f4f7fc;
 	letter-spacing: 1px;
+	.ant-tabs-tab{
+		color: #333333 !important;
+	}
 	a{
 		color: inherit;
 		display: inline-block;

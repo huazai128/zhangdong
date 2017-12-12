@@ -9,14 +9,17 @@
       text-decoration: none;
       color: inherit;
   }
-    .box{ 
+    .box{
         width: 100%;
         text-align: center;
-        margin-top: 110px;
+				margin-top: 110px;
+				.centerOne{
+					margin-bottom: 85px;
+				}
     }
     .topBox {
         height: 500px;
-        color: #fff; 
+        color: #fff;
         background: url('~img/banner.jpg') no-repeat center top;
         background-size: cover;
         ul {
@@ -24,17 +27,20 @@
         }
         li {
           list-style: none;
-        margin-left: 40px;
+				margin-left: 40px;
+				.liOne{
+					margin:0;
+				}
           img{
             width:200px;
-            display: block 
+            display: block
           }
           &.item{
             width: 110px;
             text-align: center;
           }
         }
-        
+
         .topBoxleft {
           li {
             width: 100px;
@@ -64,7 +70,8 @@
              font-size: 46px;
              font-weight: 400;
              line-height: 20px;
-             color: #fff;
+						 color: #fff;
+						 margin: 0.83em 0;
          }
          span{
             display: block;
@@ -74,11 +81,15 @@
         p{
            height: 46px;
            width: 174px;
-           background-color: #3ea3fa;
+          //  background-color: #3ea3fa;
            text-align: center;
            line-height: 46px;
            margin-top: 20px;
-        }
+				}
+				p:hover{
+					background-color: #3ea3fa;
+				}
+
           .number {
             font-size: 110px;
             border: 2px solid #5AA6DA;
@@ -109,13 +120,16 @@
         h3{
             font-size: 30px;
         }
-    
+
         .soft{
             margin-top: 50px;
             .item{
-                border: 1px solid #666;
-                width: 418px;
-                height: 456px;
+							border-top: 10px solid #43b5fb;
+							border-bottom:2px solid #f7f7f7;
+							border-left:2px solid #f7f7f7;
+							border-right:2px solid #f7f7f7;
+							width: 418px;
+							height: 456px;
                 img{
                     margin-top: 55px;
                 }
@@ -127,20 +141,29 @@
                 }
                 h5{
                 font-size: 20px;
-                color: #333333;
+								color: #333333;
+								&.commonOne{
+									margin:40px 0 31px 0;
+								}
+								&.zhuanOne{
+									margin:26px 0 26px 0;
+								}
+								&.haiOne{
+									margin:39px 0 28px 0;
+								}
                 }
                 p{
          font-size: 14px;
          color: #737373;
          line-height: 26px;
-        
+
                 }
             }
             .item:last-child{
                 margin-right: 0px;
             }
         }
-       
+
     }
 
     // 案例
@@ -155,7 +178,7 @@
             }
         .blue{
             width: 20px;
-            height: 26px;
+            height: 22px;
             background-color: #14c1fe;
         }
         h5{
@@ -173,7 +196,7 @@
             width: 1454px;
         }
         ul{
-            padding-top: 80px;
+
             li{
                 margin-right: 38px;
                 list-style: none;
@@ -184,19 +207,24 @@
                 }
             }
         }
-  
+
       a{
           margin-top: 108px;
           display: inline-block;
         .bottomp{
             display: block;
-            width: 224px;   
+            width: 224px;
             height: 50px;
-            background-color: #0bc9ff;
+            // background-color: #0bc9ff;
             line-height: 50px;
-            color: #fffffd;
+            color: #000000;
             font-size: 20px;
-        }
+				}
+				.bottomp:hover{
+					background-color: #0bc9ff;
+					color: #fffffd;
+					border-radius: 5px;
+				}
       }
     }
 }
@@ -209,7 +237,7 @@
       padding-left: 30px;
     }
     .item {
-    
+
       width: 220px;
       color: #fff;
       padding-top: 54px;
@@ -224,12 +252,12 @@
         line-height: 40px;
         font-size: 14px;
         list-style: none;
-       
+
       }
      }
     }
     .bottomRight {
-    
+
       padding-top: 54px;
       width: 310px;
       .text {

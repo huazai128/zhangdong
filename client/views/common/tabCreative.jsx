@@ -25,7 +25,7 @@ export default class Tab extends React.Component {
 						animated={false}
 					>
 						<TabPane tab='最新回复' key="1" className='tabOne'>
-							<Link to="/creative/barDel">
+							<Link to="/creative/barDel" className='border_bottom'>
 								<div className="new flex flex-vcenter">
 									<div className="leftNew"></div>
 									<div className="rightNew">

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './login.scss';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { Link, hashHistory } from 'react-router';
@@ -12,7 +12,9 @@ class Login extends React.Component {
 				console.log('Received values of form: ', values);
 				// console.log(values.userName)
 				if (values.userName === 'admin' && values.password == 123456) {
-					hashHistory.push('/main');
+					hashHistory.push('/creative');
+				}else{
+					alert('登录失败');
 				}
 			}
 		});
