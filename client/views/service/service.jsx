@@ -37,7 +37,7 @@ class Service extends React.Component {
 							<li className="item"><Link to="/new">新闻动态</Link></li>
 							<li className="item"><Link to="/our">关于我们</Link></li></ul>
 						<ul className="topBoxright flex-vcenter">
-							<li><Link to='/main'>注册</Link></li><li><Link to='/login'>登陆</Link></li><li className="blueBtn"><Link to='/creative'>测试者社区</Link></li>
+							<li><a href="javascript:void(0);">注册</a></li><li><a href="javascript:void(0);">登陆</a></li><li className="blueBtn"><Link to='/login'>测试者社区</Link></li>
 						</ul>
 					</div>
 					<div className="count">
