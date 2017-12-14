@@ -2,41 +2,68 @@
   .common-top {
     width: 1380px;
     margin: 0 auto;
-    padding-left: 200px;
-    padding-top: 10px;
+    // padding-top: 10px;
   }
     width: 100%;
     min-width: 1380px;
     margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
     background-color:#fff;
     letter-spacing: 1px;
-    .box{ 
+    .box{
         width: 100%;
         text-align: center;
         margin-top: 110px;
     }
     .topBox {
+			// 传入图片
+			&.service {
+				background: url('~img/bg.png') no-repeat center top;
+			}
+
+			&.solve {
+				height: 100%;
+				background: url('~img/server1.jpg') no-repeat center top;
+				background-size: cover;
+			}
+			&.main {
+				height: 1000px;
+				background: url('~img/nub.png') no-repeat center top;
+			}
+			&.new {
+				height: 100%;
+				background: url('~img/world1.png') no-repeat center top;
+			}
+			&.our {
+				height: 100%;
+				background: url('~img/world2.png') no-repeat center top;
+			}
         height: 500px;
-        color: #fff; 
-        background: url('~img/ourbanner.jpg') no-repeat center top;
+        color: #fff;
         background-size: cover;
 
         li {
+					font-size: 15px;
           list-style: none;
-        margin-left: 40px;
+				margin-left: 40px;
+				&.liTwo{
+					margin-left: 0px;
+					margin-top: 8px;
+					margin-right: 23px;
+					}
         a{
           color: #fff;
         }
           img{
-            width:200px;
-            display: block 
+						width:172px;
+						height: 28px;
+            display: block
           }
           &.item{
             width: 110px;
             text-align: center;
           }
         }
-        
+
         .topBoxleft {
           li {
             width: 100px;
@@ -56,9 +83,23 @@
           }
         }
         .content {
-          position: relative;
+					position: relative;
+					.bottomContent{
+						margin-top: 292px;
+						margin-left: 40px;
+						p.pTow{
+							border: 1px solid #fff;
+							width: 174px;
+							height: 42px;
+							text-align: center;
+							line-height: 42px;
+							font-size: 14px;
+							background-color: #3FA3FB;
+						}
+
+					}
         }
-      
+
       }
 
 }

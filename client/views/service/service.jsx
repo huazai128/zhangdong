@@ -1,14 +1,7 @@
 import React from 'react';
 import './service.scss';
 import { Link } from 'react-router';
-
-
-// class Test1 extends React.Component {当组件来使用
-//     render() {
-//         return <div>text</div>
-//     }
-// }
-
+import Common from '../common/comonOur.jsx';
 
 class Service extends React.Component {
 	// constructor() {初始化数据
@@ -25,30 +18,8 @@ class Service extends React.Component {
 	//     this.setState({ data:['123','3434'] })
 	// }
 	render() {
-		// let { data } = this.state;
 		return <div id="service">
-			<div className="topBox">
-				<div className="content">
-					<div className="flex">
-						<ul className="flex-vcenter flex-g-1">
-							<li className='liOne'><a href="javascript:void(0);"><img src={require('img/logo.png')} alt="" /></a></li>
-							<li className="item"><Link to="/service">产品与服务</Link></li>
-							<li className="item"><Link to="/solve">解决方案</Link></li>
-							<li className="item"><Link to="/new">新闻动态</Link></li>
-							<li className="item"><Link to="/our">关于我们</Link></li></ul>
-						<ul className="topBoxright flex-vcenter">
-							<li><a href="javascript:void(0);">注册</a></li><li><a href="javascript:void(0);">登陆</a></li><li className="blueBtn"><Link to='/login'>测试者社区</Link></li>
-						</ul>
-					</div>
-					<div className="count">
-						<h2>质量云平台</h2>
-						<span>提供国内领先的集质量测试、质量认证、</span>
-						<span>
-							质量运营、质量变现四位一体的质量云平台</span>
-						<a href="javascript:void(0);"><p>立即申请</p></a>
-					</div>
-				</div>
-			</div>
+			<Common bgCls="service" />
 			<div className="content">
 				<div className="box">
 					<div className="boxcontent">

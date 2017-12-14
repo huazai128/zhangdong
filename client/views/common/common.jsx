@@ -1,10 +1,12 @@
 import React from 'react';
 import './common.scss';
 import { Link, hashHistory } from 'react-router';
+
 class Common extends React.Component {
 	render() {
+		// console.log(this.props.bgCls)
 		return <div id="common">
-			<div className="topBox">
+			<div className={`${this.props.bgCls} topBox`}>
 				<div className="content">
 					<div className="flex common-top">
 						<ul className="flex-vcenter flex-g-1">

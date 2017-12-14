@@ -23,7 +23,7 @@
         background: url('~img/banner.jpg') no-repeat center top;
         background-size: cover;
         ul {
-          margin-top: 20px;
+          margin-top: 10px;
         }
         li {
           list-style: none;
@@ -31,10 +31,6 @@
 				&.liOne{
 					margin:0;
 				}
-          img{
-            width:200px;
-            display: block
-          }
           &.item{
             width: 110px;
             text-align: center;
@@ -86,9 +82,6 @@
            line-height: 46px;
            margin-top: 20px;
 				}
-				p:hover{
-					background-color: #3ea3fa;
-		     }
           .number {
             font-size: 110px;
             border: 2px solid #5AA6DA;
@@ -213,9 +206,11 @@
             display: block;
             width: 224px;
             height: 50px;
-            // background-color: #0bc9ff;
+						background-color: #0bc9ff;
+						color: #fffffd;
+						border-radius: 5px;
             line-height: 50px;
-            color: #000000;
+
             font-size: 20px;
 				}
 				.bottomp:hover{

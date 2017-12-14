@@ -1,12 +1,13 @@
 import React from 'react';
 import './new.scss';
-import Common from '../common/common.jsx';
 import Footer from '../common/lastFooter.jsx';
 import { Link, hashHistory } from 'react-router';
+import Common from '../common/comonOur.jsx';
+
 class New extends React.Component {
 	render() {
 		return <div id="new">
-			<Common />
+			<Common bgCls="new" />
 			<div className='company'>
 				<div>
 					{/* 公司动态 */}

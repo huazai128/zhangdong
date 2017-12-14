@@ -2,7 +2,7 @@
   .common-top {
     width: 1380px;
     margin: 0 auto;
-    padding-left: 200px;
+    // padding-left: 200px;
     padding-top: 10px;
   }
     width: 100%;
@@ -10,15 +10,21 @@
     margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
     background-color:#fff;
     letter-spacing: 1px;
-    .box{ 
+    .box{
         width: 100%;
         text-align: center;
         margin-top: 110px;
     }
     .topBox {
+				&.our {
+					background: url('~img/ourbanner.jpg') no-repeat center top;
+				}
+
+				&.new {
+					background: url('~img/newbanner.jpg') no-repeat center top;
+				}
         height: 500px;
-        color: #fff; 
-        background: url('~img/newbanner.jpg') no-repeat center top;
+        color: #fff;
         background-size: cover;
 
         li {
@@ -29,14 +35,14 @@
         }
           img{
             width:200px;
-            display: block 
+            display: block
           }
           &.item{
             width: 110px;
             text-align: center;
           }
         }
-        
+
         .topBoxleft {
           li {
             width: 100px;
@@ -58,7 +64,7 @@
         .content {
           position: relative;
         }
-      
+
       }
 
 }

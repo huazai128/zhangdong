@@ -1,31 +1,11 @@
 import React from 'react';
 import './wisdom.scss';
 import { Link, hashHistory } from 'react-router';
+import Common from '../common/comonOur.jsx';
 class Function extends React.Component {
 	render() {
 		return <div id="function">
-			<div className="topBox">
-				<div className="content">
-					<div className="flex">
-						<ul className="flex-vcenter flex-g-1">
-							<li className='liOne'><a href="javascript:void(0);"><img src={require('img/logo.png')} alt="" /></a></li>
-							<li className="item"><Link to="/service">产品与服务</Link></li>
-							<li className="item"><Link to="/solve">解决方案</Link></li>
-							<li className="item"><Link to="/new">新闻动态</Link></li>
-							<li className="item"><Link to="/our">关于我们</Link></li></ul>
-						<ul className="topBoxright flex-vcenter">
-						<li><a href="javascript:void(0);">注册</a></li><li><a href="javascript:void(0);">登陆</a></li><li className="blueBtn"><Link to='/login'>测试者社区</Link></li>
-						</ul>
-					</div>
-					<div className="count">
-						<h2>功能测试</h2>
-						<span>专家啊分析走查+自动化功能测试</span>
-						<span>
-							测试团队通过专家结合工具的测试方法进行功能测试服务</span>
-						<a href="javascript:void(0);"><p>立即申请</p></a>
-					</div>
-				</div>
-			</div>
+			<Common bgCls="service" />
 			{/* 内容 */}
 			<div className='content'>
 				<div className="box">

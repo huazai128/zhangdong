@@ -2,8 +2,10 @@ import React from 'react';
 import './solve.scss';
 import { Link } from 'react-router';
 import 'js/lib/swiper.css';
-class Sovle extends React.Component {
+import Common from '../common/comonOur.jsx';
 
+
+class Sovle extends React.Component {
 	componentDidMount() {
 		setTimeout(() => {
 			var mySwiper = new window.Swiper('.swiper-container', {
@@ -23,7 +25,7 @@ class Sovle extends React.Component {
 			<div className="swiper-container">
 				<div className="swiper-wrapper">
 					<div className="swiper-slide">
-						<div className="topBox">
+						{/* <div className="topBox">
 							<div className="content">
 								<div className="box">
 									<div className="twocontent">
@@ -45,7 +47,15 @@ class Sovle extends React.Component {
 									</div>
 								</div>
 							</div>
-						</div></div>
+						</div> */}
+						<div className="boxContentOne">
+							<Common bgCls="solve" />
+							<div className='countOne' style={{ zIndex: 1000, position: 'absolute', top: '88%', left: '50%' }}>
+								<Link to='/app'><p>查看案例</p></Link>
+							</div>
+
+						</div>
+					</div>
 					<div className="swiper-slide">		<div className="content">
 						<div className="box">
 							<div className="boxcontent">
