@@ -64,12 +64,12 @@ export default class New extends React.Component {
 		const { data } = this.state;
 
 		data.unshift({
-			time: 'ctime',
+			time: ctime,
 			content: this.state.text,
 			title: '砖头'
 		});
 
-		this.setState({ data });
+		this.setState({ data});
 	}
 
 	render() {
@@ -147,7 +147,6 @@ export default class New extends React.Component {
 
 					</div>
 				</div>
-				{/* <Footer></Footer> */}
 			</div>
 		);
 	}

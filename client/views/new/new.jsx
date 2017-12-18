@@ -7,7 +7,8 @@ import Common from '../common/comonOur.jsx';
 class New extends React.Component {
 	render() {
 		return <div id="new">
-			<Common bgCls="new" />
+			{/* {...this.props}这是传出属性 */}
+			<Common bgCls="new" {...this.props} />
 			<div className='company'>
 				<div>
 					{/* 公司动态 */}

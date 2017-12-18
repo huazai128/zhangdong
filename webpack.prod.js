@@ -19,7 +19,8 @@ let webpackConfig = {
 	cache: true,
 	target: 'web',
 	entry: {
-		index: [path.join(__dirname, 'client/views/index.jsx')]
+		index: ['babel-polyfill',//为了支持es6语法
+			path.join(__dirname, 'client/views/index.jsx')]
 	},
 	output: {
 		publicPath: '/',
@@ -42,28 +43,26 @@ let webpackConfig = {
 			loader: 'url-loader?limit=100&name=img/[name].[hash:5].[ext]',
 		},
 		{
-			test: /\.(scss|sass|css)$/,
-			use: ['style-loader', {
-				loader: 'css-loader',
-			},
-			{
-				loader: 'postcss-loader',
-				options: {
-					plugins: [
-						require('autoprefixer')({
-							browsers: ['> 1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
-							flexbox: 'no-2009'
-						})
-					]
+			test: /\.(css|scss|sass)$/,
+			use: ExtractTextPlugin.extract({
+				use: [{
+					loader: 'css-loader',
+				},
+				{
+					loader: 'postcss-loader',
+					options: {
+						plugins: [autoprefixer]
+					}
+				}, {
+					loader: 'sass-loader',
+					options: {
+						imagePath: imagePath,
+						includePaths: [cssPath]
+					}
 				}
-			}, {
-				loader: 'sass-loader',
-				options: {
-					imagePath: imagePath,
-					includePaths: [cssPath]
-				}
-			}
-			],
+				],
+				fallback: 'style-loader'
+			})
 		},
 		{
 			test: /\.(js|jsx)$/,
@@ -79,13 +78,13 @@ let webpackConfig = {
 		}),
 		new webpack.DllReferencePlugin({ // 加快webpack打包速度
 			context: __dirname,
-			manifest: require('./build/static/dll/vendor-manifest.json')
+			manifest: require('./build/static/dll/vendor-man    ifest.json')
 		}),
 		new CopyWebpackPlugin([{
 			from: path.resolve(__dirname, './client/js/lib'),
 			to: path.resolve(__dirname, './build/static/lib')
 		}]),
-		// new ExtractTextPlugin('css/[name].[contenthash:5].css'),
+		new ExtractTextPlugin('css/[name].[contenthash:5].css'),
 		new webpack.optimize.UglifyJsPlugin({
 			output: {
 				comments: false,

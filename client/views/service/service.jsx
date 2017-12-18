@@ -18,8 +18,10 @@ class Service extends React.Component {
 	//     this.setState({ data:['123','3434'] })
 	// }
 	render() {
+		// console.log(this.props)
+		// {...this.props}==》获取出所有的属性
 		return <div id="service">
-			<Common bgCls="service" />
+			<Common bgCls="service" {...this.props} />
 			<div className="content">
 				<div className="box">
 					<div className="boxcontent">

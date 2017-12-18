@@ -8,7 +8,7 @@ export default class Our extends React.Component {
 	render() {
 		return (
 			<div id="our">
-				<Common bgCls="our" />
+				<Common bgCls="our" {...this.props}/>
 				<Tab></Tab>
 				<Footer></Footer>
 			</div>

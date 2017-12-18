@@ -21,35 +21,13 @@ class Sovle extends React.Component {
 		}, 100);
 	}
 	render() {
+		console.log(this.props)
 		return <div id='solve'>
 			<div className="swiper-container">
 				<div className="swiper-wrapper">
 					<div className="swiper-slide">
-						{/* <div className="topBox">
-							<div className="content">
-								<div className="box">
-									<div className="twocontent">
-										<div className="flex">
-											<ul className="flex-vcenter flex-g-1">
-												<li className='liOne'><a href="javascript:void(0);"><img src={require('img/logo.png')} alt="" /></a></li>
-												<li className="item"><Link to="/service">产品与服务</Link></li>
-												<li className="item"><Link to="/solve">解决方案</Link></li>
-												<li className="item"><Link to="/new">新闻动态</Link></li>
-												<li className="item"><Link to="/our">关于我们</Link></li></ul>
-											<ul className="topBoxright flex-vcenter">
-												<li><Link to='/main'>注册</Link></li><li><Link to='/login'>登陆</Link></li><li className="blueBtn"><Link to='/creative'>测试者社区</Link></li>
-											</ul>
-										</div>
-										<div className="count flex-center ">
-											<Link to='/app'><p>查看案例</p></Link>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div> */}
 						<div className="boxContentOne">
-							<Common bgCls="solve" />
+							<Common bgCls="solve" {...this.props}/>
 							<div className='countOne' style={{ zIndex: 1000, position: 'absolute', top: '88%', left: '50%' }}>
 								<Link to='/app'><p>查看案例</p></Link>
 							</div>
