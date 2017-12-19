@@ -21,7 +21,7 @@ class Sovle extends React.Component {
 		}, 100);
 	}
 	render() {
-		console.log(this.props)
+		// console.log(this.props)
 		return <div id='solve'>
 			<div className="swiper-container">
 				<div className="swiper-wrapper">

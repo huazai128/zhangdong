@@ -5,30 +5,7 @@ import Common from '../common/comonOur.jsx';
 class Function extends React.Component {
 	render() {
 		return <div id="function">
-			{/* <div className="topBox">
-				<div className="content">
-					<div className="flex">
-						<ul className="flex-vcenter flex-g-1">
-							<li className='liOne'><a href="javascript:void(0);"><img src={require('img/logo.png')} alt="" /></a></li>
-							<li className="item"><Link to="/service">产品与服务</Link></li>
-							<li className="item"><Link to="/function">解决方案</Link></li>
-							<li className="item"><Link to="/new">新闻动态</Link></li>
-							<li className="item"><Link to="/our">关于我们</Link></li></ul>
-						<ul className="topBoxright flex-vcenter">
-							<li><a href="javascript:void(0);">注册</a></li><li><a href="javascript:void(0);">登陆</a></li><li className="blueBtn"><Link to='/login'>测试者社区</Link></li>
-						</ul>
-					</div>
-					<div className="count">
-						<h2>功能测试</h2>
-						<span>专家啊分析走查+自动化功能测试</span>
-						<span>
-							测试团队通过专家结合工具的测试方法进行功能测试服务
-						</span>
-						<a href="javascript:void(0);"><p>立即申请</p></a>
-					</div>
-				</div>
-			</div> */}
-			<Common bgCls="service" />
+			{/* <Common bgCls="service" {...this.props}/> */}
 			{/* 内容 */}
 			<div className='content'>
 				<div className="box">
@@ -102,64 +79,6 @@ class Function extends React.Component {
 					<a href="javascript:void(0);"><span className='bottomp'>立即申请</span></a>
 				</div>
 
-			</div>
-			<div className="bottomBox">
-				<div className="content flex">
-					<div className="item">
-						<div className="itemHead">产品与服务</div>
-						<ul className='jc-start '>
-							<li>功能测试</li>
-							<li>数据</li>
-							<li>认证</li>
-						</ul>
-					</div>
-					<div className="item">
-						<div className="itemHead">解决方案</div>
-						<ul>
-							<li>教育行业应用测试</li>
-							<li>智能穿戴设备整体测试</li>
-							<li>应用开发质量提升</li>
-						</ul>
-					</div>
-					<div className="item">
-						<div className="itemHead">关于我们</div>
-						<ul>
-							<li>公司简介</li>
-							<li>企业资质</li>
-							<li>企业动态</li>
-							<li>招纳贤士</li>
-						</ul>
-					</div>
-					<div className="item">
-						<div className="itemHead">测试者社区</div>
-						<ul>
-							<li>测试中心</li>
-							<li>质量测试</li>
-							<li>质量认证</li>
-							<li>质量变现</li>
-						</ul>
-					</div>
-					<div className="item">
-						<div className="itemHead">新闻动态</div>
-						<ul>
-							<li>公司动态</li>
-							<li>科技资讯</li>
-							<li>行业新闻</li>
-						</ul>
-					</div>
-					<div className="bottomRight flex-g-1">
-						<img src={require('img/logo.png')} />
-						<div className="text">关注我们</div>
-						<img src={require('img/share.png')} />
-					</div>
-				</div>
-			</div>
-
-			<div className="footer">
-				<div className="content">
-					<div>商务洽谈:&nbsp;&nbsp;020-38555340&nbsp;&nbsp;020-89289423&nbsp;&nbsp;&nbsp;&nbsp;CS邮箱:&nbsp;&nbsp;businesss@appstest.cn&nbsp;&nbsp;cs@appstest.cn&nbsp;&nbsp;&nbsp;&nbsp;地址:广州中山大道西8号天河商贸大厦14楼</div>
-					<div>2009-2017&nbsp;Appstest.com版权所有ICP证:&nbsp;粤A1-20040604&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粤公网安备&nbsp;33566758445789号</div>
-				</div>
 			</div>
 
 		</div>;

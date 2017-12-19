@@ -66,17 +66,7 @@ class Main extends React.Component {
 	render() {
 		return (
 			<div id="main">
-				{/* <div className="topBox">
-					<div className="content">
-						<div>
-							<ul className="topBoxleft float-left"><li className='chanOne'><Link to='/service'>产品与服务</Link></li><li><Link to='/solve'>解决方案</Link></li><li><Link to='/new'>动态新闻</Link></li><li><Link to='/our'>关于我们</Link></li></ul>
-							<ul className="topBoxright float-right"><li><a href="javascript:void(0);">注册</a></li><li className='dengOne'><a href="javascript:void(0);">登陆</a></li><li className="blueBtn"><Link to='/login'>测试者社区</Link></li></ul>
-						</div>
-
-						<div id="count"></div>
-					</div>
-				</div> */}
-				<Common bgCls="main" />
+				<Common bgCls="main" {...this.props} />
 				<div className="navBox">
 					<div className="content">
 						<ul>

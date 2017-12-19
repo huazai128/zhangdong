@@ -1,8 +1,6 @@
 import React from 'react';
 import './comonOur.scss';
 import { Link, hashHistory } from 'react-router';
-import $ from 'jquery';
-
 import NavLink from '../component/navLink';
 
 class Common extends React.Component {
@@ -10,19 +8,19 @@ class Common extends React.Component {
 		super();
 	}
 
+	componentDidMount() {
 
+	}
 	render() {
+		// console.log(this.props.location.pathname)
 		return <div id="common">
 			<div className={`${this.props.bgCls} topBox`}>
 				<div className="content">
-					<div id='navTop' className="flex common-top" onClick={this.click}>
+					<div id='navTop' className="flex common-top">
 						<ul className="flex-vcenter flex-g-1">
 							<li className='liTwo'><Link to="/"><img src={require('img/logo.png')} alt="" /></Link></li>
-							{/* <li className="item"><Link to="/service">产品与服务</Link></li>
-							<li className="item"><Link to="/solve">解决方案</Link></li>
-							<li className="item"><Link to="/new">新闻动态</Link></li>
-							<li className="item"><Link to="/our">关于我们</Link></li> */}
-							<NavLink url={this.props.location.pathname} to="/service">产品与服务</NavLink>
+							{/* 这是根据路由判断的组件 */}
+							<NavLink url={this.props.location.pathname} to={'/service'}>产品与服务</NavLink>
 							<NavLink url={this.props.location.pathname} to="/solve">解决方案</NavLink>
 							<NavLink url={this.props.location.pathname} to="/new">新闻动态</NavLink>
 							<NavLink url={this.props.location.pathname} to="/our">关于我们</NavLink>

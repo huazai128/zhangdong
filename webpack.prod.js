@@ -78,7 +78,7 @@ let webpackConfig = {
 		}),
 		new webpack.DllReferencePlugin({ // 加快webpack打包速度
 			context: __dirname,
-			manifest: require('./build/static/dll/vendor-man    ifest.json')
+			manifest: require('./build/static/dll/vendor-manifest.json')
 		}),
 		new CopyWebpackPlugin([{
 			from: path.resolve(__dirname, './client/js/lib'),

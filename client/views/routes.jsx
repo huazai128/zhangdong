@@ -14,32 +14,90 @@ const routes = [
 
 		]
 	},
-	// { //首页
-	// 	path: '/main',
-	// 	getComponent: (nextState, cb) => {
-	// 		require.ensure([], (require) => {
-	// 			cb(null, require('views/main/main').default);
-	// 		}, 'main');
-	// 	}
-	// },
+	// serivce单页面刷新
 	{
 		path: '/service',
 		getComponent: (nextState, cb) => {
 			require.ensure([], (require) => {
-				cb(null, require('views/service/service').default);
+				cb(null, require('views/service/service').Service);
 			}, 'service');
-		}
+		},
+		indexRoute: {//子组件
+			getComponent: (nextState, cb) => {
+				require.ensure([], (require) => {
+					cb(null, require('views/service/service').ServiceContent);
+				}, 'serviceContent');
+			}
+		},
+		childRoutes: [
+			{
+				path: 'function',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/function/function').default);
+					}, 'function');
+				}
+			},
+			{
+				path: 'compatible',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/compatible/compatible').default);
+					}, 'compatible');
+				}
+			},
+			{//性能
+				path: 'property',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/property/property').default);
+					}, 'property');
+				}
+			},
+			{//格兰仕
+				path: 'reliability',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/reliability/reliability').default);
+					}, 'reliability');
+				}
+			},
+			{//智慧灯
+				path: 'wisdom',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/wisdom/wisdom').default);
+					}, 'wisdom');
+				}
+			},
+			{//angle
+				path: 'angle',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/angle/angle').default);
+					}, 'angle');
+				}
+			},
+			{//CMA
+				path: 'CMA',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/CMA/CMA').default);
+					}, 'CMA');
+				}
+			},
+			{//CNAS
+				path: 'CNAS',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/CNAS/CNAS').default);
+					}, 'CNAS');
+				}
+			},
+		]
 	},
-	{
-		path: '/function',
-		getComponent: (nextState, cb) => {
-			require.ensure([], (require) => {
-				cb(null, require('views/function/function').default);
-			}, 'function');
-		}
 
 
-	},
 	{
 		path: '/app',
 		getComponent: (nextState, cb) => {
@@ -64,62 +122,12 @@ const routes = [
 			}, 'new');
 		}
 	},
-	{
-		path: '/compatible',
-		getComponent: (nextState, cb) => {
-			require.ensure([], (require) => {
-				cb(null, require('views/compatible/compatible').default);
-			}, 'compatible');
-		}
-	},
-	{//性能
-		path: '/property',
-		getComponent: (nextState, cb) => {
-			require.ensure([], (require) => {
-				cb(null, require('views/property/property').default);
-			}, 'property');
-		}
-	},
-	{//格兰仕
-		path: '/reliability',
-		getComponent: (nextState, cb) => {
-			require.ensure([], (require) => {
-				cb(null, require('views/reliability/reliability').default);
-			}, 'reliability');
-		}
-	},
-	{//智慧灯
-		path: '/wisdom',
-		getComponent: (nextState, cb) => {
-			require.ensure([], (require) => {
-				cb(null, require('views/wisdom/wisdom').default);
-			}, 'wisdom');
-		}
-	},
-	{//angle
-		path: '/angle',
-		getComponent: (nextState, cb) => {
-			require.ensure([], (require) => {
-				cb(null, require('views/angle/angle').default);
-			}, 'angle');
-		}
-	},
-	{//CMA
-		path: '/CMA',
-		getComponent: (nextState, cb) => {
-			require.ensure([], (require) => {
-				cb(null, require('views/CMA/CMA').default);
-			}, 'CMA');
-		}
-	},
-	{//CNAS
-		path: '/CNAS',
-		getComponent: (nextState, cb) => {
-			require.ensure([], (require) => {
-				cb(null, require('views/CNAS/CNAS').default);
-			}, 'CNAS');
-		}
-	},
+
+
+
+
+
+
 	{//hardware
 		path: '/hardware',
 		getComponent: (nextState, cb) => {
