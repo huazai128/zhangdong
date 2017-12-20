@@ -4,6 +4,7 @@
   margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
   background-color:#f4f7fc;
 	letter-spacing: 1px;
+
 	a{
 		color: inherit;
 		display: inline-block;
@@ -16,7 +17,8 @@
   }
   .creativeCont{
     width: 1380px;
-    margin:0 auto;
+		margin:0 auto;
+		margin-bottom: 40px;
     .bar{
       width: 280px;
       .barContent{
@@ -24,7 +26,12 @@
          display: block;
         width: 280px;
         height: 65px;
-        background-color: #0fc5ff;
+				background: #3ea2fa;
+				background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+				background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+				background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
+				color: #fff;
         font-size: 20px;
         color: #ffffff;
         line-height: 65px;

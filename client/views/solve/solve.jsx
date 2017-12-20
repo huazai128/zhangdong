@@ -28,7 +28,7 @@ class Sovle extends React.Component {
 					<div className="swiper-slide">
 						<div className="boxContentOne">
 							<Common bgCls="solve" {...this.props}/>
-							<div className='countOne' style={{ zIndex: 1000, position: 'absolute', top: '88%', left: '50%' }}>
+							<div className='countOne' style={{ zIndex: 1000, position: 'absolute', top: '88%', left: '50%',marginLeft:'-100px'}}>
 								<Link to='/app'><p>查看案例</p></Link>
 							</div>
 

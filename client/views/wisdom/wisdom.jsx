@@ -14,7 +14,7 @@ class Function extends React.Component {
 
 						<div className="flex-center jc-between soft" >
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemTwo" >
 									<img src={require('img/gong1.jpg')} alt="" />
 									<h5 className='commonOne'>标准化测试流程</h5>
 									<p>国际标准规范针对检测国际标准规范针对检测<br></br>
@@ -23,7 +23,7 @@ class Function extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemTwo" >
 									<img src={require('img/gong2.jpg')} alt="" />
 									<h5 className='zhuanOne'>专家真机测试</h5>
 									<p>国内领先技术<br></br>
@@ -32,7 +32,7 @@ class Function extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemTwo" >
 									<img src={require('img/gong3.jpg')} alt="" />
 									<h5 className='haiOne'>海量用例数据库</h5>
 									<p>十年累计千万用例<br></br>
@@ -75,12 +75,9 @@ class Function extends React.Component {
 					<p className='flex'>1.多跳mesh组网路由设计</p>
 					<p className='flex'>2.规模节点（200个节点）组网网络风暴的避免机制</p>
 					<p className='flex'>3.通信可靠性技术（抗干扰技术、确认机制）</p>
-					<a href="javascript:void(0);"><span className='bottomp'>立即申请</span></a>
+					<span className='bottomp'>立即申请</span>
 				</div>
-
 			</div>
-
-
 		</div>;
 	}
 }

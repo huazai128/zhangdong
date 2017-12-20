@@ -13,7 +13,7 @@ class Function extends React.Component {
 
 						<div className="flex-center jc-between soft" >
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemApp" >
 									<img src={require('img/gong1.jpg')} alt="" />
 									<h5 className='commonOne'>标准化测试流程</h5>
 									<p>国际标准规范针对检测国际标准规范针对检测<br></br>
@@ -23,7 +23,7 @@ class Function extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemApp" >
 									<img src={require('img/gong2.jpg')} alt="" />
 									<h5 className='zhuanOne'>专家真机测试</h5>
 									<p>国内领先技术<br></br>
@@ -33,7 +33,7 @@ class Function extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemApp" >
 									<img src={require('img/gong3.jpg')} alt="" />
 									<h5 className='haiOne'>海量用例数据库</h5>
 									<p>十年累计千万用例<br></br>
@@ -74,7 +74,7 @@ class Function extends React.Component {
 					<p className='flex'>科学的分析系统特点，根据性能指标和主要流程和功能，设计性能测试典型场景。在线上环境进行压力测试，提出合理完善的测试计划和测试方案，保证系统使用不受影响，并能获取到<br></br>
 						真实的性能数据。提供权威的性能测试结果和调优建议。
 					</p>
-					<a href="javascript:void(0);"><span className='bottomp'>立即申请</span></a>
+					<span className='bottomp'>立即申请</span>
 				</div>
 
 			</div>

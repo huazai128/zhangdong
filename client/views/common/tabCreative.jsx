@@ -769,7 +769,7 @@ export default class Tab extends React.Component {
 							</Link>
 						</TabPane>
 					</Tabs>
-					<Pagination total={100} itemRender={itemRender} className='flex-center' style={{ marginTop: '34px' }} />
+					<Pagination total={60} itemRender={itemRender} className='flex-center' style={{ marginTop: '34px' }} />
 				</div>
 
 			</div>

@@ -8,7 +8,7 @@ import { Link, hashHistory } from 'react-router';
 class CreativeContent extends React.Component {
 	render() {
 		return (
-			<div>
+			<div id='creative'>
 				<div className="bg"></div>
 				<div className='creativeCont flex jc-between'>
 					<Tab></Tab>

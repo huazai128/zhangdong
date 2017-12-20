@@ -1,6 +1,6 @@
 import React from 'react';
-import './new.scss';
 import Footer from '../common/lastFooter.jsx';
+import './new.scss';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
 
@@ -99,6 +99,7 @@ class New extends React.Component {
 				</div>
 			</div>
 			<Footer></Footer>
+
 		</div>;
 	}
 }

@@ -54,10 +54,14 @@
      .ourOne{
        width: 156px;
        height: 48px;
-       background-color: #36a7fb;
+			 background: #3ea2fa;
+			 background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+			 background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+			 background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+			 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
+			 color: #fff;
        line-height: 48px;
        text-align: center;
-       color: #ffffff;
        border-radius: 8px;
        font-size: 16px;
      }

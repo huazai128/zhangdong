@@ -14,7 +14,7 @@ class Function extends React.Component {
 
 						<div className="flex-center jc-between soft" >
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemTwo" >
 									<img src={require('img/gong1.jpg')} alt="" />
 									<h5 className='commonOne'>标准化测试流程</h5>
 									<p>国际标准规范针对检测国际标准规范针对检测<br></br>
@@ -23,7 +23,7 @@ class Function extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemTwo" >
 									<img src={require('img/gong2.jpg')} alt="" />
 									<h5 className='zhuanOne'>专家真机测试</h5>
 									<p>国内领先技术<br></br>
@@ -32,7 +32,7 @@ class Function extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemTwo" >
 									<img src={require('img/gong3.jpg')} alt="" />
 									<h5 className='haiOne'>海量用例数据库</h5>
 									<p>十年累计千万用例<br></br>

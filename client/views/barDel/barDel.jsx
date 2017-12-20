@@ -3,6 +3,8 @@ import './barDel.scss';
 import Top from '../common/partyTop.jsx';
 import Footer from '../common/lastFooter.jsx';
 import $ from 'jquery';
+import { Button } from 'antd';
+
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Link, hashHistory } from 'react-router';
@@ -54,7 +56,6 @@ export default class New extends React.Component {
 		$('#comment').toggle();
 	};
 	iconClick = () => {
-
 		$('#comment').css('display', 'none');
 	};
 	// 提交评论
@@ -73,7 +74,7 @@ export default class New extends React.Component {
 	}
 
 	render() {
-
+		// console.log(this.state.text)
 		return (
 			<div id="barDel">
 				{/* <Top></Top> */}
@@ -110,7 +111,7 @@ export default class New extends React.Component {
 					{/* 头部 */}
 					<div className="topThree flex-vcenter jc-between">
 						<div className="commentTop">评论</div>
-						<div className="Icon" id='Icon' onClick={this.iconClick}></div>
+						<div className="Icon" onClick={this.iconClick}></div>
 					</div>
 					{/* 添加图片 */}
 					<div className="upDa">
@@ -121,7 +122,8 @@ export default class New extends React.Component {
 								toolbar: this.toolbarOptions
 							}} />
 					</div>
-					<div className="ti" onClick={this.handle}>提交</div>
+					<Button className="ti"  onClick={this.handle} disabled={!this.state.text}>提交</Button>
+					{/* <div className="ti" onClick={this.handle}>提交</div> */}
 				</div>
 				{/* 评论内容 */}
 				<div className="discuss">

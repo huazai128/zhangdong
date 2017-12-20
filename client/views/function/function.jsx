@@ -4,7 +4,7 @@ import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
 class Function extends React.Component {
 	render() {
-		console.log(this.props)
+		console.log(this.props);
 		return <div id="function">
 			{/* <Common bgCls="service" {...this.props} /> */}
 			{/* 内容 */}
@@ -15,7 +15,7 @@ class Function extends React.Component {
 
 						<div className="flex-center jc-between soft" >
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemApp" >
 									<img src={require('img/gong1.jpg')} alt="" />
 									<h5 className='commonOne'>标准化测试流程</h5>
 									<p>国际标准规范针对检测国际标准规范针对检测<br></br>
@@ -25,7 +25,7 @@ class Function extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemApp" >
 									<img src={require('img/gong2.jpg')} alt="" />
 									<h5 className='zhuanOne'>专家真机测试</h5>
 									<p>国内领先技术<br></br>
@@ -35,7 +35,7 @@ class Function extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemApp" >
 									<img src={require('img/gong3.jpg')} alt="" />
 									<h5 className='haiOne'>海量用例数据库</h5>
 									<p>十年累计千万用例<br></br>
@@ -77,7 +77,7 @@ class Function extends React.Component {
 					<p className='flex'>注重APP在不同网络、地域、机型、功能模块、性能指标、真实操作路径下的稳定性及安全性凭借强有力的专家团队，进行真人真机执行测试，通过BUG探索与用例设计，发现应用中的各<br></br>
 						等级功能缺陷和UI问题，并在测试报告中提供BUG详细截图及复现过程。
 					</p>
-					<a href="javascript:void(0);"><span className='bottomp'>立即申请</span></a>
+					<span className='bottomp'>立即申请</span>
 				</div>
 
 			</div>

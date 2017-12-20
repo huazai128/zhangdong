@@ -26,7 +26,7 @@ class Common extends React.Component {
 							<NavLink url={this.props.location.pathname} to="/our">关于我们</NavLink>
 						</ul>
 						<ul className="topBoxright flex-vcenter">
-							<li><a href="javasctipt:;">注册</a></li><li><a href="javasctipt:;">登陆</a></li><li className="blueBtn"><Link to='/creative'>测试者社区</Link></li>
+							<li><a href="javasctipt:;">注册</a></li><li><a href="javasctipt:;">登陆</a></li><li className="blueBtn"><Link to='/login'>测试者社区</Link></li>
 						</ul>
 					</div>
 					<div className="bottomContent">

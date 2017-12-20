@@ -11,10 +11,9 @@ class Function extends React.Component {
 				<div className="box">
 					<div className="boxcontent">
 						<h3>我们的优势</h3>
-
 						<div className="flex-center jc-between soft" >
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemApp" >
 									<img src={require('img/gong1.jpg')} alt="" />
 									<h5 className='commonOne'>标准化测试流程</h5>
 									<p>国际标准规范针对检测国际标准规范针对检测<br></br>
@@ -24,7 +23,7 @@ class Function extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemApp" >
 									<img src={require('img/gong2.jpg')} alt="" />
 									<h5 className='zhuanOne'>专家真机测试</h5>
 									<p>国内领先技术<br></br>
@@ -34,7 +33,7 @@ class Function extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemApp" >
 									<img src={require('img/gong3.jpg')} alt="" />
 									<h5 className='haiOne'>海量用例数据库</h5>
 									<p>十年累计千万用例<br></br>
@@ -76,7 +75,7 @@ class Function extends React.Component {
 					<p className='flex'>针对药渡头条APP进行兼容性测试，验证该产品对于智能手机品牌和机型的兼容性。通过正式环境下的兼容性测试，检查APP在各Android终端的适配率，主要检查APP能否正常进行安<br></br>
 						装、基本功能运行、卸载和升级，并且检查APP在运行过程中是否存在运行问题及UI展示问题。
 					</p>
-					<a href="javascript:void(0);"><span className='bottomp'>立即申请</span></a>
+					<span className='bottomp'>立即申请</span>
 				</div>
 
 			</div>

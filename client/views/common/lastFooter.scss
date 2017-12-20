@@ -1,6 +1,7 @@
 #lastFooter{
+	margin-top: 42px;
   .bottomBox {
-    margin-top: 42px;
+
     height: 280px;
     background-color: #202528;
     .content {
@@ -11,26 +12,33 @@
     .item {
       width: 220px;
       color: #fff;
-      padding-top: 54px;
+			padding-top: 54px;
+			&.itemOne{
+				padding-top:11px;
+				margin:0
+			}
       .itemHead {
         font-size: 18px;
         margin-bottom: 17px;
       }
      ul{
-       padding-left: 0; 
+       padding-left: 0;
       li {
         color: #A6A7A9;
         line-height: 40px;
         font-size: 14px;
         list-style: none;
-       
+
       }
      }
     }
     .bottomRight {
-    
       padding-top: 54px;
-      width: 310px;
+			width: 310px;
+			&.itemOne{
+				padding-top:14px;
+				margin:0
+			}
       .text {
         margin-top: 36px;
         color: #fff;
@@ -38,7 +46,7 @@
       }
     }
     }
-    
+
     .footer {
     background-color: #2D3236;
     height: 80px;

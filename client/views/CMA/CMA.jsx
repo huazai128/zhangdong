@@ -14,7 +14,7 @@ class Function extends React.Component {
 
 						<div className="flex-center jc-between soft" >
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemThree" >
 									<img src={require('img/gong1.jpg')} alt="" />
 									<h5 className='commonOne'>标准化测试流程</h5>
 									<p>国际标准规范针对检测国际标准规范针对检测<br></br>
@@ -23,7 +23,7 @@ class Function extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemThree" >
 									<img src={require('img/gong2.jpg')} alt="" />
 									<h5 className='zhuanOne'>专家真机测试</h5>
 									<p>国内领先技术<br></br>
@@ -32,7 +32,7 @@ class Function extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="itemThree" >
 									<img src={require('img/gong3.jpg')} alt="" />
 									<h5 className='haiOne'>海量用例数据库</h5>
 									<p>十年累计千万用例<br></br>
@@ -69,7 +69,7 @@ class Function extends React.Component {
 						<h5 className="">解决方案</h5>
 					</div>
 					<p className='flex'>根据专项资金拨款项目和科研项目计划任务书的要求，对软件产品所应实现的功能和性能指标进行验证，为承担过政府资助项目的IT企业提供国家工信部权威的第三方测试</p>
-					<a href="javascript:void(0);"><span className='bottomp'>立即申请</span></a>
+					<span className='bottomp'>立即申请</span>
 				</div>
 
 			</div>
