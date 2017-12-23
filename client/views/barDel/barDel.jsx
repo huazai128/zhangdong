@@ -56,28 +56,6 @@ export default class New extends React.Component {
 				{ time: '19分钟前', content: '回复内容回复内容回复内容回复内容回复dfg内容回复内容回复内容回复内容回复内容回复内回复', title: 'dfgdgf' }
 			]
 		};
-
-		// for (let i = 0; i < this.state.num; i++) {
-		// 	this.state.listData.push({
-		// 		star: {
-		// 			text: 156,
-		// 			active: false,
-		// 		},
-		// 		up: {
-		// 			text: 100,
-		// 			active: false,
-		// 		},
-		// 		reblack: {
-		// 			text: 10,
-		// 			active: false,
-		// 		},
-		// 		href: 'http://ant.design',
-		// 		title: `ant design part ${i}`,
-		// 		avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-		// 		description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-		// 		content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-		// 	});
-		// }
 	}
 
 
@@ -100,35 +78,12 @@ export default class New extends React.Component {
 		$('#comment').css('display', 'none');
 	}
 
-	// 获取回复 插件的使用
-	// onClick = (item, type) => {
-	// 	const { listData } = this.state;
-
-	// 	item[type].active = true;
-	// 	item[type].text = item[type].text + 1;
-
-	// 	this.setState({
-	// 		listData
-	// 	});
-	// }
 	// 提交评论
 	handle = () => {
 		var ctime = new Date().getMinutes();
 		const { listData } = this.state;
 		listData.unshift({
-			// star: {
-			// 	text: 1,
-			// 	active: false,
-			// },
-			// up: {
-			// 	text: 1,
-			// 	active: false,
-			// },
-			// reblack: {
-			// 	text: 1,
-			// 	active: false,
-			// },
-			// description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+
 			content: this.state.text,
 			title: '砖头'
 		});
@@ -137,12 +92,6 @@ export default class New extends React.Component {
 	}
 
 	render() {
-		// const pagination = {
-		// 	pageSize: 10,
-		// 	current: 1,
-		// 	total: this.state.listData.length,
-		// 	onChange: (() => { })
-		// };
 
 		return (
 			<div id="barDel">
@@ -197,33 +146,6 @@ export default class New extends React.Component {
 				{/* 回复信息的弹出框 */}
 				{/* <Open></Open> */}
 				{/* 评论内容 */}
-				{/* <div className="discuss">
-					<div className="disContent">
-						<div className='contOne'><i className='cirlOne'></i> 全部3条回复</div>
-						<List
-							itemLayout="vertical"
-							size="large"
-							pagination={pagination}
-							dataSource={this.state.listData}
-							renderItem={item => (
-								<List.Item
-									key={item.title}
-									actions={[
-										<div onClick={() => this.onClick(item, 'star')}><IconText type="star-o" text={item.star.text} /></div>,
-										<div onClick={() => this.onClick(item, 'up')}><IconText type="like-o" text={item.up.text} /></div>, <div onClick={() => this.onClick(item, 'reblack')}><IconText type="message" text={item.reblack.text} /></div>]}
-									extra={<img width={272} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
-								>
-									<List.Item.Meta
-										avatar={<Avatar src={item.avatar} />}
-										title={<a href={item.href}>{item.title}</a>}
-										description={item.description}
-									/>
-									{item.content}
-								</List.Item>
-							)}
-						/>
-					</div>
-				</div> */}
 				<div className="discuss">
 					<div className="disContent">
 						<div className='contOne'><i className='cirlOne'></i> 全部3条回复</div>

@@ -5,6 +5,9 @@
   background-color:#f4f7fc;
   letter-spacing: 1px;
 	position: relative;
+	.ql-toolbar.ql-snow + .ql-container.ql-snow{
+		height: 200px;
+	}
 	a{
 		color: inherit;
 
@@ -224,11 +227,6 @@
        background: url('~img/bad.png') no-repeat center center;
       }
     }
-    // textarea{
-    //   width: 378px;
-    //   height: 210px;
-    //   // margin-top: 10px;
-    // }
     .ti{
 
         color: inherit;
@@ -240,7 +238,9 @@
         text-align: center;
 
     }
-
+    // .textQuill{
+		// 	height: 200px;
+		// }
 	}
 .commentMes{
 	background-color: #ffffff;
