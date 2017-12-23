@@ -44,28 +44,30 @@ class CreativeContent extends React.Component {
 						</div>
 						{/* 知识集市 */}
 						<div className="toolContent">
-							<div className="cpt flex">
-								<div className="leftImg cptOne"></div>
-								<div className='textConet flex-vcenter'>知识库集市</div>
-							</div>
-							<div className="flex wrap roundBottm">
-								<div className="round">
-									<div className="one"></div>
-									<div className='two'>STF平台搭建方案</div>
+							<Link to="/creative/knowledge">
+								<div className="cpt flex">
+									<div className="leftImg cptOne"></div>
+									<div className='textConet flex-vcenter'>知识库集市</div>
 								</div>
-								<div className="round">
-									<div className="one"></div>
-									<div className='two'>STF设备管理操作平台    </div>
+								<div className="flex wrap roundBottm">
+									<div className="round">
+										<div className="one"></div>
+										<div className='two'>STF平台搭建方案</div>
+									</div>
+									<div className="round">
+										<div className="one"></div>
+										<div className='two'>STF设备管理操作平台    </div>
+									</div>
+									<div className="round">
+										<div className="one"></div>
+										<div className='three'>功能测试流程标准</div>
+									</div>
+									<div className="round">
+										<div className="one"></div>
+										<div className='three'>智能硬件测试标准及方法</div>
+									</div>
 								</div>
-								<div className="round">
-									<div className="one"></div>
-									<div className='three'>功能测试流程标准</div>
-								</div>
-								<div className="round">
-									<div className="one"></div>
-									<div className='three'>智能硬件测试标准及方法</div>
-								</div>
-							</div>
+							</Link>
 						</div>
 						<div className="jingContent">
 							<div className="jingTop">
@@ -147,4 +149,4 @@ class Creative extends React.Component {
 		);
 	}
 }
-export  {Creative,CreativeContent};
+export { Creative, CreativeContent };

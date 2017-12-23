@@ -3,7 +3,7 @@ import './main.scss';
 import '../index.scss';
 import 'js/lib/swiper-3.4.2.min.css';
 import 'js/lib/countUp';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
 
 class Main extends React.Component {
@@ -83,20 +83,28 @@ class Main extends React.Component {
 						<div className="line"></div>
 						<div className="tip">NQI-Cloud提供Paas+Saas的完备质量云服务,实现智能应用全生命周期质量托管</div>
 						<div className="item first">
-							<div className="icon"></div>
-							<div className="text">质量认证</div>
+							<div onClick={() => hashHistory.push('/cloud/1')}>
+								<div className="icon"></div>
+								<div className="text">质量认证</div>
+							</div>
 						</div>
 						<div className="item second">
-							<div className="icon"></div>
-							<div className="text">质量运营</div>
+							<div onClick={() => hashHistory.push('/cloud/2')}>
+								<div className="icon"></div>
+								<div className="text">质量运营</div>
+							</div>
 						</div>
 						<div className="item third">
-							<div className="icon"></div>
-							<div className="text">质量变现</div>
+							<div onClick={() => { hashHistory.push('/cloud/3') ;}}>
+								<div className="icon"></div>
+								<div className="text">质量变现</div>
+							</div>
 						</div>
 						<div className="item four">
-							<div className="icon"></div>
-							<div className="text">质量测试</div>
+							<div onClick={()=>hashHistory.push('/cloud/4')}>
+								<div className="icon"></div>
+								<div className="text">质量测试</div>
+							</div>
 						</div>
 						<div className="more"><a href="javascript:void(0);"><a href="javascript:void(0);">了解更多</a></a></div>
 					</div>

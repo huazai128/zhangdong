@@ -28,47 +28,57 @@ export default class Personal extends React.Component {
 						renderTabContent={() => <TabContent />}
 						animated={false}>
 						<TabPane tab='测试申请' key="1" className='tabOne'>
+							<Link to="/creative/auditing">
+								<div className='shenOne'>
+									<div className="firstPer flex">
+										<p className='firstP'>申请名称申请名称</p>
+										<p className='secondP'>审核中</p>
+									</div>
+									<div className="bottomContent">
+										申请类型A.条件1.条件2.3天前申请 </div>
+								</div>
+							</Link>
+							<Link to="/creative/auditing">
+								<div className='shenOne'>
+									<div className="firstPer flex">
+										<p className='firstP'>申请名称申请名称</p>
+										<p className='secondP'>审核中</p>
+									</div>
+									<div className="bottomContent">
+										申请类型A.条件1.条件2.3天前申请</div>
+								</div>
+							</Link>
+							<Link to="/creative/receipt">
+								<div className='shenOne'>
+									<div className="firstPer flex">
+										<p className='firstP'>申请名称申请名称</p>
+										<p className='secondP jieP '>已接单</p>
+									</div>
+									<div className="bottomContent">
+										申请类型A.条件1.条件2.3天前申请 </div>
+								</div>
+							</Link>
+							<Link to="/creative/receipt">
+								<div className='shenOne'>
+									<div className="firstPer flex">
+										<p className='firstP'>申请名称申请名称</p>
+										<p className='secondP jieP '>已接单</p>
+									</div>
+									<div className="bottomContent">
+										申请类型A.条件1.条件2.3天前申请</div>
+								</div>
+							</Link>
 							<Link to="/creative/orderTaking">
 								<div className='shenOne'>
 									<div className="firstPer flex">
 										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP'>审核中</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请 </div>
-								</div>
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP'>审核中</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP jieP '>已接单</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请 </div>
-								</div>
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP jieP '>已接单</p>
-									</div>
-									<div className="bottomContent">
-									申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
 										<p className='secondP ceP'>测试中</p>
 									</div>
 									<div className="bottomContent">
 										申请类型A.条件1.条件2.3天前申请</div>
 								</div>
+							</Link>
+							<Link to="/creative/orderTaking">
 								<div className='shenOne'>
 									<div className="firstPer flex">
 										<p className='firstP'>申请名称申请名称</p>
@@ -77,6 +87,8 @@ export default class Personal extends React.Component {
 									<div className="bottomContent">
 										申请类型A.条件1.条件2.3天前申请 </div>
 								</div>
+							</Link>
+							<Link to="/creative/completed">
 								<div className='shenOne'>
 									<div className="firstPer flex">
 										<p className='firstP'>申请名称申请名称</p>
@@ -85,6 +97,8 @@ export default class Personal extends React.Component {
 									<div className="bottomContent">
 										申请类型A.条件1.条件2.3天前申请</div>
 								</div>
+							</Link>
+							<Link to="/creative/completed">
 								<div className='shenOne btn'>
 									<div className="firstPer flex">
 										<p className='firstP'>申请名称申请名称</p>
@@ -96,6 +110,88 @@ export default class Personal extends React.Component {
 							</Link>
 						</TabPane>
 						<TabPane tab='测试接单' key="2" className='tabOne'>
+							<Link to="/creative/auditing">
+								<div className='shenOne'>
+									<div className="firstPer flex">
+										<p className='firstP'>申请名称申请名称</p>
+										<p className='secondP'>审核中</p>
+									</div>
+									<div className="bottomContent">
+										申请类型A.条件1.条件2.3天前申请 </div>
+								</div>
+							</Link>
+							<Link to="/creative/auditing">
+								<div className='shenOne'>
+									<div className="firstPer flex">
+										<p className='firstP'>申请名称申请名称</p>
+										<p className='secondP'>审核中</p>
+									</div>
+									<div className="bottomContent">
+										申请类型A.条件1.条件2.3天前申请</div>
+								</div>
+							</Link>
+							<Link to="/creative/receipt">
+								<div className='shenOne'>
+									<div className="firstPer flex">
+										<p className='firstP'>申请名称申请名称</p>
+										<p className='secondP jieP '>已接单</p>
+									</div>
+									<div className="bottomContent">
+										申请类型A.条件1.条件2.3天前申请 </div>
+								</div>
+							</Link>
+							<Link to="/creative/receipt">
+								<div className='shenOne'>
+									<div className="firstPer flex">
+										<p className='firstP'>申请名称申请名称</p>
+										<p className='secondP jieP '>已接单</p>
+									</div>
+									<div className="bottomContent">
+										申请类型A.条件1.条件2.3天前申请</div>
+								</div>
+							</Link>
+							<Link to="/creative/orderTaking">
+								<div className='shenOne'>
+									<div className="firstPer flex">
+										<p className='firstP'>申请名称申请名称</p>
+										<p className='secondP ceP'>测试中</p>
+									</div>
+									<div className="bottomContent">
+										申请类型A.条件1.条件2.3天前申请</div>
+								</div>
+							</Link>
+							<Link to="/creative/orderTaking">
+								<div className='shenOne'>
+									<div className="firstPer flex">
+										<p className='firstP'>申请名称申请名称</p>
+										<p className='secondP ceP'>测试中</p>
+									</div>
+									<div className="bottomContent">
+										申请类型A.条件1.条件2.3天前申请 </div>
+								</div>
+							</Link>
+							<Link to="/creative/completed">
+								<div className='shenOne'>
+									<div className="firstPer flex">
+										<p className='firstP'>申请名称申请名称</p>
+										<p className='secondP yiP'>已完成</p>
+									</div>
+									<div className="bottomContent">
+										申请类型A.条件1.条件2.3天前申请</div>
+								</div>
+							</Link>
+							<Link to="/creative/completed">
+								<div className='shenOne btn'>
+									<div className="firstPer flex">
+										<p className='firstP'>申请名称申请名称</p>
+										<p className='secondP yiP'>已完成</p>
+									</div>
+									<div className="bottomContent">
+										申请类型A.条件1.条件2.3天前申请 </div>
+								</div>
+							</Link>
+						</TabPane>
+						{/* <TabPane tab='测试接单' key="2" className='tabOne'>
 							<Link to="/creative/orderTaking">
 								<div className='shenOne'>
 									<div className="firstPer flex">
@@ -162,7 +258,7 @@ export default class Personal extends React.Component {
 										申请类型A.条件1.条件2.3天前申请</div>
 								</div>
 							</Link>
-						</TabPane>
+						</TabPane> */}
 						<TabPane tab='话题' key="3" className='tabOne'>
 							<Link to="/creative/barDel">
 								<div className="theme">
@@ -322,7 +418,7 @@ export default class Personal extends React.Component {
 					</Tabs>
 				</div>
 				{/* <Footer></Footer> */}
-			</div>
+			</div >
 		);
 	}
 }

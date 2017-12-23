@@ -1,0 +1,123 @@
+#ability{
+  width: 100%;
+  min-width: 1380px;
+  margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
+  background-color:#f4f7fc;
+	letter-spacing: 1px;
+	a{
+		color: inherit;
+	}
+  .nav{
+    height: 62px;
+    background-color: #f4f7fc;
+    .navText{
+      height: 62px;
+      width: 1380px;
+      line-height: 52px;
+      margin: 0 auto;
+      color: #666666;
+      font-size: 20px;
+    }
+  }
+  .toolContent{
+    width: 1380px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding:32px 56px 0 45px;
+    .toolTop{
+      height: 130px;
+      border-bottom: 1px solid #dddddd;
+   .toolLeft{
+     .yuan{
+       width: 70px;
+       height: 70px;
+       background-color: #dcdcdc;
+       border-radius: 50%;
+       margin-right: 20px;
+     }
+     .text{
+      p{
+        margin:0;
+      }
+     .textOne{
+       color: #666666;
+       font-size: 16px;
+        margin-bottom: 18px;
+     }
+     .textTwo{
+       font-size: 14px;
+       color: #a9a9a9;
+     }
+    }
+   }
+   .toolRight{
+     .ourOne{
+       width: 156px;
+       height: 48px;
+			 background: #3ea2fa;
+			 background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+			 background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+			 background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+			 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
+			 color: #fff;
+       line-height: 48px;
+       text-align: center;
+       border-radius: 8px;
+       font-size: 16px;
+     }
+   }
+   }
+   .toolBottom{
+    //  height: 917px;
+		 margin-top: 46px;
+		 .commonNone{
+			color: #555555;
+
+			&.lastInstall{
+				padding-bottom: 40px;
+			}
+		 }
+		 .bottomPer{
+			 margin-top: 20px;
+			 li{
+				font-size: 17px;
+				line-height: 30px;
+				&.jise{
+					font-weight: 600;
+				}
+			 }
+		 }
+     div{
+       font-size: 17px;
+       color: #818181;
+       line-height: 26px;
+     }
+     .tuTop{
+			 margin-bottom: 48px;
+
+		 }
+		 .boxZhong{
+			 .jingDian{
+				 font-weight: 600;
+				 margin:40px 0;
+				 font-size: 22px;
+			 }
+     .imgAn{
+       width: 550px;
+			 background-size:100%;
+			//  margin:45px 0 56px 0;
+			margin:30px auto;
+			 &.one{
+				 height: 120px;
+				background: url('~img/128.png') no-repeat center;
+			 }
+			 &.two{
+				 height: 580px;
+				background: url('~img/127.png') no-repeat center;
+
+			 }
+		 }
+		}
+   }
+  }
+}

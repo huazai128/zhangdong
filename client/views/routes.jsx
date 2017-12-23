@@ -122,11 +122,14 @@ const routes = [
 			}, 'new');
 		}
 	},
-
-
-
-
-
+	{
+		path: '/cloud(/:id)',
+		getComponent: (nextState, cb) => {
+			require.ensure([], (require) => {
+				cb(null, require('views/cloud/cloud').default);
+			}, 'cloud');
+		}
+	},
 
 	{//hardware
 		path: '/hardware',
@@ -191,12 +194,44 @@ const routes = [
 					}, 'orderTaking');
 				}
 			},
+			{
+				path: 'auditing',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/auditing/auditing').default);
+					}, 'auditing');
+				}
+			},
+			{
+				path: 'receipt',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/receipt/receipt').default);
+					}, 'receipt');
+				}
+			},
+			{
+				path: 'completed',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/completed/completed').default);
+					}, 'completed');
+				}
+			},
 			{//创新科技
 				path: 'community',
 				getComponent: (nextState, cb) => {
 					require.ensure([], (require) => {
 						cb(null, require('views/community/community').default);
 					}, 'community');
+				}
+			},
+			{//知识库
+				path: 'knowledge',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/knowledge/knowledge').default);
+					}, 'knowledge');
 				}
 			},
 			{//个人中心
@@ -231,7 +266,62 @@ const routes = [
 					}, 'tooldetails');
 				}
 			},
-
+			{
+				path: 'mantis',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/mantis/mantis').default);
+					}, 'mantis');
+				}
+			},
+			{
+				path: 'testlink',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/testlink/testlink').default);
+					}, 'testlink');
+				}
+			},
+			{
+				path: 'zentaoPMS',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/zentaoPMS/zentaoPMS').default);
+					}, 'zentaoPMS');
+				}
+			},
+			{
+				path: 'stfGuan',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/stfGuan/stfGuan').default);
+					}, 'stfGuan');
+				}
+			},
+			{
+				path: 'platform',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/platform/platform').default);
+					}, 'platform');
+				}
+			},
+			{
+				path: 'ability',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/ability/ability').default);
+					}, 'ability');
+				}
+			},
+			{
+				path: 'standard',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/standard/standard').default);
+					}, 'standard');
+				}
+			},
 		]
 	}
 

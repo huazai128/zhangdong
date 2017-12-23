@@ -1,0 +1,49 @@
+.cloudOne{
+	height: 300px;
+// width: 100%;
+	// background-color: #ffffff;
+ .boxTuContent{
+	.boxTu{
+		position: relative;
+		padding-top:190px;
+	i{
+		position: absolute;
+		width: 50px;
+		height: 55px;
+		display: inline-block;
+		left: 16%;
+		top:69%;
+		&.colorTu{
+			background: url('~img/ren2.png') no-repeat center top;
+		}
+		&.colorTu.active{
+			background: url('~img/ren1.png') no-repeat center top;
+		}
+
+		&.shiTu{
+			background: url('~img/shi1.png') no-repeat center top;
+		}
+		&.shiTu.active{
+			background: url('~img/shi2.png') no-repeat center top;
+		}
+
+		&.qiuTu{
+			background: url('~img/qiu1.png') no-repeat center top;
+		}
+		&.qiuTu.active{
+			background: url('~img/qiu2.png') no-repeat center top;
+		}
+		&.comTu{
+			background: url('~img/cpt1.png') no-repeat center top;
+		}
+		&.comTu.active{
+			background: url('~img/cp2.png') no-repeat center top;
+		}
+	}
+	}
+	.lastText{
+		font-size: 17px;
+		color: #000000;
+	}
+}
+}

@@ -1,0 +1,84 @@
+#cloudTab{
+	width: 100%;
+	background-color: #ffffff;
+	.ant-tabs-nav .ant-tabs-tab{
+		margin-right: 300px;
+	}
+	.ant-tabs:not(.ant-tabs-vertical) > .ant-tabs-content {
+		background-color: #f7f7f7 !important;
+	}
+	.ant-tabs-nav .ant-tabs-tab：last-child{
+		margin-right: 0;
+	}
+	.ant-tabs:not(.ant-tabs-vertical) > .ant-tabs-content > .ant-tabs-tabpane{
+		width: 1380px;
+		margin: 0 auto;
+	}
+	.ant-tabs-bar{
+		border: none;
+	}
+	.ant-tabs-nav-wrap{
+		width: 1380px;
+		margin:0 auto;
+		.ant-tabs-ink-bar{
+			bottom: 0 !important;
+			background-color: #ffffff;
+		}
+	}
+	.tabOne{
+		// background-color: #f7f7f7;
+	}
+	.boxText{
+		width: 930px;
+		margin:0 auto;
+		padding-top: 80px;
+		padding-bottom: 200px;
+		.guojia{
+			height: 90px;
+			// margin:0px 0 80px 130px;
+			width: 100%;
+			text-align: center;
+			font-size: 20px;
+			color: #555555;
+		}
+		.qingzhi{
+			font-size: 20px;
+			color: #555555;
+  &.ziyuan{
+		margin-top: 100px;
+	}
+			.ban{
+				width: 100%;
+				text-align: center;
+				margin-bottom: 45px;
+			}
+			ul{
+
+				&.lingWai{
+					li{
+						width: 20%;
+					}
+				}
+				li{
+					width: 25%;
+					text-align: center;
+					img{
+						// margin:0 auto;
+						margin-bottom: 22px;
+					}
+					.diFang{
+						font-size: 16px;
+						color: #555555;
+					}
+				}
+			}
+			.ImgContent{
+				margin-top: 80px;
+			img{
+				display: block;
+				margin: 0 auto;
+			}
+			}
+		}
+	}
+}

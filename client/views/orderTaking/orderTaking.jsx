@@ -19,7 +19,7 @@ export default class Ordertaking extends React.Component {
 					<div className='takingBottom flex'>
 						<div className="leftTaking flex d-column">
 							<div><i></i>需求方:需求方名域名称</div>
-							<div><i></i>项目金额:$39999</div>
+							<div><i></i>项目金额:￥39999</div>
 							<div><i></i>项目周期:两个月</div>
 						</div>
 						<div className="rightBottom flex d-column">
@@ -60,7 +60,7 @@ export default class Ordertaking extends React.Component {
 								</div>
 								<div className="xian"></div>
 								<div className='btnContent'>
-									<div className="rect phoneThree"></div>
+									<div className="rect phoneTwo"></div>
 									<div>阶段D</div>
 								</div>
 								<div className="xian"></div>

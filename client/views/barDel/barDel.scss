@@ -166,9 +166,10 @@
         }
         .rightOne{
           .huiTu{
-            width: 100px;
+            width: 84px;
             height: 30px;
-            font-size: 17px;
+						font-size: 17px;
+						margin-right: 30px;
             color: #cccccc;
             .huiImg{
               display: inline-block;
@@ -186,16 +187,15 @@
             .zanImg{
               display: inline-block;
               width: 24px;
-              height: 24px;
-              background:url('~img/zan1.png') no-repeat center center;
-              margin-right: 10px;
-            }
-            .zanLan{
-              display: inline-block;
-              width: 24px;
-              height: 24px;
-              background:url('~img/zan3.png') no-repeat center center;
-              margin-right: 10px;
+							height: 24px;
+							margin-right: 10px;
+							background:url('~img/zan1.png') no-repeat center center;
+							// &.zanOne{
+							// 	background:url('~img/zan1.png') no-repeat center center;
+							// }
+							&.zanLan{
+								background:url('~img/zan3.png') no-repeat center center;
+							}
             }
           }
         }
@@ -224,11 +224,11 @@
        background: url('~img/bad.png') no-repeat center center;
       }
     }
-    textarea{
-      width: 378px;
-      height: 210px;
-      // margin-top: 10px;
-    }
+    // textarea{
+    //   width: 378px;
+    //   height: 210px;
+    //   // margin-top: 10px;
+    // }
     .ti{
 
         color: inherit;
@@ -241,5 +241,38 @@
 
     }
 
-  }
+	}
+.commentMes{
+	background-color: #ffffff;
+	width: 600px;
+	padding:0 10px;
+	z-index: 100;
+	position: absolute;
+	top: 53%;
+	left: 39%;
+	border:1px solid #cccccc;
+	display: none;
+	.topThree{
+		line-height: 30px;
+		height: 30px;
+		border-bottom: 1px solid #cccccc;
+		.Icon{
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+		 background: url('~img/bad.png') no-repeat center center;
+		}
+	}
+	.ti{
+
+						color: inherit;
+						display: inline-block;
+						width: 60px;
+						height: 30px;
+						background-color: #1fb8fd;
+						line-height: 30px;
+						text-align: center;
+
+				}
+}
 }

@@ -1,30 +1,28 @@
 import React from 'react';
 import './barDel.scss';
 import Top from '../common/partyTop.jsx';
+import Open from '../common/black.jsx';
 import Footer from '../common/lastFooter.jsx';
 import $ from 'jquery';
-import { Button } from 'antd';
-
+import { Button, List, Avatar, Icon, Modal } from 'antd';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Link, hashHistory } from 'react-router';
+
+
+// const IconText = ({ type, text }) => (
+// 	<span>
+// 		<Icon type={type} style={{ marginRight: 8 }} />
+// 		{text}
+// 	</span>
+// );
 
 
 export default class New extends React.Component {
 	// 上传图片
 	constructor(props) {
 		super(props);
-		this.state = {
-			text: '',
-			data: [
-				{ time: '18分钟前', content: '回复内容回复内容回复内容回复内容回gdfg复内容回复内容回复内容回复内容回复内容回复内回复', title: '879' },
-				{ time: '23分钟前', content: '回复内容回复内容回复内容回复内容fdsf回复内容回复内容回复内容回复内容回复内容回复内回复', title: 'gdgf' },
-				{ time: '15分钟前', content: '回复内容回复内容回复内容回复内容ds回复内容回复内容回复内容回复内容回复内容回复内回复', title: '456' },
-				{ time: '11分钟前', content: 'fg', title: '456' },
-				{ time: '15分钟前', content: '回复内容回复内容回复内容回复内sdf容回复内容回复内容回复内容回复内容回复内容回复内回复', title: '123' },
-				{ time: '19分钟前', content: '回复内容回复内容回复内容回复内容回复dfg内容回复内容回复内容回复内容回复内容回复内回复', title: 'dfgdgf' }
-			]
-		}; // You can also pass a Quill Delta here
+
 		this.handleChange = this.handleChange.bind(this);
 
 		this.toolbarOptions = [
@@ -46,8 +44,51 @@ export default class New extends React.Component {
 			['image'],
 			// ['clean'] // remove formatting button
 		];
+		this.state = {
+			// num: 5,
+			text: '',
+			listData: [
+				{ time: '18分钟前', content: '回复内容回复内容回复内容回复内容回gdfg复内容回复内容回复内容回复内容回复内容回复内回复', title: '879' },
+				{ time: '23分钟前', content: '回复内容回复内容回复内容回复内容fdsf回复内容回复内容回复内容回复内容回复内容回复内回复', title: 'gdgf' },
+				{ time: '15分钟前', content: '回复内容回复内容回复内容回复内容ds回复内容回复内容回复内容回复内容回复内容回复内回复', title: '456' },
+				{ time: '11分钟前', content: 'fg', title: '456' },
+				{ time: '15分钟前', content: '回复内容回复内容回复内容回复内sdf容回复内容回复内容回复内容回复内容回复内容回复内回复', title: '123' },
+				{ time: '19分钟前', content: '回复内容回复内容回复内容回复内容回复dfg内容回复内容回复内容回复内容回复内容回复内回复', title: 'dfgdgf' }
+			]
+		};
+
+		// for (let i = 0; i < this.state.num; i++) {
+		// 	this.state.listData.push({
+		// 		star: {
+		// 			text: 156,
+		// 			active: false,
+		// 		},
+		// 		up: {
+		// 			text: 100,
+		// 			active: false,
+		// 		},
+		// 		reblack: {
+		// 			text: 10,
+		// 			active: false,
+		// 		},
+		// 		href: 'http://ant.design',
+		// 		title: `ant design part ${i}`,
+		// 		avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+		// 		description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+		// 		content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+		// 	});
+		// }
 	}
 
+
+	// 点击收藏
+	getHandle = () => {
+		$('.shou').toggleClass('dis');
+	}
+	toggleHandle = () => {
+		$('.zanImg').toggleClass('zanLan');
+	}
+	//设置评论框内容
 	handleChange(value) {
 		this.setState({ text: value });
 	}
@@ -55,26 +96,54 @@ export default class New extends React.Component {
 	click = () => {
 		$('#comment').toggle();
 	};
-	iconClick = () => {
+	iconPing = () => {
 		$('#comment').css('display', 'none');
-	};
+	}
+
+	// 获取回复 插件的使用
+	// onClick = (item, type) => {
+	// 	const { listData } = this.state;
+
+	// 	item[type].active = true;
+	// 	item[type].text = item[type].text + 1;
+
+	// 	this.setState({
+	// 		listData
+	// 	});
+	// }
 	// 提交评论
 	handle = () => {
-		// this.state.text='';
 		var ctime = new Date().getMinutes();
-		const { data } = this.state;
-
-		data.unshift({
-			time: ctime,
+		const { listData } = this.state;
+		listData.unshift({
+			// star: {
+			// 	text: 1,
+			// 	active: false,
+			// },
+			// up: {
+			// 	text: 1,
+			// 	active: false,
+			// },
+			// reblack: {
+			// 	text: 1,
+			// 	active: false,
+			// },
+			// description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
 			content: this.state.text,
 			title: '砖头'
 		});
 
-		this.setState({ data});
+		this.setState({ listData });
 	}
 
 	render() {
-		// console.log(this.state.text)
+		// const pagination = {
+		// 	pageSize: 10,
+		// 	current: 1,
+		// 	total: this.state.listData.length,
+		// 	onChange: (() => { })
+		// };
+
 		return (
 			<div id="barDel">
 				{/* <Top></Top> */}
@@ -102,7 +171,7 @@ export default class New extends React.Component {
 						<div>文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图 .</div>
 					</div>
 					<div className="disBtn flex-vcenter">
-						<div className="shou"><i className='shouOne'></i> 收藏</div>
+						<div className="shou flex-center" onClick={this.getHandle}><i className='shouOne'></i> 收藏</div>
 						<div className="dis" onClick={this.click}><i className='pingOne'></i>评论</div>
 					</div>
 				</div>
@@ -111,7 +180,7 @@ export default class New extends React.Component {
 					{/* 头部 */}
 					<div className="topThree flex-vcenter jc-between">
 						<div className="commentTop">评论</div>
-						<div className="Icon" onClick={this.iconClick}></div>
+						<div className="Icon" onClick={this.iconPing}></div>
 					</div>
 					{/* 添加图片 */}
 					<div className="upDa">
@@ -122,20 +191,49 @@ export default class New extends React.Component {
 								toolbar: this.toolbarOptions
 							}} />
 					</div>
-					<Button className="ti"  onClick={this.handle} disabled={!this.state.text}>提交</Button>
+					<Button className="ti" onClick={this.handle} disabled={!this.state.text}>提交</Button>
 					{/* <div className="ti" onClick={this.handle}>提交</div> */}
 				</div>
+				{/* 回复信息的弹出框 */}
+				{/* <Open></Open> */}
 				{/* 评论内容 */}
+				{/* <div className="discuss">
+					<div className="disContent">
+						<div className='contOne'><i className='cirlOne'></i> 全部3条回复</div>
+						<List
+							itemLayout="vertical"
+							size="large"
+							pagination={pagination}
+							dataSource={this.state.listData}
+							renderItem={item => (
+								<List.Item
+									key={item.title}
+									actions={[
+										<div onClick={() => this.onClick(item, 'star')}><IconText type="star-o" text={item.star.text} /></div>,
+										<div onClick={() => this.onClick(item, 'up')}><IconText type="like-o" text={item.up.text} /></div>, <div onClick={() => this.onClick(item, 'reblack')}><IconText type="message" text={item.reblack.text} /></div>]}
+									extra={<img width={272} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
+								>
+									<List.Item.Meta
+										avatar={<Avatar src={item.avatar} />}
+										title={<a href={item.href}>{item.title}</a>}
+										description={item.description}
+									/>
+									{item.content}
+								</List.Item>
+							)}
+						/>
+					</div>
+				</div> */}
 				<div className="discuss">
 					<div className="disContent">
 						<div className='contOne'><i className='cirlOne'></i> 全部3条回复</div>
-						{this.state.data.map(item => {
+						{this.state.listData.map(item => {
 							return (
 								<div className="disOne flex jc-between">
 									<div className="leftOne flex-vcenter">
 										<div className="imgLeft"></div>
 										<div className="contentLeft">
-											<div className='title'>{item.title}<span className='timeOne'>{item.time}</span></div>
+											<div className='title'>{item.title}<span>{item.time}</span></div>
 											<div className='huiContent'>{item.content}</div>
 										</div>
 									</div>
@@ -146,7 +244,6 @@ export default class New extends React.Component {
 								</div>
 							);
 						})}
-
 					</div>
 				</div>
 			</div>

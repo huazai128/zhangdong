@@ -26,7 +26,7 @@ export default class Top extends React.Component {
 				<div className="party flex jc-between">
 					<div className="leftTop flex-vcenter">
 						<Link to='/'><img src={require('img/partyTop1.png')} alt="" /></Link>
-						<div className='ceOne'>测试者社区</div>
+						<div className='ceOne'>	<Link to='/creative'>测试者社区</Link></div>
 					</div>
 					<div className="rightTop flex-vcenter">
 						<div className="search">
@@ -37,6 +37,8 @@ export default class Top extends React.Component {
 							/>
 						</div>
 						<div className="dropDown flex flex-vcenter">
+							<div className='zhuOneContent'>注册</div>
+							<div className='zhuOneContent' onClick={()=>hashHistory.push('/login')}>登陆</div>
 							<img src={require('img/top2.png')} alt="" />
 							<div className="drop">
 								用户名称&nbsp;&nbsp;
@@ -45,7 +47,6 @@ export default class Top extends React.Component {
 									<Option value="退出登录">退出登录</Option>
 								</Select>
 							</div>
-
 						</div>
 					</div>
 				</div>

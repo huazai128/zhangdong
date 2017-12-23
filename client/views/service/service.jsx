@@ -182,7 +182,6 @@ class Service extends React.Component {
 		// {...this.props}==》获取出所有的属性
 		return <div id="service">
 			<Common bgCls="service" {...this.props} />
-
 			{this.props.children}
 			<div className="bottomBox">
 				<div className="content flex">
