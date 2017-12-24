@@ -1,20 +1,24 @@
-import React from "react";
-import "./education.scss";
+import React from 'react';
+import './education.scss';
 import { Link, hashHistory } from 'react-router';
 // 对应的组件
 class App extends React.Component {
+	componentDidMount() {
+		this.node.scrollIntoView();
+	}
 	render() {
-		return <div id='app'>
+		return <div id='app' ref={node => this.node = node}>
 			<div className="topBox">
 				<div className="content">
 					<div className="flex">
 						<ul className="flex-vcenter flex-g-1">
+							<li className='liTwo'><Link to="/"><img src={require('img/logo.png')} alt="" /></Link></li>
 							<li className="item"><Link to="/service">产品与服务</Link></li>
 							<li className="item"><Link to="/solve">解决方案</Link></li>
 							<li className="item"><Link to="/new">新闻动态</Link></li>
 							<li className="item"><Link to="/our">关于我们</Link></li></ul>
 						<ul className="topBoxright flex-vcenter">
-							<li><Link to='/main'>注册</Link></li><li><Link to='/login'>登陆</Link></li><li className="blueBtn"><Link to='/creative'>测试者社区</Link></li>
+							<li className="blueBtn"><Link to='/creative'>测试者社区</Link></li>
 						</ul>
 					</div>
 				</div>
@@ -28,7 +32,7 @@ class App extends React.Component {
 						<div className="flex-center jc-between soft" >
 							<a href="javascript:void(0);">
 								<div className="item" >
-									<img src={require("img/500489173.jpg")} alt="" />
+									<img src={require('img/500489173.jpg')} alt="" />
 									<i className='one'></i>
 									<h5>测试手机端的不足</h5>
 									<p>测试手机端的不足，一直是困扰着以APP软件企业的<br></br>
@@ -38,7 +42,7 @@ class App extends React.Component {
 							</a>
 							<a href="javascript:void(0);">
 								<div className="item" >
-									<img src={require("img/微信图片_20171011113913.jpg")} alt="" />
+									<img src={require('img/微信图片_20171011113913.jpg')} alt="" />
 									<i className='two'></i>
 									<h5>专业测试人员不足</h5>
 									<p>很多软件项目的开发还停留在“作坊式”阶段，项目的<br></br>
@@ -48,7 +52,7 @@ class App extends React.Component {
 							</a>
 							<a href="javascript:void(0);">
 								<div className="item" >
-									<img src={require("img/微信图片_20171011114614.jpg")} alt="" />
+									<img src={require('img/微信图片_20171011114614.jpg')} alt="" />
 									<i className='three'></i>
 									<h5>测试深度和广度不足</h5>
 									<p>产品功能复杂，往往需要耗费众多的人员投入，大<br></br>
@@ -73,9 +77,9 @@ class App extends React.Component {
 						应用于教育领域的APP，结合移动终端与投影仪，植入云盘与批注功能，实现移动教学。具有丰富的接口，可以连接大部分教室设备。学校老师就不需要接入任何视频线便可将电脑信号一键投射到投影机，方便老师上课素材、PPT展示。</p>
 
 					<ul className='flex-hcenter'>
-						<li><a href="javascript:void(0);"><img src={require("img/edu1.png")} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require("img/edu2.png")} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require("img/edu4.png")} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/edu1.png')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/edu2.png')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/edu4.png')} alt="" /></a></li>
 					</ul>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
@@ -139,9 +143,9 @@ class App extends React.Component {
 						</ul>
 					</div>
 					<div className="bottomRight flex-g-1">
-						<img src={require("img/logo.png")} />
+						<img src={require('img/logo.png')} />
 						<div className="text">关注我们</div>
-						<img src={require("img/share.png")} />
+						<img src={require('img/share.png')} />
 					</div>
 				</div>
 			</div>

@@ -1,20 +1,26 @@
-import React from "react";
-import "./app.scss";
+import React from 'react';
+import './app.scss';
 import { Link, hashHistory } from 'react-router';
+import Common from '../common/comonOur.jsx';
 // 对应的组件
 class App extends React.Component {
+	componentDidMount() {
+		this.node.scrollIntoView();
+	}
+
 	render() {
-		return <div id='app'>
+		return <div id='app' ref={node => this.node = node}>
 			<div className="topBox">
 				<div className="content">
 					<div className="flex">
 						<ul className="flex-vcenter flex-g-1">
+							<li className='liTwo'><Link to="/"><img src={require('img/logo.png')} alt="" /></Link></li>
 							<li className="item"><Link to="/service">产品与服务</Link></li>
 							<li className="item"><Link to="/solve">解决方案</Link></li>
 							<li className="item"><Link to="/new">新闻动态</Link></li>
 							<li className="item"><Link to="/our">关于我们</Link></li></ul>
 						<ul className="topBoxright flex-vcenter">
-							<li><Link to='/main'>注册</Link></li><li><Link to='/login'>登陆</Link></li><li className="blueBtn"><Link to='/creative'>测试者社区</Link></li>
+							<li className="blueBtn"><Link to='/creative'>测试者社区</Link></li>
 						</ul>
 					</div>
 				</div>
@@ -27,7 +33,7 @@ class App extends React.Component {
 						<div className="flex-center jc-between soft" >
 							<a href="javascript:void(0);">
 								<div className="item" >
-									<img src={require("img/500489173.jpg")} alt="" />
+									<img src={require('img/500489173.jpg')} alt="" />
 									<i className='one'></i>
 									<h5>测试手机端的不足</h5>
 									<p>测试手机端的不足，一直是困扰着以APP软件企业的<br></br>
@@ -37,7 +43,7 @@ class App extends React.Component {
 							</a>
 							<a href="javascript:void(0);">
 								<div className="item" >
-									<img src={require("img/微信图片_20171011113913.jpg")} alt="" />
+									<img src={require('img/微信图片_20171011113913.jpg')} alt="" />
 									<i className='two'></i>
 									<h5>专业测试人员不足</h5>
 									<p>很多软件项目的开发还停留在“作坊式”阶段，项目的<br></br>
@@ -47,7 +53,7 @@ class App extends React.Component {
 							</a>
 							<a href="javascript:void(0);">
 								<div className="item" >
-									<img src={require("img/微信图片_20171011114614.jpg")} alt="" />
+									<img src={require('img/微信图片_20171011114614.jpg')} alt="" />
 									<i className='three'></i>
 									<h5>测试深度和广度不足</h5>
 									<p>产品功能复杂，往往需要耗费众多的人员投入，大<br></br>
@@ -73,10 +79,10 @@ class App extends React.Component {
 					<p>财视APP是一个提供科技金融综合服务平台，汇集财经博主、投资理财达人，致力于为用户提供一站式金融服务，涵盖股票、基金、财经、证券、黄金、外汇、投资、理财、保险、期货等<br></br>
 						金融行业，包括基于个人兴趣、大数据、音视频、券商交易、理财产品及智能投顾等，是一个为投资者提供智能投资的平台</p>
 					<ul className='flex-hcenter'>
-						<li><a href="javascript:void(0);"><img src={require("img/zhong1.jpg")} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require("img/zhong2.jpg")} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require("img/zhong3.jpg")} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require("img/zhong4.jpg")} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/zhong1.jpg')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/zhong2.jpg')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/zhong3.jpg')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/zhong4.jpg')} alt="" /></a></li>
 					</ul>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
@@ -141,9 +147,9 @@ class App extends React.Component {
 						</ul>
 					</div>
 					<div className="bottomRight flex-g-1">
-						<img src={require("img/logo.png")} />
+						<img src={require('img/logo.png')} />
 						<div className="text">关注我们</div>
-						<img src={require("img/share.png")} />
+						<img src={require('img/share.png')} />
 					</div>
 				</div>
 			</div>

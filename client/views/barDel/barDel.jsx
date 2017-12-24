@@ -9,10 +9,48 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Link, hashHistory } from 'react-router';
 
+
+class CommentItem extends React.Component {
+	state = {
+		active: false,
+		number: 30
+	}
+
+	onClick = () => {
+		this.setState({
+			active: !this.state.active,
+			number: this.state.active ? this.state.number : this.state.number + 1
+		});
+	}
+
+	render() {
+		const { item } = this.props;
+
+		return (
+			<div className="disOne flex jc-between">
+				<div className="leftOne flex-vcenter">
+					<div className="imgLeft"></div>
+					<div className="contentLeft">
+						<div className='title'>{item.title}<span>{item.time}</span></div>
+						<div className='huiContent'>{item.content}</div>
+					</div>
+				</div>
+				<div className="rightOne flex-vcenter">
+					<ModalWrap><div className="huiTu flex-vcenter"><i className='huiImg'></i> 回复</div></ModalWrap>
+					<div onClick={this.onClick} className="zan flex-vcenter"><i className={this.state.active ? 'zanLan' : 'zanImg'}></i>{this.state.number}</div>
+				</div>
+			</div>
+		);
+	}
+}
+
 const { TextArea } = Input;
 
 class ModalWrap extends React.Component {
-	state = { visible: false }
+	state = {
+		visible: false,
+		text: '',
+	}
 	showModal = () => {
 		this.setState({
 			visible: true,
@@ -21,17 +59,27 @@ class ModalWrap extends React.Component {
 	handleOk = (e) => {
 		this.setState({
 			visible: false,
+			text: '',
 		});
+		console.log(this.state.text);
 	}
 	handleCancel = (e) => {
 		this.setState({
 			visible: false,
 		});
 	}
+
+	onChangeInput = (e) => {
+		const { value: text } = e.target;
+		this.setState({ text });
+	}
+
 	render() {
 		const Child = () => React.cloneElement(this.props.children, {
 			onClick: this.showModal
 		});
+
+		const { text } = this.state;
 
 		return (
 			<div>
@@ -42,7 +90,7 @@ class ModalWrap extends React.Component {
 					onOk={this.handleOk}
 					onCancel={this.handleCancel}
 				>
-					<TextArea rows={6}placeholder="评论回复内容..." />
+					<TextArea value={text} onChange={this.onChangeInput} rows={6} placeholder="评论回复内容..." />
 				</Modal>
 			</div>
 		);
@@ -117,6 +165,10 @@ export default class New extends React.Component {
 		$('#comment').css('display', 'none');
 	}
 
+	// 点击图片切换
+	handleTab = (index) => {
+		console.log($('.zan').children().eq(index).toggleClass('zanLan'))
+	}
 	// 提交评论
 	handle = () => {
 		var ctime = new Date().getMinutes();
@@ -188,22 +240,10 @@ export default class New extends React.Component {
 				<div className="discuss">
 					<div className="disContent">
 						<div className='contOne'><i className='cirlOne'></i> 全部3条回复</div>
-						{this.state.listData.map(item => {
+						{this.state.listData.map((item) => {
 							return (
-								<div className="disOne flex jc-between">
-									<div className="leftOne flex-vcenter">
-										<div className="imgLeft"></div>
-										<div className="contentLeft">
-											<div className='title'>{item.title}<span>{item.time}</span></div>
-											<div className='huiContent'>{item.content}</div>
-										</div>
-									</div>
-									<div className="rightOne flex-vcenter">
-										<ModalWrap><div className="huiTu flex-vcenter"><i className='huiImg'></i> 回复</div></ModalWrap>
-
-										<div className="zan flex-vcenter"><i className='zanImg'></i>30</div>
-									</div>
-								</div>
+								// 一个一个组件内容
+								<CommentItem item={item} />
 							);
 						})}
 					</div>

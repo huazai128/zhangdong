@@ -95,13 +95,13 @@ class Main extends React.Component {
 							</div>
 						</div>
 						<div className="item third">
-							<div onClick={() => { hashHistory.push('/cloud/3') ;}}>
+							<div onClick={() => { hashHistory.push('/cloud/3'); }}>
 								<div className="icon"></div>
 								<div className="text">质量变现</div>
 							</div>
 						</div>
 						<div className="item four">
-							<div onClick={()=>hashHistory.push('/cloud/4')}>
+							<div onClick={() => hashHistory.push('/cloud/4')}>
 								<div className="icon"></div>
 								<div className="text">质量测试</div>
 							</div>
@@ -265,7 +265,7 @@ class Main extends React.Component {
 						<div className="line"></div>
 						<div className="tip">世界因智能而改变,掌测APPSTEST让智能因品质而更美好</div>
 						<div>
-							<div className="item" style={{ background: 'url("' + require('img/solve1.jpg') + '") no-repeat center center' }}>
+							<div className="item" style={{ background: 'url("' + require('img/solve1.jpg') + '") no-repeat center center' }} onClick={() => hashHistory.push('/lab')}>
 								<div className="itemView">
 									<img className="solveicon" src={require('img/solveicon.png')} />
 									<div className="line"></div>
@@ -295,31 +295,33 @@ class Main extends React.Component {
 								</div>
 							</div>
 							<div className="item" style={{ background: 'url("' + require('img/solve4.png') + '") no-repeat center center' }}>
-								<div className="itemView">
-									<img className="solveicon" src={require('img/solveicon.png')} />
-									<div className="line"></div>
-									<div className="text">智能硬件测试</div>
-								</div>
-								<div className="itemViewHover">
-									<div className="itemTitle">智能硬件测试</div>
-									<ul className="clearfix">
-										<li>
-											<div><img className="img" src={require('img/phone_white.png')} /></div>
-											<div className="litext">硬件测试</div>
-										</li>
-										<li>
-											<div><img className="img" src={require('img/phone_white.png')} /></div>
-											<div className="litext">软件测试</div>
-										</li>
-										<li>
-											<div><img className="img" src={require('img/phone_white.png')} /></div>
-											<div className="litext">用户体验测试</div>
-										</li>
-									</ul>
-									<div className="itembtn"><a href="#">了解更多</a></div>
-								</div>
+								<Link to='/hardware'>
+									<div className="itemView">
+										<img className="solveicon" src={require('img/solveicon.png')} />
+										<div className="line"></div>
+										<div className="text">智能硬件测试</div>
+									</div>
+									<div className="itemViewHover">
+										<div className="itemTitle">智能硬件测试</div>
+										<ul className="clearfix">
+											<li>
+												<div><img className="img" src={require('img/phone_white.png')} /></div>
+												<div className="litext">硬件测试</div>
+											</li>
+											<li>
+												<div><img className="img" src={require('img/phone_white.png')} /></div>
+												<div className="litext">软件测试</div>
+											</li>
+											<li>
+												<div><img className="img" src={require('img/phone_white.png')} /></div>
+												<div className="litext">用户体验测试</div>
+											</li>
+										</ul>
+										<div className="itembtn"><a href="#">了解更多</a></div>
+									</div>
+								</Link>
 							</div>
-							<div className="item" style={{ background: 'url("' + require('img/solve2.jpg') + '") no-repeat center center' }}>
+							<div className="item" style={{ background: 'url("' + require('img/solve2.jpg') + '") no-repeat center center' }} onClick={()=>hashHistory.push('/education')}>
 								<div className="itemView">
 									<img className="solveicon" src={require('img/solveicon.png')} />
 									<div className="line"></div>
@@ -344,7 +346,7 @@ class Main extends React.Component {
 									<div className="itembtn"><a href="#">了解更多</a></div>
 								</div>
 							</div>
-							<div className="item" style={{ background: 'url("' + require('img/solve3.jpg') + '") no-repeat center center' }}>
+							<div className="item" style={{ background: 'url("' + require('img/solve3.jpg') + '") no-repeat center center' }} onClick={()=>hashHistory.push('/app')}>
 								<div className="itemView">
 									<img className="solveicon" src={require('img/solveicon.png')} />
 									<div className="line"></div>

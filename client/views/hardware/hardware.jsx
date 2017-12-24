@@ -1,20 +1,24 @@
-import React from "react";
-import "./hardware.scss";
+import React from 'react';
+import './hardware.scss';
 import { Link, hashHistory } from 'react-router';
 // 对应的组件
 class App extends React.Component {
+	componentDidMount() {
+		this.node.scrollIntoView();
+	}
 	render() {
-		return <div id='app'>
+		return <div id='app' ref={node => this.node = node}>
 			<div className="topBox">
 				<div className="content">
 					<div className="flex">
 						<ul className="flex-vcenter flex-g-1">
+							<li className='liTwo'><Link to="/"><img src={require('img/logo.png')} alt="" /></Link></li>
 							<li className="item"><Link to="/service">产品与服务</Link></li>
 							<li className="item"><Link to="/solve">解决方案</Link></li>
 							<li className="item"><Link to="/new">新闻动态</Link></li>
 							<li className="item"><Link to="/our">关于我们</Link></li></ul>
 						<ul className="topBoxright flex-vcenter">
-							<li><Link to='/main'>注册</Link></li><li><Link to='/login'>登陆</Link></li><li className="blueBtn"><Link to='/creative'>测试者社区</Link></li>
+							<li className="blueBtn"><Link to='/creative'>测试者社区</Link></li>
 						</ul>
 					</div>
 				</div>
@@ -28,7 +32,7 @@ class App extends React.Component {
 						<div className="flex-center jc-between soft" >
 							<a href="javascript:void(0);">
 								<div className="item" >
-									<img src={require("img/500489173.jpg")} alt="" />
+									<img src={require('img/500489173.jpg')} alt="" />
 									<i className='one'></i>
 									<h5>质量问题</h5>
 									<p>随着各种产品爆炸事故频发，消费者对智能硬件的质量问题越来越重视，而一个好的产品质量往往最能给消费者留下好印象，重视硬件产品质量，打造品牌形象的第一步。</p>
@@ -36,7 +40,7 @@ class App extends React.Component {
 							</a>
 							<a href="javascript:void(0);">
 								<div className="item" >
-									<img src={require("img/微信图片_20171011113913.jpg")} alt="" />
+									<img src={require('img/微信图片_20171011113913.jpg')} alt="" />
 									<i className='two'></i>
 									<h5>用户体验差</h5>
 									<p>智能硬件市场的成功很大取决于用户的积极体验。如果产品在用户想象中有大差距时，体验感差。那么这种状况将会对设备制造商承诺的高质量服务形成打击，影响后期的销路。 </p>
@@ -44,7 +48,7 @@ class App extends React.Component {
 							</a>
 							<a href="javascript:void(0);">
 								<div className="item" >
-									<img src={require("img/微信图片_20171011114614.jpg")} alt="" />
+									<img src={require('img/微信图片_20171011114614.jpg')} alt="" />
 									<i className='three'></i>
 									<h5>APP与硬件结合使用问题多</h5>
 									<p>一款设计精良的产品仍不足以创建大规模的忠诚用户。消费者使用这些设备主要就是想看看相应的数据结果，而这些功能则需要通过APP来展现，APP与硬件结合的产生bug问题，往往影响着用户对产品的体验感。</p>
@@ -67,9 +71,9 @@ class App extends React.Component {
 					<p className='flex'>
 						格兰仕冰箱定位于“全球最大空调专业化制造中心”，高起点快速切入市场，在第一个冷冻年度（2001年度）就实现产销50万台。2002年预计产销180万台，其中内销60万台，外销120万台。</p>
 					<ul className='flex-hcenter'>
-						<li><a href="javascript:void(0);"><img src={require("img/gelan5.png")} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require("img/gelan3.png")} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require("img/gelan4.png")} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/gelan5.png')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/gelan3.png')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/gelan4.png')} alt="" /></a></li>
 					</ul>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
@@ -132,9 +136,9 @@ class App extends React.Component {
 						</ul>
 					</div>
 					<div className="bottomRight flex-g-1">
-						<img src={require("img/logo.png")} />
+						<img src={require('img/logo.png')} />
 						<div className="text">关注我们</div>
-						<img src={require("img/share.png")} />
+						<img src={require('img/share.png')} />
 					</div>
 				</div>
 			</div>

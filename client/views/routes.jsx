@@ -96,8 +96,6 @@ const routes = [
 			},
 		]
 	},
-
-
 	{
 		path: '/app',
 		getComponent: (nextState, cb) => {
