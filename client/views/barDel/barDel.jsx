@@ -4,11 +4,50 @@ import Top from '../common/partyTop.jsx';
 import Open from '../common/black.jsx';
 import Footer from '../common/lastFooter.jsx';
 import $ from 'jquery';
-import { Button, List, Avatar, Icon, Modal } from 'antd';
+import { Button, List, Avatar, Icon, Modal, Input } from 'antd';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Link, hashHistory } from 'react-router';
 
+const { TextArea } = Input;
+
+class ModalWrap extends React.Component {
+	state = { visible: false }
+	showModal = () => {
+		this.setState({
+			visible: true,
+		});
+	}
+	handleOk = (e) => {
+		this.setState({
+			visible: false,
+		});
+	}
+	handleCancel = (e) => {
+		this.setState({
+			visible: false,
+		});
+	}
+	render() {
+		const Child = () => React.cloneElement(this.props.children, {
+			onClick: this.showModal
+		});
+
+		return (
+			<div>
+				<Child />
+				<Modal
+					title="评论回复"
+					visible={this.state.visible}
+					onOk={this.handleOk}
+					onCancel={this.handleCancel}
+				>
+					<TextArea rows={6}placeholder="评论回复内容..." />
+				</Modal>
+			</div>
+		);
+	}
+}
 
 // const IconText = ({ type, text }) => (
 // 	<span>
@@ -160,7 +199,8 @@ export default class New extends React.Component {
 										</div>
 									</div>
 									<div className="rightOne flex-vcenter">
-										<div className="huiTu flex-vcenter"><i className='huiImg'></i> 回复</div>
+										<ModalWrap><div className="huiTu flex-vcenter"><i className='huiImg'></i> 回复</div></ModalWrap>
+
 										<div className="zan flex-vcenter"><i className='zanImg'></i>30</div>
 									</div>
 								</div>
