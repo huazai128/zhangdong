@@ -10,7 +10,7 @@
 		text-decoration: none;
 	}
 .party{
-  line-height: 60px;
+  line-height: 46px;
   height: 60px;
   width: 1380px;
   margin: 0 auto;
@@ -25,9 +25,15 @@
 
 }
 .dropDown{
-	.zhuOneContent{
+	p{
 	margin-right: 40px;
-  color: #ffffff;
+	color: #ffffff;
+	&.contentOne{
+		display: none
+	}
+	&.contentTwo{
+		display: block;
+	}
 	}
   margin-left: 30px;
   img{

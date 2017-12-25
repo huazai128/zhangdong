@@ -74,10 +74,18 @@
 			}
 			.ImgContent{
 				margin-top: 80px;
-			img{
-				display: block;
-				margin: 0 auto;
-			}
+				&.imgOne img{
+					display: block;
+					margin: 0 auto;
+				}
+				&.imgTwo{
+					position: relative;
+					left: -120px;
+				}
+				&.imgThree{
+					position: relative;
+					left: -50px;
+				}
 			}
 		}
 	}

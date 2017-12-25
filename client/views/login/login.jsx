@@ -1,5 +1,6 @@
 import React from 'react';
 import './login.scss';
+import { setStore, getStore } from './loginLocal.js';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { Link, hashHistory } from 'react-router';
 
@@ -11,9 +12,12 @@ class Login extends React.Component {
 			if (!err) {
 				console.log('Received values of form: ', values);
 				// console.log(values.userName)
-				if (values.userName === 'admin' && values.password == 123456) {
+				setStore('name', values.userName);
+				// setStore('psd', values.password);
+				// console.log(getStore(name));
+				if (values.userName === 'admin' && values.password== 123456) {
 					hashHistory.push('/creative');
-				}else{
+				} else {
 					alert('登录失败');
 				}
 			}
@@ -36,7 +40,7 @@ class Login extends React.Component {
 							{getFieldDecorator('password', {
 								rules: [{ required: true, message: 'Please input your Password!' }],
 							})(
-								<Input className='use flex-center' prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)', fontSize: '28px' }} />} type="password" placeholder="密码" />	)}
+								<Input className='use flex-center' prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)', fontSize: '28px' }} />} type="password" placeholder="密码" />)}
 						</FormItem>
 						<Button htmlType="submit" className="login-form-button">
 							登录</Button>

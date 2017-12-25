@@ -102,7 +102,7 @@ export default class extends React.Component {
 												<p className='diFang'>远程诊断</p>
 											</li>
 										</ul>
-										<div className='ImgContent'>
+										<div className='ImgContent imgOne'>
 											<img src={require('img/333.png')} alt="" />
 										</div>
 									</div>
@@ -161,7 +161,7 @@ export default class extends React.Component {
 												<p className='diFang'>万余种行业应用沉淀数据仓库</p>
 											</li>
 										</ul>
-										<div className='ImgContent'>
+										<div className='ImgContent imgTwo'>
 											<img src={require('img/222.png')} alt="" />
 										</div>
 									</div>
@@ -225,7 +225,7 @@ export default class extends React.Component {
 												<p className='diFang'>万余种行业应用沉淀数据仓库</p>
 											</li>
 										</ul>
-										<div className='ImgContent'>
+										<div className='ImgContent imgThree'>
 											<img src={require('img/444.png')} alt="" />
 										</div>
 									</div>

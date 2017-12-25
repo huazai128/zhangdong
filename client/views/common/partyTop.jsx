@@ -8,19 +8,36 @@ const Search = Input.Search;
 // 下拉框
 const Option = Select.Option;
 function handleChange(value) {
-	// console.log(`selected ${value}`);
 	if (`${value}` == '个人中心') {
 		setTimeout(() => {
 			hashHistory.push('/creative/personal');
 		}, 200);
 	} else if (`${value}` == '退出登录') {
 		hashHistory.push('/login');
+		console.log(333)
+		localStorage.removeItem('name');
 	}
 }
 
-export default class Top extends React.Component {
+class CommentLogin extends React.Component {
 	render() {
+		console.log(this.props.name)
+		const {name} =this.props;
+		return (
+			<div className='flex-vcenter'>
+				<p className={name==='admin'?'contentOne':'contentTwo'}>注册</p>
+				<p className='zhuOneContent' onClick={() => hashHistory.push('/login')}>登陆</p>
+			</div>
+		);
+	}
+}
 
+
+export default class Top extends React.Component {
+
+	render() {
+		const name = localStorage.getItem('name');
+		console.log(name)
 		return (
 			<div id='partytop'>
 				<div className="party flex jc-between">
@@ -37,8 +54,7 @@ export default class Top extends React.Component {
 							/>
 						</div>
 						<div className="dropDown flex flex-vcenter">
-							<div className='zhuOneContent'>注册</div>
-							<div className='zhuOneContent' onClick={()=>hashHistory.push('/login')}>登陆</div>
+							<CommentLogin name={name}/>
 							<img src={require('img/top2.png')} alt="" />
 							<div className="drop">
 								用户名称&nbsp;&nbsp;
