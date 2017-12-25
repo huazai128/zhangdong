@@ -14,18 +14,19 @@ function handleChange(value) {
 		}, 200);
 	} else if (`${value}` == '退出登录') {
 		hashHistory.push('/login');
-		console.log(333)
+		// console.log(333)
 		localStorage.removeItem('name');
 	}
 }
 
 class CommentLogin extends React.Component {
 	render() {
-		console.log(this.props.name)
+		// console.log(this.props.name)
 		const {name} =this.props;
+		// name = 'dddd'
 		return (
 			<div className='flex-vcenter'>
-				<p className={name==='admin'?'contentOne':'contentTwo'}>注册</p>
+				<p className={name==='admin'?'hide':''}>注册</p>
 				<p className='zhuOneContent' onClick={() => hashHistory.push('/login')}>登陆</p>
 			</div>
 		);
@@ -37,7 +38,7 @@ export default class Top extends React.Component {
 
 	render() {
 		const name = localStorage.getItem('name');
-		console.log(name)
+		// console.log(name)
 		return (
 			<div id='partytop'>
 				<div className="party flex jc-between">
