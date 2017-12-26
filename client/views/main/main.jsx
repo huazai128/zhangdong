@@ -140,7 +140,8 @@ class Main extends React.Component {
 								</div>
 							</div>
 							<ul>
-								<li onClick={()=>{
+								<li onClick={() => {
+									window.location.reload();
 									hashHistory.push('/service/function');
 								}}>
 									<div className="clearfix itemTitle">
@@ -150,7 +151,8 @@ class Main extends React.Component {
 									</div>
 									<div className="itemContent">结合探索性测试和模拟不同环境下的测试,检查产品是否达到用户要求的功能</div>
 								</li>
-								<li onClick={()=>{
+								<li onClick={() => {
+									window.location.reload();
 									hashHistory.push('/service/compatible');
 								}}>
 									<div className="clearfix itemTitle">
@@ -160,7 +162,8 @@ class Main extends React.Component {
 									</div>
 									<div className="itemContent">上千款测试真机设备供客户挑选,完善自动化测试系统,快速定位,解决问题</div>
 								</li>
-								<li onClick={()=>{
+								<li onClick={() => {
+									window.location.reload();
 									hashHistory.push('/service/property');
 								}}>
 									<div className="clearfix itemTitle">
@@ -192,7 +195,8 @@ class Main extends React.Component {
 								</div>
 							</div>
 							<ul>
-								<li onClick={()=>{
+								<li onClick={() => {
+									window.location.reload();
 									hashHistory.push('/service/reliability');
 								}}>
 									<div className="clearfix itemTitle">
@@ -202,7 +206,8 @@ class Main extends React.Component {
 									</div>
 									<div className="itemContent">通过低温试验、高温试验、恒定湿热试验、N/A全方面对硬件进行测试</div>
 								</li>
-								<li onClick={()=>{
+								<li onClick={() => {
+									window.location.reload();
 									hashHistory.push('/service/wisdom');
 								}}>
 									<div className="clearfix itemTitle">
@@ -212,7 +217,8 @@ class Main extends React.Component {
 									</div>
 									<div className="itemContent">通过无线通信模组测试产品的性能，包括发射性能、接收性能、电源适应性、传输性能等专业测试</div>
 								</li>
-								<li onClick={()=>{
+								<li onClick={() => {
+									window.location.reload();
 									hashHistory.push('/service/angle');
 								}}>
 									<div className="clearfix itemTitle">
@@ -244,7 +250,8 @@ class Main extends React.Component {
 								</div>
 							</div>
 							<ul>
-								<li onClick={()=>{
+								<li onClick={() => {
+									window.location.reload();
 									hashHistory.push('/service/CMA');
 								}}>
 									<div className="clearfix itemTitle">
@@ -254,7 +261,8 @@ class Main extends React.Component {
 									</div>
 									<div className="itemContent">专业CMA认证机构，可用于申请政府扶持资金和质量仲裁</div>
 								</li>
-								<li onClick={()=>{
+								<li onClick={() => {
+									window.location.reload();
 									hashHistory.push('/service/CNAS');
 								}}>
 									<div className="clearfix itemTitle">
@@ -264,7 +272,8 @@ class Main extends React.Component {
 									</div>
 									<div className="itemContent">专业CNAS认证机构，确认其是否有能力开展相应的合格评定活动</div>
 								</li>
-								<li onClick={()=>{
+								<li onClick={() => {
+									window.location.reload();
 									hashHistory.push('/service');
 								}}>
 									<div className="clearfix itemTitle">
@@ -284,7 +293,7 @@ class Main extends React.Component {
 						<div className="line"></div>
 						<div className="tip">世界因智能而改变,掌测APPSTEST让智能因品质而更美好</div>
 						<div>
-							<div className="item" style={{ background: 'url("' + require('img/solve1.jpg') + '") no-repeat center center' }} onClick={() => hashHistory.push('/lab')}>
+							<div className="item" style={{ background: 'url("' + require('img/solve1.jpg') + '") no-repeat center center' }}>
 								<div className="itemView">
 									<img className="solveicon" src={require('img/solveicon.png')} />
 									<div className="line"></div>
@@ -310,37 +319,35 @@ class Main extends React.Component {
 											<div className="litext">ODC场内外支撑</div>
 										</li>
 									</ul>
-									<div className="itembtn"><a href="javascript:void(0);">了解更多</a></div>
+									<div className="itembtn" onClick={() => hashHistory.push('/lab')}><a href="javascript:void(0);">了解更多</a></div>
 								</div>
 							</div>
 							<div className="item" style={{ background: 'url("' + require('img/solve4.png') + '") no-repeat center center' }}>
-								<Link to='/hardware'>
-									<div className="itemView">
-										<img className="solveicon" src={require('img/solveicon.png')} />
-										<div className="line"></div>
-										<div className="text">智能硬件测试</div>
-									</div>
-									<div className="itemViewHover">
-										<div className="itemTitle">智能硬件测试</div>
-										<ul className="clearfix">
-											<li>
-												<div><img className="img" src={require('img/phone_white.png')} /></div>
-												<div className="litext">硬件测试</div>
-											</li>
-											<li>
-												<div><img className="img" src={require('img/phone_white.png')} /></div>
-												<div className="litext">软件测试</div>
-											</li>
-											<li>
-												<div><img className="img" src={require('img/phone_white.png')} /></div>
-												<div className="litext">用户体验测试</div>
-											</li>
-										</ul>
-										<div className="itembtn"><a href="#">了解更多</a></div>
-									</div>
-								</Link>
+								<div className="itemView">
+									<img className="solveicon" src={require('img/solveicon.png')} />
+									<div className="line"></div>
+									<div className="text">智能硬件测试</div>
+								</div>
+								<div className="itemViewHover">
+									<div className="itemTitle">智能硬件测试</div>
+									<ul className="clearfix">
+										<li>
+											<div><img className="img" src={require('img/phone_white.png')} /></div>
+											<div className="litext">硬件测试</div>
+										</li>
+										<li>
+											<div><img className="img" src={require('img/phone_white.png')} /></div>
+											<div className="litext">软件测试</div>
+										</li>
+										<li>
+											<div><img className="img" src={require('img/phone_white.png')} /></div>
+											<div className="litext">用户体验测试</div>
+										</li>
+									</ul>
+									<div className="itembtn" onClick={() => hashHistory.push('/hardware')}><a href="#">了解更多</a></div>
+								</div>
 							</div>
-							<div className="item" style={{ background: 'url("' + require('img/solve2.jpg') + '") no-repeat center center' }} onClick={() => hashHistory.push('/education')}>
+							<div className="item" style={{ background: 'url("' + require('img/solve2.jpg') + '") no-repeat center center' }}>
 								<div className="itemView">
 									<img className="solveicon" src={require('img/solveicon.png')} />
 									<div className="line"></div>
@@ -362,10 +369,10 @@ class Main extends React.Component {
 											<div className="litext">自动化构建发布</div>
 										</li>
 									</ul>
-									<div className="itembtn"><a href="#">了解更多</a></div>
+									<div className="itembtn"  onClick={() => hashHistory.push('/education')}><a href="#">了解更多</a></div>
 								</div>
 							</div>
-							<div className="item" style={{ background: 'url("' + require('img/solve3.jpg') + '") no-repeat center center' }} onClick={() => hashHistory.push('/app')}>
+							<div className="item" style={{ background: 'url("' + require('img/solve3.jpg') + '") no-repeat center center' }}>
 								<div className="itemView">
 									<img className="solveicon" src={require('img/solveicon.png')} />
 									<div className="line"></div>
@@ -395,7 +402,7 @@ class Main extends React.Component {
 											<div className="litext">性能测试</div>
 										</li>
 									</ul>
-									<div className="itembtn"><a href="javascript:void(0);">了解更多</a></div>
+									<div className="itembtn" onClick={() => hashHistory.push('/app')}><a href="javascript:void(0);">了解更多</a></div>
 								</div>
 							</div>
 						</div>

@@ -4,6 +4,7 @@
 	a{
 display: inline-block;
 text-decoration: none;
+height: 40px;
 }
 
   .common-top {
@@ -54,7 +55,7 @@ text-decoration: none;
 
         li {
 					// line-height: 40px;
-					// height: 40px;
+					height: 38px;
 					font-size: 15px;
           list-style: none;
 				margin-left: 40px;
@@ -84,13 +85,14 @@ text-decoration: none;
         }
         .topBoxright {
           li {
-            width: 60px;
+						width: 60px;
+						height: 40px !important;
           }
           .blueBtn {
             margin-left: 10px;
             width: 135px;
             height: 46px;
-            line-height: 46px;
+            line-height: 40px !important;
             text-align: center;
             background-color: #3FA3FB;
           }
@@ -107,7 +109,7 @@ text-decoration: none;
 							width: 174px;
 							height: 42px;
 							text-align: center;
-							line-height: 42px;
+							line-height: 40px;
 							font-size: 14px;
 							background: #3ea2fa;
 							background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);

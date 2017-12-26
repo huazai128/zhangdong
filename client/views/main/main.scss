@@ -158,7 +158,10 @@
         width: 240px;
         margin: 0 auto;
         margin-top: 560px;
-        font-size: 20px;
+				font-size: 20px;
+				&:hover{
+					cursor:pointer;
+				}
         a {
           color: #3BA3FA;
         }
@@ -343,6 +346,7 @@
             border-bottom: 1px solid #CCCCCC;
           }
           &:hover {
+						cursor:pointer;
             background: #3ea2fa;
             background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
             background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
