@@ -5,7 +5,7 @@ import 'js/lib/swiper-3.4.2.min.css';
 import 'js/lib/countUp';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
-
+import { Affix } from 'antd';
 class Main extends React.Component {
 	componentDidMount() {
 		var swiper1 = new window.Swiper('.swiper-container1', {
@@ -64,6 +64,7 @@ class Main extends React.Component {
 	}
 
 	render() {
+		console.log(Affix)
 		return (
 			<div id="main">
 				<Common bgCls="main" {...this.props} />
@@ -106,7 +107,7 @@ class Main extends React.Component {
 								<div className="text">质量测试</div>
 							</div>
 						</div>
-						<div className="more"><a href="javascript:void(0);"><a href="javascript:void(0);">了解更多</a></a></div>
+						<div className="more" onClick={() => hashHistory.push('/cloud/1')}>了解更多</div>
 					</div>
 				</div>
 				<div className="exampleBox">
@@ -127,7 +128,7 @@ class Main extends React.Component {
 								</div>
 								<div className="node">
 									<img src={require('img/search2.png')} />
-									<div className="text">功能测试</div>
+									<div className="text" >功能测试</div>
 								</div>
 								<div className="node">
 									<img src={require('img/phone.png')} />
@@ -139,7 +140,9 @@ class Main extends React.Component {
 								</div>
 							</div>
 							<ul>
-								<li>
+								<li onClick={()=>{
+									hashHistory.push('/service/function');
+								}}>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
 										<div className="float-left">功能测试</div>
@@ -147,7 +150,9 @@ class Main extends React.Component {
 									</div>
 									<div className="itemContent">结合探索性测试和模拟不同环境下的测试,检查产品是否达到用户要求的功能</div>
 								</li>
-								<li>
+								<li onClick={()=>{
+									hashHistory.push('/service/compatible');
+								}}>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
 										<div className="float-left">兼容测试</div>
@@ -155,7 +160,9 @@ class Main extends React.Component {
 									</div>
 									<div className="itemContent">上千款测试真机设备供客户挑选,完善自动化测试系统,快速定位,解决问题</div>
 								</li>
-								<li>
+								<li onClick={()=>{
+									hashHistory.push('/service/property');
+								}}>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
 										<div className="float-left">性能测试</div>
@@ -185,7 +192,9 @@ class Main extends React.Component {
 								</div>
 							</div>
 							<ul>
-								<li>
+								<li onClick={()=>{
+									hashHistory.push('/service/reliability');
+								}}>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
 										<div className="float-left">可靠性测试</div>
@@ -193,7 +202,9 @@ class Main extends React.Component {
 									</div>
 									<div className="itemContent">通过低温试验、高温试验、恒定湿热试验、N/A全方面对硬件进行测试</div>
 								</li>
-								<li>
+								<li onClick={()=>{
+									hashHistory.push('/service/wisdom');
+								}}>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
 										<div className="float-left">无线通信模组测试</div>
@@ -201,7 +212,9 @@ class Main extends React.Component {
 									</div>
 									<div className="itemContent">通过无线通信模组测试产品的性能，包括发射性能、接收性能、电源适应性、传输性能等专业测试</div>
 								</li>
-								<li>
+								<li onClick={()=>{
+									hashHistory.push('/service/angle');
+								}}>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
 										<div className="float-left">连通性测试</div>
@@ -231,7 +244,9 @@ class Main extends React.Component {
 								</div>
 							</div>
 							<ul>
-								<li>
+								<li onClick={()=>{
+									hashHistory.push('/service/CMA');
+								}}>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
 										<div className="float-left">CMA</div>
@@ -239,7 +254,9 @@ class Main extends React.Component {
 									</div>
 									<div className="itemContent">专业CMA认证机构，可用于申请政府扶持资金和质量仲裁</div>
 								</li>
-								<li>
+								<li onClick={()=>{
+									hashHistory.push('/service/CNAS');
+								}}>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
 										<div className="float-left">CNAS</div>
@@ -247,7 +264,9 @@ class Main extends React.Component {
 									</div>
 									<div className="itemContent">专业CNAS认证机构，确认其是否有能力开展相应的合格评定活动</div>
 								</li>
-								<li>
+								<li onClick={()=>{
+									hashHistory.push('/service');
+								}}>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
 										<div className="float-left">ISO</div>
@@ -321,7 +340,7 @@ class Main extends React.Component {
 									</div>
 								</Link>
 							</div>
-							<div className="item" style={{ background: 'url("' + require('img/solve2.jpg') + '") no-repeat center center' }} onClick={()=>hashHistory.push('/education')}>
+							<div className="item" style={{ background: 'url("' + require('img/solve2.jpg') + '") no-repeat center center' }} onClick={() => hashHistory.push('/education')}>
 								<div className="itemView">
 									<img className="solveicon" src={require('img/solveicon.png')} />
 									<div className="line"></div>
@@ -346,7 +365,7 @@ class Main extends React.Component {
 									<div className="itembtn"><a href="#">了解更多</a></div>
 								</div>
 							</div>
-							<div className="item" style={{ background: 'url("' + require('img/solve3.jpg') + '") no-repeat center center' }} onClick={()=>hashHistory.push('/app')}>
+							<div className="item" style={{ background: 'url("' + require('img/solve3.jpg') + '") no-repeat center center' }} onClick={() => hashHistory.push('/app')}>
 								<div className="itemView">
 									<img className="solveicon" src={require('img/solveicon.png')} />
 									<div className="line"></div>

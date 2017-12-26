@@ -23,13 +23,17 @@
         }
         li {
           list-style: none;
-        margin-left: 40px;
+				margin-left: 40px;
+				&.liTwo{
+					margin:0 !important;
+				}
         a{
           color: #fff;
         }
           img{
-            width:200px;
-            display: block
+            width: 172px;
+						height: 28px;
+						display: block;
           }
           &.item{
             width: 110px;

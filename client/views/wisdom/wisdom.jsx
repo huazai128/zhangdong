@@ -3,8 +3,11 @@ import './wisdom.scss';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
 class Function extends React.Component {
+	componentDidMount() {
+		this.node.scrollIntoView();
+	}
 	render() {
-		return <div id="function">
+		return <div id="function" ref={node => this.node = node}>
 			{/* <Common bgCls="service" /> */}
 			{/* 内容 */}
 			<div className='content'>

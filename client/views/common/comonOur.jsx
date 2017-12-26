@@ -2,7 +2,7 @@ import React from 'react';
 import './comonOur.scss';
 import { Link, hashHistory } from 'react-router';
 import NavLink from '../component/navLink';
-
+import { Affix } from 'antd';
 class Common extends React.Component {
 	constructor() {
 		super();
@@ -14,6 +14,7 @@ class Common extends React.Component {
 	render() {
 		// console.log(this.props.location.pathname)
 		return <div id="common">
+
 			<div className={`${this.props.bgCls} topBox`}>
 				<div className="content">
 					<div id='navTop' className="flex common-top">
@@ -26,7 +27,7 @@ class Common extends React.Component {
 							<NavLink url={this.props.location.pathname} to="/our">关于我们</NavLink>
 						</ul>
 						<ul className="topBoxright flex-vcenter">
-							<li className="blueBtn"><Link to='/creative'>测试者社区</Link></li>
+							<li className="blueBtn flex-center"><Link to='/creative'>测试者社区</Link></li>
 						</ul>
 					</div>
 					<div className="bottomContent">
@@ -36,6 +37,8 @@ class Common extends React.Component {
 						{this.props.bgCls === 'main' ? <div id="count"></div> : null}</div>
 				</div>
 			</div>
+
+
 		</div>;
 	}
 }
