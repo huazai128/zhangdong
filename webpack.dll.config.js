@@ -5,7 +5,7 @@ const AssetsPlugin = require('assets-webpack-plugin');
 
 module.exports = {
 	entry: {//按需加载分离插件
-		vendor: ['react', 'react-dom', 'react-router', 'jquery', 'moment','antd'],
+		vendor: ['react', 'react-dom', 'react-router', 'jquery', 'antd'],
 	},
 	output: {
 		publicPath: '/',
