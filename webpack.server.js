@@ -14,6 +14,9 @@ var path = require('path'),
 
 module.exports = {
 	cache: true,
+
+	devtool: 'cheap-module-eval-source-map',//显示log在哪一行
+
 	entry: {
 		index: [
 			'babel-polyfill',//为了支持es6语法

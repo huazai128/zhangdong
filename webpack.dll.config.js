@@ -10,7 +10,7 @@ module.exports = {
 	output: {
 		publicPath: '/',
 		path: path.join(__dirname, 'build/static'),
-		filename: 'dll/[name].[hash:5].dll.js',
+		filename: 'dll/[name].[hash:5].dll.js',//第三方库需要加hash，防止更改第三方库
 		library: '[name]_library'
 	},
 	resolve: {

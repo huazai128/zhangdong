@@ -19,7 +19,7 @@ class CommentItem extends React.Component {
 	onClick = () => {
 		this.setState({
 			active: !this.state.active,
-			number: this.state.active ? this.state.number-1 : this.state.number + 1
+			number: this.state.active ? this.state.number - 1 : this.state.number + 1
 		});
 	}
 
@@ -179,7 +179,10 @@ export default class New extends React.Component {
 			title: '砖头'
 		});
 
-		this.setState({ listData });
+		this.setState({
+			listData,
+			text: ''
+		});
 		$('#comment').css('display', 'none');
 	}
 
@@ -215,26 +218,26 @@ export default class New extends React.Component {
 						<div className="shou flex-center" onClick={this.getHandle}><i className='shouOne'></i> 收藏</div>
 						<div className="dis" onClick={this.click}><i className='pingOne'></i>评论</div>
 					</div>
+					<div className="comment" id='comment'>
+						{/* 头部 */}
+						<div className="topThree flex-vcenter jc-between">
+							<div className="commentTop">评论</div>
+							<div className="Icon" onClick={this.iconPing}></div>
+						</div>
+						{/* 添加图片 */}
+						<div className="upDa">
+							<ReactQuill className='textQuill'
+								value={this.state.text}
+								onChange={this.handleChange}
+								modules={{
+									toolbar: this.toolbarOptions
+								}} />
+						</div>
+						<Button className="ti" onClick={this.handle} disabled={!this.state.text}>提交</Button>
+						{/* <div className="ti" onClick={this.handle}>提交</div> */}
+					</div>
 				</div>
 				{/* 评论框 */}
-				<div className="comment" id='comment'>
-					{/* 头部 */}
-					<div className="topThree flex-vcenter jc-between">
-						<div className="commentTop">评论</div>
-						<div className="Icon" onClick={this.iconPing}></div>
-					</div>
-					{/* 添加图片 */}
-					<div className="upDa">
-						<ReactQuill className='textQuill'
-							value={this.state.text}
-							onChange={this.handleChange}
-							modules={{
-								toolbar: this.toolbarOptions
-							}} />
-					</div>
-					<Button className="ti" onClick={this.handle} disabled={!this.state.text}>提交</Button>
-					{/* <div className="ti" onClick={this.handle}>提交</div> */}
-				</div>
 				{/* 回复信息的弹出框 */}
 				{/* <Open></Open> */}
 				{/* 评论内容 */}

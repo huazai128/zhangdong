@@ -17,6 +17,10 @@
 	.ant-tabs-bar{
 		border: none;
 	}
+	.ant-tabs-tab-prev.ant-tabs-tab-arrow-show, .ant-tabs-tab-next.ant-tabs-tab-arrow-show{
+				 pointer-events:none;
+				 opacity: 0;
+	}
 	.ant-tabs-nav-wrap{
 		width: 1380px;
 		margin:0 auto;
@@ -31,8 +35,8 @@
 	.boxText{
 		width: 930px;
 		margin:0 auto;
-		padding-top: 80px;
-		padding-bottom: 200px;
+		padding-top: 60px;
+		padding-bottom: 80px;
 		.guojia{
 			height: 90px;
 			// margin:0px 0 80px 130px;
@@ -45,7 +49,7 @@
 			font-size: 20px;
 			color: #555555;
   &.ziyuan{
-		margin-top: 100px;
+		margin-top: 30px;
 	}
 			.ban{
 				width: 100%;
@@ -73,7 +77,7 @@
 				}
 			}
 			.ImgContent{
-				margin-top: 80px;
+				margin-top: 30px;
 				&.imgOne img{
 					display: block;
 					margin: 0 auto;
