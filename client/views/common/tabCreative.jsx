@@ -583,91 +583,103 @@ export default class Tab extends React.Component {
 							</Link>
 						</TabPane>
 						<TabPane tab='优质帖子' key="4" className='tabOne'>
+							<Link to="/creative/itcontent">
+								<div className="new flex flex-vcenter">
+									<div className="leftNew"></div>
+									<div className="rightNew">
+										<p>Move it智能穿戴设备测试</p>
+										<div>
+											<ul className='flex'>
+												<li>作者名称</li>
+												<li>两分钟前</li>
+												<li>浏览量：958</li>
+												<li>回复量：958</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</Link>
+							<Link to="/creative/gelan">
+								<div className="new flex flex-vcenter">
+									<div className="leftNew"></div>
+									<div className="rightNew">
+										<p>格兰仕智能冰箱检验测试</p>
+										<div>
+											<ul className='flex'>
+												<li>作者名称</li>
+												<li>两分钟前</li>
+												<li>浏览量：958</li>
+												<li>回复量：958</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</Link>
+							<Link to="/creative/ziDong">
+								<div className="new flex flex-vcenter">
+									<div className="leftNew"></div>
+									<div className="rightNew">
+										<p>接口自动化测试</p>
+										<div>
+											<ul className='flex'>
+												<li>作者名称</li>
+												<li>两分钟前</li>
+												<li>浏览量：958</li>
+												<li>回复量：958</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</Link>
+							<Link to="/creative/appStest">
+								<div className="new flex flex-vcenter">
+									<div className="leftNew"></div>
+									<div className="rightNew">
+										<p>连接兼容测试</p>
+										<div>
+											<ul className='flex'>
+												<li>作者名称</li>
+												<li>两分钟前</li>
+												<li>浏览量：958</li>
+												<li>回复量：958</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</Link>
+							<Link to="/creative/sound">
+								<div className="new flex flex-vcenter">
+									<div className="leftNew"></div>
+									<div className="rightNew">
+										<p>智能音箱测试</p>
+										<div>
+											<ul className='flex'>
+												<li>作者名称</li>
+												<li>两分钟前</li>
+												<li>浏览量：958</li>
+												<li>回复量：958</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</Link>
+							<Link to="/creative/zhangce">
+								<div className="new flex flex-vcenter">
+									<div className="leftNew"></div>
+									<div className="rightNew">
+										<p>自动化测试</p>
+										<div>
+											<ul className='flex'>
+												<li>作者名称</li>
+												<li>两分钟前</li>
+												<li>浏览量：958</li>
+												<li>回复量：958</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</Link>
 							<Link to="/creative/barDel">
-								<div className="new flex flex-vcenter">
-									<div className="leftNew"></div>
-									<div className="rightNew">
-										<p>帖子标题文本帖子标题文本帖子标题文本</p>
-										<div>
-											<ul className='flex'>
-												<li>作者名称</li>
-												<li>两分钟前</li>
-												<li>浏览量：958</li>
-												<li>回复量：958</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div className="new flex flex-vcenter">
-									<div className="leftNew"></div>
-									<div className="rightNew">
-										<p>帖子标题文本帖子标题文本帖子标题文本</p>
-										<div>
-											<ul className='flex'>
-												<li>作者名称</li>
-												<li>两分钟前</li>
-												<li>浏览量：958</li>
-												<li>回复量：958</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div className="new flex flex-vcenter">
-									<div className="leftNew"></div>
-									<div className="rightNew">
-										<p>帖子标题文本帖子标题文本帖子标题文本</p>
-										<div>
-											<ul className='flex'>
-												<li>作者名称</li>
-												<li>两分钟前</li>
-												<li>浏览量：958</li>
-												<li>回复量：958</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div className="new flex flex-vcenter">
-									<div className="leftNew"></div>
-									<div className="rightNew">
-										<p>帖子标题文本帖子标题文本帖子标题文本</p>
-										<div>
-											<ul className='flex'>
-												<li>作者名称</li>
-												<li>两分钟前</li>
-												<li>浏览量：958</li>
-												<li>回复量：958</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div className="new flex flex-vcenter">
-									<div className="leftNew"></div>
-									<div className="rightNew">
-										<p>帖子标题文本帖子标题文本帖子标题文本</p>
-										<div>
-											<ul className='flex'>
-												<li>作者名称</li>
-												<li>两分钟前</li>
-												<li>浏览量：958</li>
-												<li>回复量：958</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div className="new flex flex-vcenter">
-									<div className="leftNew"></div>
-									<div className="rightNew">
-										<p>帖子标题文本帖子标题文本帖子标题文本</p>
-										<div>
-											<ul className='flex'>
-												<li>作者名称</li>
-												<li>两分钟前</li>
-												<li>浏览量：958</li>
-												<li>回复量：958</li>
-											</ul>
-										</div>
-									</div>
-								</div>
 								<div className="new flex flex-vcenter">
 									<div className="leftNew"></div>
 									<div className="rightNew">

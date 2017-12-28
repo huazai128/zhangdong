@@ -25,7 +25,7 @@ class ApiBase {
 			// 		return;
 			// 	}
 			var patternMatched = false;
-			if (typeof url === "object") {
+			if (typeof url === 'object') {
 				options = url;
 				url = undefined;
 				if (self.pattern.test(options.url)) {
@@ -55,12 +55,12 @@ class ApiBase {
 				var wrap = (function (cb) {
 					return function (data) {
 						try {
-							data = JSON.parse(data)
+							data = JSON.parse(data);
 							if (data.code === 1002 && window.expire === false) {
 								window.expire = true;
 								window.openNativeView({
-									"type": 7
-								})
+									'type': 7
+								});
 								return;
 							}
 							cb.call(this, data);
@@ -71,7 +71,7 @@ class ApiBase {
 			}
 			return orginalAjax(url, options);
 			// });
-		}
+		};
 	}
 }
 

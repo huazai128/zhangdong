@@ -5,7 +5,6 @@ import 'js/lib/swiper-3.4.2.min.css';
 import 'js/lib/countUp';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
-import { Affix } from 'antd';
 class Main extends React.Component {
 	componentDidMount() {
 		var swiper1 = new window.Swiper('.swiper-container1', {
@@ -64,7 +63,6 @@ class Main extends React.Component {
 	}
 
 	render() {
-		console.log(Affix)
 		return (
 			<div id="main">
 				<Common bgCls="main" {...this.props} />

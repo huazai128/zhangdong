@@ -256,6 +256,54 @@ const routes = [
 					}, 'barDel');
 				}
 			},
+			{
+				path: 'itcontent',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/itcontent/itcontent').default);
+					}, 'itcontent');
+				}
+			},
+			{
+				path: 'gelan',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/gelan/gelan').default);
+					}, 'gelan');
+				}
+			},
+			{
+				path: 'zhangce',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/zhangce/zhangce').default);
+					}, 'zhangce');
+				}
+			},
+			{
+				path: 'appStest',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/appStest/appStest').default);
+					}, 'appStest');
+				}
+			},
+			{
+				path: 'sound',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/sound/sound').default);
+					}, 'sound');
+				}
+			},
+			{
+				path: 'ziDong',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/ziDong/ziDong').default);
+					}, 'ziDong');
+				}
+			},
 			{//工具详情
 				path: 'tooldetails',
 				getComponent: (nextState, cb) => {

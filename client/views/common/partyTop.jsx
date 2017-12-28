@@ -29,8 +29,8 @@ class CommentLogin extends React.Component {
 		// name = 'dddd'
 		return (
 			<div className='flex-vcenter'>
-				<p className={name === 'admin' ? 'hide' : ''}>注册</p>
-				<p className={name === 'admin' ? 'hide' : ''} onClick={() => {
+				<p className={`${name === 'admin' ? 'hide' : ''}`}>注册</p>
+				<p className={`${name === 'admin' ? 'hide' : ''}`} onClick={() => {
 					hashHistory.push('/login');
 				}}>{this.state.text}</p>
 			</div>

@@ -19,7 +19,7 @@ class CommentItem extends React.Component {
 	onClick = () => {
 		this.setState({
 			active: !this.state.active,
-			number: this.state.active ? this.state.number : this.state.number + 1
+			number: this.state.active ? this.state.number-1 : this.state.number + 1
 		});
 	}
 
@@ -61,7 +61,7 @@ class ModalWrap extends React.Component {
 			visible: false,
 			text: '',
 		});
-		console.log(this.state.text);
+		// console.log(this.state.text);
 	}
 	handleCancel = (e) => {
 		this.setState({
@@ -166,9 +166,9 @@ export default class New extends React.Component {
 	}
 
 	// 点击图片切换
-	handleTab = (index) => {
-		console.log($('.zan').children().eq(index).toggleClass('zanLan'))
-	}
+	// handleTab = (index) => {
+	// 	console.log($('.zan').children().eq(index).toggleClass('zanLan'))
+	// }
 	// 提交评论
 	handle = () => {
 		var ctime = new Date().getMinutes();
@@ -180,6 +180,7 @@ export default class New extends React.Component {
 		});
 
 		this.setState({ listData });
+		$('#comment').css('display', 'none');
 	}
 
 	render() {

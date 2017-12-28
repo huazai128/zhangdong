@@ -1,0 +1,70 @@
+.gelan{
+	width: 100%;
+  min-width: 1380px;
+  margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
+  background-color:#f4f7fc;
+	letter-spacing: 1px;
+	.nav{
+    height: 62px;
+    background-color: #f4f7fc;
+    .navText{
+      height: 52px;
+      width: 1380px;
+      line-height: 52px;
+      margin: 0 auto;
+      color: #666666;
+      font-size: 20px;
+    }
+	}
+	.boxIt{
+		width: 1380px;
+		margin: 0 auto;
+		padding-top: 30px;
+		img{
+			// vertical-align: middle;
+			// border-style: none;
+			// display: block;
+			// margin: 0 auto;
+		}
+		.boxItTop{
+			font-size: 18px;
+			color: #000000;
+			text-align: center;
+		 font-weight: 600;
+		 margin-bottom:30px;
+		}
+		.itTop{
+			&.itMargin{
+				margin-top: 30px;
+			}
+			.hangContent{
+				font-size: 16px;
+				font-weight: 600;
+				color: #000000;
+			}
+			.textContentOne{
+				font-size: 14px;
+				color: #000000;
+				text-indent:2em;
+				line-height: 30px;
+				.sanContent{
+					text-indent:0em;
+					font-weight: 600;
+					&.itMarginOne{
+						margin-top: 13px;
+					}
+				}
+				.zhiBiao{
+					margin-top: 30px;
+				}
+				.zhaoImg{
+					margin-top: 30px;
+					img{
+						margin-top: 30px;
+						width: 680px;
+					}
+				}
+			}
+		}
+	}
+}
