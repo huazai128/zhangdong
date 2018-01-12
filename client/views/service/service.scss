@@ -23,12 +23,10 @@
         color: #fff;
         // background: url('~img/bg.jpg') no-repeat center top;
         background-size: cover;
-        ul {
-          margin-top: 10px;
-        }
+
         li {
           list-style: none;
-				margin-left: 40px;
+				// margin-left: 40px;
 				&.liOne{
 				margin-left: 0px;
 				margin-top: 8px;
@@ -42,7 +40,7 @@
 
         .topBoxleft {
           li {
-            width: 100px;
+            // width: 100px;
           }
         }
         .topBoxright {
