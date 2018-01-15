@@ -201,7 +201,7 @@ export default class New extends React.Component {
 					<div className="toolTop flex jc-between">
 						<div className="toolLeft ">
 							<p className='textOne'>Move it智能穿戴设备测试</p>
-							<p className='textTwo'>作者名称&nbsp;&nbsp;&nbsp;发布于14天谴&nbsp;&nbsp;&nbsp;浏览量：958</p>
+							<p className='textTwo'>作者名称&nbsp;&nbsp;&nbsp;发布于14天前&nbsp;&nbsp;&nbsp;浏览量：958</p>
 						</div>
 						<div className="toolRight">
 							<p className='ourOne'></p>

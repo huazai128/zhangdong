@@ -9,21 +9,6 @@ class App extends React.Component {
 	}
 	render() {
 		return <div id='app' ref={node => this.node = node}>
-			{/* <div className="topBox">
-				<div className="content">
-					<div className="flex">
-						<ul className="flex-vcenter flex-g-1">
-							<li className='liTwo'><Link to="/"><img src={require('img/logo.png')} alt="" /></Link></li>
-							<li className="item"><Link to="/service">产品与服务</Link></li>
-							<li className="item"><Link to="/solve">解决方案</Link></li>
-							<li className="item"><Link to="/new">新闻动态</Link></li>
-							<li className="item"><Link to="/our">关于我们</Link></li></ul>
-						<ul className="topBoxright flex-vcenter">
-							<li className="blueBtn"><Link to='/creative'>测试者社区</Link></li>
-						</ul>
-					</div>
-				</div>
-			</div> */}
 			{/* {...this.props}这是传出属性 */}
 			<Common bgCls="lab" {...this.props} />
 			{/* 内容 */}

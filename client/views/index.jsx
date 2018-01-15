@@ -1,13 +1,12 @@
 import './index.scss';
 // 重置样式
 import 'css/reset.css';
+import 'antd/dist/antd.css';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import RoutesConfig from './routes';
 import { AppContainer } from 'react-hot-loader';
 const mountNode = document.getElementById('root');
-
-import 'antd/dist/antd.css';
 
 // ReactDOM.render(
 // 	<RoutesConfig />

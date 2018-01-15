@@ -7,11 +7,13 @@ import Common from '../common/comonOur.jsx';
 
 class Sovle extends React.Component {
 	componentDidMount() {
+		// const hei=window.innerHeight;
 		setTimeout(() => {
 			var mySwiper = new window.Swiper('.swiper-container', {
 				direction: 'vertical',
 				slidesPerView: 1,
-				spaceBetween: 30,
+				height: window.innerHeight,
+				autoHeight: true, //高度随内容变化
 				mousewheel: true,
 				pagination: {
 					el: '.swiper-pagination',

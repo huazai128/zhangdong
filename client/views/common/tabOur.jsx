@@ -32,7 +32,7 @@ export default class extends React.Component {
 											<p>
 												我们致力打造在线的“云平台”“云工具”和“云终端”三位一体的云测试集群和线下权威的测试服务资源，
                 测试服务联盟网络和高素质的测试服务队伍；</p>
-											<p>掌动智能于2014年广州股权交易挂挂牌上市（代码：896257），目前已签约西部证券，2017年下半年上市三板。</p>
+											<p>掌动智能于2014年广州股权交易挂挂牌上市（代码：896257），目前已签约西部证券。</p>
 										</div>
 									</div>
 									<ul className='ulImg flex'>
@@ -46,7 +46,7 @@ export default class extends React.Component {
 						<TabPane tab='招贤纳士' key="2" className='tabOne'>
 							<div className="find">
 								<div className="findOne">
-									<div className="email"><a href="#">简历请投递至：syqiu@qppstest.cn</a></div>
+									<div className="email"><a href="#">简历请投递至：syqiu@appstest.cn</a></div>
 									<div className="findCont">
 										<div className='flex textTop'><i className='findBlue'></i><p className='findTitle flex-g-l'>软件测试工程师</p></div>
 										<ul className='station'>

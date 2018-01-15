@@ -74,6 +74,7 @@ background-color: inherit !important;
 			  background: url('~img/banner333.png') no-repeat center top;
 			}
 
+
         height: 500px;
         color: #fff;
         background-size: cover;
@@ -81,7 +82,7 @@ background-color: inherit !important;
         li {
 					// line-height: 40px;
 					height: 38px;
-					font-size: 15px;
+					font-size: 18px;
           list-style: none;
 					margin-top: 14px;
 				&.liTwo{
@@ -92,15 +93,16 @@ background-color: inherit !important;
         a{
 					color: #fff;
 					display: block;
-        }
-          img{
+					img{
 						width:172px;
-						height: 28px;
-            display: c
+						height: 30px;
           }
+        }
+
           &.item{
             width: 110px;
 						text-align: center;
+						margin-left: 30px;
 					}
 				}
         .topBoxright {

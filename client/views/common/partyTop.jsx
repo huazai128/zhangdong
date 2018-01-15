@@ -21,7 +21,7 @@ const Search = Input.Search;
 
 class CommentLogin extends React.Component {
 	state = {
-		text: '登陆'
+		text: '登录'
 	}
 	render() {
 		// console.log(this.props.name)
@@ -51,7 +51,7 @@ export default class Top extends React.Component {
 			<div id='partytop'>
 				<div className="party flex jc-between">
 					<div className="leftTop flex-vcenter">
-						<Link to='/'><img src={require('img/partyTop1.png')} alt="" /></Link>
+						<Link to='/'><img src={require('img/logo.png')} alt="" /></Link>
 						<div className='ceOne'>	<Link to='/creative'>测试者社区</Link></div>
 					</div>
 					<div className="rightTop flex-vcenter">

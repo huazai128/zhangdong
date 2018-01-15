@@ -28,7 +28,7 @@
     width: 1380px;
     margin: 0 auto;
     background-color: #ffffff;
-		padding:26px 30px 0 20px;
+		padding:26px 30px 30px 40px;
 		position: relative;
     .toolTop{
       height: 80px;
@@ -65,16 +65,18 @@
       margin-top: 32px;
 			// border-bottom:1px solid #dddddd;
 			.hangye{
-				font-size: 16px;
+				font-size: 18px;
 				color: #000000;
 				font-weight: 600;
+				margin: 30px 0 14px 0;
 			}
 			.itImg{
 			.itImgOne{
+				margin-top: 30px;
 				img{
 					// display: block;
 					width: 320px;
-					margin-right: 10px;
+					margin-right: 7px;
 			}
 			}
 			.itImgTwo{
@@ -82,7 +84,7 @@
 				img{
 					width: 320px;
 					height: 200px;
-					margin-right: 10px;
+					margin-right: 7px;
 				}
 			}
 		}
@@ -100,6 +102,7 @@
       }
     }
     .disBtn{
+		margin-top: 20px;
     height: 84px;
     background-color: #ffffff;
     div{

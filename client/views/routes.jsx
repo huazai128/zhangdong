@@ -96,6 +96,14 @@ const routes = [
 			},
 		]
 	},
+	{//newDetail
+		path: '/newdetail',
+		getComponent: (nextState, cb) => {
+			require.ensure([], (require) => {
+				cb(null, require('views/newdetail/newdetail').default);
+			}, 'newdetail');
+		}
+	},
 	{
 		path: '/app',
 		getComponent: (nextState, cb) => {

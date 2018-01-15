@@ -11,33 +11,40 @@ class Main extends React.Component {
 			paginationClickable: true,
 			spaceBetween: 0,
 			slidesPerView: 4,
-			// freeMode: true,
-			nextButton: '.swiper-container1 .swiper-button-next',
-			prevButton: '.swiper-container1 .swiper-button-prev',
+			navigation: {
+				nextEl: '.swiper-container1 .swiper-button-next',
+				prevEl: '.swiper-container1 .swiper-button-prev',
+			},
 		});
 
 		var swiper2 = new window.Swiper('.swiper-container2', {
 			paginationClickable: true,
 			spaceBetween: 0,
 			slidesPerView: 4,
-			nextButton: '.swiper-container2 .swiper-button-next',
-			prevButton: '.swiper-container2 .swiper-button-prev',
+			navigation: {
+				nextEl: '.swiper-container2 .swiper-button-next',
+				prevEl: '.swiper-container2 .swiper-button-prev',
+			},
 		});
 
 		var swiper3 = new window.Swiper('.swiper-container3', {
 			paginationClickable: true,
 			spaceBetween: 0,
 			slidesPerView: 4,
-			nextButton: '.swiper-container3 .swiper-button-next',
-			prevButton: '.swiper-container3 .swiper-button-prev',
+			navigation: {
+				nextEl: '.swiper-container3 .swiper-button-next',
+				prevEl: '.swiper-container3 .swiper-button-prev',
+			},
 		});
 
 		var swiper4 = new window.Swiper('.swiper-container4', {
 			paginationClickable: true,
 			spaceBetween: 0,
 			slidesPerView: 5,
-			nextButton: '.customerBox .swiper-button-next',
-			prevButton: '.customerBox .swiper-button-prev',
+			navigation: {
+				nextEl: '.swiper-container4 .swiper-button-next',
+				prevEl: '.swiper-container4 .swiper-button-prev',
+			},
 		});
 
 		var options = {
@@ -342,7 +349,7 @@ class Main extends React.Component {
 											<div className="litext">用户体验测试</div>
 										</li>
 									</ul>
-									<div className="itembtn" onClick={() => hashHistory.push('/hardware')}><a href="#">了解更多</a></div>
+									<div className="itembtn" onClick={() => hashHistory.push('/hardware')}><a href="javascript:void(0);">了解更多</a></div>
 								</div>
 							</div>
 							<div className="item" style={{ background: 'url("' + require('img/solve2.jpg') + '") no-repeat center center' }}>
@@ -367,7 +374,7 @@ class Main extends React.Component {
 											<div className="litext">自动化构建发布</div>
 										</li>
 									</ul>
-									<div className="itembtn"  onClick={() => hashHistory.push('/education')}><a href="#">了解更多</a></div>
+									<div className="itembtn"  onClick={() => hashHistory.push('/education')}><a href="javascript:void(0);">了解更多</a></div>
 								</div>
 							</div>
 							<div className="item" style={{ background: 'url("' + require('img/solve3.jpg') + '") no-repeat center center' }}>
