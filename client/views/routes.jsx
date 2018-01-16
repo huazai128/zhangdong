@@ -104,6 +104,30 @@ const routes = [
 			}, 'newdetail');
 		}
 	},
+	{//alliance
+		path: '/alliance',
+		getComponent: (nextState, cb) => {
+			require.ensure([], (require) => {
+				cb(null, require('views/alliance/alliance').default);
+			}, 'alliance');
+		}
+	},
+	{//provides
+		path: '/provides',
+		getComponent: (nextState, cb) => {
+			require.ensure([], (require) => {
+				cb(null, require('views/provides/provides').default);
+			}, 'provides');
+		}
+	},
+	{//female
+		path: '/female',
+		getComponent: (nextState, cb) => {
+			require.ensure([], (require) => {
+				cb(null, require('views/female/female').default);
+			}, 'female');
+		}
+	},
 	{
 		path: '/app',
 		getComponent: (nextState, cb) => {

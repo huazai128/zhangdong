@@ -21,7 +21,7 @@ class New extends React.Component {
 							<img src={require('img/new1.png')} alt="" />
 						</div>
 						<div className="rightcompany">
-							<h3 className='lianTop' onClick={()=>hashHistory.push('/newdetail')}>市科创委智能硬件联盟之《打造公共平台，助力创新创业》论坛活动圆满落幕</h3>
+							<h3 className='lianTop' onClick={()=>hashHistory.push('/alliance')}>市科创委智能硬件联盟之《打造公共平台，助力创新创业》论坛活动圆满落幕</h3>
 							<div className='time'>新华社.2017-10-21.公司动态</div>
 							<div className="contentone">
 								2017年9月20日，在广州市科创委的指导下，由广州智能硬件与移动互联网融合技术创新联盟主办，掌动智能、机智云、芳禾数据、群志科技承办的广州智能硬件与移动互联网融合技术创新联盟系列主题活动 《打造公共平台，助力创新创业》拉开了帷幕！ </div>
@@ -32,7 +32,7 @@ class New extends React.Component {
 							<img src={require('img/new2.png')} alt="" />
 						</div>
 						<div className="rightcompany">
-							<h3 className='lianTop' onClick={()=>hashHistory.push('/newdetail')}>掌动智能被认为“2017年广东省中小企业公共服务示范平台”</h3>
+							<h3 className='lianTop' onClick={()=>hashHistory.push('/provides')}>掌动智能被认为“2017年广东省中小企业公共服务示范平台”</h3>
 							<div className='time'>新华社.2017-10-21.公司动态</div>
 							<div className="contentone">
 								广州掌动智能科技有限公司自主拥有的【广州掌动只能中小企业移动互联网+创业创新服务平台】被广东省中小企业局认定为“2017年广东省中小企业公共服务示范平台” </div>
