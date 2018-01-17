@@ -99,7 +99,7 @@ export default class extends React.Component {
 											</li>
 											<li>
 												<img src={require('img/wo1.png')} alt="" />
-												<p className='diFang'>远程诊断</p>
+												<p className='diFang'>OTA升级</p>
 											</li>
 										</ul>
 										<div className='ImgContent imgOne'>
@@ -140,25 +140,25 @@ export default class extends React.Component {
 						</TabPane>
 						<TabPane tab={<HeadOne text='质量变现' bg="qiuTu" active={this.state.activeKey == '3'} />} key="3" className='tabOne'>
 							<div className="boxText">
-								<div className='guojia'>国家质量基础设施云平台NQI-Cloud质量测试，支撑智能应用基础测试能力</div>
+								<div className='guojia'>国家质量基础设施云平台NQI-Cloud质量变现，支撑智能应用基础测试能力</div>
 								<div className='qingzhi'>
 									<div>
 										<ul className='flex'>
 											<li>
 												<img src={require('img/ziliang2.png')} alt="" />
-												<p className='diFang'>基于公有云/私有云的工具集市<br />与知识库集市的联网共享、在线测试</p>
+												<p className='diFang'>质量数据挖掘、<br />打通、流转</p>
 											</li>
 											<li>
 												<img src={require('img/xuexi2.png')} alt="" />
-												<p className='diFang'>36种先进测试工具</p>
+												<p className='diFang'>深度学习</p>
 											</li>
 											<li>
 												<img src={require('img/jisuan1.png')} alt="" />
-												<p className='diFang'>58种主流测试方法</p>
+												<p className='diFang'>边缘计算</p>
 											</li>
 											<li>
 												<img src={require('img/shuju1.png')} alt="" />
-												<p className='diFang'>万余种行业应用沉淀数据仓库</p>
+												<p className='diFang'>价值定量提升</p>
 											</li>
 										</ul>
 										<div className='ImgContent imgTwo'>

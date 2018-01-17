@@ -12,44 +12,46 @@ const datas = [
 	// 	{value:'北京',key:'北京'},
 	// 	{value:'杭州',key:'杭州'}
 	// ]},
-	{ title: '职位类别：',address:[
-		{	value:'全部', key:'all',sective:true },
-		{value:'产品', key:'产品' },
-		{	value:'项目', key:'项目' },
-		{value:'设计', key:'设计' },
-		{ value:'市场',key:'市场' },
-		{value:'销售', key:'销售' },
-		{ value:'推广',key:'推广' },
-		{value:'运营', key:'运营' },
-		{ value:'实习生',key:'实习生' },
-		{ value:'开发',key:'开发' },
-		{ value:'测试',key:'测试' },
-		{ value:'财务',key:'财务' },
-		{ value:'会计',key:'会计' },
-	]}
+	{
+		title: '职位类别：', address: [
+			{ value: '全部', key: 'all', sective: true },
+			{ value: '产品', key: '产品' },
+			{ value: '项目', key: '项目' },
+			{ value: '设计', key: '设计' },
+			{ value: '市场', key: '市场' },
+			{ value: '销售', key: '销售' },
+			{ value: '推广', key: '推广' },
+			{ value: '运营', key: '运营' },
+			{ value: '实习生', key: '实习生' },
+			{ value: '开发', key: '开发' },
+			{ value: '测试', key: '测试' },
+			{ value: '财务', key: '财务' },
+			{ value: '会计', key: '会计' },
+		]
+	}
 ];
 
 export default class extends React.Component {
-	constructor(props){
+	constructor(props) {
 		super(props);
 		this.state = {
-			getDatas:datas
+			getDatas: datas
 		};
 	}
-	select = (index,idx) =>{
-		this.state.getDatas[[index]].address.map((item,i) => {
+	select = (index, idx) => {
+		this.state.getDatas[[index]].address.map((item, i) => {
 			item.sective = false;
-			if(i === idx){
+			if (i === idx) {
 				item.sective = true;
 			}
 			return item;
 		});
 		this.setState({
-			getDatas:this.state.getDatas
+			getDatas: this.state.getDatas
 		});
 	}
 	render() {
-		const {getDatas} = this.state;
+		const { getDatas } = this.state;
 		return (
 			<div id='tabOur'>
 				<div className="zhang">
@@ -66,18 +68,15 @@ export default class extends React.Component {
 									<div className="messageContent flex">
 										<img src={require('img/message1.png')} />
 										<div className='rightMes flex-g-1'>
-											<p className='firstMes'>AppsTest掌测（广州掌动智能科技有限公司），2006年，在华南理工大学科技园区内成立，公司专注于移动应用
-                测试的云服务平台，致力帮助中小企业和大众创业园团队获取“云+端”的软件质量提升服务；</p>
+											<p className='firstMes'>
+											广州掌动智能科技有限公司(AppsTest 掌测)，2006 年成立于华南理工大学科技园区，公司是经国家质检总局（国家认监委）认定的第三方APP和智能硬件技术检验检测机构，拥有国家认监委颁发的“CMA”资质认定证书。国内领先的智能应用质量云服务提供商、国家高新技术企业、国家软件企业、国家信息产品标准化评测中心广东分中心、广东省中小企业公共服务平台、广州市信息产品标准化评测公共服务平台。</p>
 											<p className='secondMes'>
-												掌动智能以十年移动互联网应用测试领域的积累与沉淀铸就“APP+智能硬件”模式的软件硬件一体化评测专家。
-                无缝匹配App软件及智能硬件开发团队的产品迭代周期，解决产品“好不好用”和“能不能用”的成长痛点，并出具国家权威的APP软件及智能
-                软件测试报告（可用于退税、高企/软件认证、申请政府扶持资金和质量仲裁）；</p>
-											<p>
-												我们致力打造在线的“云平台”“云工具”和“云终端”三位一体的云测试集群和线下权威的测试服务资源，
-                测试服务联盟网络和高素质的测试服务队伍；</p>
-											<p>掌动智能于2014年广州股权交易挂挂牌上市（代码：896257），目前已签约西部证券。</p>
+											掌动公司打造智能硬件与移动互联网融合公共试验检测平台，为传统产品的物联网化、互联网化提供集功能测试、性能测试、兼容测试、软硬交互性测试、网络连通性测试等系列关键共性试验测试技术、工具的集成化服务平台，并通过云端动态的质量大数据托管、收集和分析，为企业传统产品的智能化转型设计、开发、制造、售后和升级全面的质量数据支撑服务，帮助企业提高智能产品的核心竞争力和产品服务质量。</p>
 										</div>
+
 									</div>
+									<div className="jieContentTop">掌动公司服务超过50万用户，接入超过100万个智能硬件产品，服务90万个APP产品，沉淀超过200万个智能应用测试用例和500万质量大数据。
+掌动公司服务客户有：中国移动、科大讯飞、百度金融、陌陌 、TIM、汽车之家、手机百度、手机新浪、讯飞输入法、QQ、WPS Office、携程旅行、Faceu激萌、华为商城、天翼云盘、UC浏览器、爱奇艺、猫眼电影、珍爱网、大姨妈、百度外卖、美拍、豆瓣、网易云音乐等。</div>
 									<ul className='ulImg flex'>
 										<li><a href="javascript:void(0);"><img src={require('img/intro_pic1.jpg')} /></a></li>
 										<li><a href="javascript:void(0);"><img src={require('img/intro_pic2.jpg')} /></a></li>
@@ -89,26 +88,26 @@ export default class extends React.Component {
 						<TabPane tab='招贤纳士' key="2" className='tabOne'>
 							<div className="find">
 								<div className="findOne our-margin">
-									{ getDatas.map((item,index) => {
+									{getDatas.map((item, index) => {
 										return (
 											<div className="position-selector-item flex" key={index}>
 												<div className="selector-title">{item.title}</div>
 												<ul className="selector-list flex">
-													{ item.address.map((list,idx) => {
+													{item.address.map((list, idx) => {
 														return (
 															<li key={idx}>
-																<a href="javascript:void(0)" className={ `selector-link city ${ list.sective ? 'active':'' }` } onClick={ () => { this.select(index,idx); } }>{list.value}</a>
+																<a href="javascript:void(0)" className={`selector-link city ${list.sective ? 'active' : ''}`} onClick={() => { this.select(index, idx); }}>{list.value}</a>
 															</li>
 														);
-													}) }
+													})}
 												</ul>
 											</div>
 										);
-									}) }
+									})}
 
 								</div>
 								<div className="findOne">
-									<div className="email"><a href="#">简历请投递至：syqiu@qppstest.cn</a></div>
+									<div className="email">简历请投递至：@appstest</div>
 									<div className="findCont">
 										<div className='flex textTop'><i className='findBlue'></i><p className='findTitle flex-g-l'>软件测试工程师</p></div>
 										<ul className='station'>

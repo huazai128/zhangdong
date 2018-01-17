@@ -77,12 +77,7 @@ class Main extends React.Component {
 		// 二级页面返回一级页面的原地
 		const top = JSON.parse(window.localStorage.getItem('top'));
 		if (top && top > 100) {
-
-			console.log(top)
-
 			window.localStorage.removeItem('top');
-
-
 			document.body.scrollTop = top;
 
 		}
@@ -99,9 +94,6 @@ class Main extends React.Component {
 			|| 0;
 			console.log(scrollTop);
 			console.log(document.body.scrollTop,document.documentElement.scrollTop,window.pageYOffset);
-
-			// const main = document.getElementById('main');
-
 		})
 	}
 	render() {

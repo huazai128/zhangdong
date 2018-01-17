@@ -19,4 +19,7 @@ body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,\5b8b\4f53;
 body{background:#fff;	width: 100%;
 	min-width: 800px;
 	overflow: auto;}
+	body {
+		height: auto !important;
+	}
 /* a,a:hover{color:#333;} */

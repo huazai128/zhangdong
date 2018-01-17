@@ -56,6 +56,7 @@
 			height: 100%;
 			background: url('~img/server1.jpg') no-repeat center top;
 			background-size: cover;
+			overflow: auto;
 		}
 		&.main {
 			height: 1000px;
@@ -73,19 +74,19 @@
 			background: url('~img/zhibeijing.jpg') no-repeat center top;
 		}
 		&.app {
-			height: 100%;
+			// height: 100%;
 			background: url('~img/banner333.png') no-repeat center top;
 		}
 		&.hardware {
-			height: 100%;
+			// height: 100%;
 			background: url('~img/banner333.png') no-repeat center top;
 		}
 		&.education {
-			height: 100%;
+			// height: 100%;
 			background: url('~img/banner333.png') no-repeat center top;
 		}
 		&.lab {
-			height: 100%;
+			// height: 100%;
 			background: url('~img/banner333.png') no-repeat center top;
 		}
 		li {
@@ -105,10 +106,10 @@
 			img{
 				width:172px;
 				height: 28px;
-				display: c
+
 			}
 			&.item{
-				width: 140px;
+				width: 110px;
 				text-align: center;
 				line-height: 38px;
 				&:hover{

@@ -51,26 +51,26 @@
 				}
     }
 
-    .topBox {
-			height: 1000px;
-      color: #fff;
-      background: url('~img/top.jpg') no-repeat center top;
-			background-size: cover;
+    // .topBox {
+		// 	height: 1000px;
+    //   color: #fff;
+    //   background: url('~img/top.jpg') no-repeat center top;
+		// 	background-size: cover;
 
-			li {
-				list-style: none;
-			// margin-left: 40px;
-			&.liOne{
-			margin-left: 0px;
-			margin-top: 8px;
-			margin-right: 23px;
-			}
-				&.item{
-					width: 110px;
-					text-align: center;
-				}
-			}
-      }
+		// 	li {
+		// 		list-style: none;
+		// 	// margin-left: 40px;
+		// 	&.liOne{
+		// 	margin-left: 0px;
+		// 	margin-top: 8px;
+		// 	margin-right: 23px;
+		// 	}
+		// 		&.item{
+		// 			width: 110px;
+		// 			text-align: center;
+		// 		}
+		// 	}
+    //   }
     //   内容
    .boxcontent{
 	height: 100%;
@@ -173,7 +173,7 @@
 	margin:0 !important;
 }
 .swiper-slide {
-	text-align: center;
+	// text-align: center;
 	font-size: 18px;
 	background: #fff;
 
