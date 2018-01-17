@@ -15,6 +15,7 @@ var path = require('path'),
 	bundleConfig = require('./build/bundle-config.json'),
 	CleanPlugin = require('clean-webpack-plugin');
 
+
 let webpackConfig = {
 	cache: true,
 	target: 'web',

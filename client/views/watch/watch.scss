@@ -1,0 +1,127 @@
+.watch{
+	width: 100%;
+	min-width: 1380px;
+	margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
+	background-color: #fff;
+	letter-spacing: 1px;
+		.topPage{
+			width: 100%;
+			height: 60px;
+			 .topPageContet{
+				 width: 1380px;
+				 height: 60px;
+				 line-height: 60px;
+				 margin:0 auto;
+				  .pageContent{
+						font-size: 16px;
+						color: #666666;
+						.pageContentOne{
+							cursor: pointer;
+						}
+					}
+			 }
+		}
+		.watPage{
+      .watContent{
+				width: 1380px;
+				margin:0 auto;
+				.watLeft{
+					padding:50px 32px 0 30px;
+					background-color: #f4f7fc;
+					.watTop{
+						border-bottom: 1px solid #dddddd;
+						.watTopContent{
+							background-color: #f4f7fc;
+							 .chilContent{
+								 font-size: 24px;
+								 color: #000000;
+								 padding-bottom: 15px;
+							 }
+               .timeConten{
+                   margin-bottom: 25px;
+							 }
+						}
+					}
+					.watDetail{
+						margin-top: 40px;
+						 .getwatDetail{
+								.zizhu{
+									font-size: 16px;
+									color: #666;
+								}
+								.chengSe{
+									width: 100%;
+								margin: 58px 0;
+									text-align: center;
+									font-size: 18px;
+									color: #ff4c00;;
+								}
+									.market{
+										 .marTop{
+											 font-size: 18px;
+											 color: #000;
+
+										 }
+										 .marOne{
+											margin:35px 0;
+											.marCheng{
+												color: #ff4c00;
+												font-size: 18px;
+												text-indent: 32px;
+											}
+											 .marContent{
+												 font-size: 16px;
+													color: #666666;
+													margin-top: 30px;
+											 }
+										 }
+										 &.marketFour{
+											 margin-top: 48px;
+										 }
+									}
+									 .user{
+										  .userTop{
+												font-size: 18px;
+												color: #000;
+												margin-top: 50px;
+
+											}
+											 .userContent{
+												font-size: 16px;
+												color: #666;
+                        margin: 40px 0 50px 0;
+											 }
+									 }
+						 }
+					}
+				}
+				.watRight{
+					height: 100%;
+					background-color: #f4f7fc;
+					width: 306px !important;
+					margin-left: 30px;
+					padding:0 20px 40px 20px;;
+					 .zhangTop{
+						padding:30px 0 8px 0;
+             border-bottom: 1px solid #dddddd;
+						  .zhangdian{
+								 font-size: 25px;
+								 color: #000;
+							}
+					 }
+					 .zhnagContent{
+						 padding:50px 0 16px 0;
+						 border-bottom: 1px solid #dddddd;
+						 .zhangContentTop{
+							 .reLeft{
+
+							 }
+							 .reRight{
+								 margin-left:6px;
+							 }
+						 }
+					 }
+					}
+			}
+		}
+}

@@ -9,21 +9,6 @@ class App extends React.Component {
 	}
 	render() {
 		return <div id='app' ref={node => this.node = node}>
-			{/* <div className="topBox">
-				<div className="content">
-					<div className="flex">
-						<ul className="flex-vcenter flex-g-1">
-							<li className='liTwo'><Link to="/"><img src={require('img/logo.png')} alt="" /></Link></li>
-							<li className="item"><Link to="/service">产品与服务</Link></li>
-							<li className="item"><Link to="/solve">解决方案</Link></li>
-							<li className="item"><Link to="/new">新闻动态</Link></li>
-							<li className="item"><Link to="/our">关于我们</Link></li></ul>
-						<ul className="topBoxright flex-vcenter">
-							<li className="blueBtn"><Link to='/creative'>测试者社区</Link></li>
-						</ul>
-					</div>
-				</div>
-			</div> */}
 			{/* {...this.props}这是传出属性 */}
 			<Common bgCls="education" {...this.props} />
 			{/* 内容 */}
@@ -34,7 +19,7 @@ class App extends React.Component {
 
 						<div className="flex-center jc-between soft" >
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="item itemOne" >
 									<img src={require('img/500489173.jpg')} alt="" />
 									<i className='one'></i>
 									<h5>测试手机端的不足</h5>
@@ -44,7 +29,7 @@ class App extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="item itemTwo" >
 									<img src={require('img/微信图片_20171011113913.jpg')} alt="" />
 									<i className='two'></i>
 									<h5>专业测试人员不足</h5>
@@ -54,7 +39,7 @@ class App extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="item itemThree" >
 									<img src={require('img/微信图片_20171011114614.jpg')} alt="" />
 									<i className='three'></i>
 									<h5>测试深度和广度不足</h5>

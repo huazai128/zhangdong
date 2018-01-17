@@ -36,37 +36,51 @@
             // border: 1px solid #666;
             width: 418px;
             height: 456px;
-            position: relative;
-           .one{
-             display:block;
-             width: 70px;
-             height: 70px;
-             background:url('~img/组17.png') no-repeat;
-             position: absolute;
-             left: 39%;
-             top: 60%;
 
-           }
-           .two{
-            display:block;
-            width: 70px;
-            height: 70px;
-            background:url('~img/组16.png') no-repeat;
-            position: absolute;
-            left: 39%;
-            top: 60%;
+						&.itemOne{
+							position: relative;
+							.one{
+								display:block;
+								width: 70px;
+								height: 70px;
+								background:url('~img/组17.png') no-repeat;
+								position: absolute;
+								left: 50%;
+								top: 60%;
+								margin-left: -35px;
 
-           }
-           .three{
-            display:block;
-            width: 70px;
-            height: 70px;
-            background:url('~img/组15.png') no-repeat;
-            position: absolute;
-            left: 39%;
-            top: 60%;
+							}
+						}
 
-           }
+						&.itemTwo{
+							position: relative;
+							.two{
+								display:block;
+								width: 70px;
+								height: 70px;
+								background:url('~img/组16.png') no-repeat;
+								position: absolute;
+								left: 50%;
+								top: 60%;
+								margin-left: -35px;
+							 }
+						}
+
+						&.itemThree{
+							position: relative;
+							.three{
+								display:block;
+								width: 70px;
+								height: 70px;
+								background:url('~img/组15.png') no-repeat;
+								left: 50%;
+								top: 60%;
+								margin-left: -35px;
+								position: absolute;
+							 }
+						}
+
+
             img{
                 margin-top: 55px;
                 width: 350px;

@@ -18,7 +18,7 @@ class App extends React.Component {
 						<h3>我们将面临的挑战</h3>
 						<div className="flex-center jc-between soft" >
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="item itemOne" >
 									<img src={require('img/500489173.jpg')} alt="" />
 									<i className='one'></i>
 									<h5>质量问题</h5>
@@ -26,7 +26,7 @@ class App extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="item itemTwo" >
 									<img src={require('img/微信图片_20171011113913.jpg')} alt="" />
 									<i className='two'></i>
 									<h5>用户体验差</h5>
@@ -34,7 +34,7 @@ class App extends React.Component {
 								</div>
 							</a>
 							<a href="javascript:void(0);">
-								<div className="item" >
+								<div className="item itemThree" >
 									<img src={require('img/微信图片_20171011114614.jpg')} alt="" />
 									<i className='three'></i>
 									<h5>APP与硬件结合使用问题多</h5>

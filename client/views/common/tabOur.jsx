@@ -3,10 +3,53 @@ import { Tabs } from 'antd';
 import './tabOur.scss';
 
 const { TabPane } = Tabs;
+const datas = [
+	// { title: '工作地点：',address:[
+	// 	{value:'全部',key:'all',sective:true},
+	// 	{value:'广州',key:'广州'},
+	// 	{value:'深圳',key:'深圳'},
+	// 	{value:'上海',key:'上海'},
+	// 	{value:'北京',key:'北京'},
+	// 	{value:'杭州',key:'杭州'}
+	// ]},
+	{ title: '职位类别：',address:[
+		{	value:'全部', key:'all',sective:true },
+		{value:'产品', key:'产品' },
+		{	value:'项目', key:'项目' },
+		{value:'设计', key:'设计' },
+		{ value:'市场',key:'市场' },
+		{value:'销售', key:'销售' },
+		{ value:'推广',key:'推广' },
+		{value:'运营', key:'运营' },
+		{ value:'实习生',key:'实习生' },
+		{ value:'开发',key:'开发' },
+		{ value:'测试',key:'测试' },
+		{ value:'财务',key:'财务' },
+		{ value:'会计',key:'会计' },
+	]}
+];
 
 export default class extends React.Component {
-
+	constructor(props){
+		super(props);
+		this.state = {
+			getDatas:datas
+		};
+	}
+	select = (index,idx) =>{
+		this.state.getDatas[[index]].address.map((item,i) => {
+			item.sective = false;
+			if(i === idx){
+				item.sective = true;
+			}
+			return item;
+		});
+		this.setState({
+			getDatas:this.state.getDatas
+		});
+	}
 	render() {
+		const {getDatas} = this.state;
 		return (
 			<div id='tabOur'>
 				<div className="zhang">
@@ -45,8 +88,27 @@ export default class extends React.Component {
 						</TabPane>
 						<TabPane tab='招贤纳士' key="2" className='tabOne'>
 							<div className="find">
+								<div className="findOne our-margin">
+									{ getDatas.map((item,index) => {
+										return (
+											<div className="position-selector-item flex" key={index}>
+												<div className="selector-title">{item.title}</div>
+												<ul className="selector-list flex">
+													{ item.address.map((list,idx) => {
+														return (
+															<li key={idx}>
+																<a href="javascript:void(0)" className={ `selector-link city ${ list.sective ? 'active':'' }` } onClick={ () => { this.select(index,idx); } }>{list.value}</a>
+															</li>
+														);
+													}) }
+												</ul>
+											</div>
+										);
+									}) }
+
+								</div>
 								<div className="findOne">
-									<div className="email"><a href="#">简历请投递至：syqiu@appstest.cn</a></div>
+									<div className="email"><a href="#">简历请投递至：syqiu@qppstest.cn</a></div>
 									<div className="findCont">
 										<div className='flex textTop'><i className='findBlue'></i><p className='findTitle flex-g-l'>软件测试工程师</p></div>
 										<ul className='station'>

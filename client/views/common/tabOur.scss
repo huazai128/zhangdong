@@ -1,140 +1,175 @@
 #tabOur{
-// width: 100%;
-// background-color: #eaebec;
-	.zhang{
-  width: 1380px;
-	 margin:0 auto;
-	 background-color: #fff;
-	 .ant-tabs-tab{
-		 color: #333333 !important;
-	 }
-  .ant-tabs-nav-scroll {
-    // text-align:  center;
-    height: 80px;
-    line-height: 56px;
-  }
-  .rc-tabs-top{
-   overflow: visible;
-  }
-  .rc-tabs-content .rc-tabs-tabpane {
-    overflow:hidden;
-  }
-  .messageOne{
-    background-color: #eeeeee;
-    .messageTop{
-      width: 1380px;
-      margin:0 auto;
-      height: 80px;
-      font-size: 20ox;
-      color: #333333;
-      line-height: 80px;
-      text-align: center;
-      div{
-        width: 128px;
-        height: 80px;
+	// width: 100%;
+	// background-color: #eaebec;
+		.zhang{
+		width: 1380px;
+		 margin:0 auto;
+		 background-color: #fff;
+		 .ant-tabs-tab{
+			 color: #333333 !important;
+		 }
+		.ant-tabs-nav-scroll {
+			// text-align:  center;
+			height: 80px;
+			line-height: 56px;
+		}
+		.rc-tabs-top{
+		 overflow: visible;
+		}
+		.rc-tabs-content .rc-tabs-tabpane {
+			overflow:hidden;
+		}
+		.messageOne{
+			background-color: #eeeeee;
+			.messageTop{
+				width: 1380px;
+				margin:0 auto;
+				height: 80px;
+				font-size: 20ox;
+				color: #333333;
+				line-height: 80px;
+				text-align: center;
+				div{
+					width: 128px;
+					height: 80px;
 
-      }
-      div:first-child{
-        border-bottom: 2px solid #3ea2fa;
-      }
-    };
-    .bgContent{
-      background-color: #ffffff;
-      padding-bottom: 114px;
-    }
-    .messageContent{
-      padding-top: 76px;
-      width: 1382px;
-      margin: 0 auto;
-      margin-bottom: 94px;
-      img{
-        width: 470px;
-        height: 354px;
-      }
-      .rightMes{
-        padding-left: 45px;
-        p{
-          font-size: 17px;
-          line-height: 36px;
-          color: #555555;
-        }
-        .firstMes{
-          padding-top: 14px;
-          // margin-bottom: 45px;
-        };
-        .secondMes{
-          // margin-bottom: 22px;
-        }
-      }
-    }
-  .ulImg{
-    width: 1380px;
-    margin:0 auto;
-    li{
-      width: 408px;
-      height: 318px;
-      margin-right:76px;
-    }
-    li:last-child{
-      margin-right: 0;
-    }
-  }
-  }
-  // 招贤纳士
-  .find{
-    .findOne{
-      // height: 662px;
-      border-bottom: 1px solid #cccccc;
-      .email{
-        width: 428px;
-        height: 68px;
-        font-size: 17px;
-				background: #3ea2fa;
-				background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
-				background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
-				background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
-        line-height: 68px;
-        text-align: center;
-        margin-top:52px;
-        a{
-					color: #ffffff;
-					text-decoration:none;
-        }
+				}
+				div:first-child{
+					border-bottom: 2px solid #3ea2fa;
+				}
+			};
+			.bgContent{
+				background-color: #ffffff;
+				padding-bottom: 114px;
 			}
-			&.borderOne{
-				border:none;
+			.messageContent{
+				padding-top: 76px;
+				width: 1382px;
+				margin: 0 auto;
+				margin-bottom: 94px;
+				img{
+					width: 470px;
+					height: 354px;
+				}
+				.rightMes{
+					padding-left: 45px;
+					p{
+						font-size: 17px;
+						line-height: 36px;
+						color: #555555;
+					}
+					.firstMes{
+						padding-top: 14px;
+						// margin-bottom: 45px;
+					};
+					.secondMes{
+						// margin-bottom: 22px;
+					}
+				}
 			}
-    }
-    .findCont{
-      .textTop{
-        margin-top: 60px;
-      }
-      .findBlue{
-        display: inline-block;
-        width: 8px;
-        height: 22px;
-        background-color: #10c4fe;
-        margin-right: 20px;
-      }
-      .findTitle{
-        font-size: 18px;
-        color: #333333;
-        font-weight: 400;
-      }
-      .station{
-        padding-left: 26px;
-        margin-top: 32px;
-        li{
-          font-size: 15px;
-					padding-top: 15px;
+		.ulImg{
+			width: 1380px;
+			margin:0 auto;
+			li{
+				width: 408px;
+				height: 318px;
+				margin-right:76px;
+			}
+			li:last-child{
+				margin-right: 0;
+			}
+		}
+		}
+		// 招贤纳士
+		.find{
+			.findOne{
+			padding-bottom: 15px;
+				border-bottom: 1px solid #cccccc;
+				.email{
+					width: 428px;
+					height: 68px;
+					font-size: 17px;
+					background: #3ea2fa;
+					background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+					background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+					background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
+					line-height: 68px;
+					text-align: center;
+					margin-top:52px;
+					a{
+						color: #ffffff;
+						text-decoration:none;
+					}
+				}
+				&.borderOne{
+					border:none;
+				}
+			}
+			.findCont{
+				.textTop{
+					margin-top: 60px;
+				}
+				.findBlue{
+					display: inline-block;
+					width: 8px;
+					height: 22px;
+					background-color: #10c4fe;
+					margin-right: 20px;
+				}
+				.findTitle{
+					font-size: 18px;
 					color: #333333;
-        }
-       .lastBottom{
-         padding-bottom: 52px;
-        }
-      }
-    }
+					font-weight: 400;
+				}
+				.station{
+					padding-left: 26px;
+					margin-top: 32px;
+					li{
+						font-size: 15px;
+						padding-top: 15px;
+						color: #333333;
+					}
+				 .lastBottom{
+					 padding-bottom: 52px;
+					}
+				}
+			}
+		}
 	}
-}
-}
+	}
+	.our-margin{
+		margin-top: 50px;
+		.position-selector-item{
+			.selector-title{
+				width: 80px;
+				color: #999;
+				font-size: 14px;
+			}
+			ul > li{
+				list-style-type: none;
+				margin-left: 0;
+				float: left;
+				margin-left: 12px;
+				margin-right: 12px;
+				margin-left: 0;
+				margin-right: 24px;
+				position: relative;
+				font-size: 14px;
+				&::before{
+					content: "|";
+					color: #ccc;
+					position: absolute;
+					right: -13px;
+					top: -1px;
+				}
+				& > a{
+					color: #4b4b4b;
+					&.active,&:hover{
+						transition: color 0.1s linear;
+						color: #ff6c00;
+					}
+				}
+			}
+		}
+	}

@@ -4,14 +4,17 @@ import { Link, hashHistory } from 'react-router';
 import Commontop from '../common/commonTop.jsx';
 import Footer from '../common/lastFooter.jsx';
 class NewDetail extends React.Component {
+	componentDidMount() {
+		this.node.scrollIntoView();
+	}
 	render() {
 		return (
-			<div className='newDetail'>
+			<div className='newDetail' ref={node => this.node = node}>
 				<Commontop />
 				<div className="topPage">
 					<div className="topPageContet">
-						<div className="pageContent">
-							首页&nbsp;&nbsp;>&nbsp;&nbsp;新闻动态&nbsp;&nbsp;>&nbsp;&nbsp;那些为我们生活带来便利的智能硬件设备们(一)
+						<div className="pageContent flex">
+							<div onClick={() => hashHistory.push('/')} className='pageContentOne'>首页</div>&nbsp;&nbsp;>&nbsp;&nbsp;<div onClick={() => hashHistory.push('/new')} className='pageContentOne'>新闻动态</div>&nbsp;&nbsp;>&nbsp;&nbsp;那些为我们生活带来的便利的智能硬件设备们(一)
 						</div>
 					</div>
 				</div>
@@ -90,7 +93,7 @@ class NewDetail extends React.Component {
 										<img src={require('img/19990.jpg')} alt="" />
 									</div>
 									<div className="reRight">
-                  【获奖名单】广州互联网企业风云榜获奖名单公布
+										【获奖名单】广州互联网企业风云榜获奖名单公布
 									</div>
 								</div>
 							</div>
@@ -100,7 +103,7 @@ class NewDetail extends React.Component {
 										<img src={require('img/19990.jpg')} alt="" />
 									</div>
 									<div className="reRight">
-                  【获奖名单】广州互联网企业风云榜获奖名单公布
+										【获奖名单】广州互联网企业风云榜获奖名单公布
 									</div>
 								</div>
 							</div>
@@ -110,7 +113,7 @@ class NewDetail extends React.Component {
 										<img src={require('img/19990.jpg')} alt="" />
 									</div>
 									<div className="reRight">
-                  【获奖名单】广州互联网企业风云榜获奖名单公布
+										【获奖名单】广州互联网企业风云榜获奖名单公布
 									</div>
 								</div>
 							</div>
@@ -120,7 +123,7 @@ class NewDetail extends React.Component {
 										<img src={require('img/19990.jpg')} alt="" />
 									</div>
 									<div className="reRight">
-                  【获奖名单】广州互联网企业风云榜获奖名单公布
+										【获奖名单】广州互联网企业风云榜获奖名单公布
 									</div>
 								</div>
 							</div>
@@ -130,7 +133,7 @@ class NewDetail extends React.Component {
 										<img src={require('img/19990.jpg')} alt="" />
 									</div>
 									<div className="reRight">
-                  【获奖名单】广州互联网企业风云榜获奖名单公布
+										【获奖名单】广州互联网企业风云榜获奖名单公布
 									</div>
 								</div>
 							</div>

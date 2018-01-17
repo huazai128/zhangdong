@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './main.scss';
 import '../index.scss';
@@ -5,18 +6,26 @@ import 'js/lib/swiper-3.4.2.min.css';
 import 'js/lib/countUp';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
+
 class Main extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			scrollTop: 0
+		};
+	}
 	componentDidMount() {
+		this.getInit();
 		var swiper1 = new window.Swiper('.swiper-container1', {
 			paginationClickable: true,
 			spaceBetween: 0,
 			slidesPerView: 4,
+			// freeMode: true,
 			navigation: {
 				nextEl: '.swiper-container1 .swiper-button-next',
 				prevEl: '.swiper-container1 .swiper-button-prev',
 			},
 		});
-
 		var swiper2 = new window.Swiper('.swiper-container2', {
 			paginationClickable: true,
 			spaceBetween: 0,
@@ -26,7 +35,6 @@ class Main extends React.Component {
 				prevEl: '.swiper-container2 .swiper-button-prev',
 			},
 		});
-
 		var swiper3 = new window.Swiper('.swiper-container3', {
 			paginationClickable: true,
 			spaceBetween: 0,
@@ -36,7 +44,6 @@ class Main extends React.Component {
 				prevEl: '.swiper-container3 .swiper-button-prev',
 			},
 		});
-
 		var swiper4 = new window.Swiper('.swiper-container4', {
 			paginationClickable: true,
 			spaceBetween: 0,
@@ -46,7 +53,6 @@ class Main extends React.Component {
 				prevEl: '.swiper-container4 .swiper-button-prev',
 			},
 		});
-
 		var options = {
 			useEasing: true,
 			useGrouping: true,
@@ -56,6 +62,7 @@ class Main extends React.Component {
 		let count = 184033;
 		setTimeout(function () {
 			var demo = new window.CountUp('count', 180000, 184033, 0, 5, options);
+			console.log(demo);
 			if (!demo.error) {
 				demo.start();
 				setInterval(() => {
@@ -67,8 +74,36 @@ class Main extends React.Component {
 			}
 			demo.start();
 		}, 200);
-	}
+		// 二级页面返回一级页面的原地
+		const top = JSON.parse(window.localStorage.getItem('top'));
+		if (top && top > 100) {
 
+			console.log(top)
+
+			window.localStorage.removeItem('top');
+
+
+			document.body.scrollTop = top;
+
+		}
+	}
+	getScrollTop = () => {
+		console.log(document.body.clientHeight, document.body.offsetHeight,document.body.scrollTop)
+		window.localStorage.setItem('top', document.body.scrollTop);
+	}
+	getInit = () => {
+		document.body.addEventListener('scroll',() => {
+			var scrollTop = window.pageYOffset  //用于FF
+			|| document.documentElement.scrollTop
+			|| document.body.scrollTop
+			|| 0;
+			console.log(scrollTop);
+			console.log(document.body.scrollTop,document.documentElement.scrollTop,window.pageYOffset);
+
+			// const main = document.getElementById('main');
+
+		})
+	}
 	render() {
 		return (
 			<div id="main">
@@ -89,25 +124,37 @@ class Main extends React.Component {
 						<div className="line"></div>
 						<div className="tip">NQI-Cloud提供Paas+Saas的完备质量云服务,实现智能应用全生命周期质量托管</div>
 						<div className="item first">
-							<div onClick={() => hashHistory.push('/cloud/1')}>
+							<div onClick={() => {
+								this.getScrollTop();
+								hashHistory.push('/cloud/1');
+							}}>
 								<div className="icon"></div>
 								<div className="text">质量认证</div>
 							</div>
 						</div>
 						<div className="item second">
-							<div onClick={() => hashHistory.push('/cloud/2')}>
+							<div onClick={() => {
+								this.getScrollTop();
+								hashHistory.push('/cloud/2');
+							}}>
 								<div className="icon"></div>
 								<div className="text">质量运营</div>
 							</div>
 						</div>
 						<div className="item third">
-							<div onClick={() => { hashHistory.push('/cloud/3'); }}>
+							<div onClick={() => {
+								this.getScrollTop();
+								hashHistory.push('/cloud/3');
+							}}>
 								<div className="icon"></div>
 								<div className="text">质量变现</div>
 							</div>
 						</div>
 						<div className="item four">
-							<div onClick={() => hashHistory.push('/cloud/4')}>
+							<div onClick={() => {
+								this.getScrollTop();
+								hashHistory.push('/cloud/4');
+							}}>
 								<div className="icon"></div>
 								<div className="text">质量测试</div>
 							</div>
@@ -147,12 +194,13 @@ class Main extends React.Component {
 							<ul>
 								<li onClick={() => {
 									window.location.reload();
+									this.getScrollTop();
 									hashHistory.push('/service/function');
 								}}>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
 										<div className="float-left">功能测试</div>
-										<div className="btn float-right"><a href="javascript:void(0);">立即下单</a></div>
+										<div className="btn float-right" ><a href="javascript:void(0);" >立即下单</a></div>
 									</div>
 									<div className="itemContent">结合探索性测试和模拟不同环境下的测试,检查产品是否达到用户要求的功能</div>
 								</li>
@@ -374,7 +422,7 @@ class Main extends React.Component {
 											<div className="litext">自动化构建发布</div>
 										</li>
 									</ul>
-									<div className="itembtn"  onClick={() => hashHistory.push('/education')}><a href="javascript:void(0);">了解更多</a></div>
+									<div className="itembtn" onClick={() => hashHistory.push('/education')}><a href="javascript:void(0);">了解更多</a></div>
 								</div>
 							</div>
 							<div className="item" style={{ background: 'url("' + require('img/solve3.jpg') + '") no-repeat center center' }}>

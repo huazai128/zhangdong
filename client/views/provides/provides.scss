@@ -15,6 +15,9 @@
 				  .pageContent{
 						font-size: 16px;
 						color: #666666;
+						.pageContentOne{
+							cursor: pointer;
+						}
 					}
 			 }
 		}
@@ -33,6 +36,9 @@
 								 font-size: 24px;
 								 color: #000000;
 								 padding-bottom: 15px;
+							 }
+							 .timeConten{
+								margin-bottom: 25px;
 							 }
 
 						}

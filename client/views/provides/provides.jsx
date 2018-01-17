@@ -5,14 +5,17 @@ import Commontop from '../common/commonTop.jsx';
 import Footer from '../common/lastFooter.jsx';
 
 export default class Provides extends React.Component {
+	componentDidMount() {
+		this.node.scrollIntoView();
+	}
 	render() {
-		return (<div className='provides'>
+		return (<div className='provides' ref={node => this.node = node}>
 			<Commontop />
 			<div className="topPage">
 				<div className="topPageContet">
-					<div className="pageContent">
-						首页&nbsp;&nbsp;>&nbsp;&nbsp;新闻动态&nbsp;&nbsp;>&nbsp;&nbsp;掌动智能被认定为“2017年广东省中小企业公共服务示范平台”
-					</div>
+					<div className="pageContent flex">
+						<div onClick={() => hashHistory.push('/')} className='pageContentOne'>首页</div>&nbsp;&nbsp;>&nbsp;&nbsp;<div onClick={() => hashHistory.push('/new')} className='pageContentOne'>新闻动态</div>&nbsp;&nbsp;>&nbsp;&nbsp;掌动智能被认定为“2017年广东省中小企业公共服务示范平台”
+			</div>
 				</div>
 			</div>
 			<div className="proPage">
@@ -23,9 +26,9 @@ export default class Provides extends React.Component {
 								<div className="zhangContent">
 									掌动智能被认定为“2017年广东省中小企业公共服务示范平台”
 								</div>
-								{/* <div className="timeConten">
+								<div className="timeConten">
 									掌动.发表于：2017年9月20日
-									</div> */}
+									</div>
 							</div>
 						</div>
 						<div className="proDetail">

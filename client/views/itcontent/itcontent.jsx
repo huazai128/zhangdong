@@ -143,15 +143,19 @@ export default class New extends React.Component {
 				{ time: '11分钟前', content: 'fg', title: '456' },
 				{ time: '15分钟前', content: '回复内容回复内容回复内容回复内sdf容回复内容回复内容回复内容回复内容回复内容回复内回复', title: '123' },
 				{ time: '19分钟前', content: '回复内容回复内容回复内容回复内容回复dfg内容回复内容回复内容回复内容回复内容回复内回复', title: 'dfgdgf' }
-			]
+			],
+			active:'false'
 		};
 	}
 
 
-	// 点击收藏
-	getHandle = () => {
-		$('.shou').toggleClass('dis');
-	}
+		// 点击收藏
+		handleShow = () => {
+			this.setState({
+				active: !this.state.active,
+			});
+		}
+
 	toggleHandle = () => {
 		$('.zanImg').toggleClass('zanLan');
 	}
@@ -240,7 +244,7 @@ export default class New extends React.Component {
 
 					</div>
 					<div className="disBtn flex-vcenter">
-						<div className="shou flex-center" onClick={this.getHandle}><i className='shouOne'></i> 收藏</div>
+						<div className={ `shou flex-center ${ this.state.active?'cangTwo':'cangOne' }` } onClick={this.handleShow}><i></i> 收藏</div>
 						<div className="dis" onClick={this.click}><i className='pingOne'></i>评论</div>
 					</div>
 					{/* 评论框 */}

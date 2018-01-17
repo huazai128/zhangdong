@@ -5,14 +5,17 @@ import Commontop from '../common/commonTop.jsx';
 import Footer from '../common/lastFooter.jsx';
 
 class NewDetail extends React.Component {
+	componentDidMount() {
+		this.node.scrollIntoView();
+	}
 	render() {
 		return (
-			<div className='alliance'>
+			<div className='alliance' ref={node => this.node = node}>
 				<Commontop />
 				<div className="topPage">
 					<div className="topPageContet">
-						<div className="pageContent">
-							首页&nbsp;&nbsp;>&nbsp;&nbsp;新闻动态&nbsp;&nbsp;>&nbsp;&nbsp;市科创委智能硬件联盟之《打造公共平台，助力创新创业》论坛活动圆满落幕！
+						<div className="pageContent flex">
+							<div onClick={() => hashHistory.push('/')} className='pageContentOne'>首页</div>&nbsp;&nbsp;>&nbsp;&nbsp;<div onClick={() => hashHistory.push('/new')} className='pageContentOne'>新闻动态</div>&nbsp;&nbsp;>&nbsp;&nbsp;市科创委智能硬件联盟之《打造公共平台，助力创新创业》论坛活动圆满落幕！
 						</div>
 					</div>
 				</div>
