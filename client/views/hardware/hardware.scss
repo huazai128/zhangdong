@@ -42,8 +42,9 @@
 								background:url('~img/组17.png') no-repeat;
 								position: absolute;
 								left: 50%;
-								top: 60%;
+								top: 50%;
 								margin-left: -35px;
+								margin-top: -14px;
 
 							}
 						}
@@ -57,8 +58,9 @@
 								background:url('~img/组16.png') no-repeat;
 								position: absolute;
 								left: 50%;
-								top: 60%;
+								top: 50%;
 								margin-left: -35px;
+								margin-top: -14px;
 							 }
 						}
 
@@ -70,22 +72,13 @@
 								height: 70px;
 								background:url('~img/组15.png') no-repeat;
 								left: 50%;
-								top: 60%;
+								top: 50%;
 								margin-left: -35px;
+								margin-top: -14px;
 								position: absolute;
 							 }
 						}
-            img{
-                margin-top: 55px;
-                width: 350px;
-                height: 250px;
-            }
-            img:first-child{
-                margin-top: 60px;
-            }
-            img:last-child{
-                margin-top: 74px;
-            }
+
             h5{
             font-size: 20px;
             color: #333333;
@@ -137,18 +130,21 @@
     ul{
 			margin-bottom: 50px;
         li{
-            margin-right: 38px;
-            list-style: none;
-            // padding-bottom: 80px;
+					list-style: none;
+					margin-top: 100px;
+					margin-right: 60px;
             img{
-                width: 250px;
-                height: 400px;
+						  width: 400px !important;
+							height: auto !important;
               }
-        }
+				}
+				li:last-child {
+					margin-right: 0px;
+				 }
     }
 
   a{
-      margin-top: 108px;
+
       display: inline-block;
     .bottomp{
         display: block;
@@ -172,7 +168,7 @@ background-color: #202528;
 }
 .item {
 
-  width: 220px;
+  width: 260px;
   color: #fff;
   padding-top: 54px;
   .itemHead {
@@ -186,7 +182,7 @@ background-color: #202528;
     line-height: 40px;
     font-size: 14px;
     list-style: none;
-
+   cursor: pointer;
   }
  }
 }

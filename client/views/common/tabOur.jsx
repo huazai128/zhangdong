@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { Tabs } from 'antd';
 import './tabOur.scss';
 
+const FindNode = ({ activeKey, onKey, children }) => {
+	// console.log(children)
+	if (activeKey === 'all' || activeKey === onKey) return <div className="findOne">{children}</div>;
+	else return null;
+}
+
 const { TabPane } = Tabs;
 const datas = [
 	// { title: '工作地点：',address:[
@@ -46,12 +52,23 @@ export default class extends React.Component {
 			}
 			return item;
 		});
+		console.log(this.state.getDatas,99999)
 		this.setState({
 			getDatas: this.state.getDatas
 		});
+		console.log(this.state.getDatas)
 	}
 	render() {
 		const { getDatas } = this.state;
+
+		const activeKey = getDatas[0].address.find(item => item.sective).key;//这个是从外面传进来的参数
+
+		const BindFindNode = ({ children, onKey }) => (
+
+			<FindNode onKey={onKey} activeKey={activeKey}>{children}</FindNode>
+
+		)
+
 		return (
 			<div id='tabOur'>
 				<div className="zhang">
@@ -69,9 +86,9 @@ export default class extends React.Component {
 										<img src={require('img/message1.png')} />
 										<div className='rightMes flex-g-1'>
 											<p className='firstMes'>
-											广州掌动智能科技有限公司(AppsTest 掌测)，2006 年成立于华南理工大学科技园区，公司是经国家质检总局（国家认监委）认定的第三方APP和智能硬件技术检验检测机构，拥有国家认监委颁发的“CMA”资质认定证书。国内领先的智能应用质量云服务提供商、国家高新技术企业、国家软件企业、国家信息产品标准化评测中心广东分中心、广东省中小企业公共服务平台、广州市信息产品标准化评测公共服务平台。</p>
+												广州掌动智能科技有限公司(AppsTest 掌测)，2006 年成立于华南理工大学科技园区，公司是经国家质检总局（国家认监委）认定的第三方APP和智能硬件技术检验检测机构，拥有国家认监委颁发的“CMA”资质认定证书。国内领先的智能应用质量云服务提供商、国家高新技术企业、国家软件企业、国家信息产品标准化评测中心广东分中心、广东省中小企业公共服务平台、广州市信息产品标准化评测公共服务平台。</p>
 											<p className='secondMes'>
-											掌动公司打造智能硬件与移动互联网融合公共试验检测平台，为传统产品的物联网化、互联网化提供集功能测试、性能测试、兼容测试、软硬交互性测试、网络连通性测试等系列关键共性试验测试技术、工具的集成化服务平台，并通过云端动态的质量大数据托管、收集和分析，为企业传统产品的智能化转型设计、开发、制造、售后和升级全面的质量数据支撑服务，帮助企业提高智能产品的核心竞争力和产品服务质量。</p>
+												掌动公司打造智能硬件与移动互联网融合公共试验检测平台，为传统产品的物联网化、互联网化提供集功能测试、性能测试、兼容测试、软硬交互性测试、网络连通性测试等系列关键共性试验测试技术、工具的集成化服务平台，并通过云端动态的质量大数据托管、收集和分析，为企业传统产品的智能化转型设计、开发、制造、售后和升级全面的质量数据支撑服务，帮助企业提高智能产品的核心竞争力和产品服务质量。</p>
 										</div>
 
 									</div>
@@ -89,6 +106,7 @@ export default class extends React.Component {
 							<div className="find">
 								<div className="findOne our-margin">
 									{getDatas.map((item, index) => {
+										console.log(item,index,777)
 										return (
 											<div className="position-selector-item flex" key={index}>
 												<div className="selector-title">{item.title}</div>
@@ -106,8 +124,8 @@ export default class extends React.Component {
 									})}
 
 								</div>
-								<div className="findOne">
-									<div className="email">简历请投递至：@appstest</div>
+								<div className="email">简历请投递至：syqiu@appstest</div>
+								<BindFindNode onKey="测试">
 									<div className="findCont">
 										<div className='flex textTop'><i className='findBlue'></i><p className='findTitle flex-g-l'>软件测试工程师</p></div>
 										<ul className='station'>
@@ -128,9 +146,9 @@ export default class extends React.Component {
 											<li className='lastBottom'>6.能对测试结果进行研究分析，并最终生成报告。</li>
 										</ul>
 									</div>
-								</div>
+								</BindFindNode>
 								{/* 高级测试工程师 */}
-								<div className="findOne">
+								<BindFindNode onKey="开发">
 									<div className="findCont">
 										<div className='flex textTop'><i className='findBlue'></i><p className='findTitle flex-g-l'>高级测试工程师</p></div>
 										<ul className='station'>
@@ -152,9 +170,9 @@ export default class extends React.Component {
 											<li className='lastBottom'>6.熟悉wireshark,tcpdump网络抓包，数据分析工具。</li>
 										</ul>
 									</div>
-								</div>
+								</BindFindNode>
 								{/* 用户研究院 */}
-								<div className="findOne">
+								<BindFindNode onKey="运营">
 									<div className="findCont">
 										<div className='flex textTop'><i className='findBlue'></i><p className='findTitle flex-g-l'>用户研究员</p></div>
 										<ul className='station'>
@@ -173,9 +191,9 @@ export default class extends React.Component {
 											<li className='lastBottom'>6.主动性强、善于学习各种知识；积极完成项目经理安排的工作</li>
 										</ul>
 									</div>
-								</div>
+								</BindFindNode>
 								{/* 销售经理 */}
-								<div className="findOne borderOne">
+								<BindFindNode onKey="销售">
 									<div className="findCont">
 										<div className='flex textTop'><i className='findBlue'></i><p className='findTitle flex-g-l'>销售经理</p></div>
 										<ul className='station'>
@@ -194,7 +212,7 @@ export default class extends React.Component {
 											<li className='lastBottom'>5.具有团队的合作意识，具备努力开拓市场的精神，有个人奋斗目标和信心。</li>
 										</ul>
 									</div>
-								</div>
+								</BindFindNode>
 							</div>
 						</TabPane>
 					</Tabs>

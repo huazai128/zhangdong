@@ -1,6 +1,6 @@
 import React from 'react';
 import './service.scss';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
 
 class ServiceContent extends React.Component {
@@ -188,43 +188,33 @@ class Service extends React.Component {
 					<div className="item">
 						<div className="itemHead">产品与服务</div>
 						<ul className='jc-start '>
-							<li>功能测试</li>
-							<li>数据</li>
-							<li>认证</li>
+							<li onClick={() => hashHistory.push('/service')}>软件测试</li>
+							<li onClick={() => hashHistory.push('/service')}>硬件测试</li>
+							<li onClick={() => hashHistory.push('/service')}>认证</li>
 						</ul>
 					</div>
 					<div className="item">
 						<div className="itemHead">解决方案</div>
 						<ul>
-							<li>教育行业应用测试</li>
-							<li>智能穿戴设备整体测试</li>
-							<li>应用开发质量提升</li>
-						</ul>
-					</div>
-					<div className="item">
-						<div className="itemHead">关于我们</div>
-						<ul>
-							<li>公司简介</li>
-							<li>企业资质</li>
-							<li>企业动态</li>
-							<li>招纳贤士</li>
-						</ul>
-					</div>
-					<div className="item">
-						<div className="itemHead">测试者社区</div>
-						<ul>
-							<li>测试中心</li>
-							<li>质量测试</li>
-							<li>质量认证</li>
-							<li>质量变现</li>
+							<li onClick={() => hashHistory.push('/app')}>APP软件测试解决方案</li>
+							<li onClick={() => hashHistory.push('/hardware')}>智能硬件测试解决方案</li>
+							<li onClick={() => hashHistory.push('/education')}>教育行业测试解决方案</li>
+							<li onClick={() => hashHistory.push('/lab')}>运营商测试解决方案</li>
 						</ul>
 					</div>
 					<div className="item">
 						<div className="itemHead">新闻动态</div>
 						<ul>
-							<li>公司动态</li>
-							<li>科技资讯</li>
-							<li>行业新闻</li>
+							<li onClick={() => hashHistory.push('/alliance')}>公司动态</li>
+							<li onClick={() => hashHistory.push('/newdetail')}>科技资讯</li>
+							<li onClick={() => hashHistory.push('/female')}>行业新闻</li>
+						</ul>
+					</div>
+					<div className="item">
+						<div className="itemHead">关于我们</div>
+						<ul>
+							<li onClick={() => hashHistory.push('/our')}>公司简介</li>
+							<li onClick={() => hashHistory.push('/our')}>招纳贤士</li>
 						</ul>
 					</div>
 					<div className="bottomRight flex-g-1">

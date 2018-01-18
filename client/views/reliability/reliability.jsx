@@ -56,7 +56,7 @@ class Function extends React.Component {
 					<p className='flex'>格兰仕冰箱定位于“全球最大空调专业化制造中心”，高起点快速切入市场。在中国悄然上市的21.5寸大屏款ICE WORLD，硬件和软件配置都超国际一流水准，为中国的高端消费群体 <br></br>
 						带来了不一样的冰箱新体验</p>
 					<ul className='flex-hcenter'>
-						<li><a href="javascript:void(0);"><img src={require('img/gelan5.png')} alt="" /></a></li>
+						<li className='flex-vcenter'><a href="javascript:void(0);"><img src={require('img/timg.jpg')} alt="" /></a></li>
 						<li><a href="javascript:void(0);"><img src={require('img/gelan3.png')} alt="" /></a></li>
 						<li><a href="javascript:void(0);"><img src={require('img/gelan4.png')} alt="" /></a></li>
 					</ul>

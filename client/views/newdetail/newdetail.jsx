@@ -1,7 +1,7 @@
 import React from 'react';
 import './newdetail.scss';
 import { Link, hashHistory } from 'react-router';
-import Commontop from '../common/commonTop.jsx';
+import Common from '../common/comonOur.jsx';
 import Footer from '../common/lastFooter.jsx';
 class NewDetail extends React.Component {
 	componentDidMount() {
@@ -10,7 +10,7 @@ class NewDetail extends React.Component {
 	render() {
 		return (
 			<div className='newDetail' ref={node => this.node = node}>
-				<Commontop />
+				<Common bgCls="newdetail" {...this.props} />
 				<div className="topPage">
 					<div className="topPageContet">
 						<div className="pageContent flex">

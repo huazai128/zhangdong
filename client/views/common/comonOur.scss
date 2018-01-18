@@ -89,6 +89,14 @@
 			// height: 100%;
 			background: url('~img/banner333.png') no-repeat center top;
 		}
+		&.female,&.alliance,&.provides,&.watch,&.newdetail,&.newdetailTwo{
+		height: 54px;
+		background-color: #000000;
+		}
+		// &.alliance{
+		// 	height: 54px;
+		// 	background-color: #000000;
+		// 	}
 		li {
 			// line-height: 40px;
 			height: 38px;

@@ -1,7 +1,7 @@
 import React from 'react';
 import './female.scss';
 import { Link, hashHistory } from 'react-router';
-import Commontop from '../common/commonTop.jsx';
+import Common from '../common/comonOur.jsx';
 import Footer from '../common/lastFooter.jsx';
 export default class Female extends React.Component {
 	componentDidMount() {
@@ -9,7 +9,7 @@ export default class Female extends React.Component {
 	}
 	render() {
 		return (<div className='female'  ref={node => this.node = node}>
-			<Commontop />
+			<Common bgCls="female" {...this.props} />
 			<div className="topPage">
 				<div className="topPageContet">
 					<div className="pageContent flex">
@@ -27,7 +27,7 @@ export default class Female extends React.Component {
 								</div>
 								<div className="timeConten">
 									掌动.发表于：2017年9月20日
-									</div>
+								</div>
 							</div>
 						</div>
 						<div className="freDetail">

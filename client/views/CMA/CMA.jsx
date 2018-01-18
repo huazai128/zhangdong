@@ -55,9 +55,9 @@ class Function extends React.Component {
 					<p className='flex'>自1997年6月创立以来，凭借先进的技术和优质的服务，网易深受广大网民的欢迎，曾两次被中国互联网络信息中心（CNNIC）评选为中国十佳网站之首。在开发互联网应用、服务及其它<br></br>
 						技术方面，网易始终保持业界的领先地位，并取得了中国互联网行业的多项第一。</p>
 					<ul className='flex-hcenter'>
-						<li><a href="javascript:void(0);"><img src={require('img/wei1.jpg')} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require('img/wei2.jpg')} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require('img/wei3.jpg')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/wangyi163.jpg')} alt="" /></a></li>
+						{/* <li><a href="javascript:void(0);"><img src={require('img/wei2.jpg')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/wei3.jpg')} alt="" /></a></li> */}
 					</ul>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>

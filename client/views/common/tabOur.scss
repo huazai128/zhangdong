@@ -88,26 +88,28 @@
 		}
 		// 招贤纳士
 		.find{
+			.email{
+				width: 428px;
+				height: 68px;
+				font-size: 17px;
+				color: #ffffff;
+				background: #3ea2fa;
+				background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+				background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+				background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
+				line-height: 68px;
+				text-align: center;
+				margin-top:52px;
+				a{
+					color: #ffffff;
+					text-decoration:none;
+				}
+			}
 			.findOne{
 			padding-bottom: 15px;
 				border-bottom: 1px solid #cccccc;
-				.email{
-					width: 428px;
-					height: 68px;
-					font-size: 17px;
-					background: #3ea2fa;
-					background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
-					background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
-					background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
-					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
-					line-height: 68px;
-					text-align: center;
-					margin-top:52px;
-					a{
-						color: #ffffff;
-						text-decoration:none;
-					}
-				}
+
 				&.borderOne{
 					border:none;
 				}

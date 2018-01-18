@@ -4,7 +4,6 @@ import './comonOur.scss';
 import { Link, hashHistory } from 'react-router';
 import NavLink from '../component/navLink';
 import NavBox from './nav';
-
 const navs = [
 	{ title: '产品与服务',path:'/service',data:[
 		{ icon:require('img/index04.png'),title:'软件测试',path:'/service' },
@@ -36,8 +35,11 @@ class Common extends React.Component {
 			title:''
 		});
 	}
+
+
 	render() {
 		const { curNavs,show,title } = this.state;
+
 		return <div id="common">
 			<div className={`${this.props.bgCls} topBox`}>
 				<div className="common-nav">
@@ -47,6 +49,7 @@ class Common extends React.Component {
 						</ul>
 						<ul className="flex-g-1 flex-vcenter" >
 							{ navs && navs.map((item,index) => {
+								console.log(item,9999);
 								return (
 									<NavLink key={index} url={this.props.location.pathname}  onMouseEnter={(e) => {
 										this.setState({
@@ -67,7 +70,8 @@ class Common extends React.Component {
 				<div className="content">
 					{/* {this.state.show && <NavHover />} */}
 					<div className="bottomContent">
-						{this.props.bgCls === 'solve' || this.props.bgCls === 'main' || this.props.bgCls === 'new' || this.props.bgCls === 'our' || this.props.bgCls === 'app' || this.props.bgCls === 'hardware' || this.props.bgCls === 'education' || this.props.bgCls === 'lab' ? null : <p className='pTow'>立即申请</p>}
+						{this.props.bgCls === 'solve' || this.props.bgCls === 'main' || this.props.bgCls === 'new' || this.props.bgCls === 'our' || this.props.bgCls === 'app' || this.props.bgCls === 'hardware' || this.props.bgCls === 'education' ||
+						 this.props.bgCls === 'lab' || this.props.bgCls === 'female'|| this.props.bgCls === 'alliance'|| this.props.bgCls === 'provides'|| this.props.bgCls === 'watch'|| this.props.bgCls === 'newdetail'|| this.props.bgCls === 'newdetailTwo' ? null : <p className='pTow'>立即申请</p>}
 					</div>
 					<div className="count">
 						{this.props.bgCls === 'main' ? <div id="count"></div> : null}</div>

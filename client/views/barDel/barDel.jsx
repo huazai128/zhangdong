@@ -218,7 +218,7 @@ export default class New extends React.Component {
 						<div>文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图 .</div>
 					</div>
 					<div className="disBtn flex-vcenter">
-						<div className={ `shou flex-center ${ this.state.active?'cangTwo':'cangOne' }` } onClick={this.handleShow}><i></i> 收藏</div>
+						<div className="shou flex-center cangTwo"><i></i> 收藏</div>
 						<div className="dis" onClick={this.click}><i className='pingOne'></i>评论</div>
 					</div>
 					<div className="comment" id='comment'>

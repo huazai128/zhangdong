@@ -57,7 +57,7 @@ class Function extends React.Component {
 					<ul className='flex-hcenter'>
 						<li><a href="javascript:void(0);"><img src={require('img/angle1.jpg')} alt="" /></a></li>
 						<li><a href="javascript:void(0);"><img src={require('img/angle2.jpg')} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require('img/angle3.jpg')} alt="" /></a></li>
+						<li className='flex-vcenter'><a href="javascript:void(0);"><img src={require('img/angle3.jpg')} alt="" /></a></li>
 					</ul>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>

@@ -55,8 +55,10 @@ class Function extends React.Component {
 					<p className='flex'>公司主要承担广东联通通信网络建设、网络维护，以及新业务项目开发与支撑等工作，为广东联通发展提供了优质的服务，逐步成为了广东联通网络价值链上的重要一环，工程项目质量和<br></br>
 						维护质量均达到同行较高水平，屡次受到广东联通表扬。</p>
 					<ul className='flex-hcenter'>
-						<li><a href="javascript:void(0);"><img src={require('img/liangtong1.jpg')} alt="" /></a></li>
+						<li className='flex-vcenter'><a href="javascript:void(0);"><img src={require('img/liangtong1.jpg')} alt="" /></a></li>
 						<li><a href="javascript:void(0);"><img src={require('img/liangtong3.jpg')} alt="" /></a></li>
+						<li className='flex-vcenter'><a href="javascript:void(0);"><img src={require('img/liangtong2.jpg')} alt="" /></a></li>
+
 					</ul>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>

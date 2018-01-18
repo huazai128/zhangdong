@@ -1,7 +1,7 @@
 import React from 'react';
 import './provides.scss';
 import { Link, hashHistory } from 'react-router';
-import Commontop from '../common/commonTop.jsx';
+import Common from '../common/comonOur.jsx';
 import Footer from '../common/lastFooter.jsx';
 
 export default class Provides extends React.Component {
@@ -10,12 +10,12 @@ export default class Provides extends React.Component {
 	}
 	render() {
 		return (<div className='provides' ref={node => this.node = node}>
-			<Commontop />
+			<Common bgCls="provides" {...this.props} />
 			<div className="topPage">
 				<div className="topPageContet">
 					<div className="pageContent flex">
 						<div onClick={() => hashHistory.push('/')} className='pageContentOne'>首页</div>&nbsp;&nbsp;>&nbsp;&nbsp;<div onClick={() => hashHistory.push('/new')} className='pageContentOne'>新闻动态</div>&nbsp;&nbsp;>&nbsp;&nbsp;掌动智能被认定为“2017年广东省中小企业公共服务示范平台”
-			</div>
+					</div>
 				</div>
 			</div>
 			<div className="proPage">
@@ -28,7 +28,7 @@ export default class Provides extends React.Component {
 								</div>
 								<div className="timeConten">
 									掌动.发表于：2017年9月20日
-									</div>
+								</div>
 							</div>
 						</div>
 						<div className="proDetail">

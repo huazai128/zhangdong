@@ -160,7 +160,25 @@ const routes = [
 			}, 'solve');
 		}
 	},
-	{
+	// {//单页面
+	// 	path: '/new',
+	// 	getComponent: (nextState, cb) => {
+	// 		require.ensure([], (require) => {
+	// 			cb(null, require('views/new/new').New);
+	// 		}, 'new');
+	// 	},
+	// 	indexRoute:{//子组件
+	// 		getComponent: (nextState, cb) => {
+	// 			require.ensure([], (require) => {
+	// 				cb(null, require('views/service/service').ServiceContent);
+	// 			}, 'serviceContent');
+	// 		}
+	// 	},
+	// 	childRoutes:[
+
+	// 	]
+	// },
+	{//new
 		path: '/new',
 		getComponent: (nextState, cb) => {
 			require.ensure([], (require) => {

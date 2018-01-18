@@ -1,7 +1,7 @@
 import React from 'react';
 import './watch.scss';
 import { Link, hashHistory } from 'react-router';
-import Commontop from '../common/commonTop.jsx';
+import Common from '../common/comonOur.jsx';
 import Footer from '../common/lastFooter.jsx';
 export default class Provides extends React.Component {
 	componentDidMount() {
@@ -10,11 +10,11 @@ export default class Provides extends React.Component {
 
 	render() {
 		return (<div className='watch' ref={node => this.node = node}>
-			<Commontop />
+			<Common bgCls="watch" {...this.props} />
 			<div className="topPage">
 				<div className="topPageContet">
 					<div className="pageContent flex">
-					<div onClick={()=>hashHistory.push('/')} className='pageContentOne'>首页</div>&nbsp;&nbsp;>&nbsp;&nbsp;<div onClick={()=>hashHistory.push('/new')} className='pageContentOne'>新闻动态</div>&nbsp;&nbsp;>&nbsp;&nbsp;2016-2017年中国儿童智能手环市场研究报告
+						<div onClick={() => hashHistory.push('/')} className='pageContentOne'>首页</div>&nbsp;&nbsp;>&nbsp;&nbsp;<div onClick={() => hashHistory.push('/new')} className='pageContentOne'>新闻动态</div>&nbsp;&nbsp;>&nbsp;&nbsp;2016-2017年中国儿童智能手环市场研究报告
 					</div>
 				</div>
 			</div>
@@ -146,7 +146,7 @@ export default class Provides extends React.Component {
 									<div className="userTop">2016中国儿童手环用户规模达0.29亿</div>
 									<div className="userContent">
 										大数据数据显示，2016年中国儿童手环用户规模达0.29亿人，较2015年增长107.1%;预计2019年整体市场用户规模将达到1.35亿人。随着儿童手环技术进一步成熟，80后、90后群体逐渐晋升为家长，市场持续受利好因素刺激，预计未来三年中国儿童手环市场仍将保持高速增长。
-								</div>
+									</div>
 									<div className="userImg">
 										<img src={require('img/user1.jpg')} alt="" />
 									</div>
@@ -154,8 +154,8 @@ export default class Provides extends React.Component {
 								<div className="user">
 									<div className="userTop">中国儿童手环手机网民品牌知名度</div>
 									<div className="userContent">
-									大数据显示，2016年中国网民对儿童手环品牌的认知中，小天才以42.3%的占比排名首位，互联网公司小米和360分居第二和第三。一方面，通过亲子类综艺节目实现目标市场精准营销，借助综艺节目搭建的亲子场景，对儿童智能手表的品牌宣传更为有效;另一方面，互联网公司通过品牌生态搭建在产品知名度方面也有一定优势。
-								</div>
+										大数据显示，2016年中国网民对儿童手环品牌的认知中，小天才以42.3%的占比排名首位，互联网公司小米和360分居第二和第三。一方面，通过亲子类综艺节目实现目标市场精准营销，借助综艺节目搭建的亲子场景，对儿童智能手表的品牌宣传更为有效;另一方面，互联网公司通过品牌生态搭建在产品知名度方面也有一定优势。
+									</div>
 									<div className="userImg">
 										<img src={require('img/user2.jpg')} alt="" />
 									</div>
@@ -171,19 +171,19 @@ export default class Provides extends React.Component {
 									<div className="marOne">
 										<div className="marCheng">1. 90后父母群体激发产品需求，婴儿智能产品短期发展缓慢</div>
 										<div className="marContent">
-										90后人群本身作为智能可穿戴设备的主要消费群体，追求时尚、智能生活的消费观念，为子女购置智能手环等发展较为成熟的可穿戴产品的可能性大。已在智能手环领域布局的品牌，产品定位相对灵活，将有更大优势。但对于面向婴儿的智能手环产品，如现有的少量婴儿体温监测手环，出于婴儿过于娇弱和设备辐射的考虑，相关技术和市场仍待培育。
+											90后人群本身作为智能可穿戴设备的主要消费群体，追求时尚、智能生活的消费观念，为子女购置智能手环等发展较为成熟的可穿戴产品的可能性大。已在智能手环领域布局的品牌，产品定位相对灵活，将有更大优势。但对于面向婴儿的智能手环产品，如现有的少量婴儿体温监测手环，出于婴儿过于娇弱和设备辐射的考虑，相关技术和市场仍待培育。
 										</div>
 									</div>
 									<div className="marOne">
 										<div className="marCheng">2. 定位和通话功能仍是刚需，做好做精是关键</div>
 										<div className="marContent">
-										目前占据国内儿童智能手表市场领先地位的产品的主要抓住家长担心子女人身安全的痛点，以定位和实时通话为核心功能，各品牌为竞争开发有社交交友等偏娱乐性功能，但已出现父母和学校担心影响学业和妨碍教学管理的问题;事实上，在定位和通话的功能设计，信息安全保障和产品材质或辐射安全方面并未做到至臻至善，刚需并未得到完全满足，因此市场竞争重点会落在定位和通话核心功能以及安全性能的提升。
+											目前占据国内儿童智能手表市场领先地位的产品的主要抓住家长担心子女人身安全的痛点，以定位和实时通话为核心功能，各品牌为竞争开发有社交交友等偏娱乐性功能，但已出现父母和学校担心影响学业和妨碍教学管理的问题;事实上，在定位和通话的功能设计，信息安全保障和产品材质或辐射安全方面并未做到至臻至善，刚需并未得到完全满足，因此市场竞争重点会落在定位和通话核心功能以及安全性能的提升。
 										</div>
 									</div>
 									<div className="marOne">
 										<div className="marCheng">3. 产品包装、宣传投入的重要性进一步提升</div>
 										<div className="marContent">
-										作为儿童智能手表的核心功能，实时定位和即时通讯的实际技术含量并不足够“智能”，导致竞品众多，同质化明显，儿童智能手表产品会着力在产品包装和宣传上：产品样式或外包装上，华为荣耀使用热门动漫元素的做法可能被效仿;而在原有的大量明星代言、儿童综艺冠名的宣传形式上，可能会出现新的突破，如动漫人物代言、微电影、网络综艺、联合营销等。
+											作为儿童智能手表的核心功能，实时定位和即时通讯的实际技术含量并不足够“智能”，导致竞品众多，同质化明显，儿童智能手表产品会着力在产品包装和宣传上：产品样式或外包装上，华为荣耀使用热门动漫元素的做法可能被效仿;而在原有的大量明星代言、儿童综艺冠名的宣传形式上，可能会出现新的突破，如动漫人物代言、微电影、网络综艺、联合营销等。
 										</div>
 									</div>
 								</div>

@@ -384,8 +384,8 @@
           padding-left: 30px;
         }
         .item {
-
-          width: 220px;
+          text-align: left;
+          width: 260px;
           color: #fff;
           padding-top: 54px;
           .itemHead {
@@ -399,7 +399,7 @@
             line-height: 40px;
             font-size: 14px;
             list-style: none;
-
+            cursor: pointer;
           }
          }
         }
