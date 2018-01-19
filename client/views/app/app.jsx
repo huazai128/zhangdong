@@ -2,10 +2,12 @@ import React from 'react';
 import './app.scss';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
+
 // 对应的组件
 class App extends React.Component {
 	componentDidMount() {
 		this.node.scrollIntoView();
+
 	}
 
 	render() {
@@ -92,11 +94,18 @@ class App extends React.Component {
 			<div className="bottomBox">
 				<div className="content flex">
 					<div className="item">
-						<div className="itemHead">产品与服务</div>
+						<div className="itemHead" onClick={() => hashHistory.push('/service')}>产品与服务</div>
 						<ul className='jc-start '>
-							<li onClick={() => hashHistory.push('/service')}>软件测试</li>
-							<li onClick={() => hashHistory.push('/service')}>硬件测试</li>
-							<li onClick={() => hashHistory.push('/service')}>认证</li>
+							<li>
+								<Link to={`/service/${'honor'}`}>软件测试</Link>
+							</li>
+							{/* <li onClick={() => hashHistory.push('/service')}>硬件测试</li> */}
+							<li>
+								<Link to={`/service/${'yin'}`}>硬件测试</Link>
+							</li>
+							<li>
+								<Link to={`/service/${'ren'}`}>认证</Link>
+							</li>
 						</ul>
 					</div>
 					<div className="item">

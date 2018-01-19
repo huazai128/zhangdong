@@ -2,15 +2,53 @@ import React from 'react';
 import './service.scss';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
+import $ from 'jquery';
 
+// $(function() {
+// 	var thisId = window.location.hash;
+// 	var mao = $('#honor'); //获得锚点
+// 	if (thisId == '#honor') {//判断对象是否存在
+// 		var pos = mao.offset().top;
+// 		$('html,body').animate({ scrollTop: pos}, 3000);
+// 	}
+// });
 class ServiceContent extends React.Component {
+	// componentDidMount() {
+	// 	this.locHandle();
+	// }
+
+	// componentWillReceiveProps() {
+	// 	this.locHandle();
+	// }
+
+	// locHandle = () => {
+	// 	var thisId = window.location.href.split('#')[1].split('/')[2].split('?')[0];
+	// 	console.log(thisId, 999)
+	// 	var mao = $('#honor'); //获得锚点
+	// 	var maoYin = $('#yin');
+	// 	var maoRen = $('#ren');
+	// 	// console.log(mao)
+	// 	if (thisId == 'honor') {//判断对象是否存在
+	// 		var pos = mao.offset().top - 50;
+	// 		$('html,body').animate({ scrollTop: pos }, 0);
+	// 	} else if (thisId == 'yin') {
+	// 		var posYin = maoYin.offset().top - 50;
+	// 		$('html,body').animate({ scrollTop: posYin }, 0);
+	// 	}else if(thisId == 'ren'){
+	// 		var posRen = maoRen.offset().top-50;
+	// 		// console.log(posRen,555)
+	// 		$('html,body').animate({ scrollTop: posRen }, 0);
+	// 	}
+
+	// }
 	render() {
 		return (
 			<div>
 				<div className="content">
 					<div className="box">
 						<div className="boxcontent">
-							<h3>软件测试</h3>
+							{/* <a name='honor' id='honor'>hahahahahh</a> */}
+							<h3><a name='honor' id='honor'>软件测试</a></h3>
 							<div className="tip">根据产品的需求及原型文档，对APP进行系统全面的测试，为企业提供可靠的产品保障</div>
 							<div className="flex-center jc-between soft" >
 								<Link to="/service/function">
@@ -67,7 +105,8 @@ class ServiceContent extends React.Component {
 
 					<div className="box">
 						<div className="boxcontent">
-							<h3>硬件测试</h3>
+							{/* <h3>硬件测试</h3> */}
+							<h3><a name='yin' id='yin'>硬件测试</a></h3>
 							<div className="tip">国家级智能硬件质量测试标准，APP结合硬件使用场景测试、经验丰富的专家测试团队挖掘产品潜在缺陷</div>
 							<div className="flex-center jc-between soft" >
 								<Link to="/service/reliability">
@@ -124,7 +163,8 @@ class ServiceContent extends React.Component {
 					</div>
 					<div className="box">
 						<div className="boxcontent">
-							<h3>认证</h3>
+							{/* <h3>认证</h3> */}
+							<h3><a name='ren' id='ren'>认证</a></h3>
 							<div className="tip">国家权威资质认定、为企业出具国家权威的第三方检测报告、提供一站式退税服务</div>
 							<div className="flex-center jc-between soft" >
 								<Link to="/service/CMA">

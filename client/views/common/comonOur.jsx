@@ -6,9 +6,13 @@ import NavLink from '../component/navLink';
 import NavBox from './nav';
 const navs = [
 	{ title: '产品与服务',path:'/service',data:[
-		{ icon:require('img/index04.png'),title:'软件测试',path:'/service' },
-		{ icon:require('img/index03.png'),title:'硬件测试',path:'/service' },
-		{ icon:require('img/index02.png'),title:'认证',path:'/service' },
+		// service
+		{ icon:require('img/index04.png'),title:'软件测试',path:`/service/${'honor'}` },
+		{ icon:require('img/index03.png'),title:'硬件测试',path:`/service/${'yin'}` },
+		{ icon:require('img/index02.png'),title:'认证',path:`/service/${'ren'}` },
+		// { icon:require('img/index04.png'),title:'软件测试',path:'/service' },
+		// { icon:require('img/index03.png'),title:'硬件测试',path:'/service' },
+		// { icon:require('img/index02.png'),title:'认证',path:'/service' },
 	]},
 	{ title: '解决方案',path:'/solve',data:[
 		{ icon:require('img/index04.png'),title:'APP软件测试解决方案',path:'/app' },

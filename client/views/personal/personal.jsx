@@ -5,7 +5,15 @@ import Footer from '../common/lastFooter.jsx';
 import { Link, hashHistory } from 'react-router';
 import { Tabs } from 'antd';
 const { TabPane } = Tabs;
+
+import { setStore, getStore,removeStore } from './loginLocal.js';
 export default class Personal extends React.Component {
+
+	register=()=>{
+		// console.log(window.localStorage.clear(name),5555)
+		window.localStorage.clear(name);
+		hashHistory.push('/creative');
+	}
 	render() {
 		return (
 			<div id='personal'>
@@ -17,7 +25,8 @@ export default class Personal extends React.Component {
 					</div>
 					<div className="rightPerson flex">
 						<p>编辑资料</p>
-						<p>	<Link to="/login">退出登录</Link></p>
+						{/* <Link to="/creative">退出登录</Link> */}
+						<p onClick={this.register}>退出登录</p>
 					</div>
 				</div>
 				{/*tab栏*/}

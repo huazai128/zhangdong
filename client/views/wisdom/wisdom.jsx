@@ -55,8 +55,8 @@ class Function extends React.Component {
 					<p className='flex'>广州市弘宇科技有限公司研发的智慧灯光，响应国家关于建立智慧、节能型城市的要求，现有的城市照明监控管理系统缺乏灵活的智能化控制手段，难于及时、准确掌握路灯设备的安全工<br></br>
 						作状态，更难实现路灯的精细化节能管理，为了应对更高的节能要求，提升城市形象与管理水平，对城市路灯监控管理系统的升级改造势在必行。</p>
 					<ul className='flex-hcenter'>
-						<li><a href="javascript:void(0);"><img src={require('img/wei1.jpg')} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require('img/wei2.jpg')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/zhideng1.png')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img src={require('img/zhideng2.jpg')} alt="" /></a></li>
 					</ul>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>

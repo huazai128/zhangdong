@@ -5,7 +5,7 @@
   background-color:#333333;
 	letter-spacing: 1px;
 	a{
-		color: inherit;
+		color: #ffffff;
 		display: inline-block;
 		text-decoration: none;
 	}
@@ -25,9 +25,9 @@
 
 }
 .dropDown{
-	p{
+	.banA{
 	margin-right: 40px;
-	margin-top: 13px;
+	// margin-top: 13px;
 	color: #ffffff;
 	&:hover{
 		cursor:pointer;

@@ -14,7 +14,7 @@ const routes = [
 
 		]
 	},
-	// serivce单页面刷新
+	// serivce单页面刷新 path: '/service(/:id)',
 	{
 		path: '/service',
 		getComponent: (nextState, cb) => {
@@ -187,7 +187,7 @@ const routes = [
 		}
 	},
 	{
-		path: '/cloud(/:id)',
+		path: '/cloud',
 		getComponent: (nextState, cb) => {
 			require.ensure([], (require) => {
 				cb(null, require('views/cloud/cloud').default);

@@ -5,7 +5,7 @@ import './solve.scss';
 import { Link, hashHistory } from 'react-router';
 import 'js/lib/swiper.css';
 import Common from '../common/comonOur.jsx';
-
+import $ from 'jquery';
 
 class Sovle extends React.Component {
 	componentDidMount() {
@@ -33,7 +33,10 @@ class Sovle extends React.Component {
 						<div className="boxContentOne">
 							<Common bgCls="solve" {...this.props} />
 							<div className='countOne' style={{ zIndex: 1000, position: 'absolute', top: '88%', left: '50%', marginLeft: '-100px' }}>
-								<p onClick={() => hashHistory.push('/app')}>查看案例</p>
+								{/* <a name='honor' id='honor'>hahahahahh</a> */}
+								<p onClick={() => hashHistory.push('/app')}>
+									查看案例
+								</p>
 							</div>
 
 						</div>
@@ -43,7 +46,9 @@ class Sovle extends React.Component {
 							<div className="boxcontent">
 								<div className="count flex-center bbb">
 									{/* <Link to='/hardware'><p >查看案例</p></Link> */}
-									<p onClick={() => hashHistory.push('/hardware')}>查看案例</p>
+									<p onClick={() => hashHistory.push('/hardware')}>
+										查看案例
+									</p>
 								</div>
 							</div>
 						</div>
