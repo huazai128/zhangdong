@@ -61,7 +61,7 @@ class App extends React.Component {
 					<h3>中金财视</h3>
 					<div className='flex-vcenter' style={{ height: 70, marginTop: 60 }}>
 						<div className='blue'></div>
-						<h5 className="">案例介绍</h5>
+						<h5 style={{paddingTop:1}}>案例介绍</h5>
 					</div>
 					<p className='flex'>
 						福建中金在线网络股份有限公司（互联网财经媒体）定位于做全国领先的投资服务平台和权威的网络财经媒体。</p>
@@ -75,12 +75,12 @@ class App extends React.Component {
 					</ul>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
-						<h5 className="">现状问题</h5>
+						<h5 style={{paddingTop:1}}>现状问题</h5>
 					</div>
 					<p className='flex'>产品功能复杂，功能迭代快，产品测试人员无法满足测试深度和广度。</p>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
-						<h5 className="">解决方案</h5>
+						<h5 style={{paddingTop:1}}>解决方案</h5>
 					</div>
 					<p className='flex'>以手工测试为主，自动化测试为辅助相结合。结合手工测试对数据的准确性、业务流程的符合、人性判断的优点和自动化测试节省大流量重复性和回归测试的优势。基于产品功能全面的分析，<br></br>
 						深度覆盖产品功能路径。 </p>

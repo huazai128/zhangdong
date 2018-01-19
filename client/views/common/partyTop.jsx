@@ -24,14 +24,12 @@ class CommentLogin extends React.Component {
 		text: '登录'
 	}
 	render() {
-		// console.log(this.props.name)
-		const { name } = this.props;
 		// name = 'dddd'
 		// onClick={() => {hashHistory.push('/login');}}
 		return (
 			<div className='flex-vcenter'>
-				<Link className={`banA ${name === 'admin' ? 'hide' : ''}`}>注册</Link>
-				<Link className={`banA ${name === 'admin' ? 'hide' : ''}`} to='/login'  target="_blank">{this.state.text}</Link>
+				<Link className="banA">注册</Link>
+				<Link className="banA" to='/login' target="_blank">{this.state.text}</Link>
 			</div>
 		);
 	}
@@ -45,7 +43,10 @@ export default class Top extends React.Component {
 	}
 	render() {
 		const name = localStorage.getItem('name');
-		// console.log(name)
+		console.log(name)
+		const isLogin = name === 'admin';//布尔值
+
+		// console.log(isLogin,8888)
 		return (
 			<div id='partytop'>
 				<div className="party flex jc-between">
@@ -62,8 +63,7 @@ export default class Top extends React.Component {
 							/>
 						</div>
 						<div className="dropDown flex flex-vcenter">
-							<CommentLogin name={name} />
-							<img src={require('img/top2.png')} alt="" onClick={name=='admin'?this.click:''}/>
+							{isLogin ? <img src={require('img/top2.png')} alt="" onClick={name == 'admin' ? this.click : ''} /> : <CommentLogin />}
 							{/* <div className="drop">
 								用户名称&nbsp;&nbsp;
 								<Select defaultValue="224" style={{ width: 120 }} onChange={handleChange}>

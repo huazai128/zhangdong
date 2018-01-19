@@ -59,7 +59,7 @@ class App extends React.Component {
 					<h3>云积百灵智能终端 </h3>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
-						<h5 className="">案例介绍</h5>
+						<h5 style={{paddingTop:1}}>案例介绍</h5>
 					</div>
 					<p className='flex'>
 						应用于教育领域的APP，结合移动终端与投影仪，植入云盘与批注功能，实现移动教学。具有丰富的接口，可以连接大部分教室设备。学校老师就不需要接入任何视频线便可将电脑信号一键投射到投影机，方便老师上课素材、PPT展示。</p>
@@ -71,12 +71,12 @@ class App extends React.Component {
 					</ul>
 					<div className='flex-vcenter' style={{ height: 70, marginTop: 60 }}>
 						<div className='blue'></div>
-						<h5 className="">现状问题</h5>
+						<h5 style={{paddingTop:1}}>现状问题</h5>
 					</div>
 					<p className='flex'>无专门的测试人员，缺少系统测试方法。<br></br> </p>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
-						<h5 className="">解决方案</h5>
+						<h5 style={{paddingTop:1}}>解决方案</h5>
 					</div>
 					<p className='flex'>运用UI自动化测试技术，覆盖多款安卓系统与ios系统手机终端测试，实现了Android、iOS移动设备的无线镜像投屏技术，支持微信远程管控投影仪设备。</p>
 					<p>

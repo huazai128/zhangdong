@@ -50,7 +50,7 @@ class Function extends React.Component {
 					<h3>广州网易计算机系统有限公司</h3>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
-						<h5 className="">案例介绍</h5>
+						<h5 style={{paddingTop:3}}>案例介绍</h5>
 					</div>
 					<p className='flex'>自1997年6月创立以来，凭借先进的技术和优质的服务，网易深受广大网民的欢迎，曾两次被中国互联网络信息中心（CNNIC）评选为中国十佳网站之首。在开发互联网应用、服务及其它<br></br>
 						技术方面，网易始终保持业界的领先地位，并取得了中国互联网行业的多项第一。</p>
@@ -61,12 +61,12 @@ class Function extends React.Component {
 					</ul>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
-						<h5 className="">现状问题</h5>
+						<h5 style={{paddingTop:3}}>现状问题</h5>
 					</div>
 					<p className='flex centerOne'>处于验收建设关键阶段需要申请政府科技计划项目资助、申报各类科技成果奖，以及软件产品入市的准备，需要反映成果的技术水平和市场价值。 </p>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
-						<h5 className="">解决方案</h5>
+						<h5 style={{paddingTop:3}}>解决方案</h5>
 					</div>
 					<p className='flex'>根据专项资金拨款项目和科研项目计划任务书的要求，对软件产品所应实现的功能和性能指标进行验证，为承担过政府资助项目的IT企业提供国家工信部权威的第三方测试</p>
 					<span className='bottomp'>立即申请</span>

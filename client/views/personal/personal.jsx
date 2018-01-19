@@ -6,13 +6,16 @@ import { Link, hashHistory } from 'react-router';
 import { Tabs } from 'antd';
 const { TabPane } = Tabs;
 
-import { setStore, getStore,removeStore } from './loginLocal.js';
+import { setStore, getStore, removeStore } from './loginLocal.js';
 export default class Personal extends React.Component {
 
-	register=()=>{
-		// console.log(window.localStorage.clear(name),5555)
-		window.localStorage.clear(name);
-		hashHistory.push('/creative');
+	register = () => {
+		const question = confirm('你确定要退出吗？');
+		if (question != '0') {
+			window.localStorage.clear(name);
+			hashHistory.push('/creative');
+		}
+
 	}
 	render() {
 		return (

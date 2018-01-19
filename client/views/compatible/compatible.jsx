@@ -52,7 +52,7 @@ class Function extends React.Component {
 					<h3>药渡头条</h3>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">案例介绍</h5>
+						<h5 style={{paddingTop:3}}>案例介绍</h5>
 					</div>
 					<p className='flex'>药渡头条app是一款药物资讯应用，药渡头条app为用户提供最新的全球药物研发资讯，让用户可以随时了解医药研发数据，为医药发展提供帮助。药渡致力于建设全球专业的药物信息数据 <br></br>
 						中心，为医药研发专业人士提供实用的药物信息移动检索服务，让医药研发数据触手可得。</p>
@@ -64,13 +64,13 @@ class Function extends React.Component {
 					</ul>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">现状问题</h5>
+						<h5 style={{paddingTop:3}}>现状问题</h5>
 					</div>
 					<p className='flex centerOne'>测试人员较少，只能集中于验证功能和业务的实现。缺少测试设备和完善深入的测试方法找到隐藏的问题。产品上线后用户反馈存在兼容性问题。
 					</p>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">解决方案</h5>
+						<h5 style={{paddingTop:3}}>解决方案</h5>
 					</div>
 					<p className='flex'>针对药渡头条APP进行兼容性测试，验证该产品对于智能手机品牌和机型的兼容性。通过正式环境下的兼容性测试，检查APP在各Android终端的适配率，主要检查APP能否正常进行安<br></br>
 						装、基本功能运行、卸载和升级，并且检查APP在运行过程中是否存在运行问题及UI展示问题。

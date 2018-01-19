@@ -190,15 +190,16 @@
             width: 1454px;
         }
         ul{
-
             li{
                 margin-right: 38px;
                 list-style: none;
 								padding-bottom: 80px;
 								padding-top: 60px;
                 img{
-									width: 300px;
 									height: auto !important;
+									&.imgHang{
+										width: 500px;
+									}
                 }
 						}
 						li:last-child{

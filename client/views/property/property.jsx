@@ -53,7 +53,7 @@ class Function extends React.Component {
 					<h3>广东省“智慧食药监”基础平台</h3>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">案例介绍</h5>
+						<h5 style={{paddingTop:3}}>案例介绍</h5>
 					</div>
 					<p className='flex'>智慧食药监基础平台由广东省食品药品监管局研发，主要目的是大力推动“互联网+”新技术、新模式、新理念与监管工作深度融合广泛应用移动互联网、物联网、云计算、大数据、智<br></br>
 						能终端等新一代互联网技术，建成省级食品药品监管数据中心统一信息网络。</p>
@@ -64,13 +64,13 @@ class Function extends React.Component {
 					</ul>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">现状问题</h5>
+						<h5 style={{paddingTop:3}}>现状问题</h5>
 					</div>
 					<p className='flex centerOne'>大型政府行业信息化建设项目。完成系统开发之后需要权威的第三方独立测试机构提供全面的测试服务，并出具有公信力的测试报告。
 					</p>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">解决方案</h5>
+						<h5 style={{paddingTop:3}}>解决方案</h5>
 					</div>
 					<p className='flex'>科学的分析系统特点，根据性能指标和主要流程和功能，设计性能测试典型场景。在线上环境进行压力测试，提出合理完善的测试计划和测试方案，保证系统使用不受影响，并能获取到<br></br>
 						真实的性能数据。提供权威的性能测试结果和调优建议。

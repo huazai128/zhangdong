@@ -50,7 +50,7 @@ class Function extends React.Component {
 					<h3>联通“一起沃”平台</h3>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">案例介绍</h5>
+						<h5 style={{paddingTop:3}}>案例介绍</h5>
 					</div>
 					<p className='flex'>公司主要承担广东联通通信网络建设、网络维护，以及新业务项目开发与支撑等工作，为广东联通发展提供了优质的服务，逐步成为了广东联通网络价值链上的重要一环，工程项目质量和<br></br>
 						维护质量均达到同行较高水平，屡次受到广东联通表扬。</p>
@@ -62,12 +62,12 @@ class Function extends React.Component {
 					</ul>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">现状问题</h5>
+						<h5 style={{paddingTop:3}}>现状问题</h5>
 					</div>
 					<p className='flex centerOne'>准备申请国家税收优惠；申请系统集成资质；申请高新企业认定；需要软件自律评估；软件产品准备入市。 </p>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">解决方案</h5>
+						<h5 style={{paddingTop:3}}>解决方案</h5>
 					</div>
 					<p className='flex'>
 						为IT企业提供双软企业认定中必备的软件产品登记测试，并出具国家认可的测试报告。</p>

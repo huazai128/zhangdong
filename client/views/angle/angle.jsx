@@ -50,7 +50,7 @@ class Function extends React.Component {
 					<h3>安吉尔净水器</h3>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">案例介绍</h5>
+						<h5 style={{paddingTop:3}}>案例介绍</h5>
 					</div>
 					<p className='flex'>安吉尔是由深圳安吉尔饮水产业集团有限公司自创的品牌，二十多年来，深圳安吉尔饮水产业集团有限公司始终坚持科技创新，自主研发。安吉尔智能净水器，水龙头上选配创新“数控水<br></br>
 						龙头”与主机同步显示，轻松实现人机信息交流。最大亮点拥有滤芯寿命显示功能，滤芯使用剩余小时数显示。</p>
@@ -61,12 +61,12 @@ class Function extends React.Component {
 					</ul>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">现状问题</h5>
+						<h5 style={{paddingTop:3}}>现状问题</h5>
 					</div>
 					<p className='flex centerOne'>测试手机端不足，需要一个专业的测试团队对硬件与软件进行测试。 </p>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">解决方案</h5>
+						<h5 style={{paddingTop:3}}>解决方案</h5>
 					</div>
 					<p className='flex'>采用专家走查的方式，进行用户体验测试，目的是站在用户角度思考解决方案，提高智能净水器这一产品的用户体验，改善产品，提高产品的竞争力。此外，还将进行深度兼容测试和蓝牙<br></br></p>
 					<span className='bottomp'>立即申请</span>

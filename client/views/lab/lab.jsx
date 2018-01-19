@@ -59,7 +59,7 @@ class App extends React.Component {
 					<h3>中国移动 </h3>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
-						<h5 className="">案例介绍</h5>
+						<h5 style={{paddingTop:1}}>案例介绍</h5>
 					</div>
 					<p className='flex'>
 						贯彻中国移动集团公司战略转型的要求，向用户提供优质的产品体验，由互联网基地承建面向全网的“移动互联网应用用户体验测评共享中心”，向全集团各产品线提供专业化、多样化的体验测评能力支撑。 </p>
@@ -71,12 +71,12 @@ class App extends React.Component {
 					</ul>
 					<div className='flex-vcenter' style={{ height: 70, marginTop: 60 }}>
 						<div className='blue'></div>
-						<h5 className="">现状问题</h5>
+						<h5 style={{paddingTop:1}}>现状问题</h5>
 					</div>
 					<p className='flex'>产品功能复杂，功能迭代快，产品测试人员无法满足测试深度和广度。</p>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
-						<h5 className="">解决方案</h5>
+						<h5 style={{paddingTop:1}}>解决方案</h5>
 					</div>
 					<p className='flex'>梳理产品的核心功能，制定具体的假设任务，邀请目标人群针对产品进行操作体验；挖掘用户在产品操作中遇到的问题及操作失败的原因，并获取用户对产品的需求及接受度；总结分析用户的需求及建议，为产品优化迭代提供意见支持。<br></br>
 					</p>

@@ -53,7 +53,7 @@ class App extends React.Component {
 						格兰仕智能冰箱</h3>
 					<div className='flex-vcenter' style={{ height: 70,marginTop:60 }}>
 						<div className='blue'></div>
-						<h5 className="">案例介绍</h5>
+						<h5 style={{paddingTop:1}}>案例介绍</h5>
 					</div>
 					<p className='flex'>
 						格兰仕冰箱定位于“全球最大空调专业化制造中心”，高起点快速切入市场，在第一个冷冻年度（2001年度）就实现产销50万台。2002年预计产销180万台，其中内销60万台，外销120万台。</p>
@@ -64,12 +64,12 @@ class App extends React.Component {
 					</ul>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
-						<h5 className="">现状问题</h5>
+						<h5 style={{paddingTop:1}}>现状问题</h5>
 					</div>
 					<p className='flex'>智能硬件产品与软件产品功能繁杂，专业测试人员不足，测试工作量巨大。</p>
 					<div className='flex-vcenter' style={{ height: 70 }}>
 						<div className='blue'></div>
-						<h5 className="">解决方案</h5>
+						<h5 style={{paddingTop:1}}>解决方案</h5>
 					</div>
 					<p className='flex'>按照国家智能家电质量测试标准对硬件样品进行制定智能家电性能测试、互联测试、多手机用户测试、安全性测试、复杂测试场景、可靠性的测试。</p>
 					<p>硬件测试是针对大型智能家电的测试需求进行分析评估，对大型智能冰箱提出具体测试方案。其目的是解决大型智能冰箱在使用过程中出现的异常和问题，并通过相关测试去发现潜在问题，消除可能的风险。 </p>

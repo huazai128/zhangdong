@@ -51,7 +51,7 @@ class Function extends React.Component {
 					<h3>格兰仕智能冰箱</h3>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">案例介绍</h5>
+						<h5 style={{paddingTop:3}}>案例介绍</h5>
 					</div>
 					<p className='flex'>格兰仕冰箱定位于“全球最大空调专业化制造中心”，高起点快速切入市场。在中国悄然上市的21.5寸大屏款ICE WORLD，硬件和软件配置都超国际一流水准，为中国的高端消费群体 <br></br>
 						带来了不一样的冰箱新体验</p>
@@ -62,12 +62,12 @@ class Function extends React.Component {
 					</ul>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">现状问题</h5>
+						<h5 style={{paddingTop:3}}>现状问题</h5>
 					</div>
 					<p className='flex centerOne'>智能硬件产品与软件产品功能繁杂，专业测试人员不足，测试工作量巨大。 </p>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 className="">解决方案</h5>
+						<h5 style={{paddingTop:3}}>解决方案</h5>
 					</div>
 					<p className='flex'>
 						按照国家智能家电质量测试标准对硬件样品进行制定智能家电性能测试、互联测试、多手机用户测试、安全性测试、复杂测试场景、可靠性的测试。<br></br>
