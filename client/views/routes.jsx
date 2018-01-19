@@ -187,7 +187,7 @@ const routes = [
 		}
 	},
 	{
-		path: '/cloud',
+		path: '/cloud(/:id)',
 		getComponent: (nextState, cb) => {
 			require.ensure([], (require) => {
 				cb(null, require('views/cloud/cloud').default);

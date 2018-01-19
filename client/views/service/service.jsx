@@ -4,14 +4,6 @@ import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
 import $ from 'jquery';
 
-// $(function() {
-// 	var thisId = window.location.hash;
-// 	var mao = $('#honor'); //获得锚点
-// 	if (thisId == '#honor') {//判断对象是否存在
-// 		var pos = mao.offset().top;
-// 		$('html,body').animate({ scrollTop: pos}, 3000);
-// 	}
-// });
 class ServiceContent extends React.Component {
 	// componentDidMount() {
 	// 	this.locHandle();
@@ -41,10 +33,14 @@ class ServiceContent extends React.Component {
 	// 	}
 
 	// }
+	componentDidMount() {
+		this.node.scrollIntoView();
+
+	}
 	render() {
 		return (
 			<div>
-				<div className="content">
+				<div className="content" ref={node => this.node = node}>
 					<div className="box">
 						<div className="boxcontent">
 							{/* <a name='honor' id='honor'>hahahahahh</a> */}

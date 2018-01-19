@@ -10,16 +10,18 @@ export default class LastFooter extends React.Component {
 						<div className="item itemOne">
 							<div className="itemHead">产品与服务</div>
 							<ul className='jc-start '>
-								<li>
+								{/* <li>
 									<Link to={`/service/${'honor'}`}>软件测试</Link>
 								</li>
-								{/* <li onClick={() => hashHistory.push('/service')}>硬件测试</li> */}
 								<li>
 									<Link to={`/service/${'yin'}`}>硬件测试</Link>
 								</li>
 								<li>
 									<Link to={`/service/${'ren'}`}>认证</Link>
-								</li>
+								</li> */}
+								<li onClick={() => hashHistory.push('/service')}>软件测试</li>
+								<li onClick={() => hashHistory.push('/service')}>硬件测试</li>
+								<li onClick={() => hashHistory.push('/service')}>认证</li>
 							</ul>
 						</div>
 						<div className="item itemOne">
