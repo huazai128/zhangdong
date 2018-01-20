@@ -67,10 +67,10 @@ class App extends React.Component {
 						福建中金在线网络股份有限公司（互联网财经媒体）定位于做全国领先的投资服务平台和权威的网络财经媒体。</p>
 					<p>财视APP是一个提供科技金融综合服务平台，汇集财经博主、投资理财达人，致力于为用户提供一站式金融服务，涵盖股票、基金、财经、证券、黄金、外汇、投资、理财、保险、期货等<br></br>
 						金融行业，包括基于个人兴趣、大数据、音视频、券商交易、理财产品及智能投顾等，是一个为投资者提供智能投资的平台</p>
-					<ul className='flex-vcenter'>
-						<li><a href="javascript:void(0);"><img src={require('img/zhong1.jpg')} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require('img/zhong2.jpg')} alt="" /></a></li>
-						<li><a href="javascript:void(0);"><img src={require('img/zhong3.jpg')} alt="" /></a></li>
+					<ul className='flex-hcenter'>
+						<li><a href="javascript:void(0);"><img className='zhongApp' src={require('img/zhong1.jpg')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img className='zhongApp' src={require('img/zhong2.jpg')} alt="" /></a></li>
+						<li><a href="javascript:void(0);"><img className='zhongApp' src={require('img/zhong3.jpg')} alt="" /></a></li>
 						{/* <li><a href="javascript:void(0);"><img src={require('img/zhong4.jpg')} alt="" /></a></li> */}
 					</ul>
 					<div className='flex-vcenter' style={{ height: 70 }}>

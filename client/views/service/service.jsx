@@ -35,13 +35,27 @@ class ServiceContent extends React.Component {
 	// }
 	componentDidMount() {
 		this.node.scrollIntoView();
-
+		this.loadScroll();
 	}
+	componentWillReceiveProps() {
+		this.loadScroll();
+	}
+	loadScroll = () => {
+		const query = this.props.location && this.props.location.query;
+		if (query && query.one) {
+			document.body.scrollTop = this.refs[query.one].getBoundingClientRect().top;
+
+		}
+	}
+	componentWillUnmount() {
+		document.body.scrollTop = 0;
+	}
+
 	render() {
 		return (
 			<div>
 				<div className="content" ref={node => this.node = node}>
-					<div className="box">
+					<div className="box" ref='one'>
 						<div className="boxcontent">
 							{/* <a name='honor' id='honor'>hahahahahh</a> */}
 							<h3><a name='honor' id='honor'>软件测试</a></h3>
@@ -99,7 +113,7 @@ class ServiceContent extends React.Component {
 						</div>
 					</div>
 
-					<div className="box">
+					<div className="box" ref='two'>
 						<div className="boxcontent">
 							{/* <h3>硬件测试</h3> */}
 							<h3><a name='yin' id='yin'>硬件测试</a></h3>
@@ -157,7 +171,7 @@ class ServiceContent extends React.Component {
 							</div>
 						</div>
 					</div>
-					<div className="box">
+					<div className="box" ref='three'>
 						<div className="boxcontent">
 							{/* <h3>认证</h3> */}
 							<h3><a name='ren' id='ren'>认证</a></h3>
@@ -224,9 +238,9 @@ class Service extends React.Component {
 					<div className="item">
 						<div className="itemHead">产品与服务</div>
 						<ul className='jc-start '>
-							<li onClick={() => hashHistory.push('/service')}>软件测试</li>
-							<li onClick={() => hashHistory.push('/service')}>硬件测试</li>
-							<li onClick={() => hashHistory.push('/service')}>认证</li>
+							<li onClick={() => hashHistory.push('/service?one=one')}>软件测试</li>
+							<li onClick={() => hashHistory.push('/service?one=two')}>硬件测试</li>
+							<li onClick={() => hashHistory.push('/service?one=three')}>认证</li>
 						</ul>
 					</div>
 					<div className="item">

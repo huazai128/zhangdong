@@ -140,8 +140,12 @@
 					margin-right: 60px;
 
 						img{
-							width: 400px !important;
+
 							height: auto !important;
+							&.zhongApp{
+               width: 250px;
+							}
+
 					}
 				}
 				li:last-child {

@@ -10,9 +10,9 @@ const navs = [
 		// { icon:require('img/index04.png'),title:'软件测试',path:`/service/${'honor'}` },
 		// { icon:require('img/index03.png'),title:'硬件测试',path:`/service/${'yin'}` },
 		// { icon:require('img/index02.png'),title:'认证',path:`/service/${'ren'}` },
-		{ icon:require('img/index04.png'),title:'软件测试',path:'/service' },
-		{ icon:require('img/index03.png'),title:'硬件测试',path:'/service' },
-		{ icon:require('img/index02.png'),title:'认证',path:'/service' },
+		{ icon:require('img/index04.png'),title:'软件测试',path:'/service?one=one' },
+		{ icon:require('img/index03.png'),title:'硬件测试',path:'/service?one=two' },
+		{ icon:require('img/index02.png'),title:'认证',path:'/service?one=three' },
 	]},
 	{ title: '解决方案',path:'/solve',data:[
 		{ icon:require('img/index04.png'),title:'APP软件测试解决方案',path:'/app' },
@@ -53,7 +53,7 @@ class Common extends React.Component {
 						</ul>
 						<ul className="flex-g-1 flex-vcenter" >
 							{ navs && navs.map((item,index) => {
-								console.log(item,9999);
+								// console.log(item,9999);
 								return (
 									<NavLink key={index} url={this.props.location.pathname}  onMouseEnter={(e) => {
 										this.setState({

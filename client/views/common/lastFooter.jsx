@@ -19,9 +19,9 @@ export default class LastFooter extends React.Component {
 								<li>
 									<Link to={`/service/${'ren'}`}>认证</Link>
 								</li> */}
-								<li onClick={() => hashHistory.push('/service')}>软件测试</li>
-								<li onClick={() => hashHistory.push('/service')}>硬件测试</li>
-								<li onClick={() => hashHistory.push('/service')}>认证</li>
+								<li onClick={() => hashHistory.push('/service?one=one')}>软件测试</li>
+								<li onClick={() => hashHistory.push('/service?one=two')}>硬件测试</li>
+								<li onClick={() => hashHistory.push('/service?one=three')}>认证</li>
 							</ul>
 						</div>
 						<div className="item itemOne">
