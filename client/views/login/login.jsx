@@ -1,6 +1,7 @@
 import React from 'react';
 import './login.scss';
 import { setStore, getStore } from './loginLocal.js';
+import LoginTab from '../common/loginTab.jsx';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { Link, hashHistory } from 'react-router';
 
@@ -15,7 +16,7 @@ class Login extends React.Component {
 				setStore('name', values.userName);
 				// setStore('psd', values.password);
 				// console.log(getStore(name));
-				if (values.userName === 'admin' && values.password== 123456) {
+				if (values.userName === 'admin' && values.password == 123456) {
 					hashHistory.push('/creative');
 				} else {
 					alert('登录失败');
@@ -28,8 +29,11 @@ class Login extends React.Component {
 		const { getFieldDecorator } = this.props.form;
 		return (
 			<div id='login' className="flex-center">
-				<div className="login-form flex-center">
-					<Form onSubmit={this.handleSubmit} className="from-container">
+				<div className="login-form">
+					<div className='flex-henter flexImg'>
+						<img src={require('img/logo2.jpg')} />
+					</div>
+					{/* <Form onSubmit={this.handleSubmit} className="from-container">
 						<FormItem>
 							{getFieldDecorator('userName', {
 								rules: [{ required: true, message: 'Please input your username!' }],
@@ -44,7 +48,8 @@ class Login extends React.Component {
 						</FormItem>
 						<Button htmlType="submit" className="login-form-button">
 							登录</Button>
-					</Form>
+					</Form> */}
+					<LoginTab />
 				</div>
 			</div>
 		);

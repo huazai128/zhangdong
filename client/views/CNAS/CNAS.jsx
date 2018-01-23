@@ -2,6 +2,7 @@ import React from 'react';
 import './CNAS.scss';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
+import AskModal from '../common/askModal.jsx';
 class Function extends React.Component {
 	render() {
 		return <div id="function" >
@@ -71,7 +72,8 @@ class Function extends React.Component {
 					</div>
 					<p className='flex'>
 						为IT企业提供双软企业认定中必备的软件产品登记测试，并出具国家认可的测试报告。</p>
-					<span className='bottomp'>立即申请</span>
+					{/* <span className='bottomp'>立即申请</span> */}
+					<AskModal></AskModal>
 				</div>
 
 			</div>

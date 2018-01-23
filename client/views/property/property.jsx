@@ -2,8 +2,8 @@ import React from 'react';
 import './property.scss';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
+import AskModal from '../common/askModal.jsx';
 class Function extends React.Component {
-
 	render() {
 		return <div id="function">
 			{/* <Common bgCls="service" {...this.props}/> */}
@@ -75,7 +75,8 @@ class Function extends React.Component {
 					<p className='flex'>科学的分析系统特点，根据性能指标和主要流程和功能，设计性能测试典型场景。在线上环境进行压力测试，提出合理完善的测试计划和测试方案，保证系统使用不受影响，并能获取到<br></br>
 						真实的性能数据。提供权威的性能测试结果和调优建议。
 					</p>
-					<span className='bottomp'>立即申请</span>
+					{/* <span className='bottomp'>立即申请</span> */}
+					<AskModal></AskModal>
 				</div>
 
 			</div>

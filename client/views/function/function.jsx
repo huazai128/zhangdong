@@ -2,6 +2,7 @@ import React from 'react';
 import './function.scss';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
+import AskModal from '../common/askModal.jsx';
 class Function extends React.Component {
 	render() {
 		console.log(this.props);
@@ -54,7 +55,7 @@ class Function extends React.Component {
 					<h3>陆风汽车</h3>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 style={{paddingTop:3}}>案例介绍</h5>
+						<h5 style={{ paddingTop: 3 }}>案例介绍</h5>
 					</div>
 					<p className='flex'>由陆风汽车倾力打造的-“陆风之家APP” 于今日正式上线。陆风之家APP的成功推出，标志着陆风汽车线上服务出了更为长远，作为一款一站式出行应用程序，旨在<br></br>
 						提供更便捷地车主服务，为确保的车主的“陆风家”APP优质体验</p>
@@ -66,18 +67,19 @@ class Function extends React.Component {
 					</ul>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 style={{paddingTop:3}}>现状问题</h5>
+						<h5 style={{ paddingTop: 3 }}>现状问题</h5>
 					</div>
 					<p className='flex centerOne'>测试人员、测试设备的不足，无法满足深入的广度和深度。产品上线后用户反馈存在兼容性问题。
 					</p>
 					<div className='flex-vcenter' style={{ height: 46 }}>
 						<div className='blue'></div>
-						<h5 style={{paddingTop:3}}>解决方案</h5>
+						<h5 style={{ paddingTop: 3 }}>解决方案</h5>
 					</div>
 					<p className='flex'>注重APP在不同网络、地域、机型、功能模块、性能指标、真实操作路径下的稳定性及安全性凭借强有力的专家团队，进行真人真机执行测试，通过BUG探索与用例设计，发现应用中的各<br></br>
 						等级功能缺陷和UI问题，并在测试报告中提供BUG详细截图及复现过程。
 					</p>
-					<span className='bottomp'>立即申请</span>
+					{/* <span className='bottomp'>立即申请</span> */}
+					<AskModal></AskModal>
 				</div>
 
 			</div>

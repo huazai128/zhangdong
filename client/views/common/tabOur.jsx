@@ -6,7 +6,7 @@ const FindNode = ({ activeKey, onKey, children }) => {
 	// console.log(children)
 	if (activeKey === 'all' || activeKey === onKey) return <div className="findOne">{children}</div>;
 	else return null;
-}
+};
 
 const { TabPane } = Tabs;
 const datas = [
@@ -52,11 +52,11 @@ export default class extends React.Component {
 			}
 			return item;
 		});
-		console.log(this.state.getDatas,99999)
+		console.log(this.state.getDatas,99999);
 		this.setState({
 			getDatas: this.state.getDatas
 		});
-		console.log(this.state.getDatas)
+		console.log(this.state.getDatas);
 	}
 	render() {
 		const { getDatas } = this.state;
@@ -67,7 +67,7 @@ export default class extends React.Component {
 
 			<FindNode onKey={onKey} activeKey={activeKey}>{children}</FindNode>
 
-		)
+		);
 
 		return (
 			<div id='tabOur'>
@@ -106,7 +106,7 @@ export default class extends React.Component {
 							<div className="find">
 								<div className="findOne our-margin">
 									{getDatas.map((item, index) => {
-										console.log(item,index,777)
+										console.log(item,index,777);
 										return (
 											<div className="position-selector-item flex" key={index}>
 												<div className="selector-title">{item.title}</div>

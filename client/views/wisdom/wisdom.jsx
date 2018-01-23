@@ -2,6 +2,7 @@ import React from 'react';
 import './wisdom.scss';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
+import AskModal from '../common/askModal.jsx';
 class Function extends React.Component {
 	render() {
 		return <div id="function">
@@ -75,7 +76,8 @@ class Function extends React.Component {
 					<p className='flex'>1.多跳mesh组网路由设计</p>
 					<p className='flex'>2.规模节点（200个节点）组网网络风暴的避免机制</p>
 					<p className='flex'>3.通信可靠性技术（抗干扰技术、确认机制）</p>
-					<span className='bottomp'>立即申请</span>
+					{/* <span className='bottomp'>立即申请</span> */}
+					<AskModal></AskModal>
 				</div>
 			</div>
 		</div>;

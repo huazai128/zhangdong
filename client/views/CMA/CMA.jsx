@@ -2,6 +2,7 @@ import React from 'react';
 import './CMA.scss';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
+import AskModal from '../common/askModal.jsx';
 class Function extends React.Component {
 	render() {
 		return <div id="function" >
@@ -69,7 +70,8 @@ class Function extends React.Component {
 						<h5 style={{paddingTop:3}}>解决方案</h5>
 					</div>
 					<p className='flex'>根据专项资金拨款项目和科研项目计划任务书的要求，对软件产品所应实现的功能和性能指标进行验证，为承担过政府资助项目的IT企业提供国家工信部权威的第三方测试</p>
-					<span className='bottomp'>立即申请</span>
+					{/* <span className='bottomp'>立即申请</span> */}
+					<AskModal></AskModal>
 				</div>
 
 			</div>

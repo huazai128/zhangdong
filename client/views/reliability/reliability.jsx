@@ -2,6 +2,7 @@ import React from 'react';
 import './reliability.scss';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
+import AskModal from '../common/askModal.jsx';
 class Function extends React.Component {
 
 	render() {
@@ -74,7 +75,8 @@ class Function extends React.Component {
 						硬件测试是针对大型智能家电的测试需求进行分析评估，对大型智能冰箱提出具体测试方案。其目的是解决大型智能冰箱在使用过程中出现的异常和问题，并通过相关测试去发现潜在问题，消除可能的风险。<br></br>
 
 						针对各类家用和类似用途电器，依据相关标准及技术规范，从自学习、自适应、自协调、自诊断、自推理、自组织、自校正和安全易用八个方面对各类家电的智能功能进行系统、科学的评价。</p>
-					<a href="javascript:void(0);"><span className='bottomp'>立即申请</span></a>
+					{/* <a href="javascript:void(0);"><span className='bottomp'>立即申请</span></a> */}
+					<AskModal></AskModal>
 				</div>
 
 			</div>

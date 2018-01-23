@@ -2,6 +2,7 @@ import React from 'react';
 import './compatible.scss';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
+import AskModal from '../common/askModal.jsx';
 class Function extends React.Component {
 	render() {
 		return <div id="function">
@@ -75,7 +76,8 @@ class Function extends React.Component {
 					<p className='flex'>针对药渡头条APP进行兼容性测试，验证该产品对于智能手机品牌和机型的兼容性。通过正式环境下的兼容性测试，检查APP在各Android终端的适配率，主要检查APP能否正常进行安<br></br>
 						装、基本功能运行、卸载和升级，并且检查APP在运行过程中是否存在运行问题及UI展示问题。
 					</p>
-					<span className='bottomp'>立即申请</span>
+					{/* <span className='bottomp'>立即申请</span> */}
+					<AskModal></AskModal>
 				</div>
 
 			</div>

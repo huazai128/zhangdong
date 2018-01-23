@@ -2,6 +2,7 @@ import React from 'react';
 import './angle.scss';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
+import AskModal from '../common/askModal.jsx';
 class Function extends React.Component {
 	render() {
 		return <div id="function">
@@ -69,7 +70,8 @@ class Function extends React.Component {
 						<h5 style={{paddingTop:3}}>解决方案</h5>
 					</div>
 					<p className='flex'>采用专家走查的方式，进行用户体验测试，目的是站在用户角度思考解决方案，提高智能净水器这一产品的用户体验，改善产品，提高产品的竞争力。此外，还将进行深度兼容测试和蓝牙<br></br></p>
-					<span className='bottomp'>立即申请</span>
+					{/* <span className='bottomp'>立即申请</span> */}
+					<AskModal></AskModal>
 				</div>
 			</div>
 
