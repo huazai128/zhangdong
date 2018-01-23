@@ -192,7 +192,7 @@ class ModalForm extends React.Component {
 						</div>
 						<div className="flex-center">
 							<FormItem>
-								<Button type="primary" htmlType="submit">Register</Button>
+								<Button type="primary" htmlType="submit">确认申请</Button>
 							</FormItem>
 						</div>
 					</Form>
