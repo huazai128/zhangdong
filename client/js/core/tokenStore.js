@@ -12,7 +12,7 @@ var TokenStore = {
 		TokenStore.refreshUrl = config.refreshUrl;
 	},
 	get: function (cb) {
-		cb = cb || function () {};
+		cb = cb || function () { };
 		var token = storage.getItem(TokenStore.name);
 		if (pending) {
 			queue.push(cb);

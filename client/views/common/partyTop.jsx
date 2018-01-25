@@ -42,9 +42,9 @@ export default class Top extends React.Component {
 		hashHistory.push('/creative/personal');
 	}
 	render() {
-		const name = localStorage.getItem('name');
+		const name = localStorage.getItem('mail');
 		console.log(name)
-		const isLogin = name === 'admin';//布尔值
+		const isLogin = name === 'test';//布尔值
 
 		// console.log(isLogin,8888)
 		return (
@@ -63,7 +63,7 @@ export default class Top extends React.Component {
 							/>
 						</div>
 						<div className="dropDown flex flex-vcenter">
-							{isLogin ? <img src={require('img/top2.png')} alt="" onClick={name == 'admin' ? this.click : ''} /> : <CommentLogin />}
+							{isLogin ? <img src={require('img/top2.png')} alt="" onClick={name == 'test' ? this.click : ''} /> : <CommentLogin />}
 							{/* <div className="drop">
 								用户名称&nbsp;&nbsp;
 								<Select defaultValue="224" style={{ width: 120 }} onChange={handleChange}>

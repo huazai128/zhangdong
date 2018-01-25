@@ -3,20 +3,80 @@ import './personal.scss';
 import Top from '../common/partyTop.jsx';
 import Footer from '../common/lastFooter.jsx';
 import { Link, hashHistory } from 'react-router';
-import { Tabs } from 'antd';
+import { Tabs, Modal } from 'antd';
 const { TabPane } = Tabs;
 
-import { setStore, getStore, removeStore } from './loginLocal.js';
+// import { setStore, getStore, removeStore } from './loginLocal.js';
+// class ModalRister extends React.Component {
+// 	constructor() {
+// 		super();
+// 		this.state = {
+// 			visible: false
+// 		};
+// 	}
+// 	showModal = () => {
+// 		this.setState({
+// 			visible: true,
+// 		});
+// 	}
+// 	handleOk = (e) => {
+// 		console.log(e);
+// 		this.setState({
+// 			visible: false,
+// 		});
+// 	}
+// 	handleCancel = (e) => {
+// 		console.log(e);
+// 		this.setState({
+// 			visible: false,
+// 		});
+// 	}
+// 	render() {
+// 		return (
+// 			<div>
+// 				<Modal
+// 					title="Basic Modal"
+// 					visible={this.state.visible}
+// 					onOk={this.handleOk}
+// 					onCancel={this.handleCancel}
+// 				>
+// 					<p>Some contents...</p>
+// 					<p>Some contents...</p>
+// 					<p>Some contents...</p>
+// 				</Modal>
+// 			</div>
+// 		);
+// 	}
+// }
+
 export default class Personal extends React.Component {
-
-	register = () => {
-		const question = confirm('你确定要退出吗？');
-		if (question != '0') {
-			window.localStorage.clear(name);
-			hashHistory.push('/creative');
-		}
-
+	constructor() {
+		super();
+		this.state = {
+			visible: false
+		};
 	}
+	showModal = () => {
+		this.setState({
+			visible: true,
+		});
+	}
+	handleOk = (e) => {
+		console.log(e);
+		this.setState({
+			visible: false,
+		}, () => {
+			window.localStorage.clear('mail');
+			hashHistory.push('/creative');
+		});
+	}
+	handleCancel = (e) => {
+		console.log(e);
+		this.setState({
+			visible: false,
+		});
+	}
+
 	render() {
 		return (
 			<div id='personal'>
@@ -29,7 +89,15 @@ export default class Personal extends React.Component {
 					<div className="rightPerson flex">
 						<p>编辑资料</p>
 						{/* <Link to="/creative">退出登录</Link> */}
-						<p onClick={this.register}>退出登录</p>
+						<p onClick={this.showModal}>退出登录</p>
+						<Modal
+							// title="Basic Modal"
+							visible={this.state.visible}
+							onOk={this.handleOk}
+							onCancel={this.handleCancel}
+						>
+							<div>确定要退出吗？</div>
+						</Modal>
 					</div>
 				</div>
 				{/*tab栏*/}

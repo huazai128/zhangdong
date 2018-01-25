@@ -20,29 +20,17 @@ class ConfirmImg extends React.Component {
 }
 
 class LoginTab extends React.Component {
-	checkConfirm = (rule, value, callback) => {
-		const form = this.props.form;
-		if (value && this.state.confirmDirty) {
-			form.validateFields(['confirm'], { force: true });
-		}
-		callback();
-	}
-	checkPassword = (rule, value, callback) => {
-		const form = this.props.form;
-		if (value && value !== form.getFieldValue('password')) {
-			callback('Two passwords that you enter is inconsistent!');
-		} else {
-			callback();
-		}
+	constructor() {
+		super();
+		this.state = {
+
+		};
 	}
 
-	handleConfirmBlur = (e) => {
-		const value = e.target.value;
-		this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-	}
 	handleSubmitUser = (e) => {
 		e.preventDefault();
 		this.props.form.validateFieldsAndScroll((err, values) => {
+			console.log(values,898989)
 			if (!err) {
 				console.log('Received values of form: ', values);
 			}

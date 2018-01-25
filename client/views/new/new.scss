@@ -6,7 +6,9 @@
 		letter-spacing: 1px;
     .company{
         width: 1380px;
-        margin: 0 auto;
+				margin: 0 auto;
+			position: relative;
+			 z-index: 100000;
         .new-top{
             margin: 0 auto;
             width: 1380px;

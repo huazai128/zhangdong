@@ -84,20 +84,20 @@ class Main extends React.Component {
 	}
 
 
-	getScrollTop = () => {
-		console.log(document.body.clientHeight, document.body.offsetHeight, document.body.scrollTop);
-		window.localStorage.setItem('top', document.body.scrollTop);
-	}
-	getInit = () => {
-		document.body.addEventListener('scroll', () => {
-			var scrollTop = window.pageYOffset  //用于FF
-				|| document.documentElement.scrollTop
-				|| document.body.scrollTop
-				|| 0;
-			console.log(scrollTop);
-			console.log(document.body.scrollTop, document.documentElement.scrollTop, window.pageYOffset);
-		});
-	}
+	// getScrollTop = () => {
+	// 	console.log(document.body.clientHeight, document.body.offsetHeight, document.body.scrollTop);
+	// 	window.localStorage.setItem('top', document.body.scrollTop);
+	// }
+	// getInit = () => {
+	// 	document.body.addEventListener('scroll', () => {
+	// 		var scrollTop = window.pageYOffset  //用于FF
+	// 			|| document.documentElement.scrollTop
+	// 			|| document.body.scrollTop
+	// 			|| 0;
+	// 		console.log(scrollTop);
+	// 		console.log(document.body.scrollTop, document.documentElement.scrollTop, window.pageYOffset);
+	// 	});
+	// }
 	render() {
 		return (
 			<div id="main" ref={node => this.node = node}>

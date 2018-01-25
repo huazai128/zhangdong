@@ -7,20 +7,14 @@
     // background:url("~img/logo2.jpg") no-repeat center 58px;
     width: 418px;
     background-color:#fff;
-		padding-top: 50px;
-		max-height: 100%;
-		overflow: auto;
+		padding-top: 35px;
+		border-radius:5px;
+		padding-bottom:30px;
 		.flexImg{
 			margin-left: 50px;
-			margin-bottom: 60px;
+			margin-bottom: 30px;
 		}
-    Input{
-      height: 40px;
-      background-color: #eeeeee;
-      border:none;
-      font-size: 16px;
-      // padding-left: 48px;
-    }
+
 
     .login-form-button{
 			&.loginOne{
@@ -32,7 +26,7 @@
 				background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
 				color: #fff;
-				font-size: 17px;
+				font-size: 14px;
 				border:none;
 			}
 		 &.loginTwo{
@@ -44,7 +38,7 @@
 			background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
 			color: #fff;
-			font-size: 17px;
+			font-size: 14px;
 			border:none;
 		 }
     }
@@ -54,14 +48,14 @@
 		// padding:0 30px;
 	}
 	.ant-form-item{
-    margin-bottom: 15px !important;
+    margin-bottom:0 !important;
 	}
 	.comfirImg{
 		margin-left: 30px;
 	.comfiYzheng{
-		height: 40px;
+		height: 32px;
 		width: 125px;
+		display: block;
 	}
-
 	}
 }

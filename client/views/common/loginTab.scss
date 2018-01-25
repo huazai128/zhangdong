@@ -1,7 +1,46 @@
 .logintab{
-	padding:0 50px;
+	padding:0 30px;
 	.ant-tabs-nav .ant-tabs-tab{
 		// margin: 0px 70px 0 47px;
 		margin: 0 0 0 46px !important;
+		}
+		.ant-tabs-bar{
+			border:none !important;
+		}
+		// .ant-tabs-nav-scroll{
+		// 	margin-bottom: 50px;
+		// }
+		.ant-tabs-nav .ant-tabs-tab-active{
+			color: #666666;
+		}
+		.ant-tabs-nav .ant-tabs-tab:hover{
+		color: inherit;
+		}
+		.ant-form-item-control{
+			height: 60px;
+		}
+		// .ant-form-item-control:last-child{
+		// 	margin:40px 0 30xp 0
+		// }
+		.has-error .ant-form-explain, .has-error .ant-form-split{
+			font-size: 12px;
+			padding-left: 12px;
+			// color: #000000;
+		}
+		Input{
+			height: 32px;
+			line-height: 32px;
+    	background-color: #eeeeee;
+      border:2px solid #fbfbfb;
+			font-size: 12px;
+			outline:none;
+      // padding-left: 48px;
+		}
+		Input:hover{
+			// border: none;
+			// border-color: #eeeeee;
+		}
+		.has-error .ant-input, .has-error .ant-input:hover{
+			border-color: #eeeeee;
 		}
 }

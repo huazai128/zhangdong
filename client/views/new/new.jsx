@@ -18,10 +18,11 @@ class New extends React.Component {
 					</div>
 					<div className="flex new-item">
 						<div className="leftcompahy">
-							<img src={require('img/new1.png')} alt="" onClick={()=>hashHistory.push('/alliance')} />
+							<img src={require('img/new1.png')} onClick={()=>hashHistory.push('/alliance')} />
+							{/* <img src={require('img/new2.png')} alt=""  onClick={()=>hashHistory.push('/alliance')} /> */}
 						</div>
 						<div className="rightcompany">
-							<h3 className='lianTop' onClick={()=>hashHistory.push('/alliance')}>市科创委智能硬件联盟之《打造公共平台，助力创新创业》论坛活动圆满落幕</h3>
+							<h3 className='lianTop'  onClick={()=>hashHistory.push('/alliance')}>市科创委智能硬件联盟之《打造公共平台，助力创新创业》论坛活动圆满落幕</h3>
 							<div className='time'>新华社.2017-10-21.公司动态</div>
 							<div className="contentone">
 								2017年9月20日，在广州市科创委的指导下，由广州智能硬件与移动互联网融合技术创新联盟主办，掌动智能、机智云、芳禾数据、群志科技承办的广州智能硬件与移动互联网融合技术创新联盟系列主题活动 《打造公共平台，助力创新创业》拉开了帷幕！ </div>
