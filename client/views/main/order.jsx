@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './askModal.scss';
+import './order.scss';
 import { Form, Input, Modal, Button, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, AutoComplete } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -71,8 +71,8 @@ class ModalForm extends React.Component {
 			labelCol: { span: 6 },
 			wrapperCol: { span: 15 },
 		};
-		return <div className='askModal'>
-			<Button type="primary" onClick={this.showModal}>立即申请</Button>
+		return <div className='order'>
+			<Button ghost onClick={this.showModal}>立即下单</Button>
 			<Modal
 
 				visible={this.state.visible}
@@ -83,6 +83,20 @@ class ModalForm extends React.Component {
 			>
 				<div>
 					<Form onSubmit={this.handleSubmit}>
+					<div className="item">
+							<FormItem
+								{...formItemLayout}
+								label="测试类型："
+							>
+								{getFieldDecorator('test', {
+									rules: [{
+										required: true, message: '不能为空',
+									}],
+								})(
+									<Input />
+									)}
+							</FormItem>
+						</div>
 						<div className="item">
 							<FormItem
 								{...formItemLayout}
@@ -113,7 +127,7 @@ class ModalForm extends React.Component {
 							</FormItem> */}
 							<FormItem
 								{...formItemLayout}
-								label="企业规模"
+								label="联系人名称："
 							>
 								{getFieldDecorator('provi', {
 									rules: [{
@@ -127,7 +141,7 @@ class ModalForm extends React.Component {
 						<div className="item">
 							<FormItem
 								{...formItemLayout}
-								label="行业："
+								label="职位："
 							>
 								{getFieldDecorator('company', {
 									rules: [{
@@ -141,7 +155,7 @@ class ModalForm extends React.Component {
 						<div className="item">
 							<FormItem
 								{...formItemLayout}
-								label="申请人姓名："
+								label="手机号："
 							>
 								{getFieldDecorator('user', {
 									rules: [{
@@ -155,7 +169,7 @@ class ModalForm extends React.Component {
 						<div className="item">
 							<FormItem
 								{...formItemLayout}
-								label="申请人电话："
+								label="邮箱："
 							>
 								{getFieldDecorator('phone', {
 									rules: [{
@@ -169,7 +183,21 @@ class ModalForm extends React.Component {
 						<div className="item">
 							<FormItem
 								{...formItemLayout}
-								label="申请人邮箱："
+								label="QQ："
+							>
+								{getFieldDecorator('e-mail', {
+									rules: [{
+										required: true, message: '不能为空',
+									}],
+								})(
+									<Input />
+									)}
+							</FormItem>
+						</div>
+						<div className="item">
+							<FormItem
+								{...formItemLayout}
+								label="咨询内容："
 							>
 								{getFieldDecorator('e-mail', {
 									rules: [{

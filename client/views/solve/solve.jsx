@@ -8,12 +8,20 @@ import Common from '../common/comonOur.jsx';
 import $ from 'jquery';
 
 class Sovle extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			num: 0
+		};
+	}
 	componentDidMount() {
 		// const hei=window.innerHeight;
+		this.solveSroll();
 		setTimeout(() => {
 			var mySwiper = new window.Swiper('.swiper-container', {
 				direction: 'vertical',
 				slidesPerView: 1,
+				initialSlide: this.state.num,
 				width: window.innerWidth,
 				// height: window.innerHeight,
 				autoHeight: true, //高度随内容变化
@@ -24,7 +32,33 @@ class Sovle extends React.Component {
 				},
 			});
 		}, 100);
+
 	}
+	componentWillReceiveProps() {
+		this.solveSroll();
+
+		var mySwiper = new window.Swiper('.swiper-container', {
+			direction: 'vertical',
+			slidesPerView: 1,
+			initialSlide: this.state.num,
+			width: window.innerWidth,
+			// height: window.innerHeight,
+			autoHeight: true, //高度随内容变化
+			mousewheel: true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+		});
+
+	}
+	solveSroll = () => {
+		console.log(this.props.location.query.four)
+		this.setState({
+			num: this.props.location.query.four
+		})
+	}
+
 	render() {
 		// console.log(this.props)
 		return <div id='solve'>
@@ -35,7 +69,7 @@ class Sovle extends React.Component {
 							<Common bgCls="solve" {...this.props} />
 						</div>
 					</div>
-					<div className="swiper-slide">		<div className="content">
+					<div className="swiper-slide" ref='five'>		<div className="content">
 						<div className="box">
 							<div className="boxcontent">
 								<div className="count flex ">
@@ -107,7 +141,7 @@ class Sovle extends React.Component {
 												<li className='flex-col-3 textOne'><img src={require('img/jie3.png')} />
 													<p>用户研究</p></li>
 												<li className='flex-col-3 textOne'><img src={require('img/jie4.png')} />
-												<p>	中移MARKET<br/>测试中心</p></li>
+													<p>	中移MARKET<br />测试中心</p></li>
 												<li className='flex-col-3 textOne'><img src={require('img/jie5.png')} />
 													<p>ODC场内外支撑</p></li>
 											</ul>

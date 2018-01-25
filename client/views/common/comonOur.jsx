@@ -67,10 +67,10 @@ const navs = [
 	},
 	{
 		title: '解决方案', path: '/solve', data: [
-			{ icon: require('img/index04.png'), title: 'APP软件测试解决方案', path: '/app' },
-			{ icon: require('img/index03.png'), title: '智能硬件测试解决方案', path: '/hardware' },
-			{ icon: require('img/index01.png'), title: '教育行业测试解决方案', path: '/education' },
-			{ icon: require('img/index05.png'), title: '运营商测试解决方案', path: '/lab' },
+			{ icon: require('img/index04.png'), title: 'APP软件测试解决方案', path: '/solve?four=0' },
+			{ icon: require('img/index03.png'), title: '智能硬件测试解决方案', path: '/solve?four=1' },
+			{ icon: require('img/index01.png'), title: '教育行业测试解决方案', path: '/solve?four=2' },
+			{ icon: require('img/index05.png'), title: '运营商测试解决方案', path: '/solve?four=3' },
 		]
 	},
 	{ title: '新闻动态', path: '/new' },

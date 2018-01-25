@@ -227,12 +227,20 @@ const routes = [
 			}, 'our');
 		}
 	},
-	{//登陆页面
+	{//注册页面
 		path: '/login',
 		getComponent: (nextState, cb) => {
 			require.ensure([], (require) => {
 				cb(null, require('views/login/login').default);
 			}, 'login');
+		}
+	},
+	{//登录页面
+		path: '/register',
+		getComponent: (nextState, cb) => {
+			require.ensure([], (require) => {
+				cb(null, require('views/register/register').default);
+			}, 'register');
 		}
 	},
 	{// 实现单页面刷新   社区集市

@@ -28,8 +28,8 @@ class CommentLogin extends React.Component {
 		// onClick={() => {hashHistory.push('/login');}}
 		return (
 			<div className='flex-vcenter'>
-				<Link className="banA">注册</Link>
-				<Link className="banA" to='/login' target="_blank">{this.state.text}</Link>
+				<Link className="banA" to='/login' target="_blank">注册</Link>
+				<Link className="banA" to='/register' target="_blank">{this.state.text}</Link>
 			</div>
 		);
 	}
@@ -43,9 +43,10 @@ export default class Top extends React.Component {
 	}
 	render() {
 		const name = localStorage.getItem('mail');
-		console.log(name)
+		const userName = localStorage.getItem('name');
+		console.log(userName)
 		const isLogin = name === 'test';//布尔值
-
+		const isRegister = userName == 'admin';
 		// console.log(isLogin,8888)
 		return (
 			<div id='partytop'>
@@ -63,7 +64,7 @@ export default class Top extends React.Component {
 							/>
 						</div>
 						<div className="dropDown flex flex-vcenter">
-							{isLogin ? <img src={require('img/top2.png')} alt="" onClick={name == 'test' ? this.click : ''} /> : <CommentLogin />}
+							{isLogin || isRegister ? <img src={require('img/top2.png')} alt="" onClick={name == 'test'||userName=='admin' ? this.click : ''} /> : <CommentLogin />}
 							{/* <div className="drop">
 								用户名称&nbsp;&nbsp;
 								<Select defaultValue="224" style={{ width: 120 }} onChange={handleChange}>

@@ -67,6 +67,7 @@ export default class Personal extends React.Component {
 			visible: false,
 		}, () => {
 			window.localStorage.clear('mail');
+			window.localStorage.clear('name');
 			hashHistory.push('/creative');
 		});
 	}

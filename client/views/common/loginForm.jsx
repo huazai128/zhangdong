@@ -11,12 +11,8 @@ class LoginOne extends React.Component {
 		this.props.form.validateFieldsAndScroll((err, values) => {
 
 			if (!err) {
-				console.log('Received values of form: ', values);
 				setStore('mail', values.mail);
 				console.log(getStore('mail'))
-
-				// setStore('psd', values.password);
-				// console.log(getStore(name));
 				if (values.mail === 'test' && values.password == 123456 && values.confirm == 123456) {
 					hashHistory.push('/creative');
 				} else {
@@ -70,7 +66,7 @@ class LoginOne extends React.Component {
 						</FormItem>
 					</div>
 					<FormItem>
-						<Button type="primary" onClick={this.handleSubmit} className="login-form-button loginOne">登录</Button>
+						<Button type="primary" onClick={this.handleSubmit} className="login-form-button loginOne">注册</Button>
 					</FormItem>
 
 				</Form>

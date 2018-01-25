@@ -1,0 +1,68 @@
+#register{
+	margin:0 auto;
+  height: 100%;
+  min-width: 1000px;
+  background:url("~img/login1.jpg") no-repeat center center;
+  .register-form{
+    // background:url("~img/logo2.jpg") no-repeat center 58px;
+    width: 418px;
+    background-color:#fff;
+		padding-top: 35px;
+		border-radius:5px;
+		padding-bottom:30px;
+		.flexImg{
+			margin-left: 50px;
+			margin-bottom: 30px;
+		}
+		.ant-form{
+			padding: 0 30px;
+			margin-top: 40px;
+		}
+		.ant-input-affix-wrapper{
+			margin:20px 0;
+		}
+		.ant-input-affix-wrapper{
+			height: 45px;
+			// background-color: #eeeeee;
+      border-radius: 5px;
+		}
+
+		.anticon{
+			font-size: 20px;
+		}
+
+		.ant-input-affix-wrapper .ant-input:not(:first-child){
+			padding-left: 45px;
+		}
+
+		.login-form-button{
+			width: 100%;
+			height: 46px;
+			background: #3ea2fa;
+	    background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+			background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+			background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
+			color: #fff;
+			font-size: 14px;
+			border:none;
+			margin: 50px 0 20px 0;
+		}
+	}
+
+  .from-container {
+		// width: 300px;
+		// padding:0 30px;
+	}
+	.ant-form-item{
+    margin-bottom:0 !important;
+	}
+	.comfirImg{
+		margin-left: 30px;
+	.comfiYzheng{
+		height: 32px;
+		width: 125px;
+		display: block;
+	}
+	}
+}

@@ -6,6 +6,8 @@ import 'js/lib/swiper-3.4.2.min.css';
 import 'js/lib/countUp';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
+import Order from './order.jsx';
+
 class Main extends React.Component {
 	constructor(props) {
 		super(props);
@@ -14,7 +16,7 @@ class Main extends React.Component {
 		};
 	}
 	componentDidMount() {
-		this.getInit();
+		// this.getInit();
 		var swiper1 = new window.Swiper('.swiper-container1', {
 			paginationClickable: true,
 			spaceBetween: 0,
@@ -186,37 +188,37 @@ class Main extends React.Component {
 								</div>
 							</div>
 							<ul>
-								<li onClick={() => {
-									window.location.reload();
-									this.getScrollTop();
-									hashHistory.push('/service/function');
-								}}>
+								<li>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left">功能测试</div>
-										<div className="btn float-right" ><a href="javascript:void(0);" >立即下单</a></div>
+										<div className="float-left" onClick={() => {
+											window.location.reload();
+											this.getScrollTop();
+											hashHistory.push('/service/function');
+										}}>功能测试</div>
+										<div className="btn float-right" ><Order /></div>
 									</div>
 									<div className="itemContent">结合探索性测试和模拟不同环境下的测试,检查产品是否达到用户要求的功能</div>
 								</li>
-								<li onClick={() => {
-									window.location.reload();
-									hashHistory.push('/service/compatible');
-								}}>
+								<li>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left">兼容测试</div>
-										<div className="btn float-right"><a href="javascript:void(0);">立即下单</a></div>
+										<div className="float-left" onClick={() => {
+											window.location.reload();
+											hashHistory.push('/service/compatible');
+										}}>兼容测试</div>
+										<div className="btn float-right"><Order /></div>
 									</div>
 									<div className="itemContent">上千款测试真机设备供客户挑选,完善自动化测试系统,快速定位,解决问题</div>
 								</li>
-								<li onClick={() => {
-									window.location.reload();
-									hashHistory.push('/service/property');
-								}}>
+								<li>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left">性能测试</div>
-										<div className="btn float-right"><a href="javascript:void(0);">立即下单</a></div>
+										<div className="float-left" onClick={() => {
+											window.location.reload();
+											hashHistory.push('/service/property');
+										}}>性能测试</div>
+										<div className="btn float-right"><Order /></div>
 									</div>
 									<div className="itemContent">基于业务场景与用户行为的全链路压力测试,发现并发瓶颈,优化容量规划</div>
 								</li>
@@ -242,36 +244,36 @@ class Main extends React.Component {
 								</div>
 							</div>
 							<ul>
-								<li onClick={() => {
-									window.location.reload();
-									hashHistory.push('/service/reliability');
-								}}>
+								<li>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left">可靠性测试</div>
-										<div className="btn float-right"><a href="javascript:void(0);">立即下单</a></div>
+										<div className="float-left" onClick={() => {
+											window.location.reload();
+											hashHistory.push('/service/reliability');
+										}}>可靠性测试</div>
+										<div className="btn float-right"><Order /></div>
 									</div>
 									<div className="itemContent">通过低温试验、高温试验、恒定湿热试验、N/A全方面对硬件进行测试</div>
 								</li>
-								<li onClick={() => {
-									window.location.reload();
-									hashHistory.push('/service/wisdom');
-								}}>
+								<li>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left">无线通信模组测试</div>
-										<div className="btn float-right"><a href="#">立即下单</a></div>
+										<div className="float-left" onClick={() => {
+											window.location.reload();
+											hashHistory.push('/service/wisdom');
+										}}>无线通信模组测试</div>
+										<div className="btn float-right"><Order /></div>
 									</div>
 									<div className="itemContent">通过无线通信模组测试产品的性能，包括发射性能、接收性能、电源适应性、传输性能等专业测试</div>
 								</li>
-								<li onClick={() => {
-									window.location.reload();
-									hashHistory.push('/service/angle');
-								}}>
+								<li>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left">连通性测试</div>
-										<div className="btn float-right"><a href="javascript:void(0);">立即下单</a></div>
+										<div className="float-left" onClick={() => {
+											window.location.reload();
+											hashHistory.push('/service/angle');
+										}}>连通性测试</div>
+										<div className="btn float-right"><Order /></div>
 									</div>
 									<div className="itemContent">测试产品网络状况、硬件跟手机节点之间打流，误码率、传输速率、延时等测试</div>
 								</li>
@@ -297,36 +299,36 @@ class Main extends React.Component {
 								</div>
 							</div>
 							<ul>
-								<li onClick={() => {
-									window.location.reload();
-									hashHistory.push('/service/CMA');
-								}}>
+								<li>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left">CMA</div>
-										<div className="btn float-right"><a href="javascript:void(0);">立即下单</a></div>
+										<div className="float-left" onClick={() => {
+											window.location.reload();
+											hashHistory.push('/service/CMA');
+										}}>CMA</div>
+										<div className="btn float-right"><Order /></div>
 									</div>
 									<div className="itemContent">专业CMA认证机构，可用于申请政府扶持资金和质量仲裁</div>
 								</li>
-								<li onClick={() => {
-									window.location.reload();
-									hashHistory.push('/service/CNAS');
-								}}>
+								<li>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left">CNAS</div>
-										<div className="btn float-right"><a href="javascript:void(0);">立即下单</a></div>
+										<div className="float-left" onClick={() => {
+											window.location.reload();
+											hashHistory.push('/service/CNAS');
+										}}>CNAS</div>
+										<div className="btn float-right"><Order /></div>
 									</div>
 									<div className="itemContent">专业CNAS认证机构，确认其是否有能力开展相应的合格评定活动</div>
 								</li>
-								<li onClick={() => {
-									window.location.reload();
-									hashHistory.push('/service');
-								}}>
+								<li>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left">ISO</div>
-										<div className="btn float-right"><a href="javascript:void(0);">立即下单</a></div>
+										<div className="float-left" onClick={() => {
+											window.location.reload();
+											hashHistory.push('/service');
+										}}>ISO</div>
+										<div className="btn float-right"><Order /></div>
 									</div>
 									<div className="itemContent">ISO认证专业机构</div>
 								</li>

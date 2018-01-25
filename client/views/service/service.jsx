@@ -5,34 +5,7 @@ import Common from '../common/comonOur.jsx';
 import $ from 'jquery';
 
 class ServiceContent extends React.Component {
-	// componentDidMount() {
-	// 	this.locHandle();
-	// }
 
-	// componentWillReceiveProps() {
-	// 	this.locHandle();
-	// }
-
-	// locHandle = () => {
-	// 	var thisId = window.location.href.split('#')[1].split('/')[2].split('?')[0];
-	// 	console.log(thisId, 999)
-	// 	var mao = $('#honor'); //获得锚点
-	// 	var maoYin = $('#yin');
-	// 	var maoRen = $('#ren');
-	// 	// console.log(mao)
-	// 	if (thisId == 'honor') {//判断对象是否存在
-	// 		var pos = mao.offset().top - 50;
-	// 		$('html,body').animate({ scrollTop: pos }, 0);
-	// 	} else if (thisId == 'yin') {
-	// 		var posYin = maoYin.offset().top - 50;
-	// 		$('html,body').animate({ scrollTop: posYin }, 0);
-	// 	}else if(thisId == 'ren'){
-	// 		var posRen = maoRen.offset().top-50;
-	// 		// console.log(posRen,555)
-	// 		$('html,body').animate({ scrollTop: posRen }, 0);
-	// 	}
-
-	// }
 	componentDidMount() {
 		this.node.scrollIntoView();
 		this.loadScroll();
