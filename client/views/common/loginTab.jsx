@@ -30,7 +30,7 @@ class LoginTab extends React.Component {
 	handleSubmitUser = (e) => {
 		e.preventDefault();
 		this.props.form.validateFieldsAndScroll((err, values) => {
-			console.log(values,898989)
+			console.log(values,898989);
 			if (!err) {
 				console.log('Received values of form: ', values);
 			}
@@ -56,7 +56,7 @@ class LoginTab extends React.Component {
 									rules: [{ required: true, message: '不能为空', whitespace: true }],
 								})(
 									<Input placeholder='用户名' />
-									)}
+								)}
 							</FormItem>
 						</div>
 						<div className="itemContent">
@@ -78,7 +78,7 @@ class LoginTab extends React.Component {
 									}],
 								})(
 									<Input type="password" placeholder='设置密码' />
-									)}
+								)}
 							</FormItem>
 						</div>
 						<div className="itemContent">
@@ -94,7 +94,7 @@ class LoginTab extends React.Component {
 									}],
 								})(
 									<Input type="password" onBlur={this.handleConfirmBlur} placeholder='确认密码' />
-									)}
+								)}
 							</FormItem>
 						</div>
 						<div className='flex'>其他信息</div>
@@ -104,7 +104,7 @@ class LoginTab extends React.Component {
 									rules: [{ required: true, message: '不能为空', whitespace: true }],
 								})(
 									<Input placeholder='真实姓名' />
-									)}
+								)}
 							</FormItem>
 						</div>
 						<div className="itemContent">
@@ -113,7 +113,7 @@ class LoginTab extends React.Component {
 									rules: [{ required: true, message: '不能为空', whitespace: true }],
 								})(
 									<Input placeholder='公司名称' />
-									)}
+								)}
 							</FormItem>
 						</div>
 						<div className="itemContent">
@@ -122,7 +122,7 @@ class LoginTab extends React.Component {
 									rules: [{ required: true, message: '不能为空' }],
 								})(
 									<Input placeholder='联系电话' />
-									)}
+								)}
 							</FormItem>
 						</div>
 						<div className="itemContent">
@@ -131,10 +131,10 @@ class LoginTab extends React.Component {
 									rules: [{ required: true, message: '不能为空' }],
 								})(
 									<Input placeholder='职位' />
-									)}
+								)}
 							</FormItem>
 						</div>
-						<div className="itemContent">
+						{/* <div className="itemContent">
 							<FormItem>
 								{getFieldDecorator('job', {
 									rules: [{ required: true, message: '不能为空' }],
@@ -142,14 +142,14 @@ class LoginTab extends React.Component {
 									<Input placeholder='职位' />
 									)}
 							</FormItem>
-						</div>
+						</div> */}
 						<div className="itemContent">
 							<FormItem>
 								{getFieldDecorator('record', {
 									rules: [{ required: true, message: '不能为空' }],
 								})(
 									<Input placeholder='测试资历' />
-									)}
+								)}
 							</FormItem>
 						</div>
 						<div className="itemContent">
@@ -160,7 +160,7 @@ class LoginTab extends React.Component {
 
 									// 填写验证码
 									<ConfirmImg />
-									)}
+								)}
 							</FormItem>
 						</div>
 						<FormItem>
