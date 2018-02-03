@@ -7,28 +7,25 @@ import $ from 'jquery';
 class ServiceContent extends React.Component {
 
 	componentDidMount() {
-		this.node.scrollIntoView();
 		this.loadScroll();
 	}
-	componentWillReceiveProps() {
+	componentDidUpdate(){
 		this.loadScroll();
 	}
 	loadScroll = () => {
 		const query = this.props.location && this.props.location.query;
 		if (query && query.one) {
-			document.body.scrollTop = this.refs[query.one].getBoundingClientRect().top+600;
-
+			let anchorElement = document.getElementById(query.one);
+			if(anchorElement) { anchorElement.scrollIntoView(); }
 		}
 	}
-	componentWillUnmount() {
-		document.body.scrollTop = 0;
+	componentWillUnmount(){
 	}
-
 	render() {
 		return (
 			<div>
-				<div className="content" ref={node => this.node = node}>
-					<div className="box" ref='one'>
+				<div className="content">
+					<div className="box" id="one" >
 						<div className="boxcontent">
 							{/* <a name='honor' id='honor'>hahahahahh</a> */}
 							<h3><a name='honor' id='honor'>软件测试</a></h3>
@@ -86,7 +83,7 @@ class ServiceContent extends React.Component {
 						</div>
 					</div>
 
-					<div className="box" ref='two'>
+					<div className="box" id="two" >
 						<div className="boxcontent">
 							{/* <h3>硬件测试</h3> */}
 							<h3><a name='yin' id='yin'>硬件测试</a></h3>
@@ -144,7 +141,8 @@ class ServiceContent extends React.Component {
 							</div>
 						</div>
 					</div>
-					<div className="box" ref='three'>
+
+					<div className="box" id='three'>
 						<div className="boxcontent">
 							{/* <h3>认证</h3> */}
 							<h3><a name='ren' id='ren'>认证</a></h3>
