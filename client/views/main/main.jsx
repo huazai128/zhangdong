@@ -71,35 +71,12 @@ class Main extends React.Component {
 					demo.update(count);
 				}, 3500);
 			} else {
-				// console.error(demo.error);
 			}
 			demo.start();
 		}, 200);
-		// 二级页面返回一级页面的原地
-		// const top = JSON.parse(window.localStorage.getItem('top'));
-		// if (top && top > 100) {
-		// 	window.localStorage.removeItem('top');
-		// 	document.body.scrollTop = top;
-
-		// }
 		this.node.scrollIntoView();
 	}
 
-
-	// getScrollTop = () => {
-	// 	console.log(document.body.clientHeight, document.body.offsetHeight, document.body.scrollTop);
-	// 	window.localStorage.setItem('top', document.body.scrollTop);
-	// }
-	// getInit = () => {
-	// 	document.body.addEventListener('scroll', () => {
-	// 		var scrollTop = window.pageYOffset  //用于FF
-	// 			|| document.documentElement.scrollTop
-	// 			|| document.body.scrollTop
-	// 			|| 0;
-	// 		console.log(scrollTop);
-	// 		console.log(document.body.scrollTop, document.documentElement.scrollTop, window.pageYOffset);
-	// 	});
-	// }
 	render() {
 		return (
 			<div id="main" ref={node => this.node = node}>

@@ -4,6 +4,9 @@ import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
 import AskModal from '../common/askModal.jsx';
 class Function extends React.Component {
+	componentDidMount(){
+		document.documentElement.scrollTop = 0;
+	}
 	render() {
 		return <div id="function" >
 			{/* <Common bgCls="service" /> */}

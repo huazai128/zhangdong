@@ -22,7 +22,9 @@ const render = (Component) => {
 	);
 };
 
-render(RoutesConfig);
+setTimeout(() => {
+	render(RoutesConfig);
+})
 
 if (module.hot) {
 	module.hot.accept('./routes', (err) => {

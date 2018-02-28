@@ -110,6 +110,7 @@
 		// 传入图片
 		&.service {
 			background: url('~img/bg.png') no-repeat center top;
+			background-size: cover;
 		}
 		&.solve {
 			height: 100%;
@@ -118,33 +119,41 @@
 		&.main {
 			height: 1000px;
 			background: url('~img/newb5655.jpg') no-repeat center top;
+			background-size: cover;
 		}
 		&.new {
 			// height: 100%;
 			background: url('~img/world1.png') no-repeat center top;
+			background-size: cover;
 		}
 		&.our {
 			// height: 100%;
 			background: url('~img/world2.png') no-repeat center top;
+			background-size: cover;
 		}
 		&.cloud{
 			background: url('~img/zhibeijing.jpg') no-repeat center top;
+			background-size: cover;
 		}
 		&.app {
 			// height: 100%;
 			background: url('~img/banner333.png') no-repeat center top;
+			background-size: cover;
 		}
 		&.hardware {
 			// height: 100%;
 			background: url('~img/banner333.png') no-repeat center top;
+			background-size: cover;
 		}
 		&.education {
 			// height: 100%;
 			background: url('~img/banner333.png') no-repeat center top;
+			background-size: cover;
 		}
 		&.lab {
 			// height: 100%;
 			background: url('~img/banner333.png') no-repeat center top;
+			background-size: cover;
 		}
 		&.female,&.alliance,&.provides,&.watch,&.newdetail,&.newdetailTwo{
 		height: 54px;

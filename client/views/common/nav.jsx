@@ -20,7 +20,7 @@ export default class NavBox extends Component {
 					<ul className="flex flex-vcenter">
 						{ data.map((item,index) => {
 							return(
-								<li key={ index }><Link to={ item.path }><img src={ item.icon }/>{ item.title }</Link></li>
+								<li key={ index } onClick={ (e) => { this.props.change(e);} }><Link to={ item.path }><img src={ item.icon }/>{ item.title }</Link></li>
 							)
 						}) }
 					</ul>

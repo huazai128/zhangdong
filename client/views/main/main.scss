@@ -26,12 +26,10 @@
 		right: -2px;
 	}
 	.topBox {
-
 		height: 1000px;
 		color: #fff;
 		background: url('~img/top.jpg') no-repeat center top;
 		background-size: cover;
-
 		li {
 			list-style: none;
 		// margin-left: 40px;
@@ -47,8 +45,8 @@
 		}
 		#count {
 			position: absolute;
-			// top: 290px;
-			right: 0;
+			right: -63px;
+			top: 150px;
 			.number {
 				font-size: 110px;
 				border: 2px solid #5AA6DA;
@@ -262,6 +260,7 @@
 		text-align: center;
 		padding-top: 42px;
 		background: url('~img/serviceBox.png') no-repeat center center;
+		background-size: cover;
 		.title {
 			font-weight: bold;
 			font-size: 30px;
@@ -391,6 +390,7 @@
 		text-align: center;
 		padding-top: 44px;
 		background: url('~img/solveBox.jpg') no-repeat center center;
+		background-size: 100% 502px;
 		.title {
 			font-weight: bold;
 			font-size: 30px;
@@ -484,6 +484,7 @@
 		height: 142px;
 		margin-bottom: 60px;
 		background: url('~img/exampleBox1.jpg') no-repeat center center;
+		background-size: cover;
 		.content {
 			line-height: 120px;
 			text-align: center;
@@ -501,6 +502,7 @@
 	.prizeBox {
 		height: 1218px;
 		background: url('~img/prizeBox.jpg') no-repeat center center;
+		background-size: cover;
 		img {
 			width: 236px;
 			height: 186px;
