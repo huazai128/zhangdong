@@ -21,8 +21,7 @@
 		background-color: inherit !important;
 	}
 	.common-nav{
-		background: -webkit-gradient(linear,top top,bottom bottom,from(rgba(0,0,0,0.5)), to(transparent));
-		background:-webkit-linear-gradient(top,rgba(0,0,0,0.5),transparent);/*new gradient for Webkit*/
+		background: rgba(0,0,0,0.8);
 		&:hover{
 			transition: all 0.3s linear;
 			background: #353b41;
