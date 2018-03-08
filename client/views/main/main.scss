@@ -43,28 +43,6 @@
 				text-align: center;
 			}
 		}
-		#count {
-			position: absolute;
-			right: 0px;
-			top: 150px;
-			.number {
-				font-size: 110px;
-				border: 2px solid #5AA6DA;
-				border-radius: 10px;
-				margin-left: 15px;
-				height: 136px;
-				display: inline-block;
-				line-height: 136px;
-				width: 80px;
-				text-align: center;
-			}
-			.comma {
-				font-size: 110px;
-				display: inline-block;
-				width: 35px;
-				text-align: center;
-			}
-		}
 	}
 	.navBox {
 		height: 200px;

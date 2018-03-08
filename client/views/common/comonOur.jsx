@@ -4,7 +4,7 @@ import './comonOur.scss';
 import { Link, hashHistory } from 'react-router';
 import NavLink from '../component/navLink';
 import NavBox from './nav';
-
+import { get, post } from "js/api/fetch";
 
 class SolveTop extends React.Component {
 	render() {
@@ -82,20 +82,30 @@ class Common extends React.Component {
 		this.state = {
 			show: false,
 			curNavs: [],
-			title: ''
+			title: '',
+			bgUrl: ''
 		};
 	}
+	async componentDidMount() {
+		let { result: { data } } = await this.getAdv();
+		this.setState({
+			bgUrl: data[0].url
+		})
+	}
+	getAdv = async () => await get("/adv");
+
 	onChange = (e, flag) => {
 		this.setState({
 			curNavs: [],
 			show: false,
-			title: ''
+			title: '',
+
 		});
 	}
 	render() {
-		const { curNavs, show, title } = this.state;
+		const { curNavs, show, title, bgUrl } = this.state;
 		const isBolck = this.props.bgCls === 'solve';
-		const isOther=this.props.bgCls=='service';
+		const isOther = this.props.bgCls == 'service';
 		return <div id="common">
 			<div className={`${this.props.bgCls} topBox`}>
 				<div className="common-nav">
@@ -122,18 +132,21 @@ class Common extends React.Component {
 					</div>
 				</div>
 				{curNavs.length > 0 && <NavBox data={curNavs} classStyle={show ? 'navs-action' : 'navs-hide'} title={title} change={this.onChange}></NavBox>}
-				<div className="content">
-					{isOther?<div className="bottomContent">
-						{this.props.bgCls === 'solve' || this.props.bgCls === 'main' || this.props.bgCls === 'new' || this.props.bgCls === 'our' || this.props.bgCls === 'app' || this.props.bgCls === 'hardware' || this.props.bgCls === 'education' ||
-							this.props.bgCls === 'lab' || this.props.bgCls === 'female' || this.props.bgCls === 'alliance' || this.props.bgCls === 'provides' || this.props.bgCls === 'watch' || this.props.bgCls === 'newdetail' || this.props.bgCls === 'newdetailTwo' ? null : <p className='pTow'>立即申请</p>}
-					</div>:''}
-					<div className="count">
-						{this.props.bgCls === 'main' ? <div id="count"></div> : null}
+				{this.props.bgCls !== 'main' ? (
+					<div className="content">
+						{isOther ? <div className="bottomContent">
+							{this.props.bgCls === 'solve' || this.props.bgCls === 'main' || this.props.bgCls === 'new' || this.props.bgCls === 'our' || this.props.bgCls === 'app' || this.props.bgCls === 'hardware' || this.props.bgCls === 'education' ||
+								this.props.bgCls === 'lab' || this.props.bgCls === 'female' || this.props.bgCls === 'alliance' || this.props.bgCls === 'provides' || this.props.bgCls === 'watch' || this.props.bgCls === 'newdetail' || this.props.bgCls === 'newdetailTwo' ? null : <p className='pTow'>立即申请</p>}
+						</div> : ''}
+						<div className="count">
+
+						</div>
+						<div className='blockContent'>
+							{isBolck ? <SolveTop /> : ''}
+						</div>
 					</div>
-					<div className='blockContent'>
-						{isBolck ? <SolveTop /> : ''}
-					</div>
-				</div>
+				) : null}
+
 
 			</div>
 		</div>;

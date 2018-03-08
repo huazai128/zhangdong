@@ -7,7 +7,6 @@ class ToolDetails extends React.Component {
 	render() {
 		return (
 			<div id="ability">
-				{/* <Top></Top> */}
 				<div className="nav flex">
 					<div className="navText"><Link to="/creative">首页</Link>&nbsp;>&nbsp;<Link to="/creative/knowledge">测试工具</Link>&nbsp;>&nbsp;功能测试的流程与标准</div>
 				</div>

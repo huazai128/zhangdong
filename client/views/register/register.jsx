@@ -4,22 +4,21 @@ import { setStore, getStore } from './loginLocal.js';
 // import LoginTab from '../common/loginTab.jsx';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { Link, hashHistory } from 'react-router';
+import { get, post } from "js/api/fetch";
 
 const FormItem = Form.Item;
 class Login extends React.Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
-			console.log(values)
 			if (!err) {
-				setStore('name', values.userName);
-				console.log('Received values of form: ', values);
-				if (values.password == '123456' && values.userName == 'admin') {
-					hashHistory.push('/creative');
-				}
+				setStore('remember', values);
+				let result = this.postLogin(values);
 			}
 		});
 	}
+	postLogin = async (data) => await post("auth",data);
+
 	render() {
 		const { getFieldDecorator } = this.props.form;
 		return (
@@ -30,18 +29,18 @@ class Login extends React.Component {
 					</div>
 					<Form>
 						<FormItem>
-							{getFieldDecorator('userName', {
-								rules: [{ required: true, message: 'Please input your username!' }],
+							{getFieldDecorator('email', {
+								rules: [{ required: true, message: '请输入邮箱!' }],
 							})(
-								<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="账号" />
-								)}
+								<Input prefix={<Icon type="email" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="账号" />
+							)}
 						</FormItem>
 						<FormItem>
 							{getFieldDecorator('password', {
 								rules: [{ required: true, message: 'Please input your Password!' }],
 							})(
 								<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="密码" />
-								)}
+							)}
 						</FormItem>
 						<FormItem>
 							{getFieldDecorator('remember', {
@@ -49,14 +48,12 @@ class Login extends React.Component {
 								initialValue: true,
 							})(
 								<Checkbox>记住密码</Checkbox>
-								)}
+							)}
 							<a className="login-form-forgot float-right" href="">忘记密码?</a>
 							<Button className="login-form-button" onClick={this.handleSubmit}>
 								登录
           </Button>
 						</FormItem>
-
-
 					</Form>
 
 				</div>

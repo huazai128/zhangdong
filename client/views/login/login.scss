@@ -2,7 +2,8 @@
   margin:0 auto;
   height: 100%;
   min-width: 1000px;
-  background:url("~img/login1.jpg") no-repeat center center;
+	background:url("~img/login1.jpg") no-repeat center center;
+	background-size: cover;
   .login-form{
     // background:url("~img/logo2.jpg") no-repeat center 58px;
     width: 418px;
@@ -14,7 +15,6 @@
 			margin-left: 50px;
 			margin-bottom: 30px;
 		}
-
 
     .login-form-button{
 			&.loginOne{

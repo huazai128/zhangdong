@@ -226,7 +226,7 @@ export default class extends React.Component {
 											</li>
 										</ul>
 										<div className='ImgContent imgThree'>
-											<img src={require('img/444.png')} alt="" />
+											<img src={require('img/cloud-bg.png')} alt="" />
 										</div>
 									</div>
 								</div>

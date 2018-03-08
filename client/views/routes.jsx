@@ -105,7 +105,7 @@ const routes = [
 		}
 	},
 	{//alliance
-		path: '/alliance',
+		path: '/alliance/(:id)',
 		getComponent: (nextState, cb) => {
 			require.ensure([], (require) => {
 				cb(null, require('views/alliance/alliance').default);
@@ -184,6 +184,14 @@ const routes = [
 			require.ensure([], (require) => {
 				cb(null, require('views/new/new').default);
 			}, 'new');
+		}
+	},
+	{
+		path: '/newsMore/(:id)',
+		getComponent: (nextState, cb) => {
+			require.ensure([], (require) => {
+				cb(null, require('views/new/newsMore').default);
+			}, 'newsMore');
 		}
 	},
 	{

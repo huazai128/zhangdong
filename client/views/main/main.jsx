@@ -3,10 +3,10 @@ import React from 'react';
 import './main.scss';
 import '../index.scss';
 import 'js/lib/swiper-3.4.2.min.css';
-import 'js/lib/countUp';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
 import Order from './order.jsx';
+import NewsBg from './news';
 
 class Main extends React.Component {
 	constructor(props) {
@@ -16,7 +16,6 @@ class Main extends React.Component {
 		};
 	}
 	componentDidMount() {
-		// this.getInit();
 		var swiper1 = new window.Swiper('.swiper-container1', {
 			paginationClickable: true,
 			spaceBetween: 0,
@@ -54,26 +53,6 @@ class Main extends React.Component {
 				prevEl: '.swiper-container4 .swiper-button-prev',
 			},
 		});
-		var options = {
-			useEasing: true,
-			useGrouping: true,
-			separator: ',',
-			decimal: '.',
-		};
-		let count = 184033;
-		setTimeout(function () {
-			var demo = new window.CountUp('count', 180000, 184033, 0, 5, options);
-			console.log(demo);
-			if (!demo.error) {
-				demo.start();
-				setInterval(() => {
-					count += parseInt(Math.random() * 5);
-					demo.update(count);
-				}, 3500);
-			} else {
-			}
-			demo.start();
-		}, 200);
 		this.node.scrollIntoView();
 	}
 
@@ -81,6 +60,7 @@ class Main extends React.Component {
 		return (
 			<div id="main" ref={node => this.node = node}>
 				<Common bgCls="main" {...this.props} />
+				<NewsBg ></NewsBg>
 				<div className="navBox">
 					<div className="content">
 						<ul>

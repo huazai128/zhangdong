@@ -2,15 +2,16 @@ import React from 'react';
 import './loginTab.scss';
 import LoginOne from './loginForm.jsx';
 import { Form, Icon, Input, Button, Checkbox, Tabs } from 'antd';
+import { get, post } from "js/api/fetch";
 const { TabPane } = Tabs;
 const FormItem = Form.Item;
 
-
 class ConfirmImg extends React.Component {
 	render() {
+		console.log(this.props)
 		return (
 			<div className='flex'>
-				<Input placeholder='验证码' />
+
 				<div className='comfirImg'>
 					<img className='comfiYzheng' src={require('img/19990.jpg')} />
 				</div>
@@ -18,7 +19,6 @@ class ConfirmImg extends React.Component {
 		);
 	}
 }
-
 class LoginTab extends React.Component {
 	constructor() {
 		super();
@@ -26,16 +26,21 @@ class LoginTab extends React.Component {
 
 		};
 	}
-
 	handleSubmitUser = (e) => {
 		e.preventDefault();
 		this.props.form.validateFieldsAndScroll((err, values) => {
-			console.log(values,898989);
+			console.log(err, values)
 			if (!err) {
-				console.log('Received values of form: ', values);
+				let obj = {
+					type: 1
+				}
+				const result = this.postLogin(Object.assign(values, obj));
+				console.log('Received values of form: ', result);
 			}
 		});
 	}
+	postLogin = async (data) => await post("/user", data);
+
 	render() {
 		const { getFieldDecorator } = this.props.form;
 		return <div className='logintab'>
@@ -52,7 +57,7 @@ class LoginTab extends React.Component {
 					<Form>
 						<div className="itemContent">
 							<FormItem>
-								{getFieldDecorator('nikiName', {
+								{getFieldDecorator('username', {
 									rules: [{ required: true, message: '不能为空', whitespace: true }],
 								})(
 									<Input placeholder='用户名' />
@@ -61,7 +66,7 @@ class LoginTab extends React.Component {
 						</div>
 						<div className="itemContent">
 							<FormItem>
-								{getFieldDecorator('mail', {
+								{getFieldDecorator('email', {
 									rules: [{ required: true, message: '不能为空' }],
 								})(
 									<Input className='use flex-center' placeholder="邮箱" />)}
@@ -70,7 +75,7 @@ class LoginTab extends React.Component {
 						<div className="itemContent">
 							<FormItem
 							>
-								{getFieldDecorator('userPassword', {
+								{getFieldDecorator('password', {
 									rules: [{
 										required: true, message: '不能为空',
 									}, {
@@ -86,7 +91,7 @@ class LoginTab extends React.Component {
 							// {...formItemLayout}
 							// label="Confirm Password"
 							>
-								{getFieldDecorator('userConfirm', {
+								{getFieldDecorator('confirm', {
 									rules: [{
 										required: true, message: '不能为空',
 									}, {
@@ -100,7 +105,7 @@ class LoginTab extends React.Component {
 						<div className='flex'>其他信息</div>
 						<div className="itemContent">
 							<FormItem>
-								{getFieldDecorator('userName', {
+								{getFieldDecorator('name', {
 									rules: [{ required: true, message: '不能为空', whitespace: true }],
 								})(
 									<Input placeholder='真实姓名' />
@@ -118,7 +123,7 @@ class LoginTab extends React.Component {
 						</div>
 						<div className="itemContent">
 							<FormItem>
-								{getFieldDecorator('phone', {
+								{getFieldDecorator('iphone', {
 									rules: [{ required: true, message: '不能为空' }],
 								})(
 									<Input placeholder='联系电话' />
@@ -154,13 +159,19 @@ class LoginTab extends React.Component {
 						</div>
 						<div className="itemContent">
 							<FormItem>
-								{getFieldDecorator('record', {
-									rules: [{ required: true, message: '不能为空' }],
-								})(
+								<div className='flex'>
+									{getFieldDecorator('vcode', {
+										rules: [{ required: true, message: '不能为空' }],
+									})(
+										// 填写验证码
+										// <ConfirmImg />
+										<Input placeholder='验证码' />
+									)}
+									<div className='comfirImg'>
+										<img className='comfiYzheng' src={require('img/19990.jpg')} />
+									</div>
+								</div>
 
-									// 填写验证码
-									<ConfirmImg />
-								)}
 							</FormItem>
 						</div>
 						<FormItem>
@@ -172,4 +183,5 @@ class LoginTab extends React.Component {
 		</div >;
 	}
 }
+
 export default Form.create()(LoginTab);

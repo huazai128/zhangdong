@@ -1,0 +1,53 @@
+#bg{
+  width: 100%;
+  height: 920px;
+  .swiper-container{
+    position: relative;
+    height: 100%;
+    .swiper-slide{
+      overflow: hidden;
+    }
+    .swiper-button-prev{
+      left: 50px;
+    }
+    .swiper-button-next{
+      right: 50px;
+    }
+  }
+  .bg-num{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    .bg-box{
+      width: 1380px;
+      height: 100%;
+      margin: 0 auto;
+      position: relative;
+      #count {
+        position: absolute;
+        right: 0px;
+        top: 350px;
+        color: #fff;
+        .number {
+          font-size: 110px;
+          border: 2px solid #5AA6DA;
+          border-radius: 10px;
+          margin-left: 15px;
+          height: 136px;
+          display: inline-block;
+          line-height: 136px;
+          width: 80px;
+          text-align: center;
+        }
+        .comma {
+          font-size: 110px;
+          display: inline-block;
+          width: 35px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

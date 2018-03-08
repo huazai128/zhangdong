@@ -5,6 +5,13 @@
     background-color:#fff;
 		letter-spacing: 1px;
     .company{
+        h1 {
+            padding: 100px 0  50px;
+            text-align: center;
+            font-weight: normal;
+            font-size: 24px;
+            color:#666;
+        }
         width: 1380px;
 				margin: 0 auto;
 			position: relative;
@@ -44,22 +51,29 @@
         margin: 0 auto;
         padding: 15px 0;
         border-bottom: 1px solid #ddd;
+        overflow: hidden;
     }
     .leftcompahy{
+        float: left;
+        width: 302px;
         img{
             width: 302px;
-						height: 204px;
-						cursor: pointer;
+            height: 204px;
+            cursor: pointer;
         }
     }
     .rightcompany{
-        padding-left: 38px;
+        margin-left: 340px;
         .lianTop{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            white-space: normal;
             margin:0;
             font-size: 20px;
             color: #333333;
-						padding-bottom: 27px;
-						cursor:pointer;
+            padding-bottom: 27px;
+            cursor:pointer;
         }
         .time{
             font-size: 14px;
@@ -67,6 +81,8 @@
             padding-bottom: 56px;
         }
         .contentone{
+            height: 48px;
+            overflow: hidden;
             font-size: 14px;
             color: #7f7f7f;
             line-height: 24px;
