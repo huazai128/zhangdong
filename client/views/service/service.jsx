@@ -5,7 +5,6 @@ import Common from '../common/comonOur.jsx';
 import $ from 'jquery';
 
 class ServiceContent extends React.Component {
-
 	componentDidMount() {
 		this.loadScroll();
 	}
@@ -18,8 +17,6 @@ class ServiceContent extends React.Component {
 			let anchorElement = document.getElementById(query.one);
 			if(anchorElement) { anchorElement.scrollIntoView(); }
 		}
-	}
-	componentWillUnmount(){
 	}
 	render() {
 		return (

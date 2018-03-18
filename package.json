@@ -87,6 +87,7 @@
   "main": "main.js",
   "license": "ISC",
   "devDependencies": {
+    "babel-preset-env": "^1.6.1",
     "jquery": "^3.2.1",
     "rc-form": "^2.1.4"
   }

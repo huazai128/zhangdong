@@ -18,10 +18,9 @@ class New extends React.Component {
 		};
 	}
 	async componentDidMount() {
-		const { result: result1 } = await get("/news", { column: 1 });
-		const { result: result2 } = await get("/news", { column: 2 });
-		const { result: result3 } = await get("/news", { column: 3 });
-		console.log(result1)
+		const { result: result1 } = await get("/news", { column: 1, public: 1 });
+		const { result: result2 } = await get("/news", { column: 2, public: 1 });
+		const { result: result3 } = await get("/news", { column: 3, public: 1 });
 		this.setState({
 			data: result1.data,
 			data1: result2.data,
@@ -35,20 +34,20 @@ class New extends React.Component {
 			<Common bgCls="new" {...this.props} />
 			<div className='company'>
 				<div>
-					{ data.length === 0 && data1.length === 0 && data2.length === 0  && (
+					{data.length === 0 && data1.length === 0 && data2.length === 0 && (
 						<h1 >暂无数据</h1>
 					)}
 					{/* 公司动态 */}
 					{data.length > 0 && (
 						<div className="new-top flex-center jc-between">
 							<h2 className="new-message flex-vcenter"><i className='lefttop'></i> 公司动态</h2>
-							<div className="more" onClick={() => hashHistory.push('/newsMore/1')}>查看更多</div> <span className='youIcon'></span>
+							<div className="more flex-center" onClick={() => hashHistory.push('/newsMore/1')}>查看更多<span className='youIcon'></span></div>
 						</div>
 					)}
 					{data.length > 0 && data.slice(0, 2).map((item, index) => (
 						<div className="new-item">
 							<div className="leftcompahy">
-								<img src={ `${ imgRoot }${ item.url }`} onClick={() => hashHistory.push('/alliance/' + item.id)} />
+								<img src={`${imgRoot}${item.url}`} onClick={() => hashHistory.push('/alliance/' + item.id)} />
 							</div>
 							<div className="rightcompany">
 								<h3 className='lianTop' onClick={() => hashHistory.push('/alliance/' + item.id)}>{item.title}</h3>
@@ -65,14 +64,14 @@ class New extends React.Component {
 						data1.length > 0 && (
 							<div className="new-top flex-center jc-between">
 								<h2 className="new-message flex-vcenter"><i className='lefttop'></i> 行业新闻</h2>
-								<div className="more" onClick={() => hashHistory.push('/newsMore/2')}>查看更多</div> <span className='youIcon'></span>
+								<div className="more flex-center" onClick={() => hashHistory.push('/newsMore/2')}>查看更多<span className='youIcon'></span></div>
 							</div>
 						)
 					}
 					{data1.length > 0 && data1.slice(0, 2).map((item, index) => (
 						<div className="new-item">
 							<div className="leftcompahy">
-								<img src={ `${ imgRoot }${ item.url }`} onClick={() => hashHistory.push('/alliance/' + item.id)} />
+								<img src={`${imgRoot}${item.url}`} onClick={() => hashHistory.push('/alliance/' + item.id)} />
 							</div>
 							<div className="rightcompany">
 								<h3 className='lianTop' onClick={() => hashHistory.push('/alliance/' + item.id)}>{item.title}</h3>
@@ -87,13 +86,13 @@ class New extends React.Component {
 					{data2.length > 0 && (
 						<div className="new-top flex-center jc-between">
 							<h2 className="new-message flex-vcenter"><i className='lefttop'></i> 科技资讯</h2>
-							<div className="more" onClick={() => hashHistory.push('/newsMore/3')}>查看更多</div> <span className='youIcon'></span>
+							<div className="more flex-center" onClick={() => hashHistory.push('/newsMore/3')}>查看更多<span className='youIcon'></span></div>
 						</div>
 					)}
 					{data2.length > 0 && data2.slice(0, 2).map((item, index) => (
 						<div className="new-item">
 							<div className="leftcompahy">
-								<img src={ `${ imgRoot }${ item.url }`} onClick={() => hashHistory.push('/alliance/' + item.id)} />
+								<img src={`${imgRoot}${item.url}`} onClick={() => hashHistory.push('/alliance/' + item.id)} />
 							</div>
 							<div className="rightcompany">
 								<h3 className='lianTop' onClick={() => hashHistory.push('/alliance/' + item.id)}>{item.title}</h3>

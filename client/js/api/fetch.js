@@ -37,13 +37,11 @@ const showError = (error) => {
 // export const _API_BASE_ = process.env._API_BASE_
 
 axios.defaults.baseURL = 'http://zhangdong.api.fongwell.com';
-// axios.defaults.baseUR = "http://localhost:4201";
+// axios.defaults.baseURL = "http://localhost:4201";
 
 
 axios.defaults.timeout = 1000 * 60;
-
 axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem('token');
-
 axios.interceptors.response.use(
   (response = {}) => {
     // ============================================================

@@ -16,6 +16,7 @@ export default class NewsBg extends React.Component {
     };
   }
   async componentDidMount() {
+    await this.getAmount(0);
     let { result: { data } } = await this.getAdv();
     this.setState({
       bgData: data
@@ -35,21 +36,29 @@ export default class NewsBg extends React.Component {
       separator: ',',
       decimal: '.',
     };
-    let count = 184033;
-    setTimeout(function () {
-      var demo = new window.CountUp('count', 180000, 184033, 0, 5, options);
+    setTimeout( () => {
+      var demo = new window.CountUp('count',( this.state.amount - 4000), this.state.amount, 0, 5, options);
       if (!demo.error) {
         demo.start();
         setInterval(() => {
-          count += parseInt(Math.random() * 5);
-          demo.update(count);
-        }, 3500);
+          let num = parseInt(Math.random() * 5);
+          this.getAmount(num)
+          this.state.amount += num;
+          demo.update(this.state.amount);
+        }, 1000 * 60 * 60);
       } else {
       }
       demo.start();
     }, 200);
   }
   getAdv = async () => await get("/adv");
+  getAmount = (num) => {
+    get("/views",{ amount:num }).then((res) => {
+      this.setState({
+        amount:res.result.amount
+      })
+    })
+  }
   render() {
     const { bgData } = this.state;
     return (

@@ -15,7 +15,7 @@ class NewMore extends React.Component {
     };
   }
   async componentDidMount() {
-    const { result } = await get("/news", { column: 1 });
+    const { result } = await get("/news", { column: 1,public: 1 });
     this.setState({
       data: result.data,
     })
