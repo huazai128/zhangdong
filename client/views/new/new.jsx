@@ -18,9 +18,11 @@ class New extends React.Component {
 		};
 	}
 	async componentDidMount() {
-		const { result: result1 } = await get("/news", { column: 1, public: 1 });
-		const { result: result2 } = await get("/news", { column: 2, public: 1 });
-		const { result: result3 } = await get("/news", { column: 3, public: 1 });
+		window.scrollTo(0, 0);
+		document.body.scrollTop = 0;
+		const { result: result1 } = await get("/news", { column: 1, public: 1, pre_page: 2 });
+		const { result: result2 } = await get("/news", { column: 2, public: 1, pre_page: 2 });
+		const { result: result3 } = await get("/news", { column: 3, public: 1, pre_page: 2 });
 		this.setState({
 			data: result1.data,
 			data1: result2.data,
@@ -47,11 +49,11 @@ class New extends React.Component {
 					{data.length > 0 && data.slice(0, 2).map((item, index) => (
 						<div className="new-item">
 							<div className="leftcompahy">
-								<img src={`${imgRoot}${item.url}`} onClick={() => hashHistory.push('/alliance/' + item.id)} />
+								<img src={`${imgRoot}${item.url}`} onClick={() => hashHistory.push('/alliance/' + item.id + '?page=' + item.id)} />
 							</div>
 							<div className="rightcompany">
-								<h3 className='lianTop' onClick={() => hashHistory.push('/alliance/' + item.id)}>{item.title}</h3>
-								<div className='time'>{item.origin}.{moment(item.update_at).format('YYYY-MM-DD')}.公司动态</div>
+								<h3 className='lianTop' onClick={() => hashHistory.push('/alliance/' + item.id + '?page=' + item.id)}>{item.title}</h3>
+								<div className='time'>{item.origin}.{moment(item.update_at).format('YYYY-MM-DD')}.{item.origin}</div>
 								<div className="contentone">{item.summary}</div>
 							</div>
 						</div>
@@ -71,11 +73,11 @@ class New extends React.Component {
 					{data1.length > 0 && data1.slice(0, 2).map((item, index) => (
 						<div className="new-item">
 							<div className="leftcompahy">
-								<img src={`${imgRoot}${item.url}`} onClick={() => hashHistory.push('/alliance/' + item.id)} />
+								<img src={`${imgRoot}${item.url}`} onClick={() => hashHistory.push('/alliance/' + item.id + '?page=' + item.id)} />
 							</div>
 							<div className="rightcompany">
-								<h3 className='lianTop' onClick={() => hashHistory.push('/alliance/' + item.id)}>{item.title}</h3>
-								<div className='time'>{item.origin}.{moment(item.update_at).format('YYYY-MM-DD')}.公司动态</div>
+								<h3 className='lianTop' onClick={() => hashHistory.push('/alliance/' + item.id + '?page=' + item.id)}>{item.title}</h3>
+								<div className='time'>{item.origin}.{moment(item.update_at).format('YYYY-MM-DD')}.{item.origin}</div>
 								<div className="contentone">{item.summary}</div>
 							</div>
 						</div>
@@ -92,11 +94,11 @@ class New extends React.Component {
 					{data2.length > 0 && data2.slice(0, 2).map((item, index) => (
 						<div className="new-item">
 							<div className="leftcompahy">
-								<img src={`${imgRoot}${item.url}`} onClick={() => hashHistory.push('/alliance/' + item.id)} />
+								<img src={`${imgRoot}${item.url}`} onClick={() => hashHistory.push('/alliance/' + item.id + '?page=' + item.id)} />
 							</div>
 							<div className="rightcompany">
-								<h3 className='lianTop' onClick={() => hashHistory.push('/alliance/' + item.id)}>{item.title}</h3>
-								<div className='time'>{item.origin}.{moment(item.update_at).format('YYYY-MM-DD')}.公司动态</div>
+								<h3 className='lianTop' onClick={() => hashHistory.push('/alliance/' + item.id + '?page=' + item.id)}>{item.title}</h3>
+								<div className='time'>{item.origin}.{moment(item.update_at).format('YYYY-MM-DD')}.{item.origin}</div>
 								<div className="contentone">{item.summary}</div>
 							</div>
 						</div>

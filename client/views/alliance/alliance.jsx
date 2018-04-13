@@ -16,7 +16,6 @@ class NewDetail extends React.Component {
 			hotData: []
 		}
 	}
-	
 	async componentDidMount() {
 		this.node.scrollIntoView();
 		if (this.props.params && this.props.params.id) {
@@ -41,11 +40,10 @@ class NewDetail extends React.Component {
 			})
 		}
 	}
-
-	async componentWillReceiveProps() {
-		if (this.props.params && this.props.params.id) {
+	async componentWillReceiveProps(nextProps) {
+		if(nextProps.params && nextProps.params.id){
 			let ty = ''
-			const { result } = await get("/news/" + this.props.params.id);
+			const { result } = await get("/news/" + nextProps.params.id);
 			let hotData = await this.getNewHot(result.column);
 			switch (result.column) {
 				case 1:
@@ -65,7 +63,6 @@ class NewDetail extends React.Component {
 			})
 		}
 	}
-
 	// 获取热点信息
 	getNewHot = async (value) => {
 		let parmas = {
@@ -76,13 +73,8 @@ class NewDetail extends React.Component {
 		const result = await get("/news", parmas);
 		return result
 	}
-
 	render() {
 		const { data, ty, hotData } = this.state;
-
-		console.log(3123)
-
-		console.log(hotData);
 		return (
 			<div className='alliance' ref={node => this.node = node}>
 				<Common bgCls="alliance" {...this.props} />
@@ -119,7 +111,7 @@ class NewDetail extends React.Component {
 								<div className="retian">热点</div>
 							</div>
 							{hotData.length > 0 && (hotData.map((item, index) => (
-								<div className="dianContent" key={index} onClick={() => hashHistory.push('/alliance/' + item.id)}>
+								<div className="dianContent" key={index} onClick={() => hashHistory.push(`/alliance/${item.id}?page=${item.id}`)}>
 									<div className="dianContentTop">
 										<div className="reLeft">
 											<img src={`${imgRoot}${item.url}`} />

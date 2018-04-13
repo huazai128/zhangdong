@@ -1,51 +1,111 @@
-#partytop{
+#partytop {
   width: 100%;
   min-width: 1380px;
   margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
-  background-color:#333333;
-	letter-spacing: 1px;
-	a{
-		color: #ffffff;
-		display: inline-block;
-		text-decoration: none;
-	}
-.party{
-  line-height: 46px;
-  height: 60px;
-  width: 1380px;
-  margin: 0 auto;
-  img{
-		width: 172px;
-		height: 30px;
-    margin-right: 58px;
-}
-.ceOne{
-  font-size: 16px;
-  color: #ffffff;
-
-}
-.dropDown{
-	.banA{
-	margin-right: 40px;
-	// margin-top: 13px;
-	color: #ffffff;
-	&:hover{
-		cursor:pointer;
-	}
-	}
-  margin-left: 30px;
-  img{
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-		margin-right:10px;
-		&:hover{
-			cursor:pointer;
-		}
+  background-color: #333333;
+  letter-spacing: 1px;
+  a {
+    color: #ffffff;
+    display: inline-block;
+    text-decoration: none;
   }
-  .drop{
+  .party {
+    line-height: 46px;
+    height: 60px;
+    width: 1380px;
+    margin: 0 auto;
+    img {
+      width: 172px;
+      height: 30px;
+      margin-right: 58px;
+    }
+    .ceOne {
+      font-size: 16px;
+      color: #ffffff;
+    }
+    .dropDown {
+      width: 212px;
+      .banA {
+        margin-right: 40px; // margin-top: 13px;
         color: #ffffff;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      margin-left: 30px;
+      img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        margin-right: 10px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .drop {
+        color: #ffffff;
+        position: relative;
+        margin-left:20px;
+        & > p{
+          font-size: 14px;
+          margin: 0;
+          color: #fff;
+          width: 140px;
+          cursor: pointer;
+          height: 60px;
+          line-height: 60px;
+          span{
+            display: inline-block;
+            max-width: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding-right: 10px;
+          }
+          i{
+            display: inline-block;
+            width: 16px;
+            height: 14px;
+            position: relative;
+            top: -23px;
+            transition: all 0.3s linear;
+            background: url('~img/icon01.png') no-repeat center;
+          }
+        }
+        .drop-list{
+          position: absolute;
+          left: -25%;
+          z-index: 1000;
+          top: 60px;
+          width: 140px;
+          height: 0;
+          overflow: hidden;
+          transition: all 0.2s linear;
+          background: #fff;
+          & > li{
+            padding: 0 15px;
+            color: #333;
+            text-align: center;
+            cursor: pointer;
+            &:first-child{
+              border-bottom: 1px solid #ddd;
+            }
+          }
+        }
+        &:hover{
+          .drop-list{
+            height: 94px;
+            transition: all 0.2s linear 0.2s;
+          }
+          i{
+            transform: rotate(180deg);
+            transform-origin: center;
+          }
+        }
+      }
+    }
   }
-}
-}
+  .login-box{
+    height: 100%;
+  }
 }

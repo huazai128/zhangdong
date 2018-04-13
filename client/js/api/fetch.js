@@ -36,23 +36,19 @@ const showError = (error) => {
 // axios.defaults.baseURL = 'http://192.168.0.209:3721';
 // export const _API_BASE_ = process.env._API_BASE_
 
-axios.defaults.baseURL = 'http://zhangdong.api.fongwell.com';
-// axios.defaults.baseURL = "http://localhost:4201";
-
+// axios.defaults.baseURL = 'http://www.appstest.cn/api';
+// axios.defaults.baseURL = 'http://zhangdong.api.fongwell.com';
+axios.defaults.baseURL = "http://192.168.0.150:4201";
 
 axios.defaults.timeout = 1000 * 60;
 axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem('token');
 axios.interceptors.response.use(
   (response = {}) => {
-    // ============================================================
-    console.log(response.data);
     const { code = 1, result, message } = response.data;
     if (code !== 1) return showError(message)
-    // ============================================================
     return response
   },
   error => {
-    console.log(error);
     if (error && error.response) {
       error.message = codeMessage[error.response.status] || `连接错误${error.response.status}`
     } else {
@@ -70,7 +66,7 @@ export const get = (url, params = {}) => {
       url,
       params,
     }).then(res => {
-      const { code, message, result } = res.data
+      const { code, message, result } = res.data;
       if (!code) {
         reject(message);
         return false;
@@ -88,13 +84,31 @@ export const post = (url, params, urlData = {}) => {
       data: params,
       params: urlData
     }).then(res => {
-      const { code, message, result } = res
-      console.log(code)
+      const { code, message, result } = res.data;
       if (!code) {
         reject(message);
         return false;
       }
-      resolve(data)
+      resolve(res.data)
+    }).catch(error => reject(error))
+  })
+}
+
+
+export const put = (url, params, urlData = {}) => {
+  return new Promise((resolve, reject) => {
+    axios({
+      method: 'put',
+      url,
+      data: params,
+      params: urlData
+    }).then(res => {
+      const { code, message, result } = res.data;
+      if (!code) {
+        reject(message);
+        return false;
+      }
+      resolve(res.data)
     }).catch(error => reject(error))
   })
 }
@@ -106,12 +120,12 @@ export const postByParam = (url, params = {}) => {
       url,
       params,
     }).then(res => {
-      const { code, message, result } = res
+      const { code, message, result } = res.data;
       if (!code) {
         reject(message);
         return false;
       }
-      resolve(data)
+      resolve(res.data);
     }).catch(error => reject(error))
   })
 }

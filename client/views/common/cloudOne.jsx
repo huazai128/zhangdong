@@ -7,7 +7,7 @@ export default class HeadOne extends React.Component {
 		const { text = '质量认证', bg = 'colorTu', active } = this.props;
 
 		return (
-			<div className='cloudOne'>
+			<div className='cloudOne flex-center'>
 				<div className='boxTuContent'>
 					<div className="boxTu" onClick={this.click}>
 						<i className={`${bg} ${active ? 'active' : ''}`}></i>

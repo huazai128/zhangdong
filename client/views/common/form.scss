@@ -1,0 +1,22 @@
+#form{
+	.ant-btn:hover,{
+		color: #fff;
+    background-color: #fff;
+    border-color: #fff;
+  }
+  .pTow {
+    width: 224px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    background: #3ea2fa !important;
+    background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%) !important;
+    background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%) !important;
+    background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1) !important;
+    color: #fff;
+    border-radius: 5px;
+    border-color: transparent !important;
+  }
+}

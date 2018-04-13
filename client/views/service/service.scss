@@ -5,6 +5,9 @@
     margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
     background-color: #fff;
     letter-spacing: 1px;
+    #navs .navs-cont{
+      padding-left: 60px;
+    }
     a {
 			color: inherit;
 			text-decoration: none;
@@ -390,6 +393,7 @@
           padding-top: 54px;
           .itemHead {
             font-size: 18px;
+            cursor: pointer;
             margin-bottom: 17px;
           }
          ul{
@@ -404,13 +408,13 @@
          }
         }
         .bottomRight {
-
           padding-top: 54px;
           width: 310px;
           .text {
             margin-top: 36px;
             color: #fff;
             font-size: 18px;
+            text-align: center;
           }
         }
       }

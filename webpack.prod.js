@@ -35,7 +35,8 @@ let webpackConfig = {
 			'img': path.join(srcDir, 'img'),
 			'css': path.join(srcDir, 'css'),
 			'js': path.join(srcDir, 'js'),
-			'views': path.join(srcDir, 'views')
+			'views': path.join(srcDir, 'views'),
+			'stores': path.join(srcDir, 'stores')
 		},
 	},
 	module: {

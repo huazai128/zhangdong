@@ -1,5 +1,6 @@
 import { Router, hashHistory } from 'react-router';
 import React from 'react';
+import { message } from 'antd';
 
 
 const routes = [
@@ -10,9 +11,6 @@ const routes = [
 				cb(null, require('views/main/main').default);
 			}, 'main');//main表示在调试工具network中显示的名字
 		},
-		childRoutes: [
-
-		]
 	},
 	// serivce单页面刷新 path: '/service(/:id)',
 	{
@@ -236,19 +234,31 @@ const routes = [
 		}
 	},
 	{//注册页面
-		path: '/login',
-		getComponent: (nextState, cb) => {
-			require.ensure([], (require) => {
-				cb(null, require('views/login/login').default);
-			}, 'login');
-		}
-	},
-	{//登录页面
 		path: '/register',
 		getComponent: (nextState, cb) => {
 			require.ensure([], (require) => {
-				cb(null, require('views/register/register').default);
+				cb(null, require('views/login/login').default);
 			}, 'register');
+		},
+		onEnter: () => {
+			let token = localStorage.getItem("token");
+			if(token){
+				window.history.go(-1);
+			}
+		}
+	},
+	{//登录页面
+		path: '/login',
+		getComponent: (nextState, cb) => {
+			require.ensure([], (require) => {
+				cb(null, require('views/register/register').default);
+			}, 'login');
+		},
+		onEnter: () => {
+			let token = localStorage.getItem("token");
+			if(token){
+				window.history.go(-1);
+			}
 		}
 	},
 	{// 实现单页面刷新   社区集市
@@ -328,10 +338,17 @@ const routes = [
 					require.ensure([], (require) => {
 						cb(null, require('views/quill/quill').default);
 					}, 'quill');
+				},
+				onEnter: () => {
+					let token = localStorage.getItem("token");
+					if(!token){
+						message.info("请先登录!");
+						return false;
+					}
 				}
 			},
 			{//贴吧详情
-				path: 'barDel',
+				path: 'barDel/:id',
 				getComponent: (nextState, cb) => {
 					require.ensure([], (require) => {
 						cb(null, require('views/barDel/barDel').default);
@@ -387,11 +404,11 @@ const routes = [
 				}
 			},
 			{//工具详情
-				path: 'tooldetails',
+				path: 'detail/:id',
 				getComponent: (nextState, cb) => {
 					require.ensure([], (require) => {
 						cb(null, require('views/tooldetails/tooldetails').default);
-					}, 'tooldetails');
+					}, 'detail');
 				}
 			},
 			{

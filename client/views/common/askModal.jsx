@@ -4,39 +4,17 @@ import { Form, Input, Modal, Button, Tooltip, Icon, Cascader, Select, Row, Col, 
 const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
-//  二级联动
-// import { a as addressMap, b } from 'js/core/iteye.js';
+import { inject, observer } from 'mobx-react';
 
-// addressMap.forEach(item => {
-// 	// console.log(item,8989)
-// 	const { ProID } = item;
-
-// 	item.children = [];
-// 	b.forEach(i => {
-// 		if (i.ProID == ProID) item.children.push(i.name);
-// 	});
-// });
-
-// console.log(addressMap,89809898)
-// const options = addressMap.map(item => ({
-// 	value: item.name,
-// 	label: item.name,
-// 	children: item.children.map(i => ({
-// 		value: i,
-// 		label: i,
-// 	}))
-// }))
-
-function onChange(value) {
-	console.log(value);
-}
-
+@inject("project")
+@observer
 class ModalForm extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			visible: false,
 		};
+		this.store = this.props.project;
 	}
 	showModal = () => {
 		this.setState({
@@ -44,14 +22,12 @@ class ModalForm extends React.Component {
 		});
 	}
 	handleCancel = (e) => {
-		console.log(e);
 		this.setState({
 			visible: false,
 		});
 	}
 
 	handleOk = (e) => {
-		console.log(56565);
 		this.setState({
 			visible: false,
 		});
@@ -61,7 +37,11 @@ class ModalForm extends React.Component {
 		e.preventDefault();
 		this.props.form.validateFieldsAndScroll((err, values) => {
 			if (!err) {
-				console.log('Received values of form: ', values);
+				this.store.addPlan(values);
+        this.props.form.resetFields();
+        this.setState({
+          visible: false,
+        });
 			}
 		});
 	}
@@ -74,7 +54,6 @@ class ModalForm extends React.Component {
 		return <div className='askModal'>
 			<Button type="primary" onClick={this.showModal}>立即申请</Button>
 			<Modal
-
 				visible={this.state.visible}
 				onOk={this.handleOk}
 				width={500}
@@ -88,40 +67,28 @@ class ModalForm extends React.Component {
 								{...formItemLayout}
 								label="公司名称："
 							>
-								{getFieldDecorator('email', {
+								{getFieldDecorator('company', {
 									rules: [{
 										required: true, message: '不能为空',
 									}],
 								})(
-									<Input />
-									)}
+									<Input placeholder="请输入公司名称"/>
+								)}
 							</FormItem>
 						</div>
 						<div className="itemContent">
-							{/* <Cascader options={options} onChange={onChange} placeholder="Please select" /> */}
-							{/* <FormItem
-								{...formItemLayout}
-								label="公司所在省份："
-							>
-								{getFieldDecorator('provi', {
-									rules: [{
-										required: true, message: '不能为空',
-									}],
-								})(
-									<Cascader options={options} onChange={onChange} />
-									)}
-							</FormItem> */}
+
 							<FormItem
 								{...formItemLayout}
 								label="企业规模"
 							>
-								{getFieldDecorator('provi', {
+								{getFieldDecorator('scale', {
 									rules: [{
 										required: true, message: '不能为空',
 									}],
 								})(
-									<Input />
-									)}
+									<Input placeholder="请输入公司规模" />
+								)}
 							</FormItem>
 						</div>
 						<div className="item">
@@ -129,13 +96,13 @@ class ModalForm extends React.Component {
 								{...formItemLayout}
 								label="行业："
 							>
-								{getFieldDecorator('company', {
+								{getFieldDecorator('industry', {
 									rules: [{
 										required: true, message: '不能为空',
 									}],
 								})(
-									<Input />
-									)}
+									<Input placeholder="请输入公司行业" />
+								)}
 							</FormItem>
 						</div>
 						<div className="item">
@@ -143,13 +110,13 @@ class ModalForm extends React.Component {
 								{...formItemLayout}
 								label="申请人姓名："
 							>
-								{getFieldDecorator('user', {
+								{getFieldDecorator('name', {
 									rules: [{
 										required: true, message: '不能为空',
 									}],
 								})(
-									<Input />
-									)}
+									<Input placeholder="请输入姓名" />
+								)}
 							</FormItem>
 						</div>
 						<div className="item">
@@ -160,10 +127,12 @@ class ModalForm extends React.Component {
 								{getFieldDecorator('phone', {
 									rules: [{
 										required: true, message: '不能为空',
-									}],
+									},
+									{ pattern: /^((1[3-8][0-9])+\d{8})$/, message: '请填写正确的手机号码' },
+									],
 								})(
-									<Input />
-									)}
+									<Input placeholder="请输入手机号码" />
+								)}
 							</FormItem>
 						</div>
 						<div className="item">
@@ -171,13 +140,15 @@ class ModalForm extends React.Component {
 								{...formItemLayout}
 								label="申请人邮箱："
 							>
-								{getFieldDecorator('e-mail', {
+								{getFieldDecorator('email', {
 									rules: [{
 										required: true, message: '不能为空',
-									}],
+									},
+									{ pattern: /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/, message: '请填写正确的邮箱！' }
+									],
 								})(
-									<Input />
-									)}
+									<Input placeholder="请输入邮箱" />
+								)}
 							</FormItem>
 						</div>
 						<div className="flex-center">

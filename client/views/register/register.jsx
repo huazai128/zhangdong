@@ -1,24 +1,35 @@
 import React from 'react';
 import './register.scss';
+import { observer, inject } from 'mobx-react';
 import { setStore, getStore } from './loginLocal.js';
-// import LoginTab from '../common/loginTab.jsx';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import { Link, hashHistory } from 'react-router';
 import { get, post } from "js/api/fetch";
-
 const FormItem = Form.Item;
+
+@inject("login")
+@observer
 class Login extends React.Component {
+	constructor(props){
+		super(props);
+		this.state = {
+		
+		}
+		this.store = this.props.login;
+	}
+	componentDidMount(){
+		
+	}
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
 			if (!err) {
 				setStore('remember', values);
-				let result = this.postLogin(values);
+				this.store.loginPost(values);
+				hashHistory.push("/creative")
 			}
 		});
 	}
-	postLogin = async (data) => await post("auth",data);
-
 	render() {
 		const { getFieldDecorator } = this.props.form;
 		return (
@@ -50,12 +61,9 @@ class Login extends React.Component {
 								<Checkbox>记住密码</Checkbox>
 							)}
 							<a className="login-form-forgot float-right" href="">忘记密码?</a>
-							<Button className="login-form-button" onClick={this.handleSubmit}>
-								登录
-          </Button>
+							<Button className="login-form-button" onClick={this.handleSubmit}>登录</Button>
 						</FormItem>
 					</Form>
-
 				</div>
 			</div>
 		);

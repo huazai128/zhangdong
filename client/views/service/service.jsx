@@ -2,25 +2,27 @@ import React from 'react';
 import './service.scss';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
+import NavsBox from '../common/navs';
 import $ from 'jquery';
 
 class ServiceContent extends React.Component {
 	componentDidMount() {
 		this.loadScroll();
 	}
-	componentDidUpdate(){
+	componentDidUpdate() {
 		this.loadScroll();
 	}
 	loadScroll = () => {
 		const query = this.props.location && this.props.location.query;
 		if (query && query.one) {
 			let anchorElement = document.getElementById(query.one);
-			if(anchorElement) { anchorElement.scrollIntoView(); }
+			if (anchorElement) { anchorElement.scrollIntoView(); }
 		}
 	}
 	render() {
 		return (
 			<div>
+				<NavsBox cls="service" title="产品与服务" datas={['全方位为客户定制服务、以最合理的价格，提供最优质的产品', '以客户为本，想客户所想，为客户带来更为全面的解决方案']} />
 				<div className="content">
 					<div className="box" id="one" >
 						<div className="boxcontent">
@@ -193,18 +195,17 @@ class ServiceContent extends React.Component {
 		);
 	}
 }
-
 class Service extends React.Component {
 	render() {
 		// console.log(this.props)
 		// {...this.props}==》获取出所有的属性
 		return <div id="service">
-			<Common bgCls="service" {...this.props} />
+			<Common bgCls="main" {...this.props} />
 			{this.props.children}
 			<div className="bottomBox">
 				<div className="content flex">
 					<div className="item">
-						<div className="itemHead">产品与服务</div>
+						<div className="itemHead" onClick={() => hashHistory.push('/service')}>产品与服务</div>
 						<ul className='jc-start '>
 							<li onClick={() => hashHistory.push('/service?one=one')}>软件测试</li>
 							<li onClick={() => hashHistory.push('/service?one=two')}>硬件测试</li>
@@ -212,7 +213,7 @@ class Service extends React.Component {
 						</ul>
 					</div>
 					<div className="item">
-						<div className="itemHead">解决方案</div>
+						<div className="itemHead" onClick={() => hashHistory.push('/solve')}>解决方案</div>
 						<ul>
 							<li onClick={() => hashHistory.push('/app')}>APP软件测试解决方案</li>
 							<li onClick={() => hashHistory.push('/hardware')}>智能硬件测试解决方案</li>
@@ -221,24 +222,34 @@ class Service extends React.Component {
 						</ul>
 					</div>
 					<div className="item">
-						<div className="itemHead">新闻动态</div>
+						<div className="itemHead" onClick={() => hashHistory.push('/new')}>新闻动态</div>
 						<ul>
-							<li onClick={() => hashHistory.push('/alliance')}>公司动态</li>
-							<li onClick={() => hashHistory.push('/newdetail')}>科技资讯</li>
-							<li onClick={() => hashHistory.push('/female')}>行业新闻</li>
+							<li onClick={() => hashHistory.push('/newsMore/1')}>公司动态</li>
+							<li onClick={() => hashHistory.push('/newsMore/3')}>科技资讯</li>
+							<li onClick={() => hashHistory.push('/newsMore/2')}>行业新闻</li>
 						</ul>
 					</div>
 					<div className="item">
-						<div className="itemHead">关于我们</div>
+						<div className="itemHead" onClick={() => hashHistory.push('/our')}>关于我们</div>
 						<ul>
-							<li onClick={() => hashHistory.push('/our')}>公司简介</li>
-							<li onClick={() => hashHistory.push('/our')}>招纳贤士</li>
+							<li onClick={() => hashHistory.push('/our?page=1')}>公司简介</li>
+							<li onClick={() => hashHistory.push('/our?page=2')}>招贤纳士</li>
 						</ul>
 					</div>
 					<div className="bottomRight flex-g-1">
-						<img src={require('img/logo.png')} />
+						<Link to="/"><img src={require('img/logo.png')} /></Link>
 						<div className="text">关注我们</div>
-						<img src={require('img/share.png')} />
+						<div className="btm-login flex-center">
+							<div className="btn-img">
+								<img src={require("img/login02.png")} onClick={() => { window.open('http://wpa.qq.com/msgrd?v=3&uin=2146594489&site=qq&menu=yes', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no') }} alt="" />
+							</div>
+							<div className="btn-img">
+								<img src={require("img/login01.png")} alt="" />
+								<div className="btn-er">
+									<img src={require("img/login03.jpg")} alt="" />
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -246,7 +257,7 @@ class Service extends React.Component {
 			<div className="footer">
 				<div className="content">
 					<div>商务洽谈:&nbsp;&nbsp;020-38555340&nbsp;&nbsp;020-89289423&nbsp;&nbsp;&nbsp;&nbsp;CS邮箱:&nbsp;&nbsp;businesss@appstest.cn&nbsp;&nbsp;cs@appstest.cn&nbsp;&nbsp;&nbsp;&nbsp;地址:广州中山大道西8号天河商贸大厦14楼</div>
-					<div>2009-2017&nbsp;Appstest.com版权所有ICP证:&nbsp;粤A1-20040604&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粤公网安备&nbsp;33566758445789号</div>
+					<div>2009-2017&nbsp;Appstest.cn版权所有ICP证:&nbsp;粤A1-20040604&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粤公网安备&nbsp;33566758445789号</div>
 				</div>
 			</div>
 		</div>;

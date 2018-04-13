@@ -1,7 +1,6 @@
 #quill{
   width: 100%;
   min-width: 1380px;
-  height: 1080px;
   margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
   background-color:#f4f7fc;
 	letter-spacing: 1px;
@@ -23,8 +22,8 @@
     }
   }
   .textContent{
-    height: 830px;
     width: 1380px;
+    padding-bottom: 30px;
     margin:0 auto;
     background-color: #ffffff;
     .ql-toolbar.ql-snow{
@@ -36,12 +35,10 @@
       margin:0 auto;
     }
     .lastQuill{
-      margin-top: 62px;
+      margin-top: 122px;
       padding-top: 5px;
       background-color: #ffffff;
       height: 60px;
-      border: 1px solid #dddddd;
-      border-top: none;
       .firstOne{
         width: 174px;
         height: 46px;
@@ -52,6 +49,12 @@
         text-align: center;
         margin-right: 20px;
         border-radius: 4px;
+        cursor: pointer;
+        &.no{
+          background: #e5e5e5;
+          color: #333;
+          transition: all 1s linear;
+        }
         a{
           display: inline-block;
           width: 174px;
@@ -59,6 +62,22 @@
           color: inherit;
         }
       }
+    }
+  }
+  .content-box{
+    padding: 0 15px;
+    .content{
+      height: 600px;
+      .edui-editor{
+        width: 100% !important;
+        height: 682px !important;
+      }
+    }
+  }
+  .title{
+    padding: 15px;
+    .ant-form-item-control{
+      width:800px;
     }
   }
 }

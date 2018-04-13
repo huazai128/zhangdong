@@ -1,195 +1,196 @@
-
-#solve{
-		width: 100%;
-		height: 100%;
-    min-width: 1380px;
-    margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
-		background-color:#eeeeee;
-		letter-spacing: 1px;
-		.swiper-slide swiper-slide-active{
-			margin: 0 !important;
-		}
-		a{
-			text-decoration: none;
-			color: inherit;
+#solve {
+  width: 100%;
+  height: 100%;
+  min-width: 1380px;
+  margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
+  background-color: #eeeeee;
+  letter-spacing: 1px;
+  .swiper-slide {
+		margin: 0 !important;
+		overflow: hidden;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .boxContentOne {
+    width: 100%;
+    height: 100%;
 	}
-	.boxContentOne{
-		width: 100%;
-		height: 100%;
+	.blockContent{
+		margin-top: 10% !important;
 	}
-
-.content{
-	.box{
-		width: 100%;
-		height: 100%;
-		background-color: #edf2f8;
-		&.edBox{
-			background-color: #f6f6f6;
+	@media screen and (max-height:800px) {
+		.blockContent{
+			margin-top: 5% !important;
 		}
-	  .boxcontent{
-			 width: 1380px;
-			 margin: 0 auto;
-			 padding-top: 214px;
-			  .count{
-					// 第二幅图
-					 .countLeft{
-						 margin-top: 95px;
-						  .countLeftHeader{
-								width: 425px;
-								font-size: 30px;
-								color: #333333;
-								text-align: center;
-								&.jieTop{
-									width: 508px;
-									text-align: center;
-								}
-							}
-							 .countImg{
-								 width: 428px;
-								 margin-top: 90px;
-								 &.jieContent{
-                   width: 580px;
-								 }
-								  .countContentUl{
-										li{
-											height: 110px;
-											text-align: center;
-											>img{
-												width: 72px;
-												height: 72px;
-
-											}
-											>p{
-                        margin-top: 20px !important;
-												font-size: 16px;
-												color: #666666;
-
-											}
-
-											&.textOne{
-												text-align: center;
-											}
-										}
-									}
-							 }
-							  .countButton{
-									// margin-top: 82px;
-									width: 210px;
-									height: 54px;
-									// margin-top: 70px;
-									border-radius: 5px;
-									text-align: center;
-									line-height: 54px;
-									font-size: 18px;
-									// color: #fff;
-									border: none;
-									background: #3ea2fa;
-									background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
-									background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
-									background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
-									filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
-									color: #fff;
-									cursor:pointer;
-									margin:90px auto;
-								}
-
-					 }
-					 .countRight{
-
-					 }
-					//  第三幅图
-					.edLeft{
-              // margin-top: 270px;
-					}
-					.edRight{
-						 margin-top: 30px;
-						 .edRightHeader{
-							width: 425px;
-							font-size: 30px;
-							color: #333333;
-							text-align: center;
-						 }
-						 .edRightImg{
-							width: 428px;
-							margin-top: 90px;
-							  .edContentUl{
-
-									li{
-										height: 110px;
-										text-align: center;
-										>img{
-											width: 72px;
-											height: 72px;
-										}
-										>p{
-											margin-top: 20px;
-											font-size: 16px;
-											color: #666666;
-											// text-align: left;
-											// padding-left: 8px;
-										}
-									}
-								}
-						 }
-						  .edButton{
-									// margin-top: 82px;
-									width: 210px;
-									height: 54px;
-									// margin-top: 70px;
-									border-radius: 5px;
-									text-align: center;
-									line-height: 54px;
-									font-size: 18px;
-									// color: #fff;
-									border: none;
-									background: #3ea2fa;
-									background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
-									background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
-									background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
-									filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
-									color: #fff;
-									cursor:pointer;
-									margin:90px auto;
-							}
-					}
-				}
-	  }
+		.boxcontent{
+			padding-top: 125px !important;
+		}
+  }
+  .tokenContentImg{
+    margin-left: -3px;
+  }
+  .content {
+    .box {
+      width: 100%;
+      height: 100%;
+      background-color: #edf2f8;
+      &.edBox {
+        background-color: #f6f6f6;
+      }
+      
+      .boxcontent {
+        width: 1380px;
+        margin: 0 auto;
+        padding-top: 214px;
+        .count {
+          // 第二幅图
+          .countLeft {
+            margin-top: 95px;
+            .countLeftHeader {
+              width: 425px;
+              font-size: 30px;
+              color: #333333;
+              text-align: center;
+              &.jieTop {
+                width: 508px;
+                text-align: center;
+              }
+            }
+            .countImg {
+              width: 428px;
+              margin-top: 90px;
+              margin-left: -55px;
+              &.jieContent {
+                width: 580px;
+              }
+              &.jieCon{
+                margin-left: -40px;
+              }
+              .countContentUl {
+                li {
+                  height: 110px;
+                  text-align: center;
+                  >img {
+                    width: 72px;
+                    height: 72px;
+                  }
+                  >p {
+                    margin-top: 20px !important;
+                    font-size: 16px;
+                    color: #666666;
+                  }
+                  &.textOne {
+                    text-align: center;
+                  }
+                }
+              }
+            }
+            .countButton {
+              // margin-top: 82px;
+              width: 210px;
+              height: 54px; // margin-top: 70px;
+              border-radius: 5px;
+              text-align: center;
+              line-height: 54px;
+              font-size: 18px; // color: #fff;
+              border: none;
+              background: #3ea2fa;
+              background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+              background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+              background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
+              color: #fff;
+              cursor: pointer;
+              margin: 90px auto;
+            }
+          }
+          .countRight {}
+          //  第三幅图
+          .edLeft {
+            // margin-top: 270px;
+          }
+          .edRight {
+            margin-top: 30px;
+            .edRightHeader {
+              width: 530px;
+              font-size: 30px;
+              color: #333333;
+              text-align: center;
+            }
+            .edRightImg {
+              width: 435px;
+              margin-top: 90px;
+              .edContentUl {
+                li {
+                  height: 110px;
+                  text-align: center;
+                  >img {
+                    width: 72px;
+                    height: 72px;
+                  }
+                  >p {
+                    margin-top: 20px;
+                    font-size: 16px;
+                    color: #666666; // text-align: left;
+                    // padding-left: 8px;
+                  }
+                }
+              }
+            }
+            .edButton {
+              // margin-top: 82px;
+              width: 210px;
+              height: 54px; // margin-top: 70px;
+              border-radius: 5px;
+              text-align: center;
+              line-height: 54px;
+              font-size: 18px; // color: #fff;
+              border: none;
+              background: #3ea2fa;
+              background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+              background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+              background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
+              color: #fff;
+              cursor: pointer;
+              margin: 90px auto;
+            }
+          }
+        }
+      }
+    }
+  }
+  .swiper-container {
+    width: 100%;
+    height: 100% !important; //一般是调这里
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .swiper-slide .swiper-slide-active {
+    margin: 0 !important;
+  }
+  .swiper-slide {
+    // text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  div.content {
+    width: 100%;
+    height: 100%;
   }
 }
-
-   .swiper-container {
-	width: 100%;
-	height: 100% !important;//一般是调这里
-	margin-left: auto;
-	margin-right: auto;
-}
-.swiper-slide .swiper-slide-active{
-	margin:0 !important;
-}
-.swiper-slide {
-	// text-align: center;
-	font-size: 18px;
-	background: #fff;
-
-	/* Center slide text vertically */
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	-webkit-justify-content: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	-webkit-align-items: center;
-	align-items: center;
-}
-div.content{
-	width: 100%;
-	height: 100%;
-}
-}
-
-
-

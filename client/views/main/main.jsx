@@ -5,7 +5,7 @@ import '../index.scss';
 import 'js/lib/swiper-3.4.2.min.css';
 import { Link, hashHistory } from 'react-router';
 import Common from '../common/comonOur.jsx';
-import Order from './order.jsx';
+import FormComponent  from '../common/form';
 import NewsBg from './news';
 
 class Main extends React.Component {
@@ -45,7 +45,6 @@ class Main extends React.Component {
 			},
 		});
 		var swiper4 = new window.Swiper('.swiper-container4', {
-			paginationClickable: true,
 			spaceBetween: 0,
 			slidesPerView: 5,
 			navigation: {
@@ -64,10 +63,10 @@ class Main extends React.Component {
 				<div className="navBox">
 					<div className="content">
 						<ul>
-							<li><a href="javascript:void(0);"><img src={require('img/order.png')} /><div>自主下单</div></a></li>
-							<li><a href="javascript:void(0);"><img src={require('img/testcenter.png')} /><div>测试中心</div></a></li>
-							<li><a href="javascript:void(0);"><img src={require('img/cma.png')} /><div>CMA</div></a></li>
-							<li><a href="javascript:void(0);"><img src={require('img/service.png')} /><div>定制化服务</div></a></li>
+							<li><img src={require('img/order.png')} /><div>自主下单</div></li>
+							<li><img src={require('img/testcenter.png')} /><div>测试中心</div></li>
+							<li><img src={require('img/cma.png')} /><div>CMA</div></li>
+							<li><img src={require('img/service.png')} /><div>定制化服务</div></li>
 						</ul>
 					</div>
 				</div>
@@ -78,7 +77,6 @@ class Main extends React.Component {
 						<div className="tip">NQI-Cloud提供Paas+Saas的完备质量云服务,实现智能应用全生命周期质量托管</div>
 						<div className="item first">
 							<div onClick={() => {
-								this.getScrollTop();
 								hashHistory.push('/cloud/1');
 							}}>
 								<div className="icon"></div>
@@ -87,7 +85,6 @@ class Main extends React.Component {
 						</div>
 						<div className="item second">
 							<div onClick={() => {
-								this.getScrollTop();
 								hashHistory.push('/cloud/2');
 							}}>
 								<div className="icon"></div>
@@ -96,7 +93,6 @@ class Main extends React.Component {
 						</div>
 						<div className="item third">
 							<div onClick={() => {
-								this.getScrollTop();
 								hashHistory.push('/cloud/3');
 							}}>
 								<div className="icon"></div>
@@ -105,7 +101,6 @@ class Main extends React.Component {
 						</div>
 						<div className="item four">
 							<div onClick={() => {
-								this.getScrollTop();
 								hashHistory.push('/cloud/4');
 							}}>
 								<div className="icon"></div>
@@ -146,38 +141,34 @@ class Main extends React.Component {
 							</div>
 							<ul>
 								<li>
-									<div className="clearfix itemTitle">
-										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left" onClick={() => {
-											window.location.reload();
-											this.getScrollTop();
-											hashHistory.push('/service/function');
-										}}>功能测试</div>
-										<div className="btn float-right" ><Order /></div>
-									</div>
-									<div className="itemContent">结合探索性测试和模拟不同环境下的测试,检查产品是否达到用户要求的功能</div>
+									<Link to="/service/function">
+										<div className="clearfix itemTitle">
+											<img src={require('img/search1.png')} className="float-left d-inline-block" />
+											<div className="float-left">功能测试</div>
+										</div>
+										<div className="itemContent">结合探索性测试和模拟不同环境下的测试,检查产品是否达到用户要求的功能</div>
+									</Link>
+									<div className="btn float-right" ><FormComponent /></div>
 								</li>
 								<li>
-									<div className="clearfix itemTitle">
-										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left" onClick={() => {
-											window.location.reload();
-											hashHistory.push('/service/compatible');
-										}}>兼容测试</div>
-										<div className="btn float-right"><Order /></div>
-									</div>
-									<div className="itemContent">上千款测试真机设备供客户挑选,完善自动化测试系统,快速定位,解决问题</div>
+									<Link to="/service/compatible">
+										<div className="clearfix itemTitle">
+											<img src={require('img/search1.png')} className="float-left d-inline-block" />
+											<div className="float-left">兼容测试</div>
+										</div>
+										<div className="itemContent">上千款测试真机设备供客户挑选,完善自动化测试系统,快速定位,解决问题</div>
+									</Link>
+									<div className="btn float-right"><FormComponent /></div>
 								</li>
 								<li>
-									<div className="clearfix itemTitle">
-										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left" onClick={() => {
-											window.location.reload();
-											hashHistory.push('/service/property');
-										}}>性能测试</div>
-										<div className="btn float-right"><Order /></div>
-									</div>
-									<div className="itemContent">基于业务场景与用户行为的全链路压力测试,发现并发瓶颈,优化容量规划</div>
+									<Link to="/service/property">
+										<div className="clearfix itemTitle">
+											<img src={require('img/search1.png')} className="float-left d-inline-block" />
+											<div className="float-left" >性能测试</div>
+										</div>
+										<div className="itemContent">基于业务场景与用户行为的全链路压力测试,发现并发瓶颈,优化容量规划</div>
+									</Link>
+									<div className="btn float-right"><FormComponent /></div>
 								</li>
 							</ul>
 						</div>
@@ -202,37 +193,34 @@ class Main extends React.Component {
 							</div>
 							<ul>
 								<li>
-									<div className="clearfix itemTitle">
-										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left" onClick={() => {
-											window.location.reload();
-											hashHistory.push('/service/reliability');
-										}}>可靠性测试</div>
-										<div className="btn float-right"><Order /></div>
-									</div>
-									<div className="itemContent">通过低温试验、高温试验、恒定湿热试验、N/A全方面对硬件进行测试</div>
+									<Link to="/service/reliability">
+										<div className="clearfix itemTitle">
+											<img src={require('img/search1.png')} className="float-left d-inline-block" />
+											<div className="float-left">可靠性测试</div>
+										</div>
+										<div className="itemContent">通过低温试验、高温试验、恒定湿热试验、N/A全方面对硬件进行测试</div>
+									</Link>
+									<div className="btn float-right"><FormComponent /></div>
 								</li>
 								<li>
-									<div className="clearfix itemTitle">
-										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left" onClick={() => {
-											window.location.reload();
-											hashHistory.push('/service/wisdom');
-										}}>无线通信模组测试</div>
-										<div className="btn float-right"><Order /></div>
-									</div>
-									<div className="itemContent">通过无线通信模组测试产品的性能，包括发射性能、接收性能、电源适应性、传输性能等专业测试</div>
+									<Link to="/service/wisdom">
+										<div className="clearfix itemTitle">
+											<img src={require('img/search1.png')} className="float-left d-inline-block" />
+											<div className="float-left">无线通信模组测试</div>
+										</div>
+										<div className="itemContent">通过无线通信模组测试产品的性能，包括发射性能、接收性能、电源适应性、传输性能等专业测试</div>
+									</Link>
+									<div className="btn float-right"><FormComponent /></div>
 								</li>
 								<li>
-									<div className="clearfix itemTitle">
-										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left" onClick={() => {
-											window.location.reload();
-											hashHistory.push('/service/angle');
-										}}>连通性测试</div>
-										<div className="btn float-right"><Order /></div>
-									</div>
-									<div className="itemContent">测试产品网络状况、硬件跟手机节点之间打流，误码率、传输速率、延时等测试</div>
+									<Link to="/service/angle">
+										<div className="clearfix itemTitle">
+											<img src={require('img/search1.png')} className="float-left d-inline-block" />
+											<div className="float-left">连通性测试</div>
+										</div>
+										<div className="itemContent">测试产品网络状况、硬件跟手机节点之间打流，误码率、传输速率、延时等测试</div>
+									</Link>
+									<div className="btn float-right"><FormComponent /></div>
 								</li>
 							</ul>
 						</div>
@@ -257,37 +245,32 @@ class Main extends React.Component {
 							</div>
 							<ul>
 								<li>
-									<div className="clearfix itemTitle">
-										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left" onClick={() => {
-											window.location.reload();
-											hashHistory.push('/service/CMA');
-										}}>CMA</div>
-										<div className="btn float-right"><Order /></div>
-									</div>
-									<div className="itemContent">专业CMA认证机构，可用于申请政府扶持资金和质量仲裁</div>
+									<Link to="/service/CMA">
+										<div className="clearfix itemTitle">
+											<img src={require('img/search1.png')} className="float-left d-inline-block" />
+											<div className="float-left" >CMA</div>
+										</div>
+										<div className="itemContent">专业CMA认证机构，可用于申请政府扶持资金和质量仲裁</div>
+									</Link>
+									<div className="btn float-right"><FormComponent /></div>
+								</li>
+								<li>
+									<Link to="/service/CNAS">
+										<div className="clearfix itemTitle">
+											<img src={require('img/search1.png')} className="float-left d-inline-block" />
+											<div className="float-left">CNAS</div>
+										</div>
+										<div className="itemContent">专业CNAS认证机构，确认其是否有能力开展相应的合格评定活动</div>
+									</Link>
+									<div className="btn float-right"><FormComponent /></div>
 								</li>
 								<li>
 									<div className="clearfix itemTitle">
 										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left" onClick={() => {
-											window.location.reload();
-											hashHistory.push('/service/CNAS');
-										}}>CNAS</div>
-										<div className="btn float-right"><Order /></div>
-									</div>
-									<div className="itemContent">专业CNAS认证机构，确认其是否有能力开展相应的合格评定活动</div>
-								</li>
-								<li>
-									<div className="clearfix itemTitle">
-										<img src={require('img/search1.png')} className="float-left d-inline-block" />
-										<div className="float-left" onClick={() => {
-											window.location.reload();
-											hashHistory.push('/service');
-										}}>ISO</div>
-										<div className="btn float-right"><Order /></div>
+										<div className="float-left">ISO</div>
 									</div>
 									<div className="itemContent">ISO认证专业机构</div>
+									<div className="btn float-right"><FormComponent /></div>
 								</li>
 							</ul>
 						</div>
@@ -307,7 +290,7 @@ class Main extends React.Component {
 								</div>
 								<div className="itemViewHover">
 									<div className="itemTitle">运营商测试建设</div>
-									<ul className="clearfix">
+									<ul className="clearfix flex-center wrap">
 										<li>
 											<div><img className="img" src={require('img/phone_white.png')} /></div>
 											<div className="litext">技术实验室</div>
@@ -318,7 +301,7 @@ class Main extends React.Component {
 										</li>
 										<li>
 											<div><img className="img" src={require('img/phone_white.png')} /></div>
-											<div className="litext">中移market测试中心</div>
+											<div className="litext"><p>中移market</p> <p>测试中心</p></div>
 										</li>
 										<li>
 											<div><img className="img" src={require('img/phone_white.png')} /></div>
@@ -336,7 +319,7 @@ class Main extends React.Component {
 								</div>
 								<div className="itemViewHover">
 									<div className="itemTitle">智能硬件测试</div>
-									<ul className="clearfix">
+									<ul className="clearfix flex-center wrap">
 										<li>
 											<div><img className="img" src={require('img/phone_white.png')} /></div>
 											<div className="litext">硬件测试</div>
@@ -361,7 +344,7 @@ class Main extends React.Component {
 								</div>
 								<div className="itemViewHover">
 									<div className="itemTitle">教育行业测试</div>
-									<ul className="clearfix">
+									<ul className="clearfix flex-center wrap">
 										<li>
 											<div><img className="img" src={require('img/phone_white.png')} /></div>
 											<div className="litext">UI自动化测试</div>
@@ -386,7 +369,7 @@ class Main extends React.Component {
 								</div>
 								<div className="itemViewHover">
 									<div className="itemTitle">APP软件测试</div>
-									<ul className="clearfix">
+									<ul className="clearfix flex-center wrap">
 										<li>
 											<div><img className="img" src={require('img/phone_white.png')} /></div>
 											<div className="litext">功能测试</div>
@@ -424,13 +407,19 @@ class Main extends React.Component {
 							<span className="listTitle">企业资质</span>
 							<div className="swiper-container swiper-container1">
 								<div className="swiper-wrapper">
-									<div className="swiper-slide"><img src={require('img/price1.png')} /></div>
-									<div className="swiper-slide"><img src={require('img/price1.png')} /></div>
-									<div className="swiper-slide"><img src={require('img/price1.png')} /></div>
-									<div className="swiper-slide"><img src={require('img/price1.png')} /></div>
-									<div className="swiper-slide"><img src={require('img/price1.png')} /></div>
-									<div className="swiper-slide"><img src={require('img/price1.png')} /></div>
-									<div className="swiper-slide"><img src={require('img/price1.png')} /></div>
+									<div className="swiper-slide"><img src={require('img/j01.png')} /></div>
+									<div className="swiper-slide"><img src={require('img/j02.png')} /></div>
+									<div className="swiper-slide"><img src={require('img/j03.png')} /></div>
+									<div className="swiper-slide"><img src={require('img/j04.jpg')} /></div>
+									<div className="swiper-slide"><img src={require('img/j05.png')} /></div>
+									<div className="swiper-slide"><img src={require('img/j06.png')} /></div>
+									<div className="swiper-slide"><img src={require('img/j07.png')} /></div>
+									<div className="swiper-slide"><img src={require('img/j08.png')} /></div>
+									<div className="swiper-slide"><img src={require('img/j09.png')} /></div>
+									<div className="swiper-slide"><img src={require('img/j10.png')} /></div>
+									<div className="swiper-slide"><img src={require('img/j11.png')} /></div>
+									<div className="swiper-slide"><img src={require('img/j12.png')} /></div>
+									<div className="swiper-slide"><img src={require('img/j13.png')} /></div>
 								</div>
 								<div className="swiper-button-next"></div>
 								<div className="swiper-button-prev"></div>
@@ -483,16 +472,28 @@ class Main extends React.Component {
 						<div className="p-relative">
 							<div className="swiper-container swiper-container4">
 								<div className="swiper-wrapper">
-									<div className="swiper-slide"><img src={require('img/c1.jpg')} /></div>
-									<div className="swiper-slide"><img src={require('img/c2.jpg')} /></div>
-									<div className="swiper-slide"><img src={require('img/c3.jpg')} /></div>
-									<div className="swiper-slide"><img src={require('img/c4.jpg')} /></div>
-									<div className="swiper-slide"><img src={require('img/c5.jpg')} /></div>
-									<div className="swiper-slide"><img src={require('img/c1.jpg')} /></div>
+									<div className="swiper-slide"><p><img src={require('img/c1.jpg')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c2.jpg')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c3.jpg')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c4.jpg')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c5.jpg')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c6.png')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c7.png')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c8.png')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c9.png')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c10.png')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c11.png')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c12.png')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c13.png')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c14.png')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c15.png')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c16.png')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c17.png')} /></p></div>
+									<div className="swiper-slide"><p><img src={require('img/c18.png')} /></p></div>
 								</div>
+								<div className="swiper-button-next"></div>
+								<div className="swiper-button-prev"></div>
 							</div>
-							<div className="swiper-button-next"></div>
-							<div className="swiper-button-prev"></div>
 						</div>
 					</div>
 				</div>
@@ -500,26 +501,15 @@ class Main extends React.Component {
 				<div className="bottomBox">
 					<div className="content">
 						<div className="item">
-							<div className="itemHead">产品与服务</div>
-							<ul>
-
-								{/* <li>
-									<Link to={`/service/${'honor'}`}>软件测试</Link>
-								</li>
-
-								<li>
-									<Link to={`/service/${'yin'}`}>硬件测试</Link>
-								</li>
-								<li>
-									<Link to={`/service/${'ren'}`}>认证</Link>
-								</li> */}
+							<div className="itemHead" onClick={() => hashHistory.push('/service')}>产品与服务</div>
+							<ul className='jc-start '>
 								<li onClick={() => hashHistory.push('/service?one=one')}>软件测试</li>
 								<li onClick={() => hashHistory.push('/service?one=two')}>硬件测试</li>
 								<li onClick={() => hashHistory.push('/service?one=three')}>认证</li>
 							</ul>
 						</div>
 						<div className="item">
-							<div className="itemHead">解决方案</div>
+							<div className="itemHead" onClick={() => hashHistory.push('/solve')}>解决方案</div>
 							<ul>
 								<li onClick={() => hashHistory.push('/app')}>APP软件测试解决方案</li>
 								<li onClick={() => hashHistory.push('/hardware')}>智能硬件测试解决方案</li>
@@ -528,34 +518,41 @@ class Main extends React.Component {
 							</ul>
 						</div>
 						<div className="item">
-							<div className="itemHead">新闻动态</div>
+							<div className="itemHead" onClick={() => hashHistory.push('/new')}>新闻动态</div>
 							<ul>
-								<li onClick={() => hashHistory.push('/alliance')}>公司动态</li>
-								<li onClick={() => hashHistory.push('/newdetail')}>科技资讯</li>
-								<li onClick={() => hashHistory.push('/female')}>行业新闻</li>
+								<li onClick={() => hashHistory.push('/newsMore/1')}>公司动态</li>
+								<li onClick={() => hashHistory.push('/newsMore/3')}>科技资讯</li>
+								<li onClick={() => hashHistory.push('/newsMore/2')}>行业新闻</li>
 							</ul>
 						</div>
 						<div className="item">
-							<div className="itemHead">关于我们</div>
+							<div className="itemHead" onClick={() => hashHistory.push('/our')}>关于我们</div>
 							<ul>
-								<li onClick={() => hashHistory.push('/our')}>公司简介</li>
-								<li onClick={() => hashHistory.push('/our')}>招纳贤士</li>
+								<li onClick={() => hashHistory.push('/our?page=1')}>公司简介</li>
+								<li onClick={() => hashHistory.push('/our?page=2')}>招贤纳士</li>
 							</ul>
 						</div>
-
-
 						<div className="bottomRight">
-							<img src={require('img/logo.png')} />
-
+							<Link to="/"><img src={require('img/logo.png')} /></Link>
 							<div className="text">关注我们</div>
-							<img src={require('img/share.png')} />
+							<div className="btm-login flex-center">
+								<div className="btn-img">
+									<img src={require("img/login02.png")} onClick={() => { window.open('http://wpa.qq.com/msgrd?v=3&uin=2146594489&site=qq&menu=yes', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no') }} alt="" />
+								</div>
+								<div className="btn-img">
+									<img src={require("img/login01.png")} alt="" />
+									<div className="btn-er">
+										<img src={require("img/login03.jpg")} alt="" />
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div className="footer">
 					<div className="content">
 						<div>商务洽谈:&nbsp;&nbsp;020-38555340&nbsp;&nbsp;020-89289423&nbsp;&nbsp;&nbsp;&nbsp;CS邮箱:&nbsp;&nbsp;businesss@appstest.cn&nbsp;&nbsp;cs@appstest.cn&nbsp;&nbsp;&nbsp;&nbsp;地址:广州中山大道西8号天河商贸大厦14楼</div>
-						<div>2009-2017&nbsp;Appstest.com版权所有ICP证:&nbsp;粤A1-20040604&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粤公网安备&nbsp;33566758445789号</div>
+						<div>2009-2017&nbsp;Appstest.cn版权所有ICP证:&nbsp;粤A1-20040604&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粤公网安备&nbsp;33566758445789号</div>
 					</div>
 				</div>
 			</div>

@@ -3,32 +3,59 @@
   height: 920px;
   .swiper-container{
     position: relative;
-    height: 100%;
+    height: 920px !important;
     .swiper-slide{
       overflow: hidden;
+      img{
+        width: 100%;
+        min-width: 1900px;
+        height: 920px;
+      }
     }
     .swiper-button-prev{
       left: 50px;
     }
     .swiper-button-next{
       right: 50px;
+      &.swiper-button-disabled{
+        z-index: 15 !important;
+        pointer-events:all;
+      }
     }
   }
   .bg-num{
     position: absolute;
     top:0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width:100%;
+    min-width: 1380px;
+    height: 920px;
     .bg-box{
-      width: 1380px;
+      width: 1280px;
       height: 100%;
       margin: 0 auto;
       position: relative;
+      h3 ,h2{
+        text-align: right;
+        font-size: 30px;
+        font-weight: 400;
+        color: #fff;
+        margin: 200px 0 50px;
+      }
+      h2{
+        margin-top: 275px;
+        font-size: 40px;
+      }
+      p{
+        font-size: 22px;
+        color: #fff;
+        font-weight: 200;
+        text-align: right;
+        margin: 0;
+      }
       #count {
         position: absolute;
         right: 0px;
-        top: 350px;
         color: #fff;
         .number {
           font-size: 110px;

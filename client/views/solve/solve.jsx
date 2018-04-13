@@ -11,18 +11,19 @@ class Sovle extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			num: 0
+			num: 0,
+			swiper: null
 		};
 	}
 	componentDidMount() {
-		// const hei=window.innerHeight;
 		this.solveSroll();
+		const id = Number(window.location.href.split("=")[1].split("&")[0]);
 		setTimeout(() => {
 			var mySwiper = new window.Swiper('.swiper-container', {
 				direction: 'vertical',
 				slidesPerView: 1,
-				initialSlide: this.state.num,
 				width: window.innerWidth,
+				initialSlide: id ? id : 0,
 				// height: window.innerHeight,
 				autoHeight: true, //高度随内容变化
 				mousewheel: true,
@@ -31,37 +32,25 @@ class Sovle extends React.Component {
 					clickable: true,
 				},
 			});
-		}, 100);
-
+			this.setState({
+				swiper: mySwiper
+			})
+		}, 200);
 	}
 	componentWillReceiveProps() {
-		this.solveSroll();
-
-		var mySwiper = new window.Swiper('.swiper-container', {
-			direction: 'vertical',
-			slidesPerView: 1,
-			initialSlide: this.state.num,
-			width: window.innerWidth,
-			// height: window.innerHeight,
-			autoHeight: true, //高度随内容变化
-			mousewheel: true,
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
-			},
-		});
-
+		const id = Number(window.location.href.split("=")[1].split("&")[0]);
+		if (this.state.swiper) {
+			this.state.swiper.slideTo(id ? id : 0, 0, false);
+		}
 	}
 	solveSroll = () => {
-		console.log(this.props.location.query.four)
 		this.setState({
 			num: this.props.location.query.four
 		})
 	}
-
 	render() {
-		// console.log(this.props)
 		return <div id='solve'>
+			{/* <Common bgCls="solve" {...this.props} /> */}
 			<div className="swiper-container">
 				<div className="swiper-wrapper">
 					<div className="swiper-slide">
@@ -69,7 +58,7 @@ class Sovle extends React.Component {
 							<Common bgCls="solve" {...this.props} />
 						</div>
 					</div>
-					<div className="swiper-slide" ref='five'>		<div className="content">
+					<div className="swiper-slide">		<div className="content">
 						<div className="box">
 							<div className="boxcontent">
 								<div className="count flex ">
@@ -105,10 +94,10 @@ class Sovle extends React.Component {
 									<div className="edLeft">
 										<img src={require('img/ed1.png')} />
 									</div>
-									<div className='flex-col-3'></div>
+									<div className='flex-col-1'></div>
 									<div className="edRight">
 										<div className="edRightHeader">教育行业测试解决方案</div>
-										<div className="edRightImg">
+										<div className="edRightImg ">
 											<ul className='edContentUl flex'>
 												<li className='flex-col-5'><img src={require('img/ed2.png')} />
 													<p>UI自动化测试</p>
@@ -132,7 +121,7 @@ class Sovle extends React.Component {
 								<div className="count flex ">
 									<div className="countLeft">
 										<div className="countLeftHeader jieTop">运营商测试解决方案</div>
-										<div className="countImg jieContent">
+										<div className="countImg jieCon jieContent">
 											<ul className='countContentUl flex'>
 												<li className='flex-col-3 textOne'><img src={require('img/jie2.png')} />
 													<p>技术实验室</p>
@@ -158,7 +147,6 @@ class Sovle extends React.Component {
 							</div>
 						</div>
 					</div></div>
-
 				</div>
 				<div className="swiper-pagination"></div>
 			</div>

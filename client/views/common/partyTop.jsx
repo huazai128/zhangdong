@@ -2,52 +2,55 @@ import React, { Component } from 'react';
 import './partyTop.scss';
 import { Input, Select } from 'antd';
 import { Link, hashHistory } from 'react-router';
-// import $ from 'jquery';
-// 这是搜索框
+import { observer, inject } from 'mobx-react';
 const Search = Input.Search;
-// 下拉框
-// const Option = Select.Option;
-// function handleChange(value) {
-// 	if (`${value}` == '个人中心') {
-// 		setTimeout(() => {
-// 			hashHistory.push('/creative/personal');
-// 		}, 200);
-// 	} else if (`${value}` == '退出登录') {
-// 		hashHistory.push('/login');
-// 		// console.log(333)
-// 		localStorage.removeItem('name');
-// 	}
-// }
 
 class CommentLogin extends React.Component {
-	state = {
-		text: '登录'
-	}
 	render() {
-		// name = 'dddd'
-		// onClick={() => {hashHistory.push('/login');}}
 		return (
-			<div className='flex-vcenter'>
-				<Link className="banA" to='/login' target="_blank">注册</Link>
-				<Link className="banA" to='/register' target="_blank">{this.state.text}</Link>
+			<div className='flex-vcenter login-box'>
+				<Link className="banA" to='/register'>注册</Link>
+				<Link className="banA" to='/login'>登录</Link>
 			</div>
 		);
 	}
 }
 
-
+@inject("login")
+@observer
 export default class Top extends React.Component {
-
+	constructor(props) {
+		super(props);
+		this.state = {
+			isLogin: false,
+			user: null
+		}
+		this.store = this.props.login;
+	}
 	click = () => {
 		hashHistory.push('/creative/personal');
 	}
+	componentDidMount() {
+		let user = JSON.parse(localStorage.getItem("user"));
+		if (user) {
+			this.setState({
+				user: user
+			})
+		}
+		this.store.expireToken();
+	}
+	componentWillReceiveProps() {
+		this.store.expireToken();
+	}
+	// 退出
+	signOut = () => {
+		this.store.signOut();
+		hashHistory.push("/creative");
+	}
+
 	render() {
-		const name = localStorage.getItem('mail');
-		const userName = localStorage.getItem('name');
-		console.log(userName)
-		const isLogin = name === 'test';//布尔值
-		const isRegister = userName == 'admin';
-		// console.log(isLogin,8888)
+		let { isLogin } = this.store;
+		let { user } = this.state;
 		return (
 			<div id='partytop'>
 				<div className="party flex jc-between">
@@ -63,15 +66,17 @@ export default class Top extends React.Component {
 								style={{ width: 270, height: '34px', backgroundColor: '#333333' }}
 							/>
 						</div>
-						<div className="dropDown flex flex-vcenter">
-							{isLogin || isRegister ? <img src={require('img/top2.png')} alt="" onClick={name == 'test'||userName=='admin' ? this.click : ''} /> : <CommentLogin />}
-							{/* <div className="drop">
-								用户名称&nbsp;&nbsp;
-								<Select defaultValue="224" style={{ width: 120 }} onChange={handleChange}>
-									<Option value="个人中心">个人中心</Option>
-									<Option value="退出登录">退出登录</Option>
-								</Select>
-							</div> */}
+						<div className="dropDown flex-center">
+							{isLogin ? <img src={(user && user.gravatar) ? user.gravatar : require('img/top2.png')} alt="" onClick={() => { this.click() }} /> : <CommentLogin />}
+							{isLogin && (
+								<div className="drop">
+									<p><span>{(user && user.username) ? user.username : '暂无名称'}</span><i></i></p>
+									<ul className="drop-list">
+										<li onClick={() => { this.click(); }}>个人中心</li>
+										<li onClick={() => { this.signOut(); }}>退出登录</li>
+									</ul>
+								</div>
+							)}
 						</div>
 					</div>
 				</div>

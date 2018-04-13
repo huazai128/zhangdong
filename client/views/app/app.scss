@@ -189,6 +189,7 @@ background-color: #202528;
   .itemHead {
     font-size: 18px;
     margin-bottom: 17px;
+    cursor: pointer;
   }
  ul{
    padding-left: 0;
@@ -197,18 +198,18 @@ background-color: #202528;
     line-height: 40px;
     font-size: 14px;
     list-style: none;
-
+    cursor: pointer;
   }
  }
 }
 .bottomRight {
-
   padding-top: 54px;
   width: 310px;
   .text {
     margin-top: 36px;
     color: #fff;
     font-size: 18px;
+    text-align: center;
   }
 }
 }

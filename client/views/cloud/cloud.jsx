@@ -6,9 +6,9 @@ import Tab from '../common/cloudTab.jsx';
 import Footer from '../common/lastFooter.jsx';
 export default class Cloud extends React.Component {
 	componentDidMount() {
-		this.node.scrollIntoView();
+		window.scrollTo(0,0);
+		document.body.scrollTop = 0;
 	}
-
 	render() {
 		// 获取路由传来的值
 		let id = this.props.params.id;

@@ -3,21 +3,12 @@ import { Tabs } from 'antd';
 import './tabOur.scss';
 
 const FindNode = ({ activeKey, onKey, children }) => {
-	// console.log(children)
 	if (activeKey === 'all' || activeKey === onKey) return <div className="findOne">{children}</div>;
 	else return null;
 };
 
 const { TabPane } = Tabs;
 const datas = [
-	// { title: '工作地点：',address:[
-	// 	{value:'全部',key:'all',sective:true},
-	// 	{value:'广州',key:'广州'},
-	// 	{value:'深圳',key:'深圳'},
-	// 	{value:'上海',key:'上海'},
-	// 	{value:'北京',key:'北京'},
-	// 	{value:'杭州',key:'杭州'}
-	// ]},
 	{
 		title: '职位类别：', address: [
 			{ value: '全部', key: 'all', sective: true },
@@ -28,7 +19,7 @@ const datas = [
 			{ value: '销售', key: '销售' },
 			{ value: '推广', key: '推广' },
 			{ value: '运营', key: '运营' },
-			{ value: '实习生', key: '实习生' },
+			{ value: '实习', key: '实习' },
 			{ value: '开发', key: '开发' },
 			{ value: '测试', key: '测试' },
 			{ value: '财务', key: '财务' },
@@ -41,9 +32,20 @@ export default class extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			getDatas: datas
+			getDatas: datas,
+			idx: "1"
 		};
 	}
+	componentDidMount() {
+		const href = window.location.href.split("page")[1];
+		if(href){
+			const id = window.location.href.split("=")[1].split("&")[0];
+			this.setState({
+				idx: id ? id : "1"
+			})
+		}
+	}
+
 	select = (index, idx) => {
 		this.state.getDatas[[index]].address.map((item, i) => {
 			item.sective = false;
@@ -52,32 +54,35 @@ export default class extends React.Component {
 			}
 			return item;
 		});
-		console.log(this.state.getDatas,99999);
 		this.setState({
 			getDatas: this.state.getDatas
 		});
-		console.log(this.state.getDatas);
+	}
+	componentWillReceiveProps() {
+		const href = window.location.href.split("page")[1];
+		if(href){
+			const id = window.location.href.split("=")[1].split("&")[0];
+			this.setState({
+				idx: id ? id : "1"
+			})
+		}
 	}
 	render() {
-		const { getDatas } = this.state;
-
-		const activeKey = getDatas[0].address.find(item => item.sective).key;//这个是从外面传进来的参数
-
+		const { getDatas, idx } = this.state;
+		const activeKey = getDatas[0].address.find(item => item.sective).key;
 		const BindFindNode = ({ children, onKey }) => (
-
 			<FindNode onKey={onKey} activeKey={activeKey}>{children}</FindNode>
-
 		);
-
 		return (
 			<div id='tabOur'>
 				<div className="zhang">
 					<Tabs
-						defaultActiveKey="1"
+						defaultActiveKey={idx}
+						activeKey={idx}
 						renderTabBar={() => <ScrollableInkTabBar />}
 						renderTabContent={() => <TabContent />}
-						animated={false}
-					>
+						onChange={(e) => { this.setState({ idx: e }) }}
+						animated={false}>
 						<TabPane tab='公司简介' key="1" className='tabOne' style={{ color: '#333333' }}>
 							{/* 公司简介 */}
 							<div className="messageOne">
@@ -95,9 +100,9 @@ export default class extends React.Component {
 									<div className="jieContentTop">掌动公司服务超过50万用户，接入超过100万个智能硬件产品，服务90万个APP产品，沉淀超过200万个智能应用测试用例和500万质量大数据。
 掌动公司服务客户有：中国移动、科大讯飞、百度金融、陌陌 、TIM、汽车之家、手机百度、手机新浪、讯飞输入法、QQ、WPS Office、携程旅行、Faceu激萌、华为商城、天翼云盘、UC浏览器、爱奇艺、猫眼电影、珍爱网、大姨妈、百度外卖、美拍、豆瓣、网易云音乐等。</div>
 									<ul className='ulImg flex'>
-										<li><a href="javascript:void(0);"><img src={require('img/intro_pic1.jpg')} /></a></li>
-										<li><a href="javascript:void(0);"><img src={require('img/intro_pic2.jpg')} /></a></li>
-										<li><a href="javascript:void(0);"><img src={require('img/intro_pic3.jpg')} /></a></li>
+										<li><img src={require('img/intro_pic1.jpg')} /></li>
+										<li><img src={require('img/intro_pic2.jpg')} /></li>
+										<li><img src={require('img/intro_pic3.jpg')} /></li>
 									</ul>
 								</div>
 							</div>
@@ -106,7 +111,6 @@ export default class extends React.Component {
 							<div className="find">
 								<div className="findOne our-margin">
 									{getDatas.map((item, index) => {
-										console.log(item,index,777);
 										return (
 											<div className="position-selector-item flex" key={index}>
 												<div className="selector-title">{item.title}</div>
@@ -122,9 +126,8 @@ export default class extends React.Component {
 											</div>
 										);
 									})}
-
 								</div>
-								<div className="email">简历请投递至：syqiu@appstest</div>
+								<div className="email">简历请投递至：mwei@appstest.cn</div>
 								<BindFindNode onKey="测试">
 									<div className="findCont">
 										<div className='flex textTop'><i className='findBlue'></i><p className='findTitle flex-g-l'>软件测试工程师</p></div>

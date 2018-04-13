@@ -4,257 +4,168 @@ import Top from '../common/partyTop.jsx';
 import Open from '../common/black.jsx';
 import Footer from '../common/lastFooter.jsx';
 import $ from 'jquery';
-import { Button, List, Avatar, Icon, Modal, Input } from 'antd';
+import { Button, List, Avatar, Icon, Modal, Input, message, Pagination } from 'antd';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Link, hashHistory } from 'react-router';
+import { inject, observer } from 'mobx-react';
+import date from 'js/core/date';
 
-
-class CommentItem extends React.Component {
-	state = {
-		active: false,
-		number: 30
-	}
-
-	onClick = () => {
-		this.setState({
-			active: !this.state.active,
-			number: this.state.active ? this.state.number - 1 : this.state.number + 1
-		});
-	}
-
-	render() {
-		const { item } = this.props;
-
-		return (
-			<div className="disOne flex jc-between">
-				<div className="leftOne flex-vcenter">
-					<div className="imgLeft"></div>
-					<div className="contentLeft">
-						<div className='title'>{item.title}<span>{item.time}</span></div>
-						<div className='huiContent'>{item.content}</div>
-					</div>
-				</div>
-				<div className="rightOne flex-vcenter">
-					<ModalWrap><div className="huiTu flex-vcenter"><i className='huiImg'></i> 回复</div></ModalWrap>
-					<div onClick={this.onClick} className="zan flex-vcenter"><i className={this.state.active ? 'zanLan' : 'zanImg'}></i>{this.state.number}</div>
-				</div>
-			</div>
-		);
-	}
-}
-
-const { TextArea } = Input;
-
-class ModalWrap extends React.Component {
-	state = {
-		visible: false,
-		text: '',
-	}
-	showModal = () => {
-		this.setState({
-			visible: true,
-		});
-	}
-	handleOk = (e) => {
-		this.setState({
-			visible: false,
-			text: '',
-		});
-		// console.log(this.state.text);
-	}
-	handleCancel = (e) => {
-		this.setState({
-			visible: false,
-		});
-	}
-
-	onChangeInput = (e) => {
-		const { value: text } = e.target;
-		this.setState({ text });
-	}
-
-	render() {
-		const Child = () => React.cloneElement(this.props.children, {
-			onClick: this.showModal
-		});
-
-		const { text } = this.state;
-
-		return (
-			<div>
-				<Child />
-				<Modal
-					title="评论回复"
-					visible={this.state.visible}
-					onOk={this.handleOk}
-					onCancel={this.handleCancel}
-				>
-					<TextArea value={text} onChange={this.onChangeInput} rows={6} placeholder="评论回复内容..." />
-				</Modal>
-			</div>
-		);
-	}
-}
-
-// const IconText = ({ type, text }) => (
-// 	<span>
-// 		<Icon type={type} style={{ marginRight: 8 }} />
-// 		{text}
-// 	</span>
-// );
-
-
+@inject(store => ({
+	creative: store.creative,
+	comment: store.comment
+}))
+@observer
 export default class New extends React.Component {
 	// 上传图片
 	constructor(props) {
 		super(props);
-
 		this.handleChange = this.handleChange.bind(this);
-
 		this.toolbarOptions = [
-			['bold', 'italic', 'underline', 'strike'], // toggled buttons
-			['blockquote', 'code-block'],
-
-			[{ 'header': 1 }, { 'header': 2 }], // custom button values
+			['bold', 'italic', 'underline', 'strike'],
+			[{ 'header': 1 }, { 'header': 2 }],
 			[{ 'list': 'ordered' }, { 'list': 'bullet' }],
-			// [{ 'script': 'sub' }, { 'script': 'super' }], // superscript/subscript
-			[{ 'indent': '-1' }, { 'indent': '+1' }], // outdent/indent
-			// [{ 'direction': 'rtl' }], // text direction
-
-			[{ 'size': ['small', false, 'large', 'huge'] }], // custom dropdown
 			[{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-
-			[{ 'color': [] }, { 'background': [] }], // dropdown with defaults from theme
-			[{ 'font': [] }],
-			[{ 'align': [] }],
-			['image'],
-			// ['clean'] // remove formatting button
+			[{ 'color': [] }, { 'background': [] }],
+			// ['image'],
 		];
 		this.state = {
-			// num: 5,
 			text: '',
-			listData: [
-				{ time: '18分钟前', content: '回复内容回复内容回复内容回复内容回gdfg复内容回复内容回复内容回复内容回复内容回复内回复', title: '879' },
-				{ time: '23分钟前', content: '回复内容回复内容回复内容回复内容fdsf回复内容回复内容回复内容回复内容回复内容回复内回复', title: 'gdgf' },
-				{ time: '15分钟前', content: '回复内容回复内容回复内容回复内容ds回复内容回复内容回复内容回复内容回复内容回复内回复', title: '456' },
-				{ time: '11分钟前', content: 'fg', title: '456' },
-				{ time: '15分钟前', content: '回复内容回复内容回复内容回复内sdf容回复内容回复内容回复内容回复内容回复内容回复内回复', title: '123' },
-				{ time: '19分钟前', content: '回复内容回复内容回复内容回复内容回复dfg内容回复内容回复内容回复内容回复内容回复内回复', title: 'dfgdgf' }
-			],
-			active:'false'
+			id: '',
+			active: 'false',
+			reply_id: ''
 		};
+		this.store = this.props.creative;
+		this.commentStore = this.props.comment;
 	}
-
-	// 点击收藏
-	handleShow = () => {
-		this.setState({
-			active: !this.state.active,
-		});
+	componentDidMount() {
+		const { id } = this.props.params;
+		this.setState({ id: id })
+		this.store.getDetailId(id);
+		this.commentStore.getComments(id);
 	}
-
-	toggleHandle = () => {
-		$('.zanImg').toggleClass('zanLan');
-	}
-	//设置评论框内容
 	handleChange(value) {
 		this.setState({ text: value });
 	}
-	// 点击显示隐藏事件
 	click = () => {
+		const user = JSON.parse(localStorage.getItem("user"));
+		if (!user) {
+			message.info("请先登录!")
+			return false;
+		}
 		$('#comment').toggle();
 	};
 	iconPing = () => {
-		$('#comment').css('display', 'none');
-	}
-
-	// 点击图片切换
-	// handleTab = (index) => {
-	// 	console.log($('.zan').children().eq(index).toggleClass('zanLan'))
-	// }
-	// 提交评论
-	handle = () => {
-		var ctime = new Date().getMinutes();
-		const { listData } = this.state;
-		listData.unshift({
-
-			content: this.state.text,
-			title: '砖头'
-		});
-
 		this.setState({
-			listData,
-			text: ''
-		});
+			reply_id: ''
+		})
 		$('#comment').css('display', 'none');
 	}
-
+	handle = () => {
+		const { id, text, reply_id } = this.state;
+		const user = JSON.parse(localStorage.getItem("user"));
+		if (!user) {
+			message.info("请先登录!")
+			$('#comment').css('display', 'none');
+			return false;
+		}
+		let params = {
+			post_id: id,
+			content: text,
+			user_id: user._id,
+			username:user.username
+		}
+		if (reply_id) {
+			params.reply_id = reply_id;
+		}
+		this.commentStore.addCommnet(params);
+		this.setState({
+			text: ''
+		})
+		$('#comment').css('display', 'none');
+	}
+	// 点赞
+	onLike = (data, id) => {
+		this.commentStore.likeState(id, data);
+	}
 	render() {
-
+		const { detail } = this.store;
+		const { comments, pagination, changeComment } = this.commentStore;
+		const user = JSON.parse(localStorage.getItem("user"));
 		return (
 			<div id="barDel">
-				{/* <Top></Top> */}
-				<div className="nav flex">
-					<div className="navText flex"><Link to="/creative">首页</Link>&nbsp;>&nbsp;<Link to="/creative/barDel">最新话题</Link></div>
-				</div>
-				<div className="toolContent">
-					<div className="toolTop flex jc-between">
-						<div className="toolLeft ">
-							<p className='textOne'>帖子大标题帖子大标题帖子大标题帖子大标题</p>
-							<p className='textTwo'>作者名称&nbsp;&nbsp;&nbsp;发布于14天谴&nbsp;&nbsp;&nbsp;浏览量：958</p>
+				{detail && (
+					<div>
+						<div className="nav flex">
+							<div className="navText flex"><Link to="/creative">首页</Link>&nbsp;>&nbsp;<span>{detail.title}</span></div>
 						</div>
-						<div className="toolRight">
-							<p className='ourOne'></p>
+						<div className="toolContent">
+							<div className="toolTop flex jc-between">
+								<div className="toolLeft ">
+									<p className='textOne'>{detail.title}</p>
+									<p className='textTwo'>作者：{detail.userId && detail.userId.name}&nbsp;&nbsp;&nbsp;发布于{date(detail.create_at)}&nbsp;&nbsp;&nbsp;浏览量：{detail.meta.links}</p>
+								</div>
+								<div className="toolRight">
+									<p className="ourOne"><img src={(detail.gravatar) ? detail.gravatar : require('img/top2.png')} alt="" /></p>
+								</div>
+							</div>
+							<div className="toolBottom" dangerouslySetInnerHTML={{
+								__html: detail.content
+							}}>
+							</div>
+							<div className="disBtn flex-vcenter">
+								<div className="shou flex-center cangTwo"><i></i> 收藏</div>
+								<div className="dis" onClick={this.click}><i className='pingOne'></i>评论</div>
+							</div>
+							<div className="comment" id='comment'>
+								<div className="topThree flex-vcenter jc-between">
+									<div className="commentTop">评论</div>
+									<div className="Icon" onClick={this.iconPing}></div>
+								</div>
+								<div className="upDa">
+									<ReactQuill className='textQuill'
+										value={this.state.text}
+										onChange={this.handleChange}
+										modules={{
+											toolbar: this.toolbarOptions
+										}} />
+								</div>
+								<Button className="ti" onClick={() => { this.handle() }} disabled={!this.state.text}>提交</Button>
+							</div>
+						</div>
+						<div className="discuss">
+							<div className="disContent">
+								<div className='contOne'><i className='cirlOne'></i> 全部{pagination.total}条回复</div>
+								<div className="comments">
+									{comments.length > 0 && comments.map((item) => {
+										return (
+											<div className="disOne flex jc-between">
+												<div className="leftOne flex">
+													<div className="imgLeft"><img src={(item.user_id.gravatar) ? item.user_id.gravatar : require('img/top2.png')} alt="" /></div>
+													<div className="contentLeft">
+														<div className='title'>{item.user_id.username || item.user_id.email}{item.reply_id && <span>回复{item.reply_id.username || item.user_id.email}</span>} <span className="time"> {date(item.create_at)}</span></div>
+														<div className='huiContent' dangerouslySetInnerHTML={{
+															__html: item.content
+														}}></div>
+													</div>
+												</div>
+												<div className="rightOne flex-vcenter">
+													<div className="huiTu flex-vcenter" onClick={() => { if (user._id === item.user_id._id) { message.info('不能回复自己'); return fasle; }; this.click(); this.setState({ reply_id: item.user_id._id }) }} ><i className='huiImg'></i> 回复</div>
+													<div className="zan flex-vcenter" onClick={() => { this.onLike({ like_user: user._id, is_like: !item.is_like, likes: item.likes }, item._id); }}><i className={(item.like_user && item.is_like && (user._id === item.like_user._id)) ? 'zanLan' : 'zanImg'}></i>{item.likes}</div>
+												</div>
+											</div>
+										);
+									})}
+								</div>
+
+								{comments.length > 0 && pagination && (<div className="pagi flex-center">
+									<Pagination defaultCurrent={pagination.current_page} total={pagination.total} onChange={(e) => { changeComment(e) }} />
+								</div>)}
+								{comments.length === 0 && (<h3>暂无评论</h3>)}
+							</div>
 						</div>
 					</div>
-					<div className="toolBottom">
-						<div className="tuTop">图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍
-          图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍 图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍.</div>
-						<div className="wenTop">文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图
-          文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图 文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图. </div>
-						<div className="imgAn"></div>
-						<div>文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图.</div>
-						<div>文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍.</div>
-						<div>文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图 .</div>
-					</div>
-					<div className="disBtn flex-vcenter">
-						<div className="shou flex-center cangTwo"><i></i> 收藏</div>
-						<div className="dis" onClick={this.click}><i className='pingOne'></i>评论</div>
-					</div>
-					<div className="comment" id='comment'>
-						{/* 头部 */}
-						<div className="topThree flex-vcenter jc-between">
-							<div className="commentTop">评论</div>
-							<div className="Icon" onClick={this.iconPing}></div>
-						</div>
-						{/* 添加图片 */}
-						<div className="upDa">
-							<ReactQuill className='textQuill'
-								value={this.state.text}
-								onChange={this.handleChange}
-								modules={{
-									toolbar: this.toolbarOptions
-								}} />
-						</div>
-						<Button className="ti" onClick={this.handle} disabled={!this.state.text}>提交</Button>
-						{/* <div className="ti" onClick={this.handle}>提交</div> */}
-					</div>
-				</div>
-				{/* 评论框 */}
-				{/* 回复信息的弹出框 */}
-				{/* <Open></Open> */}
-				{/* 评论内容 */}
-				<div className="discuss">
-					<div className="disContent">
-						<div className='contOne'><i className='cirlOne'></i> 全部3条回复</div>
-						{this.state.listData.map((item) => {
-							return (
-								// 一个一个组件内容
-								<CommentItem item={item} />
-							);
-						})}
-					</div>
-				</div>
+				)}
 			</div>
 		);
 	}

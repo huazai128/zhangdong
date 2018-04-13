@@ -18,17 +18,12 @@ input,
 button {
   font-family: "Microsoft YaHei", Georgia, 'Times New Roman', Times, Kai, 'Kaiti SC', KaiTi, BiauKai, 楷体, 楷体_GB2312, serif !important;
 }
-
 #root {
   height: 100%;
 }
-
 #app {
   width: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
 }
-
 * {
   box-sizing: border-box;
 }
@@ -43,5 +38,38 @@ button {
     top: 0;
     bottom: 0;
     overflow: auto;
+  }
+}
+
+.btm-login {
+  margin: 10px 0;
+}
+.btn-img {
+  width: 44px;
+  margin: 0 10px;
+  height: 44px;
+  position: relative;
+  cursor: pointer;
+  .btn-er {
+    position: absolute;
+    display: none;
+    transition: all 0.3s linear;
+    opacity: 0;
+    top: -150px;
+    left: -50px;
+    width: 140px;
+    height: 140px;
+    z-index: 10;
+    &>img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &:hover {
+    transition: all 0.3s linear;
+    .btn-er {
+      display: block;
+      opacity:1 ;
+    }
   }
 }
