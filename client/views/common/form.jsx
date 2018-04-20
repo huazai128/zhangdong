@@ -65,7 +65,6 @@ class FormComponent extends Component {
                 <FormItem
                   {...formItemLayout}
                   label="测试类型："
-                  p
                 >
                   {getFieldDecorator('mold', {
                     rules: [{

@@ -91,7 +91,8 @@
         background-color: #f0f0f0;
         margin-right: 30px;
         &.cangTwo {
-          &:hover {
+          cursor: pointer;
+          &:hover,&.select {
             background: #3ea2fa;
             background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
             background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
@@ -129,6 +130,7 @@
         }
         .pingOne {
           display: inline-block;
+          cursor: pointer;
           width: 40px;
           height: 22px;
           background: url('~img/s1.png') no-repeat center 6px;

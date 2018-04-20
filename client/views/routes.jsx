@@ -1,6 +1,7 @@
 import { Router, hashHistory } from 'react-router';
 import React from 'react';
-import { message } from 'antd';
+import { message,LocaleProvider } from 'antd';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
 
 
 const routes = [
@@ -241,8 +242,8 @@ const routes = [
 			}, 'register');
 		},
 		onEnter: () => {
-			let token = localStorage.getItem("token");
-			if(token){
+			let token = localStorage.getItem('token');
+			if (token) {
 				window.history.go(-1);
 			}
 		}
@@ -255,8 +256,8 @@ const routes = [
 			}, 'login');
 		},
 		onEnter: () => {
-			let token = localStorage.getItem("token");
-			if(token){
+			let token = localStorage.getItem('token');
+			if (token) {
 				window.history.go(-1);
 			}
 		}
@@ -285,7 +286,7 @@ const routes = [
 				}
 			},
 			{
-				path: 'auditing',
+				path: 'auditing/:id',
 				getComponent: (nextState, cb) => {
 					require.ensure([], (require) => {
 						cb(null, require('views/auditing/auditing').default);
@@ -340,9 +341,9 @@ const routes = [
 					}, 'quill');
 				},
 				onEnter: () => {
-					let token = localStorage.getItem("token");
-					if(!token){
-						message.info("请先登录!");
+					let token = localStorage.getItem('token');
+					if (!token) {
+						message.info('请先登录!');
 						return false;
 					}
 				}
@@ -466,6 +467,39 @@ const routes = [
 						cb(null, require('views/standard/standard').default);
 					}, 'standard');
 				}
+			},
+			{
+				path: 'search',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/search/search').default);
+					}, 'search');
+				}
+			},
+			{
+				path: '',
+				getComponent: (nextState, cb) => {
+					require.ensure([], (require) => {
+						cb(null, require('views/editorUser/editor').default);
+					}, 'editor');
+				},
+				indexRoute: {//子组件
+					getComponent: (nextState, cb) => {
+						require.ensure([], (require) => {
+							cb(null, require('views/editorUser/component/user').CreativeContent);
+						}, 'user');
+					}
+				},
+				childRoutes: [
+					{
+						path: 'user',
+						getComponent: (nextState, cb) => {
+							require.ensure([], (require) => {
+								cb(null, require('views/editorUser/component/user').default);
+							}, 'user');
+						}
+					},
+				]
 			},
 		]
 	}

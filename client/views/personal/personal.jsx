@@ -3,58 +3,33 @@ import './personal.scss';
 import Top from '../common/partyTop.jsx';
 import Footer from '../common/lastFooter.jsx';
 import { Link, hashHistory } from 'react-router';
-import { Tabs, Modal } from 'antd';
+import { inject, observer } from 'mobx-react';
+import { Tabs, Modal, Pagination } from 'antd';
+import date from 'js/core/date';
+import moment from 'moment';
+import { imgRoot } from 'js/api/config';
 const { TabPane } = Tabs;
 
-// import { setStore, getStore, removeStore } from './loginLocal.js';
-// class ModalRister extends React.Component {
-// 	constructor() {
-// 		super();
-// 		this.state = {
-// 			visible: false
-// 		};
-// 	}
-// 	showModal = () => {
-// 		this.setState({
-// 			visible: true,
-// 		});
-// 	}
-// 	handleOk = (e) => {
-// 		console.log(e);
-// 		this.setState({
-// 			visible: false,
-// 		});
-// 	}
-// 	handleCancel = (e) => {
-// 		console.log(e);
-// 		this.setState({
-// 			visible: false,
-// 		});
-// 	}
-// 	render() {
-// 		return (
-// 			<div>
-// 				<Modal
-// 					title="Basic Modal"
-// 					visible={this.state.visible}
-// 					onOk={this.handleOk}
-// 					onCancel={this.handleCancel}
-// 				>
-// 					<p>Some contents...</p>
-// 					<p>Some contents...</p>
-// 					<p>Some contents...</p>
-// 				</Modal>
-// 			</div>
-// 		);
-// 	}
-// }
-
+@inject((store) => ({
+	login: store.login,
+	personal: store.personal
+}))
+@observer
 export default class Personal extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			visible: false
 		};
+		this.loginStore = this.props.login;
+		this.store = this.props.personal;
+	}
+	componentWillMount() {
+		this.store.getInit();
+		this.loginStore.getUserInfo();
+	}
+	componentDidMount() {
+
 	}
 	showModal = () => {
 		this.setState({
@@ -62,381 +37,106 @@ export default class Personal extends React.Component {
 		});
 	}
 	handleOk = (e) => {
-		console.log(e);
 		this.setState({
 			visible: false,
 		}, () => {
-			window.localStorage.clear('mail');
-			window.localStorage.clear('name');
+			this.loginStore.signOut();
 			hashHistory.push('/creative');
 		});
 	}
 	handleCancel = (e) => {
-		console.log(e);
 		this.setState({
 			visible: false,
 		});
 	}
 
 	render() {
+		const { userInfo } = this.loginStore;
+		let { lists, idx, changeTab,pageUpdate } = this.store;
 		return (
 			<div id='personal'>
-				{/* <Top></Top> */}
 				<div className="personTop flex jc-between">
-					<div className="leftPerson flex-g-l">
-						<p>用户名称名称</p>
-						<p>第326位会员/测试开发者<span>2017-10-26</span></p>
+					<div className="user-img">
+						<img src={imgRoot + userInfo.gravatar} alt="" />
+					</div>
+					<div className="leftPerson flex-g-1">
+						<p>{userInfo.username || 'UUID'}</p>
+						<p>第{userInfo.id}位会员/{userInfo.type ? '测试开发用户' : '会员'}<span>{moment(userInfo.create_at).format('YYYY-MM-DD')}</span></p>
 					</div>
 					<div className="rightPerson flex">
-						<p>编辑资料</p>
-						{/* <Link to="/creative">退出登录</Link> */}
+						<p><Link to="/creative/user">编辑资料</Link></p>
 						<p onClick={this.showModal}>退出登录</p>
 						<Modal
-							// title="Basic Modal"
 							visible={this.state.visible}
 							onOk={this.handleOk}
-							onCancel={this.handleCancel}
-						>
+							onCancel={this.handleCancel}>
 							<div>确定要退出吗？</div>
 						</Modal>
 					</div>
 				</div>
-				{/*tab栏*/}
 				<div className='tabContent'>
 					<Tabs
-						defaultActiveKey="1"
-						renderTabBar={() => <ScrollableInkTabBar />}
-						renderTabContent={() => <TabContent />}
+						defaultActiveKey={idx}
+						onChange={(e) => { changeTab(e); }}
 						animated={false}>
 						<TabPane tab='测试申请' key="1" className='tabOne'>
-							<Link to="/creative/auditing">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP'>审核中</p>
+							{lists && lists.data.map((item) => (
+								<Link to={ `/creative/auditing/${item.id}` }>
+									<div className='shenOne'>
+										<div className="firstPer flex">
+											<p className='firstP'>{item.mold ? '兼容测试' : '功能测试'}任务</p>
+											{Object.is(item.process, 0) && (<p className='secondP'>完成申请</p>)}
+											{Object.is(item.process, 1) && (<p className='secondP jieP'>确认需求</p>)}
+											{Object.is(item.process, 2) && (<p className='secondP ceP'>技术测试</p>)}
+											{Object.is(item.process, 3) && (<p className='secondP yiP'>结果交付</p>)}
+										</div>
+										<div className="bottomContent">
+											{item.mold ? '兼容测试' : '功能测试'}.条件1.条件2.{date(item.create_at)}申请 </div>
 									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请 </div>
-								</div>
-							</Link>
-							<Link to="/creative/auditing">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP'>审核中</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-							</Link>
-							<Link to="/creative/receipt">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP jieP '>已接单</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请 </div>
-								</div>
-							</Link>
-							<Link to="/creative/receipt">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP jieP '>已接单</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-							</Link>
-							<Link to="/creative/orderTaking">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP ceP'>测试中</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-							</Link>
-							<Link to="/creative/orderTaking">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP ceP'>测试中</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请 </div>
-								</div>
-							</Link>
-							<Link to="/creative/completed">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP yiP'>已完成</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-							</Link>
-							<Link to="/creative/completed">
-								<div className='shenOne btn'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP yiP'>已完成</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请 </div>
-								</div>
-							</Link>
+								</Link>
+							))}
+							{lists && lists.data.length === 0 && <h3 className="no-more">暂无数据</h3>}
 						</TabPane>
 						<TabPane tab='测试接单' key="2" className='tabOne'>
-							<Link to="/creative/auditing">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP'>审核中</p>
+							{lists && lists.data && lists.data.map((item) => (
+								<Link to={ `/creative/auditing/${item.id}`}>
+									<div className='shenOne'>
+										<div className="firstPer flex">
+											<p className='firstP'>{item.mold ? '兼容测试' : '功能测试'}任务</p>
+											{Object.is(item.process, 0) && (<p className='secondP'>已接单</p>)}
+											{Object.is(item.process, 1) && (<p className='secondP jieP'>确认需求</p>)}
+											{Object.is(item.process, 2) && (<p className='secondP ceP'>技术测试</p>)}
+											{Object.is(item.process, 3) && (<p className='secondP yiP'>结果交付</p>)}
+										</div>
+										<div className="bottomContent">
+											{item.mold ? '兼容测试' : '功能测试'}.条件1.条件2.{date(item.create_at)}申请 </div>
 									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请 </div>
-								</div>
-							</Link>
-							<Link to="/creative/auditing">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP'>审核中</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-							</Link>
-							<Link to="/creative/receipt">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP jieP '>已接单</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请 </div>
-								</div>
-							</Link>
-							<Link to="/creative/receipt">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP jieP '>已接单</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-							</Link>
-							<Link to="/creative/orderTaking">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP ceP'>测试中</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-							</Link>
-							<Link to="/creative/orderTaking">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP ceP'>测试中</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请 </div>
-								</div>
-							</Link>
-							<Link to="/creative/completed">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP yiP'>已完成</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-							</Link>
-							<Link to="/creative/completed">
-								<div className='shenOne btn'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP yiP'>已完成</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请 </div>
-								</div>
-							</Link>
+								</Link>
+							))}
+							{lists && lists.data.length === 0 && <h3 className="no-more">暂无数据</h3>}
 						</TabPane>
-						{/* <TabPane tab='测试接单' key="2" className='tabOne'>
-							<Link to="/creative/orderTaking">
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP'>审核中</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP'>审核中</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请 </div>
-								</div>
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP jieP '>已接单</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请 </div>
-								</div>
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP jieP '>已接单</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP ceP'>测试中</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP ceP'>测试中</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请 </div>
-								</div>
-								<div className='shenOne'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP yiP'>已完成</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-								<div className='shenOne btn'>
-									<div className="firstPer flex">
-										<p className='firstP'>申请名称申请名称</p>
-										<p className='secondP yiP'>已完成</p>
-									</div>
-									<div className="bottomContent">
-										申请类型A.条件1.条件2.3天前申请</div>
-								</div>
-							</Link>
-						</TabPane> */}
 						<TabPane tab='话题' key="3" className='tabOne'>
-							<Link to="/creative/barDel">
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
+							{lists && lists.data && lists.data.map((item) => (
+								<Link to={`/creative/barDel/${item.id}`}>
+									<div className="theme">
+										<div className="themeContent flex">
+											<div className="comm-img">
+												{item.userId && item.userId.gravatar && (<img src={item.userId.gravatar} alt="" />)}
+												{item.userId && !item.userId.gravatar && (<img src={require('img/top2.png')} alt="" />)}
+											</div>
+											<div className="flex-g-l comm-cont">
+												<div className='one'>{item.title}</div>
+												<div className='two'><span>{item.userId && item.userId.username}</span><span>{date(item.creat_at)}</span><span>浏览量:{item.meta && item.meta.links}</span><span>回复量:{item.meta && item.meta.comments}</span></div>
+											</div>
+										</div>
 									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme theLast">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-							</Link>
+								</Link>
+							))}
+							{lists && lists.data.length === 0 && <h3 className="no-more">暂无数据</h3>}
 						</TabPane>
 						<TabPane tab='回帖' key="4" className='tabOne'>
 							<Link to="/creative/barDel">
 								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme theLast">
 									<div className="themeContent">
 										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
 										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
@@ -452,53 +152,19 @@ export default class Personal extends React.Component {
 										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
 									</div>
 								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
-								<div className="theme theLast">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
-									</div>
-								</div>
 							</Link>
 						</TabPane>
 					</Tabs>
+					<div className="page-box">
+						{lists && !!lists.data.length && (<Pagination
+							total={lists.pagination.total}
+							current={lists.pagination.current_page}
+							pageSize={lists.pagination.pre_page}
+							className='flex-center'
+							onChange={(e) => { pageUpdate(e); }}
+							style={{ marginTop: '34px' }} />)}
+					</div>
 				</div>
-				{/* <Footer></Footer> */}
 			</div >
 		);
 	}

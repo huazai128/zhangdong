@@ -15,29 +15,29 @@ class CreativeContent extends React.Component {
 			lists1: [],
 			lists2: [],
 			lists3: []
-		}
+		};
 	}
 	componentDidMount() {
 		let query = {
 			state: 1,
 			page: 1,
 			pre_page: 4
-		}
+		};
 		let params = {
 			pre_page: 10,
 			choice: 1
-		}
+		};
 		Promise.all([this.getLists({ ...query, category: 0 }), this.getLists({ ...query, category: 1 }), this.getChoiceLists({ ...query, ...params })])
 			.then((res) => {
 				this.setState({
 					lists1: res[0].result.data,
 					lists2: res[1].result.data,
 					lists3: res[2].result.data,
-				})
-			})
+				});
+			});
 	}
-	getLists = async (params) => await get("/forum", params);
-	getChoiceLists = async (params) => await get("/community", params)
+	getLists = async (params) => await get('/forum', params);
+	getChoiceLists = async (params) => await get('/community', params)
 	render() {
 		const { lists1, lists2, lists3 } = this.state;
 		return (

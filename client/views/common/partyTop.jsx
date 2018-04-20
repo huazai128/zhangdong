@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './partyTop.scss';
-import { Input, Select } from 'antd';
+import { Input, Select,message } from 'antd';
 import { Link, hashHistory } from 'react-router';
 import { observer, inject } from 'mobx-react';
+import { imgRoot } from 'js/api/config';
 const Search = Input.Search;
 
 class CommentLogin extends React.Component {
@@ -16,7 +17,7 @@ class CommentLogin extends React.Component {
 	}
 }
 
-@inject("login")
+@inject('login')
 @observer
 export default class Top extends React.Component {
 	constructor(props) {
@@ -24,33 +25,43 @@ export default class Top extends React.Component {
 		this.state = {
 			isLogin: false,
 			user: null
-		}
+		};
 		this.store = this.props.login;
 	}
 	click = () => {
 		hashHistory.push('/creative/personal');
 	}
 	componentDidMount() {
-		let user = JSON.parse(localStorage.getItem("user"));
+		let user = JSON.parse(localStorage.getItem('user'));
 		if (user) {
 			this.setState({
 				user: user
-			})
+			});
+			this.store.getUserInfo();
 		}
 		this.store.expireToken();
+		
 	}
-	componentWillReceiveProps() {
+	componentWillReceiveProps(props) {
 		this.store.expireToken();
 	}
-	// 退出
+	
 	signOut = () => {
 		this.store.signOut();
-		hashHistory.push("/creative");
+		hashHistory.push('/creative');
+	}
+
+	search = (value) => {
+		if(value){
+			localStorage.setItem('search',value);
+			hashHistory.push('/creative/search');
+		}else{
+			message.info('请输入关键字');
+		}
 	}
 
 	render() {
-		let { isLogin } = this.store;
-		let { user } = this.state;
+		let { isLogin, userInfo } = this.store;
 		return (
 			<div id='partytop'>
 				<div className="party flex jc-between">
@@ -62,15 +73,16 @@ export default class Top extends React.Component {
 						<div className="search">
 							<Search
 								placeholder="搜索"
-								onSearch={value => console.log(value)}
-								style={{ width: 270, height: '34px', backgroundColor: '#333333' }}
+								onSearch={value => { this.search(value); }}
+								style={{ width: 270, backgroundColor: '#333333' }}
+								enterButton
 							/>
 						</div>
 						<div className="dropDown flex-center">
-							{isLogin ? <img src={(user && user.gravatar) ? user.gravatar : require('img/top2.png')} alt="" onClick={() => { this.click() }} /> : <CommentLogin />}
+							{isLogin ? <img src={(userInfo && (imgRoot + userInfo.gravatar))} alt="" onClick={() => { this.click(); }} /> : <CommentLogin />}
 							{isLogin && (
 								<div className="drop">
-									<p><span>{(user && user.username) ? user.username : '暂无名称'}</span><i></i></p>
+									<p><span>{(userInfo && userInfo.username) ? userInfo.username : '暂无名称'}</span><i></i></p>
 									<ul className="drop-list">
 										<li onClick={() => { this.click(); }}>个人中心</li>
 										<li onClick={() => { this.signOut(); }}>退出登录</li>

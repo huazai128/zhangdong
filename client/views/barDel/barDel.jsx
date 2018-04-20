@@ -5,6 +5,7 @@ import Open from '../common/black.jsx';
 import Footer from '../common/lastFooter.jsx';
 import $ from 'jquery';
 import { Button, List, Avatar, Icon, Modal, Input, message, Pagination } from 'antd';
+import { imgRoot } from 'js/api/config';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Link, hashHistory } from 'react-router';
@@ -40,17 +41,21 @@ export default class New extends React.Component {
 	}
 	componentDidMount() {
 		const { id } = this.props.params;
-		this.setState({ id: id })
+		this.setState({ id: id });
 		this.store.getDetailId(id);
-		this.commentStore.getComments(id);
+		this.commentStore.getInit(id);
 	}
 	handleChange(value) {
 		this.setState({ text: value });
 	}
-	click = () => {
-		const user = JSON.parse(localStorage.getItem("user"));
+	click = (user_id = '') => {
+		const user = JSON.parse(localStorage.getItem('user'));
 		if (!user) {
-			message.info("请先登录!")
+			message.info('请先登录!');
+			return false;
+		}
+		if (Object.is(user._id, user_id)) {
+			message.info('不能评论自己!');
 			return false;
 		}
 		$('#comment').toggle();
@@ -58,14 +63,14 @@ export default class New extends React.Component {
 	iconPing = () => {
 		this.setState({
 			reply_id: ''
-		})
+		});
 		$('#comment').css('display', 'none');
 	}
 	handle = () => {
 		const { id, text, reply_id } = this.state;
-		const user = JSON.parse(localStorage.getItem("user"));
+		const user = JSON.parse(localStorage.getItem('user'));
 		if (!user) {
-			message.info("请先登录!")
+			message.info('请先登录!');
 			$('#comment').css('display', 'none');
 			return false;
 		}
@@ -73,25 +78,21 @@ export default class New extends React.Component {
 			post_id: id,
 			content: text,
 			user_id: user._id,
-			username:user.username
-		}
+			username: user.username
+		};
 		if (reply_id) {
 			params.reply_id = reply_id;
 		}
 		this.commentStore.addCommnet(params);
 		this.setState({
 			text: ''
-		})
+		});
 		$('#comment').css('display', 'none');
 	}
-	// 点赞
-	onLike = (data, id) => {
-		this.commentStore.likeState(id, data);
-	}
 	render() {
-		const { detail } = this.store;
-		const { comments, pagination, changeComment } = this.commentStore;
-		const user = JSON.parse(localStorage.getItem("user"));
+		const { detail, putArticleId } = this.store;
+		const { comments, pagination, changeComment, likeState } = this.commentStore;
+		const user = JSON.parse(localStorage.getItem('user'));
 		return (
 			<div id="barDel">
 				{detail && (
@@ -106,7 +107,7 @@ export default class New extends React.Component {
 									<p className='textTwo'>作者：{detail.userId && detail.userId.name}&nbsp;&nbsp;&nbsp;发布于{date(detail.create_at)}&nbsp;&nbsp;&nbsp;浏览量：{detail.meta.links}</p>
 								</div>
 								<div className="toolRight">
-									<p className="ourOne"><img src={(detail.gravatar) ? detail.gravatar : require('img/top2.png')} alt="" /></p>
+									<p className="ourOne"><img src={(detail.userId && detail.userId.gravatar) && (imgRoot + detail.userId.gravatar)} alt="" /></p>
 								</div>
 							</div>
 							<div className="toolBottom" dangerouslySetInnerHTML={{
@@ -114,7 +115,7 @@ export default class New extends React.Component {
 							}}>
 							</div>
 							<div className="disBtn flex-vcenter">
-								<div className="shou flex-center cangTwo"><i></i> 收藏</div>
+								<div className={`shou flex-center cangTwo ${detail.c_state ? 'select' : ''}`} onClick={() => { putArticleId(detail._id,this.state.id); }}><i></i> 收藏</div>
 								<div className="dis" onClick={this.click}><i className='pingOne'></i>评论</div>
 							</div>
 							<div className="comment" id='comment'>
@@ -130,7 +131,7 @@ export default class New extends React.Component {
 											toolbar: this.toolbarOptions
 										}} />
 								</div>
-								<Button className="ti" onClick={() => { this.handle() }} disabled={!this.state.text}>提交</Button>
+								<Button className="ti" onClick={() => { this.handle(); }} disabled={!this.state.text}>提交</Button>
 							</div>
 						</div>
 						<div className="discuss">
@@ -141,7 +142,7 @@ export default class New extends React.Component {
 										return (
 											<div className="disOne flex jc-between">
 												<div className="leftOne flex">
-													<div className="imgLeft"><img src={(item.user_id.gravatar) ? item.user_id.gravatar : require('img/top2.png')} alt="" /></div>
+													<div className="imgLeft"><img src={imgRoot + item.user_id.gravatar} alt="" /></div>
 													<div className="contentLeft">
 														<div className='title'>{item.user_id.username || item.user_id.email}{item.reply_id && <span>回复{item.reply_id.username || item.user_id.email}</span>} <span className="time"> {date(item.create_at)}</span></div>
 														<div className='huiContent' dangerouslySetInnerHTML={{
@@ -150,16 +151,17 @@ export default class New extends React.Component {
 													</div>
 												</div>
 												<div className="rightOne flex-vcenter">
-													<div className="huiTu flex-vcenter" onClick={() => { if (user._id === item.user_id._id) { message.info('不能回复自己'); return fasle; }; this.click(); this.setState({ reply_id: item.user_id._id }) }} ><i className='huiImg'></i> 回复</div>
-													<div className="zan flex-vcenter" onClick={() => { this.onLike({ like_user: user._id, is_like: !item.is_like, likes: item.likes }, item._id); }}><i className={(item.like_user && item.is_like && (user._id === item.like_user._id)) ? 'zanLan' : 'zanImg'}></i>{item.likes}</div>
+													<div className="huiTu flex-vcenter" onClick={() => { this.click(item.user_id._id); this.setState({ reply_id: item.user_id._id }); }} ><i className='huiImg'></i> 回复</div>
+													<div className="zan flex-vcenter" onClick={() => { likeState({ likes: item.likes }, item._id); }}>
+														<i className={item.is_like ? 'zanLan' : 'zanImg'}></i>{item.likes}
+													</div>
 												</div>
 											</div>
 										);
 									})}
 								</div>
-
 								{comments.length > 0 && pagination && (<div className="pagi flex-center">
-									<Pagination defaultCurrent={pagination.current_page} total={pagination.total} onChange={(e) => { changeComment(e) }} />
+									<Pagination defaultCurrent={pagination.current_page} total={pagination.total} onChange={(e) => { changeComment(e); }} />
 								</div>)}
 								{comments.length === 0 && (<h3>暂无评论</h3>)}
 							</div>

@@ -9,6 +9,11 @@
     display: inline-block;
     text-decoration: none;
   }
+  .ant-input-search-button {
+    background: #3ea2fa;
+    background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
+  }
   .party {
     line-height: 46px;
     height: 60px;
@@ -45,8 +50,8 @@
       .drop {
         color: #ffffff;
         position: relative;
-        margin-left:20px;
-        & > p{
+        margin-left: 20px;
+        &>p {
           font-size: 14px;
           margin: 0;
           color: #fff;
@@ -54,7 +59,7 @@
           cursor: pointer;
           height: 60px;
           line-height: 60px;
-          span{
+          span {
             display: inline-block;
             max-width: 100px;
             overflow: hidden;
@@ -62,7 +67,7 @@
             white-space: nowrap;
             padding-right: 10px;
           }
-          i{
+          i {
             display: inline-block;
             width: 16px;
             height: 14px;
@@ -72,7 +77,7 @@
             background: url('~img/icon01.png') no-repeat center;
           }
         }
-        .drop-list{
+        .drop-list {
           position: absolute;
           left: -25%;
           z-index: 1000;
@@ -82,22 +87,22 @@
           overflow: hidden;
           transition: all 0.2s linear;
           background: #fff;
-          & > li{
+          &>li {
             padding: 0 15px;
             color: #333;
             text-align: center;
             cursor: pointer;
-            &:first-child{
+            &:first-child {
               border-bottom: 1px solid #ddd;
             }
           }
         }
-        &:hover{
-          .drop-list{
+        &:hover {
+          .drop-list {
             height: 94px;
             transition: all 0.2s linear 0.2s;
           }
-          i{
+          i {
             transform: rotate(180deg);
             transform-origin: center;
           }
@@ -105,7 +110,7 @@
       }
     }
   }
-  .login-box{
+  .login-box {
     height: 100%;
   }
 }

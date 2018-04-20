@@ -4,29 +4,26 @@ import { observer, inject } from 'mobx-react';
 import { setStore, getStore } from './loginLocal.js';
 import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import { Link, hashHistory } from 'react-router';
-import { get, post } from "js/api/fetch";
 const FormItem = Form.Item;
 
 @inject("login")
 @observer
 class Login extends React.Component {
-	constructor(props){
+	constructor(props) {
 		super(props);
-		this.state = {
-		
-		}
+		this.state = {}
 		this.store = this.props.login;
-	}
-	componentDidMount(){
-		
 	}
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
 			if (!err) {
 				setStore('remember', values);
-				this.store.loginPost(values);
-				hashHistory.push("/creative")
+				this.store.loginPost(values, (code) => {
+					if (code) {
+						hashHistory.push("/creative");
+					}
+				});
 			}
 		});
 	}
