@@ -5,10 +5,10 @@ import { Link, hashHistory } from 'react-router';
 import { inject, observer } from 'mobx-react';
 import './community.scss';
 import { imgRoot } from 'js/api/config';
-import { Tabs } from 'antd';
+import { Tabs, Pagination } from 'antd';
 const TabPane = Tabs.TabPane;
 
-@inject("forum")
+@inject('forum')
 @observer
 class Community extends React.Component {
 	constructor(props) {
@@ -25,7 +25,7 @@ class Community extends React.Component {
 	}
 
 	render() {
-		const { lists, pagination, tabs, idx, changeTag } = this.store;
+		const { lists, pagination, tabs, idx, changeTag, changPage } = this.store;
 		return (
 			<div id='community'>
 				<div className="nav flex">
@@ -88,6 +88,11 @@ class Community extends React.Component {
 							</TabPane>
 						))}
 					</Tabs>
+					{pagination.total > 4 && (
+						<div className="flex-center">
+							<Pagination defaultCurrent={pagination.current_page} defaultPageSize={4} total={pagination.total} onChange={(e) => { changPage(e); }} />
+						</div>
+					)}
 				</div>
 			</div>
 		);

@@ -31,6 +31,7 @@ export default class Personal extends React.Component {
 	componentDidMount() {
 
 	}
+
 	showModal = () => {
 		this.setState({
 			visible: true,
@@ -52,7 +53,7 @@ export default class Personal extends React.Component {
 
 	render() {
 		const { userInfo } = this.loginStore;
-		let { lists, idx, changeTab,pageUpdate } = this.store;
+		let { lists, idx, changeTab, pageUpdate } = this.store;
 		return (
 			<div id='personal'>
 				<div className="personTop flex jc-between">
@@ -81,7 +82,7 @@ export default class Personal extends React.Component {
 						animated={false}>
 						<TabPane tab='测试申请' key="1" className='tabOne'>
 							{lists && lists.data.map((item) => (
-								<Link to={ `/creative/auditing/${item.id}` }>
+								<Link to={`/creative/auditing/${item.id}`}>
 									<div className='shenOne'>
 										<div className="firstPer flex">
 											<p className='firstP'>{item.mold ? '兼容测试' : '功能测试'}任务</p>
@@ -99,7 +100,7 @@ export default class Personal extends React.Component {
 						</TabPane>
 						<TabPane tab='测试接单' key="2" className='tabOne'>
 							{lists && lists.data && lists.data.map((item) => (
-								<Link to={ `/creative/auditing/${item.id}`}>
+								<Link to={`/creative/auditing/${item.id}`}>
 									<div className='shenOne'>
 										<div className="firstPer flex">
 											<p className='firstP'>{item.mold ? '兼容测试' : '功能测试'}任务</p>
@@ -126,7 +127,7 @@ export default class Personal extends React.Component {
 											</div>
 											<div className="flex-g-l comm-cont">
 												<div className='one'>{item.title}</div>
-												<div className='two'><span>{item.userId && item.userId.username}</span><span>{date(item.creat_at)}</span><span>浏览量:{item.meta && item.meta.links}</span><span>回复量:{item.meta && item.meta.comments}</span></div>
+												<div className='two'><span>{item.userId && item.userId.username}</span><span>{date(item.create_at)}</span><span>浏览量:{item.meta && item.meta.links}</span><span>回复量:{item.meta && item.meta.comments}</span></div>
 											</div>
 										</div>
 									</div>
@@ -135,24 +136,30 @@ export default class Personal extends React.Component {
 							{lists && lists.data.length === 0 && <h3 className="no-more">暂无数据</h3>}
 						</TabPane>
 						<TabPane tab='回帖' key="4" className='tabOne'>
-							<Link to="/creative/barDel">
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
+							{lists && lists.data && lists.data.map((item) => (
+								<Link to={`/creative/barDel/${item.id}`}>
+									<div className="theme">
+										<div className="themeContent">
+											<div className='flex-g-l one'>{item.title}</div>
+											<div className='flex-g-l two'><span>{item.userId && item.userId.username}</span><span>{date(item.create_at)}</span><span>浏览量:{item.meta && item.meta.links}</span><span>回复量:{item.meta && item.meta.comments}</span></div>
+										</div>
 									</div>
-								</div>
-							</Link>
+								</Link>
+							))}
+							{lists && lists.data.length === 0 && <h3 className="no-more">暂无数据</h3>}
 						</TabPane>
 						<TabPane tab='收藏' key="5" className='tabOne'>
-							<Link to="/creative/barDel">
-								<div className="theme">
-									<div className="themeContent">
-										<div className='flex-g-l one'>帖子标题文本帖子标题文本帖子标题文本</div>
-										<div className='flex-g-l two'><span>作者名称</span><span>2分钟前</span><span>浏览量:958</span><span>回复量:958</span></div>
+							{lists && lists.data && lists.data.map((item) => (
+								<Link to={`/creative/barDel/${item.id}`}>
+									<div className="theme">
+										<div className="themeContent">
+											<div className='flex-g-l one'>{item.title}</div>
+											<div className='flex-g-l two'><span>{item.userId && item.userId.username}</span><span>{date(item.create_at)}</span><span>浏览量:{item.meta && item.meta.links}</span><span>回复量:{item.meta && item.meta.comments}</span></div>
+										</div>
 									</div>
-								</div>
-							</Link>
+								</Link>
+							))}
+							{lists && lists.data.length === 0 && <h3 className="no-more">暂无数据</h3>}
 						</TabPane>
 					</Tabs>
 					<div className="page-box">

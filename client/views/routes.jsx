@@ -1,6 +1,6 @@
 import { Router, hashHistory } from 'react-router';
 import React from 'react';
-import { message,LocaleProvider } from 'antd';
+import { message, LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 
 
@@ -262,6 +262,20 @@ const routes = [
 			}
 		}
 	},
+	{// 忘记密码
+		path: '/forget',
+		getComponent: (nextState, cb) => {
+			require.ensure([], (require) => {
+				cb(null, require('views/forget/forget').default);
+			}, 'forget');
+		},
+		onEnter: () => {
+			let token = localStorage.getItem('token');
+			if (token) {
+				window.history.go(-1);
+			}
+		}
+	},
 	{// 实现单页面刷新   社区集市
 		path: '/creative',
 		getComponent: (nextState, cb) => {
@@ -294,7 +308,7 @@ const routes = [
 				}
 			},
 			{
-				path: 'receipt',
+				path: 'receipt/:id',
 				getComponent: (nextState, cb) => {
 					require.ensure([], (require) => {
 						cb(null, require('views/receipt/receipt').default);

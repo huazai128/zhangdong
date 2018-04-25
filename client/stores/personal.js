@@ -29,6 +29,12 @@ class Store {
   	return this._query;
   }
 
+	@computed
+  get user() {
+  	let user = JSON.parse(localStorage.getItem('user'));
+  	return user;
+  }
+
   @action
   getInit = async () => {
   	await this.getTabIdx();
@@ -43,11 +49,24 @@ class Store {
   		}
   	});
   }
+	
+	@action
+	getReplies = async() => {
+		if(!this.user){
+			message.info('请先登录账户!');
+			return false;
+		}
+		const { code, result } = await get('replies',{ ...this.query ,user_id:this.user._id });
+		runInAction(() => {
+  		if (code) {
+  			this.lists = result;
+  		}
+  	});
+	}
 
   @action
   getCommunityLists = async (parmas = {}) => {
-  	let user = JSON.parse(localStorage.getItem('user'));
-  	parmas.user_id = user._id;
+  	parmas.user_id = this.user._id;
   	const { code, result } = await get('community', { ...this.query, ...parmas });
   	runInAction(() => {
   		if (code) {
@@ -64,22 +83,21 @@ class Store {
 
   @action
   getTabIdx = () => {
-  	let user = JSON.parse(localStorage.getItem('user'));
   	switch (this.idx) {
   	case '1':
-  		this.getApplyLists({ style: 0,user:user._id });
+  		this.getApplyLists({ style: 0,user:this.user._id });
   		break;
   	case '2':
-  		this.getApplyLists({ style: 1,p_user:user._id });
+  		this.getApplyLists({ style: 1,p_user:this.user._id });
   		break;
   	case '3':
   		this.getCommunityLists();
   		break;
   	case '4':
-  		this.getApplyLists({ style: 0 });
+  		this.getReplies();
   		break;
   	case '5':
-  		this.getApplyLists({ style: 0 });
+  		this.getCommunityLists({ c_user:this.user._id });
   		break;
   	}
   }

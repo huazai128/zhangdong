@@ -61,7 +61,7 @@ class UserDetail extends Component {
   				<Form>
   					<div className="itemContent">
   						<p>用户名:</p>
-  						<FormItem>
+  						<FormItem hasFeedback>
   							{getFieldDecorator('username', {
   								rules: [{ required: true, message: '不能为空', whitespace: true }],
   							})(
@@ -71,7 +71,7 @@ class UserDetail extends Component {
   					</div>
   					<div className="itemContent">
   						<p>邮箱:</p>
-  						<FormItem>
+  						<FormItem hasFeedback>
   							{getFieldDecorator('email', {
   								rules: [{ required: true, message: '不能为空' }],
   							})(
@@ -80,7 +80,7 @@ class UserDetail extends Component {
   					</div>
   					<div className="itemContent">
   						<p>公司名称:</p>
-  						<FormItem>
+  						<FormItem hasFeedback>
   							{getFieldDecorator('company', {
   								rules: [{ required: true, message: '不能为空', whitespace: true }],
   							})(
@@ -90,7 +90,7 @@ class UserDetail extends Component {
   					</div>
   					<div className="itemContent">
   						<p>联系电话:</p>
-  						<FormItem>
+  						<FormItem hasFeedback>
   							{getFieldDecorator('iphone', {
   								rules: [{ required: true, message: '不能为空' }],
   							})(
@@ -100,7 +100,7 @@ class UserDetail extends Component {
   					</div>
   					<div className="itemContent">
   						<p>职位:</p>
-  						<FormItem>
+  						<FormItem hasFeedback>
   							{getFieldDecorator('job', {
   								rules: [{ required: true, message: '不能为空' }],
   							})(
@@ -110,7 +110,7 @@ class UserDetail extends Component {
   					</div>
   					<div className="itemContent">
   						<p>测试资历:</p>
-  						<FormItem>
+  						<FormItem hasFeedback>
   							{getFieldDecorator('record', {
   								rules: [{ required: true, message: '不能为空' }],
   							})(
@@ -127,7 +127,7 @@ class UserDetail extends Component {
   				<Form>
   					<div className="itemContent">
   						<p>用户名:</p>
-  						<FormItem>
+  						<FormItem hasFeedback>
   							{getFieldDecorator('username', {
   								rules: [{ required: true, message: '不能为空', whitespace: true }],
   							})(
@@ -137,7 +137,7 @@ class UserDetail extends Component {
   					</div>
   					<div className="itemContent">
   						<p>邮箱:</p>
-  						<FormItem>
+  						<FormItem hasFeedback>
   							{getFieldDecorator('email', {
   								rules: [{ required: true, message: '不能为空' }],
   							})(

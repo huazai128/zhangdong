@@ -48,7 +48,7 @@ export default class Tab extends React.Component {
 						animated={false}>
 						{tabs.map((item, index) => (
 							<TabPane tab={item.value} key={item.key} className='tabOne'>
-								{(lists && lists.data) ? lists.data.map((list, index) => (
+								{(lists && !!lists.data.length) ? lists.data.map((list, index) => (
 									!Object.is(idx, '5') ? (
 										<Link to={`/creative/barDel/${list.id}`} className='border_bottom'>
 											<div className="new flex flex-vcenter">
@@ -69,7 +69,7 @@ export default class Tab extends React.Component {
 											</div>
 										</Link>
 									) : (
-										<Link to={ `/creative/auditing/${list.id}`} className='border_bottom'>
+										<Link to={ `/creative/receipt/${list.id}`} className='border_bottom'>
 											<div className="new apply-item flex flex-vcenter">
 												<div className="rightNew">
 													<p>{list.mold ? '兼容测试' : '功能测试'}任务</p>
@@ -83,11 +83,11 @@ export default class Tab extends React.Component {
 											</div>
 										</Link>
 									)
-								)) : <h3>暂无数据</h3>}
+								)) : <h3 className="no-more">暂无数据</h3>}
 							</TabPane>
 						))}
 					</Tabs>
-					{lists && (<Pagination
+					{lists && lists.pagination.total > 10 && (<Pagination
 						total={lists.pagination.total}
 						current={lists.pagination.current_page}
 						pageSize={lists.pagination.pre_page}

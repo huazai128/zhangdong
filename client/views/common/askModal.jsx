@@ -6,7 +6,7 @@ const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
 import { inject, observer } from 'mobx-react';
 
-@inject("project")
+@inject('project')
 @observer
 class ModalForm extends React.Component {
 	constructor(props) {
@@ -38,10 +38,10 @@ class ModalForm extends React.Component {
 		this.props.form.validateFieldsAndScroll((err, values) => {
 			if (!err) {
 				this.store.addPlan(values);
-        this.props.form.resetFields();
-        this.setState({
-          visible: false,
-        });
+				this.props.form.resetFields();
+				this.setState({
+					visible: false,
+				});
 			}
 		});
 	}

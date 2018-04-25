@@ -1,13 +1,11 @@
-import React from 'react';
 import './login.scss';
-// import { setStore, getStore } from './loginLocal.js';
+import React from 'react';
 import LoginTab from '../common/loginTab.jsx';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { Link, hashHistory } from 'react-router';
 
 const FormItem = Form.Item;
 class Login extends React.Component {
-
 	render() {
 		const { getFieldDecorator } = this.props.form;
 		return (

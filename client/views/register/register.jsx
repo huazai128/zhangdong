@@ -6,12 +6,12 @@ import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import { Link, hashHistory } from 'react-router';
 const FormItem = Form.Item;
 
-@inject("login")
+@inject('login')
 @observer
 class Login extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {}
+		this.state = {};
 		this.store = this.props.login;
 	}
 	handleSubmit = (e) => {
@@ -21,7 +21,7 @@ class Login extends React.Component {
 				setStore('remember', values);
 				this.store.loginPost(values, (code) => {
 					if (code) {
-						hashHistory.push("/creative");
+						hashHistory.push('/creative');
 					}
 				});
 			}
@@ -40,12 +40,12 @@ class Login extends React.Component {
 							{getFieldDecorator('email', {
 								rules: [{ required: true, message: '请输入邮箱!' }],
 							})(
-								<Input prefix={<Icon type="email" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="账号" />
+								<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="账号" />
 							)}
 						</FormItem>
 						<FormItem>
 							{getFieldDecorator('password', {
-								rules: [{ required: true, message: 'Please input your Password!' }],
+								rules: [{ required: true, message: '请输入密码!' }],
 							})(
 								<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="密码" />
 							)}
@@ -57,7 +57,7 @@ class Login extends React.Component {
 							})(
 								<Checkbox>记住密码</Checkbox>
 							)}
-							<a className="login-form-forgot float-right" href="">忘记密码?</a>
+							<span className="float-right"><Link to="/register">注册</Link> | <Link to="/forget">忘记密码?</Link></span>
 							<Button className="login-form-button" onClick={this.handleSubmit}>登录</Button>
 						</FormItem>
 					</Form>

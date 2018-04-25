@@ -17,13 +17,29 @@ class LoginOne extends React.Component {
 		e.preventDefault();
 		this.props.form.validateFieldsAndScroll((err, values) => {
 			if (!err) {
-				this.store.addUser(values, (code) => {
+				this.store.addUser({ ...values, c_state: 1 }, (code) => {
 					if (code) {
 						hashHistory.push('/creative');
 					}
 				});
 			}
 		});
+	}
+	checkConfirm = (rule, value, callback) => {
+		const form = this.props.form;
+		if (value && this.state.confirmDirty) {
+			form.validateFields(['confirm'], { force: true });
+		}
+		callback();
+	}
+
+	checkPassword = (rule, value, callback) => {
+		const form = this.props.form;
+		if (value && value !== form.getFieldValue('password')) {
+			callback('两次密码输入不一致');
+		} else {
+			callback();
+		}
 	}
 
 	render() {
@@ -32,7 +48,7 @@ class LoginOne extends React.Component {
 			<div className='tabForm' style={{ marginTop: 30 }}>
 				<Form className="from-container">
 					<div className="item">
-						<FormItem>
+						<FormItem hasFeedback>
 							{getFieldDecorator('uaername', {
 								rules: [{ required: true, message: '不能为空' }],
 							})(
@@ -40,7 +56,7 @@ class LoginOne extends React.Component {
 						</FormItem>
 					</div>
 					<div className="item">
-						<FormItem>
+						<FormItem hasFeedback>
 							{getFieldDecorator('email', {
 								rules: [{ required: true, message: '不能为空' }],
 							})(
@@ -48,8 +64,7 @@ class LoginOne extends React.Component {
 						</FormItem>
 					</div>
 					<div className="item">
-						<FormItem
-						>
+						<FormItem hasFeedback>
 							{getFieldDecorator('password', {
 								rules: [{
 									required: true, message: '不能为空',
@@ -57,19 +72,21 @@ class LoginOne extends React.Component {
 									validator: this.checkConfirm,
 								}],
 							})(
-								<Input type="password" placeholder='请输入密码' />
+								<Input type="password" placeholder='请输入密码(密码长度控制(6-26))' />
 							)}
 						</FormItem>
 					</div>
 					<div className="item">
-						<FormItem
-						>
+						<FormItem hasFeedback>
 							{getFieldDecorator('confirm', {
 								rules: [{
 									required: true, message: '不能为空',
 								}, {
 									validator: this.checkPassword,
-								}],
+								},
+								{ max: 26, message: '密码过长' },
+								{ min: 6, message: '密码过短' },
+								],
 							})(
 								<Input type="password" onBlur={this.handleConfirmBlur} placeholder='请再次输入密码' />
 							)}
@@ -77,8 +94,7 @@ class LoginOne extends React.Component {
 					</div>
 					<div className='flex'>其他信息</div>
 					<div className="item">
-						<FormItem
-						>
+						<FormItem hasFeedback>
 							{getFieldDecorator('name', {
 								rules: [{
 									required: true, message: '不能为空',
@@ -89,12 +105,11 @@ class LoginOne extends React.Component {
 						</FormItem>
 					</div>
 					<div className="item">
-						<FormItem
-						>
+						<FormItem hasFeedback>
 							{getFieldDecorator('card', {
 								rules: [{
 									required: true, message: '不能为空',
-								}, { pattern: !/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/, message: '请填写正确的身份证！' }],
+								}, { pattern: /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/, message: '请填写正确的身份证！' }],
 							})(
 								<Input onBlur={this.handleConfirmBlur} placeholder='请输入身份证号码' />
 							)}

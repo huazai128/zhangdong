@@ -85,9 +85,11 @@ class Store {
 	getDetailId = async (id) => {
 		const { code, result } = await get(`/community/${id}`);
 		runInAction(() => {
-			let arr = result.c_user.filter((item) => Object.is(item, this.user._id));
-			!arr.length && (result.c_state = false);
-			arr.length && (result.c_state = true);
+			if(this.user){
+				let arr = result.c_user.filter((item) => Object.is(item, this.user._id));
+				!arr.length && (result.c_state = false);
+				arr.length && (result.c_state = true);
+			}
 			this.detail = result;
 		});
 	}

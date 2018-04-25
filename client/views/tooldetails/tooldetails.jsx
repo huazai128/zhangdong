@@ -5,7 +5,7 @@ import { Link, hashHistory } from 'react-router';
 import { inject, observer } from 'mobx-react';
 import { imgRoot } from 'js/api/config';
 
-@inject("forum")
+@inject('forum')
 @observer
 class ToolDetails extends React.Component {
 	constructor(props) {
@@ -22,12 +22,15 @@ class ToolDetails extends React.Component {
 			this.store.getDetailId(id);
 		}
 	}
+	qqModal = () => {
+		window.open('http://wpa.qq.com/msgrd?v=3&uin=2146594489&site=qq&menu=yes', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');
+	}
 	render() {
 		const { category, detail } = this.store;
 		return (
 			<div id="detail">
 				<div className="nav flex">
-					<div className="navText"><Link to="/creative">首页</Link>&nbsp;>&nbsp;<Link to={`/creative/community?state=${category}`}>{Number(category) ? "知识库" : "测试者工具"}</Link>&nbsp;>&nbsp;loadrunner</div>
+					<div className="navText"><Link to="/creative">首页</Link>&nbsp;>&nbsp;<Link to={`/creative/community?state=${category}`}>{Number(category) ? '知识库' : '测试者工具'}</Link>&nbsp;>&nbsp;loadrunner</div>
 				</div>
 				<div className="toolContent">
 					<div className="toolTop flex jc-between">
@@ -39,7 +42,7 @@ class ToolDetails extends React.Component {
 							</div>
 						</div>
 						<div className="toolRight">
-							<p className='ourOne'>我也要用</p>
+							<p className='ourOne' onClick={ () => { this.qqModal(); } }>我也要用</p>
 						</div>
 					</div>
 					<div className="toolBottom" dangerouslySetInnerHTML={{

@@ -2,9 +2,11 @@ import React from 'react';
 import './auditing.scss';
 import { Link, hashHistory } from 'react-router';
 import { inject, observer } from 'mobx-react';
-import moment from 'moment'
+import { Button, message, Upload } from 'antd';
+import moment from 'moment';
+import { imgRoot } from 'js/api/config';
 
-@inject("apply")
+@inject('apply')
 @observer
 export default class Auditing extends React.Component {
 	constructor(props) {
@@ -16,16 +18,38 @@ export default class Auditing extends React.Component {
 		const { id } = this.props.params;
 		this.store.getApplyId(id);
 	}
+
 	render() {
-		const { detail } = this.store;
+		const { detail, files, getFiles, id } = this.store;
+		const props = {
+			name: 'bg',
+			data: { apply_id: detail._id, p_file: true, },
+			showUploadList: false,
+			headers: {
+				authorization: 'Bearer ' + localStorage.getItem('token'),
+			},
+			onChange(info) {
+				if (info.file.status !== 'uploading') {
+					console.log(info.file, info.fileList);
+				}
+				if (info.file.status === 'done') {
+					let file = info.file.response.result.path;
+					getFiles(id);
+					message.success('上传成功');
+				} else if (info.file.status === 'error') {
+					message.error('上传失败');
+				}
+			},
+		};
+
 		return (
 			<div id='auditing'>
 				<div className="nav flex">
-					<div className="navText"><Link to="/creative">首页</Link>&nbsp;>&nbsp;<Link to="/creative/personal">个人中心</Link>&nbsp;>&nbsp;测试接单</div>
+					<div className="navText"><Link to="/creative">首页</Link>&nbsp;>&nbsp;<Link to="/creative/personal">个人中心</Link>&nbsp;>&nbsp;{Object.is(detail.style, 1) ? '测试接单' : '测试申请'}</div>
 				</div>
 				<div className="takingTop">
 					<div className="takingOne flex">
-						<p>{detail.mold === 0 ? "功能测试" : "兼容测试"}任务</p>
+						<p>{detail.mold === 0 ? '功能测试' : '兼容测试'}任务</p>
 						{Object.is(detail.process, 0) && (<p className='secondP'>完成申请</p>)}
 						{Object.is(detail.process, 1) && (<p className='secondP jieP'>确认需求</p>)}
 						{Object.is(detail.process, 2) && (<p className='secondP ceP'>技术测试</p>)}
@@ -40,7 +64,7 @@ export default class Auditing extends React.Component {
 								<div><i></i>QQ：{detail.qq}</div>
 							</div>
 							<div className="rightBottom flex d-column">
-								<div><i></i>测试类型：{detail.mold === 0 ? "功能测试" : "兼容测试"}</div>
+								<div><i></i>测试类型：{detail.mold === 0 ? '功能测试' : '兼容测试'}</div>
 								<div><i></i>职位：{detail.job}</div>
 								<div><i></i>邮箱：{detail.email}</div>
 								<div><i></i>申请时间：{moment(detail.create_at).format('YYYY-MM-DD hh:mm:ss')}</div>
@@ -63,30 +87,41 @@ export default class Auditing extends React.Component {
 								<div className='btnContent'>
 									<div className={`rect  ${(detail.process >= 0) ? 'phoneOne' : 'phoneThree'}`}></div>
 									<div>完成申请</div>
-									<p></p>
 								</div>
 								<div className="xian"></div>
 								<div className='btnContent'>
-									<div className={`rect  ${(detail.process >= 1) ? 'phoneOne' : 'phoneThree'}`}></div>
+									<div className={`rect  ${(detail.process >= 0) ? 'phoneOne' : 'phoneThree'}`}></div>
 									<div>确认需求</div>
 								</div>
 								<div className="xian"></div>
 								<div className='btnContent'>
-									<div className={`rect  ${(detail.process >= 2) ? 'phoneOne' : 'phoneThree'}`}></div>
-									<div>阶段C</div>
+									<div className={`rect  ${(detail.process >= 1) ? 'phoneOne' : 'phoneThree'}`}></div>
+									<div>技术测试</div>
 								</div>
 								<div className="xian"></div>
 								<div className='btnContent'>
-									<div className={`rect  ${(detail.process == 3) ? 'phoneOne' : 'phoneThree'}`}></div>
-									<div>阶段D</div>
+									<div className={`rect  ${(detail.process >= 2) ? 'phoneOne' : 'phoneThree'}`}></div>
+									<div>结果交付</div>
 								</div>
 							</div>
 						</div>
 						<div className='status'>
 							<ul className='flex'>
-								<li className='treat'>审核通过</li>
-								<li className='treat'>结果上传</li>
-								<li className='bad'>测试结果申请驳回</li>
+								<li>
+									<p className='treat'>{Object.is(detail.style, 1) ? '已接单' : '已完成'}</p>
+								</li>
+								{files && !!files.length && files.map((item, index) => (
+									<li>
+										{Object.is(item.state, 1) && <p className='treat'>已完成</p>}
+										{Object.is(item.state, -1) && <p className='bad'>已取消</p>}
+										{Object.is(index, 2) && Object.is(item.state, 0) && <div><Button className="btn-green" onClick={ () => { this.store.stateOver(item._id); }}>确认完成</Button></div>}
+										{item.url && Object.is(detail.style, 0) && <a href={imgRoot + item.p_url} className="btn-blue">下载文件</a>}
+										{(Object.is(detail.style, 1) && <Upload action={`${imgRoot}/image?process=${item.process}&id=${item._id}`} {...props} >
+											<Button className="btn-file">{item.url ? '重新上传' : '上传文件'}</Button>
+										</Upload>)}
+										{Object.is(detail.style, 1) && <a href={ imgRoot + item.p_url } className="url">{item.url}</a>}
+									</li>
+								))}
 							</ul>
 						</div>
 					</div>

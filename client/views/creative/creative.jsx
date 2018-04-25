@@ -14,7 +14,9 @@ class CreativeContent extends React.Component {
 			isLogin: false,
 			lists1: [],
 			lists2: [],
-			lists3: []
+			lists3: [],
+			views: {},
+			conuts:[]
 		};
 	}
 	componentDidMount() {
@@ -27,19 +29,39 @@ class CreativeContent extends React.Component {
 			pre_page: 10,
 			choice: 1
 		};
-		Promise.all([this.getLists({ ...query, category: 0 }), this.getLists({ ...query, category: 1 }), this.getChoiceLists({ ...query, ...params })])
+		Promise.all([
+			this.getLists({ ...query, category: 0 }),
+			this.getLists({ ...query, category: 1 }),
+			this.getChoiceLists({ ...query, ...params }),
+			this.getViews(),
+			this.getCount()
+		])
 			.then((res) => {
 				this.setState({
 					lists1: res[0].result.data,
 					lists2: res[1].result.data,
 					lists3: res[2].result.data,
+					views: res[3].result,
+					conuts:res[4].result
 				});
 			});
 	}
 	getLists = async (params) => await get('/forum', params);
-	getChoiceLists = async (params) => await get('/community', params)
+	getChoiceLists = async (params) => await get('/community', params);
+	getViews = async () => await get('/views');
+	getCount = async () => await get('/count');
+
+	isPost = () => {
+		let user = localStorage.getItem('user');
+		if(user){
+			hashHistory.push('/creative/quill');
+		}else{
+			hashHistory.push('/login');
+		}
+	}
+
 	render() {
-		const { lists1, lists2, lists3 } = this.state;
+		const { lists1, lists2, lists3, views,conuts } = this.state;
 		return (
 			<div id='creative'>
 				<div className="bg"></div>
@@ -47,7 +69,7 @@ class CreativeContent extends React.Component {
 					<Tab></Tab>
 					<div className="bar">
 						<div className="barContent">
-							<Link to="/creative/quill">我要发帖</Link>
+							<span onClick={ () => { this.isPost(); } }>我要发帖</span>
 						</div>
 						<div className="toolContent">
 							<Link to="/creative/community?state=0">
@@ -103,25 +125,25 @@ class CreativeContent extends React.Component {
 							<div className="stuTop">社区运行状况</div>
 							<div className="stuContent flex-vcenter">
 								<img src={require('img/xingzhuang1.png')} />
-								<div className="stuRight">会员：23152</div>
+								<div className="stuRight">会员：{views.vip}</div>
 							</div>
 						</div>
 						<div className="situation stuOne">
 							<div className="stuContent flex-vcenter">
 								<img src={require('img/xingzhuang2.jpg')} />
-								<div className="stuRight">测试者：856</div>
+								<div className="stuRight">测试者：{views.test}</div>
 							</div>
 						</div>
 						<div className="situation stuOne">
 							<div className="stuContent flex-vcenter">
 								<img src={require('img/xingzhuang3.png')} />
-								<div className="stuRight">主题：46058</div>
+								<div className="stuRight">主题：{conuts[1] || 0}</div>
 							</div>
 						</div>
 						<div className="situation stuOne">
 							<div className="stuContent flex-vcenter">
 								<img src={require('img/xingzhuang4.png')} />
-								<div className="stuRight">回复：46058</div>
+								<div className="stuRight">回复：{conuts[0] || 0 }</div>
 							</div>
 						</div>
 					</div>

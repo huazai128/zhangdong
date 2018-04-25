@@ -2,13 +2,13 @@
   width: 100%;
   min-width: 1380px;
   margin: 0 auto;
-  background-color: #f4f7fc; // background: url('~img/main.jpg') no-repeat center top;
+  background-color: #f4f7fc; 
   letter-spacing: 1px;
   position: relative;
   a {
     color: inherit;
     display: inline-block;
-    text-decoration: none; // width: 1380px;
+    text-decoration: none; 
   }
   .nav {
     height: 62px;
@@ -23,28 +23,37 @@
     }
   }
   .takingTop {
-    width: 1380px; // height: 210px;
+    width: 1380px; 
     margin: 0 auto;
     padding: 40px 24px 0 45px;
     background-color: #ffffff;
     .takingOne {
       p {
-        margin: 0;
-        &:first-child {
-          font-size: 18px;
-          color: #333333;
-          margin: 0 22px 20px 0;
-          ;
+        margin-left: 10px;
+        &.firstP {
+          margin: 0 23px 12px 0;
+          font-size: 17px;
+          color: #5a5a5a;
+          font-weight: 500;
         }
-        &:last-child {
-          font-size: 14px;
-          color: #ffffff;
-          background-color: #f6b414;
-          width: 70px;
+        &.secondP {
+          width: 72px;
           height: 24px;
+          background-color: #f6b414;
+          font-size: 14px;
+          color: #fff;
+          border-radius: 20px;
           line-height: 24px;
           text-align: center;
-          border-radius: 20px;
+          &.jieP {
+            background-color: #25d9b5;
+          }
+          &.ceP {
+            background-color: #aa91fc;
+          }
+          &.yiP {
+            background-color: #31abfb;
+          }
         }
       }
     }
@@ -157,17 +166,47 @@
       }
       .status {
         padding-bottom: 112px;
+        .btn-file{
+          border: 1px solid #27b3fc;
+          color: #27b3fc;
+        }
+        .btn-green{
+          margin-bottom: 15px;
+          background: #60e592;
+          color: #fff;
+          border: 1px solid #60e592;
+        }
         ul {
           li {
-            margin-right: 120px;
             font-size: 16px;
             color: #666666;
-            padding-left: 38px;
-            &.treat {
-              background: url('~img/right.png') no-repeat left top;
+            width: 230px;
+            padding-left: 10px;
+            p {
+              padding-left: 30px;
+              &.treat {
+                background: url('~img/right.png') no-repeat left top;
+              }
+              &.bad {
+                background: url('~img/bad.png') no-repeat left top;
+              }
             }
-            &.bad {
-              background: url('~img/bad.png') no-repeat left top;
+            a{
+              display: block;
+              width: 100px;
+              height: 32px;
+              line-height: 32px;
+              border: 1px solid #27b3fc;
+              font-size: 12px;
+              text-align: center;
+              border-radius: 4px;
+            }
+            .url{
+              border:0;
+              color: #27b3fc;
+              cursor: pointer;
+              padding: 15px  0 0;
+              margin-left: -15px;
             }
           }
         }

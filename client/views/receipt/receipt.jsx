@@ -3,84 +3,58 @@ import './receipt.scss';
 import Top from '../common/partyTop.jsx';
 import Footer from '../common/lastFooter.jsx';
 import { Link, hashHistory } from 'react-router';
+import { inject, observer } from 'mobx-react';
+import moment from 'moment';
+
+@inject('apply')
+@observer
 export default class Receipt extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+		this.store = this.props.apply;
+	}
+	componentDidMount() {
+		const { id } = this.props.params;
+		this.store.getApplyId(id);
+	}
 	render() {
+		const { detail } = this.store;
 		return (
 			<div id='receipt'>
-				{/* <Top></Top> */}
 				<div className="nav flex">
-					<div className="navText"><Link to="/creative">首页</Link>&nbsp;>&nbsp;<Link to="/creative/personal">个人中心</Link>&nbsp;>&nbsp;测试接单</div>
+					<div className="navText"><Link to="/creative">首页</Link>&nbsp;>&nbsp;<Link to="/creative">众测平台</Link>&nbsp;>&nbsp;测试任务</div>
 				</div>
 				<div className="takingTop">
 					<div className="takingOne flex">
-						<p>申请名称申请名称</p>
-						<p>已接单</p>
+						<p>{detail.mold === 0 ? '功能测试' : '兼容测试'}任务</p>
 					</div>
-					<div className='takingBottom flex'>
-						<div className="leftTaking flex d-column">
-							<div><i></i>需求方:需求方名域名称</div>
-							<div><i></i>项目金额:￥39999</div>
-							<div><i></i>项目周期:两个月</div>
-						</div>
-						<div className="rightBottom flex d-column">
-							<div><i></i>测试类型:APP测试</div>
-							<div><i></i>发布时间:2017-10-16</div>
-						</div>
-					</div>
-					<div className="toolBottom">
-						<div className='toolTop'>项目详情:</div>
-						<div className="tuTop commonNone">图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍
-          图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍 图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍.</div>
-						<div className="wenTop commonNone">文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图
-          文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图 文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图. </div>
-						<div className="imgAn"></div>
-						<div className='commonNone'>文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图
-          文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图.</div>
-						<div className='commonNone'>文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图
-          文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图 文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图
-          文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图 文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图文介绍图.</div>
-					</div>
-					<div className="testBottm">
-						<div className="test">测试进程:</div>
-						<div className="tuContent">
-							<div className='btnTop flex'>
-								<div className='btnContent'>
-									<div className="rect phoneOne"></div>
-									<div>阶段A</div>
-								</div>
-								<div className="xian"></div>
-								<div className='btnContent'>
-									<div className="rect phoneTwo"></div>
-									<div>阶段B</div>
-								</div>
-								<div className="xian"></div>
-								<div className='btnContent'>
-									<div className="rect phoneTwo"></div>
-									<div>阶段C</div>
-								</div>
-								<div className="xian"></div>
-								<div className='btnContent'>
-									<div className="rect phoneThree"></div>
-									<div>阶段D</div>
-								</div>
-								<div className="xian"></div>
-								<div className='btnContent'>
-									<div className="rect phoneThree"></div>
-									<div>阶段E</div>
-								</div>
+					<div className='takingBottom'>
+						<div className='flex'>
+							<div className="leftTaking flex-col-3 wrap d-column">
+								<div><i></i>公司名称：{detail.company}</div>
+								<div><i></i>联系人：{detail.name}</div>
+								<div><i></i>手机号：{detail.phone}</div>
+								<div><i></i>QQ：{detail.qq}</div>
 							</div>
-							<div className='result'>上传结果</div>
+							<div className="rightBottom flex d-column">
+								<div><i></i>测试类型：{detail.mold === 0 ? '功能测试' : '兼容测试'}</div>
+								<div><i></i>职位：{detail.job}</div>
+								<div><i></i>邮箱：{detail.email}</div>
+								<div><i></i>申请时间：{moment(detail.create_at).format('YYYY-MM-DD hh:mm:ss')}</div>
+							</div>
 						</div>
-						<div className='status'>
-							<ul className='flex'>
-								<li className='treat'>审核通过</li>
-								<li className='treat'>结果上传</li>
-								<li className='bad'>测试结果申请驳回</li>
-							</ul>
-						</div>
+						{Object.is(detail.style, 0) && (<div className="apply-content"><i></i>咨询内容：{detail.content}</div>)}
 					</div>
+					{Object.is(detail.style, 1) && (
+						<div className="toolBottom">
+							<h4>项目详情：</h4>
+							<div dangerouslySetInnerHTML={{
+								__html: detail.content
+							}}></div>
+						</div>
+					)}
 				</div>
-				{/* <Footer></Footer> */}
 			</div>
 		);
 	}
