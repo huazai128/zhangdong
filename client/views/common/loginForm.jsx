@@ -10,7 +10,9 @@ const FormItem = Form.Item;
 class LoginOne extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			confirmDirty: false
+		};
 		this.store = this.props.login;
 	}
 	handleSubmit = (e) => {
@@ -42,6 +44,11 @@ class LoginOne extends React.Component {
 		}
 	}
 
+	handleConfirmBlur = (e) => {
+		const value = e.target.value;
+		this.setState({ confirmDirty: this.state.confirmDirty || !!value });
+	}
+
 	render() {
 		const { getFieldDecorator } = this.props.form;
 		return (
@@ -49,7 +56,7 @@ class LoginOne extends React.Component {
 				<Form className="from-container">
 					<div className="item">
 						<FormItem hasFeedback>
-							{getFieldDecorator('uaername', {
+							{getFieldDecorator('username', {
 								rules: [{ required: true, message: '不能为空' }],
 							})(
 								<Input className='use flex-center' placeholder="用户名" />)}
@@ -58,7 +65,10 @@ class LoginOne extends React.Component {
 					<div className="item">
 						<FormItem hasFeedback>
 							{getFieldDecorator('email', {
-								rules: [{ required: true, message: '不能为空' }],
+								rules: [
+									{ required: true, message: '不能为空' },
+									{ type: 'email', message: '请输入正确的邮箱' }
+								],
 							})(
 								<Input className='use flex-center' placeholder="邮箱" />)}
 						</FormItem>
@@ -70,9 +80,12 @@ class LoginOne extends React.Component {
 									required: true, message: '不能为空',
 								}, {
 									validator: this.checkConfirm,
-								}],
+								},
+								{ max: 16, message: '密码过长' },
+								{ min: 6, message: '密码过短' },
+								],
 							})(
-								<Input type="password" placeholder='请输入密码(密码长度控制(6-26))' />
+								<Input type="password" placeholder='请输入密码(密码长度控制(6-16))' />
 							)}
 						</FormItem>
 					</div>
@@ -84,7 +97,7 @@ class LoginOne extends React.Component {
 								}, {
 									validator: this.checkPassword,
 								},
-								{ max: 26, message: '密码过长' },
+								{ max: 16, message: '密码过长' },
 								{ min: 6, message: '密码过短' },
 								],
 							})(

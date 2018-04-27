@@ -55,6 +55,7 @@
           height: 61px;
           border-radius: 50%;
           overflow: hidden;
+          background: #e5e5e5;
           img {
             width: 100%;
             height: 100%;
@@ -92,7 +93,8 @@
         margin-right: 30px;
         &.cangTwo {
           cursor: pointer;
-          &:hover,&.select {
+          &:hover,
+          &.select {
             background: #3ea2fa;
             background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
             background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
@@ -118,6 +120,7 @@
       .dis {
         line-height: 38px;
         text-align: center;
+        cursor: pointer;
         background: #3ea2fa;
         background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
         background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
@@ -145,7 +148,7 @@
     background-color: #ffffff;
     .disContent {
       padding-left: 20px;
-      h3{
+      h3 {
         text-align: center;
         padding: 50px 0;
         font-size: 16px;
@@ -199,6 +202,14 @@
               color: #7a7a7a;
               width: 1050px;
               margin-top: 10px;
+              p {
+                line-height: 1.7;
+                width: 100%;
+                word-break: break-word;
+                white-space: pre-line;
+                -webkit-white-space: pre-line;
+                -webkit-word-break: break-word;
+              }
             }
           }
         }
@@ -305,13 +316,11 @@
       text-align: center;
     }
   }
-  .pagi{
+  .pagi {
     padding: 30px 0;
   }
-  .ant-pagination-prev a, .ant-pagination-next a{
+  .ant-pagination-prev a,
+  .ant-pagination-next a {
     display: block;
-  }
-  .comments{
-    min-height: 250px;
   }
 }

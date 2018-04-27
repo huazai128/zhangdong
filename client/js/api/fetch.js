@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Modal } from 'antd';
+import { Modal,message } from 'antd';
 
 const codeMessage = {
 	// 200: '服务器成功返回请求的数据',
@@ -8,8 +8,8 @@ const codeMessage = {
 	// 202: '一个请求已经进入后台排队（异步任务）',
 	// 204: '删除数据成功。',
 	400: '错误请求,请求参数有误!',
-	401: '用户没有权限（令牌、用户名、密码错误）。',
-	403: '用户得到授权，但是访问是被禁止的。',
+	401: '用户没有权限（令牌、用户名、密码错误）',
+	403: '用户得到授权，但是访问是被禁止的',
 	404: '请求错误,未找到该资源',
 	405: '请求方法未允许',
 	406: '请求的格式不可得。',
@@ -25,12 +25,7 @@ const codeMessage = {
 };
 
 const showError = (error) => {
-	// return error;
-	return Modal.error({
-		title: '操作错误',
-		content: <div><p>message:</p><pre>{JSON.stringify(error, null, 2)}</pre></div>
-		// content: error
-	});
+	return message.error(error);
 };
 
 // axios.defaults.baseURL = 'http://192.168.0.209:3721';

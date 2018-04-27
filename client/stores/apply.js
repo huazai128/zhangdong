@@ -69,8 +69,8 @@ class Store {
 		const { code, result,message:msg } = await put(`image/${id}`, { state: 1, apply_id: this.id, process: 3 });
 		runInAction(() => {
 			if (code) {
+				message.success('修改成功');
 				this.getFiles(this.id);
-				message.succes(msg);
 			} else {
 				message.error(msg);
 			}

@@ -91,38 +91,39 @@ export default class Personal extends React.Component {
 											{Object.is(item.process, 2) && (<p className='secondP ceP'>技术测试</p>)}
 											{Object.is(item.process, 3) && (<p className='secondP yiP'>结果交付</p>)}
 										</div>
-										<div className="bottomContent">
-											{item.mold ? '兼容测试' : '功能测试'}.条件1.条件2.{date(item.create_at)}申请 </div>
+										<div className="bottomContent">{date(item.create_at)}申请 </div>
 									</div>
 								</Link>
 							))}
 							{lists && lists.data.length === 0 && <h3 className="no-more">暂无数据</h3>}
 						</TabPane>
-						<TabPane tab='测试接单' key="2" className='tabOne'>
-							{lists && lists.data && lists.data.map((item) => (
-								<Link to={`/creative/auditing/${item.id}`}>
-									<div className='shenOne'>
-										<div className="firstPer flex">
-											<p className='firstP'>{item.mold ? '兼容测试' : '功能测试'}任务</p>
-											{Object.is(item.process, 0) && (<p className='secondP'>已接单</p>)}
-											{Object.is(item.process, 1) && (<p className='secondP jieP'>确认需求</p>)}
-											{Object.is(item.process, 2) && (<p className='secondP ceP'>技术测试</p>)}
-											{Object.is(item.process, 3) && (<p className='secondP yiP'>结果交付</p>)}
+						{userInfo && Object.is(userInfo.type, 1) && (
+							<TabPane tab='测试接单' key="2" className='tabOne'>
+								{lists && lists.data && lists.data.map((item) => (
+									<Link to={`/creative/auditing/${item.id}`}>
+										<div className='shenOne'>
+											<div className="firstPer flex">
+												<p className='firstP'>{item.mold ? '兼容测试' : '功能测试'}任务</p>
+												{Object.is(item.process, 0) && (<p className='secondP'>已接单</p>)}
+												{Object.is(item.process, 1) && (<p className='secondP jieP'>确认需求</p>)}
+												{Object.is(item.process, 2) && (<p className='secondP ceP'>技术测试</p>)}
+												{Object.is(item.process, 3) && (<p className='secondP yiP'>结果交付</p>)}
+											</div>
+											<div className="bottomContent">
+												{item.mold ? '兼容测试' : '功能测试'}.条件1.条件2.{date(item.create_at)}申请 </div>
 										</div>
-										<div className="bottomContent">
-											{item.mold ? '兼容测试' : '功能测试'}.条件1.条件2.{date(item.create_at)}申请 </div>
-									</div>
-								</Link>
-							))}
-							{lists && lists.data.length === 0 && <h3 className="no-more">暂无数据</h3>}
-						</TabPane>
+									</Link>
+								))}
+								{lists && lists.data.length === 0 && <h3 className="no-more">暂无数据</h3>}
+							</TabPane>
+						)}
 						<TabPane tab='话题' key="3" className='tabOne'>
 							{lists && lists.data && lists.data.map((item) => (
 								<Link to={`/creative/barDel/${item.id}`}>
 									<div className="theme">
 										<div className="themeContent flex">
 											<div className="comm-img">
-												{item.userId && item.userId.gravatar && (<img src={item.userId.gravatar} alt="" />)}
+												{item.userId && item.userId.gravatar && (<img src={ imgRoot + item.userId.gravatar} alt="" />)}
 												{item.userId && !item.userId.gravatar && (<img src={require('img/top2.png')} alt="" />)}
 											</div>
 											<div className="flex-g-l comm-cont">

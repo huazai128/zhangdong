@@ -1,18 +1,18 @@
 #creative {
   width: 100%;
   min-width: 1380px;
-  margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
+  margin: 0 auto;
   background-color: #f4f7fc;
   letter-spacing: 1px;
   a {
     color: inherit;
     display: inline-block;
-    text-decoration: none; // width: 100%;
+    text-decoration: none;
   }
   .bg {
     height: 300px;
     margin-bottom: 22px;
-    background: url('~img/creative1.png') no-repeat center center;
+    background: url('~img/creative1.jpg') no-repeat center center;
   }
   .creativeCont {
     width: 1380px;
@@ -25,6 +25,7 @@
           display: block;
           width: 280px;
           height: 65px;
+          cursor: pointer;
           background: #3ea2fa;
           background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
           background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
@@ -152,6 +153,65 @@
     }
     .stuOne {
       margin-top: 0;
+    }
+  }
+  .no-data {
+    padding: 15px 0;
+    text-align: center;
+    background: #fff;
+    color: #666;
+    font-size: 16px;
+  }
+}
+
+#modal-cont {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.45);
+  .tan-cont {
+    height: 100%;
+    .tan-box {
+      width: 340px;
+      padding: 50px 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 40px;
+        text-align: center;
+        span {
+          padding: 10px 5px 10px 30px;
+          background: url("~img/ti.png") no-repeat left center;
+          background-size: 18px;
+        }
+      }
+      .btn-lists {
+        .btn{
+          display: block;
+          width: 88px;
+          height: 32px;
+          line-height: 32px;
+          border-radius: 4px;
+          text-align: center;
+          margin: 0 10px;
+          background: -moz-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+          background: -webkit-linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+          background: linear-gradient(45deg, #3ea2fa 0%, #0ac8ff 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ea2fa', endColorstr='#0ac8ff', GradientType=1);
+          color: #fff;
+          border: 0;
+        }
+        .btn-default {
+          background: #999;
+          border: 0;
+          color:#fff;
+        }
+      }
     }
   }
 }

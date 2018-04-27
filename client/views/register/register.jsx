@@ -1,7 +1,7 @@
 import React from 'react';
 import './register.scss';
 import { observer, inject } from 'mobx-react';
-import { setStore, getStore } from './loginLocal.js';
+import { setStore, getStore, removeStore } from './loginLocal.js';
 import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import { Link, hashHistory } from 'react-router';
 const FormItem = Form.Item;
@@ -18,7 +18,10 @@ class Login extends React.Component {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
 			if (!err) {
-				setStore('remember', values);
+				console.log(values.remember);
+				if (values.remember) {
+					setStore('remember', values);
+				}
 				this.store.loginPost(values, (code) => {
 					if (code) {
 						hashHistory.push('/creative');
@@ -26,6 +29,19 @@ class Login extends React.Component {
 				});
 			}
 		});
+	}
+
+	changeCheck = (value) => {
+		if (!value) {
+			removeStore('remember');
+		}
+	}
+
+	componentDidMount() {
+		let user = JSON.parse(getStore('remember'));
+		if(user){
+			this.props.form.setFieldsValue(user);
+		}
 	}
 	render() {
 		const { getFieldDecorator } = this.props.form;
@@ -53,9 +69,8 @@ class Login extends React.Component {
 						<FormItem>
 							{getFieldDecorator('remember', {
 								valuePropName: 'checked',
-								initialValue: true,
 							})(
-								<Checkbox>记住密码</Checkbox>
+								<Checkbox onChange={(e) => { this.changeCheck(e); }}>记住密码</Checkbox>
 							)}
 							<span className="float-right"><Link to="/register">注册</Link> | <Link to="/forget">忘记密码?</Link></span>
 							<Button className="login-form-button" onClick={this.handleSubmit}>登录</Button>

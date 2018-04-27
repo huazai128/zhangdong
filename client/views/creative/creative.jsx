@@ -4,6 +4,8 @@ import Top from '../common/partyTop.jsx';
 import Tab from '../common/tabCreative.jsx';
 import Footer from '../common/lastFooter.jsx';
 import { Link, hashHistory } from 'react-router';
+import { message, Button } from 'antd';
+
 import { get } from 'js/api/fetch';
 import { imgRoot } from 'js/api/config';
 
@@ -16,7 +18,8 @@ class CreativeContent extends React.Component {
 			lists2: [],
 			lists3: [],
 			views: {},
-			conuts:[]
+			conuts: [],
+			isModal: false,
 		};
 	}
 	componentDidMount() {
@@ -42,7 +45,7 @@ class CreativeContent extends React.Component {
 					lists2: res[1].result.data,
 					lists3: res[2].result.data,
 					views: res[3].result,
-					conuts:res[4].result
+					conuts: res[4].result
 				});
 			});
 	}
@@ -52,16 +55,32 @@ class CreativeContent extends React.Component {
 	getCount = async () => await get('/count');
 
 	isPost = () => {
-		let user = localStorage.getItem('user');
-		if(user){
-			hashHistory.push('/creative/quill');
-		}else{
+		let user = JSON.parse(localStorage.getItem('user'));
+		let arr = [0, -1];
+		if (user) {
+			if (arr.includes(user.status)) {
+				message.info(`已被禁言${user.time_name}`);
+				return false;
+			} else {
+				hashHistory.push('/creative/quill');
+			}
+		} else {
+			this.setState({
+				isModal: true,
+			});
+		}
+	}
+	showModal = (value = false) => {
+		this.setState({
+			isModal: false,
+		});
+		if (value) {
 			hashHistory.push('/login');
 		}
 	}
 
 	render() {
-		const { lists1, lists2, lists3, views,conuts } = this.state;
+		const { lists1, lists2, lists3, views, conuts, isModal } = this.state;
 		return (
 			<div id='creative'>
 				<div className="bg"></div>
@@ -69,7 +88,7 @@ class CreativeContent extends React.Component {
 					<Tab></Tab>
 					<div className="bar">
 						<div className="barContent">
-							<span onClick={ () => { this.isPost(); } }>我要发帖</span>
+							<span onClick={() => { this.isPost(); }}>我要发帖</span>
 						</div>
 						<div className="toolContent">
 							<Link to="/creative/community?state=0">
@@ -87,6 +106,7 @@ class CreativeContent extends React.Component {
 										</div>
 									</Link>
 								))}
+								{lists1.length === 0 && <h3 className="no-data flex-g-1">暂无数据</h3>}
 							</div>
 						</div>
 						{/* 知识集市 */}
@@ -106,19 +126,8 @@ class CreativeContent extends React.Component {
 										</div>
 									</Link>
 								))}
+								{lists2.length === 0 && <h3 className="no-data flex-g-1">暂无数据</h3>}
 							</div>
-						</div>
-						<div className="jingContent">
-							<div className="jingTop">精选话题</div>
-							{lists3.length > 0 && lists3.map((item, index) => (
-								<Link className="jingImg" to={`/creative/barDel/${item.id}`}>
-									<div className=" flex-vcenter">
-										<img src={(item.userId && item.userId.gravatar) ? item.userId.gravatar : require('img/top2.png')} />
-										<p>{item.title}</p>
-									</div>
-								</Link>
-							))}
-
 						</div>
 						{/* 社区运行状况 */}
 						<div className="situation">
@@ -143,11 +152,24 @@ class CreativeContent extends React.Component {
 						<div className="situation stuOne">
 							<div className="stuContent flex-vcenter">
 								<img src={require('img/xingzhuang4.png')} />
-								<div className="stuRight">回复：{conuts[0] || 0 }</div>
+								<div className="stuRight">回复：{conuts[0] || 0}</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				{isModal && (
+					<div id="modal-cont">
+						<div className="flex-center tan-cont">
+							<div className="tan-box">
+								<p><span>发帖前请先登录</span></p>
+								<div className="flex-center btn-lists">
+									<Button onClick={() => { this.showModal(true); }} className="btn">去登录</Button>
+									<Button className="btn-default" onClick={() => { this.showModal(); }}>点错了，再看看</Button>
+								</div>
+							</div>
+						</div>
+					</div>
+				)}
 			</div>
 		);
 	}

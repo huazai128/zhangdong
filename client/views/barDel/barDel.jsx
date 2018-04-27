@@ -33,8 +33,9 @@ export default class New extends React.Component {
 		this.state = {
 			text: '',
 			id: '',
-			active: 'false',
-			reply_id: ''
+			active: false,
+			reply_id: '',
+			isReply:false,
 		};
 		this.store = this.props.creative;
 		this.commentStore = this.props.comment;
@@ -46,10 +47,29 @@ export default class New extends React.Component {
 		this.commentStore.getInit(id);
 	}
 	handleChange(value) {
+		if(this.state.isReply) {
+			this.setState({
+				text:value.substr(0,200),
+			});
+			return false;
+		}
+		if(value.length >= 200){
+			message.info('评论数字限制在200!');
+			this.setState({
+				text:value.substr(0,200),
+				isReply:true
+			});
+			return false;
+		}
 		this.setState({ text: value });
 	}
 	click = (user_id = '') => {
 		const user = JSON.parse(localStorage.getItem('user'));
+		let arr = [0, -1];
+		if (arr.includes(user.status)) {
+			message.info(`已被禁言${user.time_name}`);
+			return false;
+		}
 		if (!user) {
 			message.info('请先登录!');
 			return false;
@@ -62,13 +82,19 @@ export default class New extends React.Component {
 	};
 	iconPing = () => {
 		this.setState({
-			reply_id: ''
+			reply_id: '',
+			isReply:false
 		});
 		$('#comment').css('display', 'none');
 	}
 	handle = () => {
 		const { id, text, reply_id } = this.state;
 		const user = JSON.parse(localStorage.getItem('user'));
+		let arr = [0, -1];
+		if (arr.includes(user.status)) {
+			message.info(`已被禁言${user.time_name}`);
+			return false;
+		}
 		if (!user) {
 			message.info('请先登录!');
 			$('#comment').css('display', 'none');
@@ -89,6 +115,7 @@ export default class New extends React.Component {
 		});
 		$('#comment').css('display', 'none');
 	}
+
 	render() {
 		const { detail, putArticleId } = this.store;
 		const { comments, pagination, changeComment, likeState } = this.commentStore;
@@ -107,7 +134,7 @@ export default class New extends React.Component {
 									<p className='textTwo'>作者：{detail.userId && detail.userId.name}&nbsp;&nbsp;&nbsp;发布于{date(detail.create_at)}&nbsp;&nbsp;&nbsp;浏览量：{detail.meta.links}</p>
 								</div>
 								<div className="toolRight">
-									<p className="ourOne"><img src={(detail.userId && detail.userId.gravatar) && (imgRoot + detail.userId.gravatar)} alt="" /></p>
+									<p className="ourOne"><img src={(detail.userId && (imgRoot + detail.userId.gravatar))} alt="" /></p>
 								</div>
 							</div>
 							<div className="toolBottom" dangerouslySetInnerHTML={{
@@ -115,7 +142,7 @@ export default class New extends React.Component {
 							}}>
 							</div>
 							<div className="disBtn flex-vcenter">
-								<div className={`shou flex-center cangTwo ${detail.c_state ? 'select' : ''}`} onClick={() => { putArticleId(detail._id,this.state.id); }}><i></i> 收藏</div>
+								<div className={`shou flex-center cangTwo ${detail.c_state ? 'select' : ''}`} onClick={() => { putArticleId(detail._id, this.state.id); }}><i></i> 收藏</div>
 								<div className="dis" onClick={this.click}><i className='pingOne'></i>评论</div>
 							</div>
 							<div className="comment" id='comment'>
@@ -127,6 +154,7 @@ export default class New extends React.Component {
 									<ReactQuill className='textQuill'
 										value={this.state.text}
 										onChange={this.handleChange}
+										placeholder="请输入您的评论!"
 										modules={{
 											toolbar: this.toolbarOptions
 										}} />

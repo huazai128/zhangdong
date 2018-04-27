@@ -4,7 +4,7 @@
   margin: 0 auto; // background: url('~img/main.jpg') no-repeat center top;
   background-color:#f4f7fc;
 	letter-spacing: 1px;
-
+  
 	a{
 		color: inherit;
 	}
@@ -73,6 +73,12 @@
         height: 682px !important;
       }
     }
+  }
+  .edui-default .edui-editor-iframeholder{
+    height: 647px !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    width: 1350px !important;
   }
   .title{
     padding: 15px;

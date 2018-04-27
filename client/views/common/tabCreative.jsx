@@ -3,6 +3,7 @@ import { Tabs, Pagination } from 'antd';
 import { inject, observer } from 'mobx-react';
 import './tabCreative.scss';
 import { Link, hashHistory } from 'react-router';
+import { imgRoot } from 'js/api/config';
 import date from 'js/core/date';
 const { TabPane } = Tabs;
 // 分页器
@@ -14,12 +15,11 @@ function itemRender(current, type, originalElement) {
 	}
 	return originalElement;
 }
-const tabs = [
+let tabs = [
 	{ key: '1', value: '最新回复', },
 	{ key: '2', value: '最新发布', },
 	{ key: '3', value: '版主推荐', },
-	{ key: '4', value: '优质帖子', },
-	{ key: '5', value: '众测平台', },
+	{ key: '4', value: '精选帖子', },
 ];
 
 @inject('creative')
@@ -32,11 +32,23 @@ export default class Tab extends React.Component {
 	componentDidMount() {
 		this.store.getInit();
 	}
-	componentWillReceiveProps(){
+	componentWillReceiveProps() {
 		this.store.getInit();
 	}
 	render() {
-		const { lists, change, idx,pageUpdate } = this.store;
+		const { lists, change, idx, pageUpdate } = this.store;
+		let user = JSON.parse(localStorage.getItem('user'));
+		if (user && Object.is(user.type, 1)) {
+			let arr = [{ key: '5', value: '众测平台', }];
+			tabs = [...tabs, ...arr];
+		} else {
+			tabs = [
+				{ key: '1', value: '最新回复', },
+				{ key: '2', value: '最新发布', },
+				{ key: '3', value: '版主推荐', },
+				{ key: '4', value: '精选帖子', },
+			];
+		}
 		return (
 			<div id='tabCreative'>
 				<div className="tabContent">
@@ -53,7 +65,7 @@ export default class Tab extends React.Component {
 										<Link to={`/creative/barDel/${list.id}`} className='border_bottom'>
 											<div className="new flex flex-vcenter">
 												<div className="leftNew">
-													<img src={(item.userId && item.userId.gravatar) ? item.userId.gravatar : require('img/top2.png')} />
+													<img src={(list.userId && list.userId.gravatar) ? imgRoot + list.userId.gravatar : require('img/top2.png')} />
 												</div>
 												<div className="rightNew">
 													<p>{list.title}</p>
@@ -69,7 +81,7 @@ export default class Tab extends React.Component {
 											</div>
 										</Link>
 									) : (
-										<Link to={ `/creative/receipt/${list.id}`} className='border_bottom'>
+										<Link to={`/creative/receipt/${list.id}`} className='border_bottom'>
 											<div className="new apply-item flex flex-vcenter">
 												<div className="rightNew">
 													<p>{list.mold ? '兼容测试' : '功能测试'}任务</p>

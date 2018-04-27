@@ -19,9 +19,11 @@ class Community extends React.Component {
 		this.store.getTabs();
 		let { query } = this.props.location;
 		if (query) {
-			this.store.category = Number(query.state);
+			this.store.category = Number(query.state || 0);
 		}
 		this.store.getLists();
+	}
+	componentWillReceiveProps(nextProps){
 	}
 
 	render() {

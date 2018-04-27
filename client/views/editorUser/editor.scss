@@ -19,17 +19,23 @@
         height: 100%;
       }
     }
-    p{
+    p {
       font-size: 14px;
       color: #666;
       text-align: center;
       padding: 4px 0 4px 30px;
       cursor: pointer;
-      &.icon-avator{
+      &.icon-avator {
         background: url("~img/avatar.png") no-repeat 14px center;
       }
-      &.icon-psw{
+      &.icon-psw {
         background: url("~img/psw.png") no-repeat 14px center;
+      }
+      &.icon-text {
+        text-align: center;
+        padding-left: 0;
+        font-size: 12px;
+        color: #999;
       }
     }
   }

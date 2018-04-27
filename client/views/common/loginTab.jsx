@@ -24,17 +24,22 @@ class LoginTab extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			confirmDirty: false,
+			isModal: false
 		};
 		this.store = this.props.login;
 	}
 	handleSubmitUser = (e) => {
 		e.preventDefault();
+		this.store.getCode();
 		this.props.form.validateFieldsAndScroll((err, values) => {
 			if (!err) {
 				let obj = { type: 1 };
 				this.store.addUser(Object.assign(values, obj), (code) => {
 					if (code) {
-						hashHistory.push('/creative');
+						this.setState({
+							isModal:true,
+						});
 					}
 				});
 			}
@@ -60,9 +65,23 @@ class LoginTab extends React.Component {
 			callback();
 		}
 	}
+
+	handleConfirmBlur = (e) => {
+		const value = e.target.value;
+		this.setState({ confirmDirty: this.state.confirmDirty || !!value });
+	}
+
+	showModal = () => {
+		this.setState({
+			isModal:false,
+		});
+		hashHistory.push('/creative');
+	}
+
 	render() {
 		const { getFieldDecorator } = this.props.form;
 		const { codeInfo } = this.store;
+		const { isModal } = this.state;
 		return <div className='logintab'>
 			<Tabs
 				defaultActiveKey="1"
@@ -99,14 +118,15 @@ class LoginTab extends React.Component {
 								{getFieldDecorator('password', {
 									rules: [{
 										required: true, message: '不能为空',
-									}, {
+									},
+									{
 										validator: this.checkConfirm,
 									},
-									{ max: 26, message: '密码过长' },
+									{ max: 16, message: '密码过长' },
 									{ min: 6, message: '密码过短' },
 									],
 								})(
-									<Input type="password" placeholder='请输入密码(密码长度控制(6-26))' />
+									<Input type="password" placeholder='请输入密码(密码长度控制(6-16))' />
 								)}
 							</FormItem>
 						</div>
@@ -115,9 +135,13 @@ class LoginTab extends React.Component {
 								{getFieldDecorator('confirm', {
 									rules: [{
 										required: true, message: '不能为空',
-									}, {
+									},
+									{
 										validator: this.checkPassword,
-									}],
+									},
+									{ max: 16, message: '密码过长' },
+									{ min: 6, message: '密码过短' },
+									],
 								})(
 									<Input type="password" onBlur={this.handleConfirmBlur} placeholder='确认密码' />
 								)}
@@ -206,6 +230,18 @@ class LoginTab extends React.Component {
 					</Form>
 				</TabPane>
 			</Tabs>
+			{isModal && (
+				<div className="modal-cont">
+					<div className="flex-center tan-cont">
+						<div className="tan-box">
+							<p>提示：测试者用户在审核通过后才能进行登录使用哦，请浏览和了解社区。</p>
+							<div className="flex-center">
+								<Button className="btn" onClick={ () => { this.showModal(); } }>我知道了</Button>
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
 		</div >;
 	}
 }

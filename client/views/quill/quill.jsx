@@ -20,52 +20,52 @@ class New extends React.Component {
 		this.initEditor();
 	}
 	componentWillUnmount() {
-		UE.delEditor("content");
+		UE.delEditor('content');
 	}
 	initEditor() {
 		const { id, config } = this.props;
-		const ueEditor = UE.getEditor("content", config);
+		const ueEditor = UE.getEditor('content', config);
 		const self = this;
 		ueEditor.ready((ueditor) => {
 			if (!ueditor) {
 				UE.delEditor(id);
 				self.initEditor();
 			}
-		})
+		});
 	}
 	handle = () => {
 		if (this.state.isState) return false;
 		let content = UE.getEditor('content').getContent();
-		let user = JSON.parse(localStorage.getItem("user"));
+		let user = JSON.parse(localStorage.getItem('user'));
 		if (!user) {
-			message.info("请先登录");
+			message.info('请先登录');
 			return false;
 		}
 		this.props.form.validateFields((err, values) => {
 			if (!err && content) {
 				this.setState({
 					isState: true
-				})
+				});
 				this.addContent({ ...values, userId: user._id, content: content });
 			} else {
-				message.error("请完成表单填写");
+				message.error('请完成表单填写');
 			}
 		});
 	}
 	addContent = async (data) => {
-		const { code, message: msg } = await post("community", data);
+		const { code, message: msg } = await post('community', data);
 		if (code) {
 			message.success(msg, 1, () => {
 				this.setState({
 					isState: false
-				})
-				hashHistory.push("/creative");
+				});
+				hashHistory.push('/creative');
 			});
 		} else {
 			message.error(msg, () => {
 				this.setState({
 					isState: false
-				})
+				});
 			});
 		}
 	}

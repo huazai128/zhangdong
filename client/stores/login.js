@@ -1,5 +1,6 @@
-import { observable, computed, action, runInAction, autorun } from 'mobx';
+import { observable, computed, action, runInAction, autorun, getAdministration } from 'mobx';
 import { get, post, put } from 'js/api/fetch';
+import axios from 'axios';
 import { message } from 'antd';
 
 class Store {
@@ -29,22 +30,23 @@ class Store {
 	}
 
 	@action
+	getInit = () => {
+		axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+	}
+
+	@action
 	expireToken = () => {
 		let exp = JSON.parse(localStorage.getItem('exp'));
 		if (exp) {
 			let newDate = exp - Math.floor(new Date() / 1000) - 60;
 			if (newDate <= 0) {
-				localStorage.removeItem('token');
-				localStorage.removeItem('user');
-				localStorage.removeItem('exp');
+				this.getRemove();
 				this.isLogin = false;
 			} else {
 				this.isLogin = true;
 			}
 		} else {
-			localStorage.removeItem('token');
-			localStorage.removeItem('user');
-			localStorage.removeItem('exp');
+			this.getRemove();
 			this.isLogin = false;
 		}
 	}
@@ -52,26 +54,33 @@ class Store {
 	@action
 	signOut = () => {
 		message.success('退出成功');
-		localStorage.removeItem('token');
-		localStorage.removeItem('user');
-		localStorage.removeItem('exp');
+		this.getRemove();
 		this.isLogin = false;
 	}
 
 	@action
+	getRemove = () => {
+		localStorage.removeItem('token');
+		localStorage.removeItem('user');
+		localStorage.removeItem('exp');
+	}
+
+	@action
 	addUser = async (datas, callback) => {
-		if(Object.is(datas.type,1)){
+		if (Object.is(datas.type, 1)) {
 			datas.exp = this.codeInfo.exp;
 		}
 		const { code, result } = await post('user', datas);
 		runInAction(() => {
 			this.getCode();
 			if (code) {
-				localStorage.setItem('token', result.token);
-				localStorage.setItem('user', JSON.stringify(result));
-				localStorage.setItem('exp', result.exp);
-				message.success('注册成功');
-				this.isLogin = true;
+				if (!Object.is(datas.type, 1)) {
+					localStorage.setItem('token', result.token);
+					localStorage.setItem('user', JSON.stringify(result));
+					localStorage.setItem('exp', result.exp);
+					message.success('注册成功');
+					this.isLogin = true;
+				}
 			}
 			callback(code);
 		});
@@ -96,7 +105,11 @@ class Store {
 		runInAction(() => {
 			callback(code);
 			if (code) {
-				message.success('修改成功');
+				if (data.gravatar) {
+					this.userInfo.gravatar = data.gravatar;
+				}else{
+					message.success('修改成功');
+				}
 			} else {
 				message.error('修改失败');
 			}
@@ -122,7 +135,7 @@ class Store {
 		runInAction(() => {
 			if (code) {
 				this.codeInfo = result;
-			} 
+			}
 		});
 	}
 }

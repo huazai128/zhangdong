@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './askModal.scss';
-import { Form, Input, Modal, Button, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, AutoComplete } from 'antd';
+import { Form, Input, Modal, Button, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, AutoComplete, InputNumber } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
@@ -66,13 +66,16 @@ class ModalForm extends React.Component {
 							<FormItem
 								{...formItemLayout}
 								label="公司名称："
+								hasFeedback
 							>
 								{getFieldDecorator('company', {
-									rules: [{
-										required: true, message: '不能为空',
-									}],
+									rules: [
+										{ required: true, message: '不能为空', },
+										{ max: 30, message: '公司名称过长' },
+										{ min: 3, message: '公司名称过短' },
+									],
 								})(
-									<Input placeholder="请输入公司名称"/>
+									<Input placeholder="请输入公司名称(限制在(3-30))" />
 								)}
 							</FormItem>
 						</div>
@@ -81,6 +84,7 @@ class ModalForm extends React.Component {
 							<FormItem
 								{...formItemLayout}
 								label="企业规模"
+								hasFeedback
 							>
 								{getFieldDecorator('scale', {
 									rules: [{
@@ -95,11 +99,15 @@ class ModalForm extends React.Component {
 							<FormItem
 								{...formItemLayout}
 								label="行业："
+								hasFeedback
 							>
 								{getFieldDecorator('industry', {
 									rules: [{
 										required: true, message: '不能为空',
-									}],
+									},
+									{ max: 30, message: '输入文字过长' },
+									{ min: 3, message: '输入文字过短' },
+									],
 								})(
 									<Input placeholder="请输入公司行业" />
 								)}
@@ -109,11 +117,15 @@ class ModalForm extends React.Component {
 							<FormItem
 								{...formItemLayout}
 								label="申请人姓名："
+								hasFeedback
 							>
 								{getFieldDecorator('name', {
 									rules: [{
 										required: true, message: '不能为空',
-									}],
+									},
+									{ max: 30, message: '输入文字过长' },
+									{ min: 2, message: '输入文字过短' },
+									],
 								})(
 									<Input placeholder="请输入姓名" />
 								)}
@@ -123,6 +135,7 @@ class ModalForm extends React.Component {
 							<FormItem
 								{...formItemLayout}
 								label="申请人电话："
+								hasFeedback
 							>
 								{getFieldDecorator('phone', {
 									rules: [{
@@ -139,6 +152,7 @@ class ModalForm extends React.Component {
 							<FormItem
 								{...formItemLayout}
 								label="申请人邮箱："
+								hasFeedback
 							>
 								{getFieldDecorator('email', {
 									rules: [{

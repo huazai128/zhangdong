@@ -84,45 +84,62 @@ export default class Auditing extends React.Component {
 						<div className="test">测试进程:</div>
 						<div className="tuContent">
 							<div className='btnTop flex'>
-								<div className='btnContent'>
-									<div className={`rect  ${(detail.process >= 0) ? 'phoneOne' : 'phoneThree'}`}></div>
-									<div>完成申请</div>
-								</div>
-								<div className="xian"></div>
-								<div className='btnContent'>
-									<div className={`rect  ${(detail.process >= 0) ? 'phoneOne' : 'phoneThree'}`}></div>
-									<div>确认需求</div>
-								</div>
-								<div className="xian"></div>
-								<div className='btnContent'>
-									<div className={`rect  ${(detail.process >= 1) ? 'phoneOne' : 'phoneThree'}`}></div>
-									<div>技术测试</div>
-								</div>
-								<div className="xian"></div>
-								<div className='btnContent'>
-									<div className={`rect  ${(detail.process >= 2) ? 'phoneOne' : 'phoneThree'}`}></div>
-									<div>结果交付</div>
+								<div className='status'>
+									<ul className='flex'>
+										<li>
+											<div className="flex">
+												<div className='btnContent'>
+													<div className={`rect  ${(detail.process >= 0) ? 'phoneOne' : 'phoneThree'}`}></div>
+													<div>完成申请</div>
+												</div>
+											</div>
+											<p className='treat'>{Object.is(detail.style, 1) ? '已接单' : '已完成'}</p>
+										</li>
+										{files && !!files.length && files.map((item, index) => (
+											<li>
+												{Object.is(index, 0) && (
+													<div className="flex">
+														<div className="xian"></div>
+														<div className='btnContent'>
+															<div className={`rect  ${(detail.process >= 0 && !Object.is(item.state, -1)) ? 'phoneOne' : 'phoneThree'}`}></div>
+															<div>确认需求</div>
+														</div>
+													</div>
+												)}
+												{Object.is(index, 1) && (
+													<div className="flex">
+														<div className="xian"></div>
+														<div className='btnContent'>
+															<div className={`rect  ${(detail.process >= 1 && !Object.is(item.state, -1)) ? 'phoneOne' : 'phoneThree'}`}></div>
+															<div>技术测试</div>
+														</div>
+													</div>
+												)}
+												{Object.is(index, 2) && (
+													<div className="flex">
+														<div className="xian"></div>
+														<div className='btnContent'>
+															<div className={`rect  ${(detail.process >= 2 && !Object.is(item.state, -1)) ? 'phoneOne' : 'phoneThree'}`}></div>
+															<div>结果交付</div>
+														</div>
+													</div>
+												)}
+												<div className="flex jc-end">
+													{Object.is(item.state, 1) && <p className='treat'>已完成</p>}
+													{Object.is(item.state, -1) && <p className='bad'>已取消</p>}
+													{Object.is(index, 2) && Object.is(item.state, 0) && <div><Button className="btn-green" onClick={() => { this.store.stateOver(item._id); }}>确认完成</Button></div>}
+													{item.url && Object.is(detail.style, 0) && <a href={imgRoot + item.p_url} className="btn-blue">下载文件</a>}
+													{(Object.is(detail.style, 1) && <Upload action={`${imgRoot}/image?process=${item.process}&id=${item._id}`} {...props} >
+														<Button className="btn-file">{item.url ? '重新上传' : '上传文件'}</Button>
+													</Upload>)}
+													{Object.is(detail.style, 1) && <a href={imgRoot + item.p_url} className="url">{item.url}</a>}
+												</div>
+
+											</li>
+										))}
+									</ul>
 								</div>
 							</div>
-						</div>
-						<div className='status'>
-							<ul className='flex'>
-								<li>
-									<p className='treat'>{Object.is(detail.style, 1) ? '已接单' : '已完成'}</p>
-								</li>
-								{files && !!files.length && files.map((item, index) => (
-									<li>
-										{Object.is(item.state, 1) && <p className='treat'>已完成</p>}
-										{Object.is(item.state, -1) && <p className='bad'>已取消</p>}
-										{Object.is(index, 2) && Object.is(item.state, 0) && <div><Button className="btn-green" onClick={ () => { this.store.stateOver(item._id); }}>确认完成</Button></div>}
-										{item.url && Object.is(detail.style, 0) && <a href={imgRoot + item.p_url} className="btn-blue">下载文件</a>}
-										{(Object.is(detail.style, 1) && <Upload action={`${imgRoot}/image?process=${item.process}&id=${item._id}`} {...props} >
-											<Button className="btn-file">{item.url ? '重新上传' : '上传文件'}</Button>
-										</Upload>)}
-										{Object.is(detail.style, 1) && <a href={ imgRoot + item.p_url } className="url">{item.url}</a>}
-									</li>
-								))}
-							</ul>
 						</div>
 					</div>
 				</div>

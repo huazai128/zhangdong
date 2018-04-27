@@ -39,10 +39,11 @@ export default class Top extends React.Component {
 			});
 			this.store.getUserInfo();
 		}
+		this.store.getInit();
 		this.store.expireToken();
-		
 	}
 	componentWillReceiveProps(props) {
+		this.store.getInit();
 		this.store.expireToken();
 	}
 	

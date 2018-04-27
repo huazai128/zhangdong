@@ -11,7 +11,9 @@ class EditorUser extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			visible: false
+			visible: false,
+			headers: {},
+			confirmDirty: false,
 		};
 		this.store = this.props.login;
 	}
@@ -34,16 +36,13 @@ class EditorUser extends Component {
 						this.setState({
 							visible: false
 						});
-						message.success('修改成功');
 					} else {
 						message.error('修改失败');
 					}
 				});
 			}
 		});
-		this.setState({
-			visible: false,
-		});
+
 	}
 	handleCancel = (e) => {
 		this.props.form.resetFields();
@@ -51,53 +50,63 @@ class EditorUser extends Component {
 			visible: false,
 		});
 	}
-	compareToFirstPassword = (rule, value, callback) => {
-		const form = this.props.form;
-		if (value && value !== form.getFieldValue('new_password')) {
-			callback('两次输入密码不一致');
-		} else {
-			callback();
-		}
-	}
-	validateToNextPassword = (rule, value, callback) => {
+	checkConfirm = (rule, value, callback) => {
 		const form = this.props.form;
 		if (value && this.state.confirmDirty) {
 			form.validateFields(['confirm_password'], { force: true });
 		}
 		callback();
 	}
+
+	checkPassword = (rule, value, callback) => {
+		const form = this.props.form;
+		if (value && value !== form.getFieldValue('new_password')) {
+			callback('两次密码输入不一致');
+		} else {
+			callback();
+		}
+	}
+
+	handleConfirmBlur = (e) => {
+		const value = e.target.value;
+		this.setState({ confirmDirty: this.state.confirmDirty || !!value });
+	}
+	componentDidMount() {
+		this.store.getInit();
+		let headers = {
+			authorization: 'Bearer ' + localStorage.getItem('token'),
+		};
+		this.setState({
+			headers: headers
+		});
+	}
+
+	changeFile = (info) => {
+		let user = JSON.parse(localStorage.getItem('user'));
+		const { putUserId, getUserInfo } = this.store;
+		if (info.file.status !== 'uploading') {
+			console.log(info.file, info.fileList);
+		}
+		if (info.file.status === 'done') {
+			let gravatar = info.file.response.result.path;
+			putUserId({ _id: user._id, gravatar: gravatar }, (code) => {
+				getUserInfo();
+			});
+		} else if (info.file.status === 'error') {
+			message.error('上传失败');
+		}
+	}
 	render() {
 		const { getFieldDecorator } = this.props.form;
-		let { _id } = JSON.parse(localStorage.getItem('user'));
-		const { putUserId, userInfo, getUserInfo } = this.store;
-		const props = {
-			name: 'bg',
-			action: `${imgRoot}/image`,
-			headers: {
-				authorization: 'Bearer ' + localStorage.getItem('token'),
-			},
-			onChange(info) {
-				if (info.file.status !== 'uploading') {
-					console.log(info.file, info.fileList);
-				}
-				if (info.file.status === 'done') {
-					let gravatar = info.file.response.result.path;
-					putUserId({ _id: _id, gravatar: gravatar }, (code) => {
-						getUserInfo();
-					});
-					message.success('上传成功');
-				} else if (info.file.status === 'error') {
-					message.error('上传失败');
-				}
-			},
-		};
+		const { userInfo } = this.store;
 		return (
 			<div className="user-box flex">
 				<div className="user-left">
 					<div className="user-img">
 						<img src={`${imgRoot}${userInfo.gravatar}`} alt="" />
 					</div>
-					<p className="icon-avator"><Upload {...props} showUploadList={false}>修改头像</Upload></p>
+					<p className="icon-text">(建议上传1:1的头像)</p>
+					<p className="icon-avator"><Upload headers={this.state.headers} name="bg" action={`${imgRoot}/image`} onChange={(info) => { this.changeFile(info); }} showUploadList={false}>修改头像</Upload></p>
 					<p className="icon-psw" onClick={() => { this.showModal(); }}>修改密码</p>
 				</div>
 				<div className="flex-g-1 user-cont">
@@ -113,9 +122,13 @@ class EditorUser extends Component {
 							<p>原有密码:</p>
 							<FormItem>
 								{getFieldDecorator('old_password', {
-									rules: [{ required: true, message: '不能为空', whitespace: true }],
+									rules: [
+										{ required: true, message: '不能为空', whitespace: true },
+										{ max: 16, message: '密码过长' },
+										{ min: 6, message: '密码过短' },
+									],
 								})(
-									<Input type="password" placeholder='用户名' />
+									<Input type="password" placeholder='请输入原有密码' />
 								)}
 							</FormItem>
 						</div>
@@ -123,13 +136,14 @@ class EditorUser extends Component {
 							<p>新密码:</p>
 							<FormItem>
 								{getFieldDecorator('new_password', {
-									rules: [{
-										required: true, message: '不能为空',
-									}, {
-										validator: this.compareToFirstPassword,
-									}],
+									rules: [
+										{ required: true, message: '不能为空', },
+										{ validator: this.checkConfirm, },
+										{ max: 16, message: '密码过长' },
+										{ min: 6, message: '密码过短' },
+									],
 								})(
-									<Input type="password" placeholder='请输入密码' />
+									<Input type="password" placeholder='请输入密码(密码长度控制(6-16))' />
 								)}
 							</FormItem>
 						</div>
@@ -137,11 +151,12 @@ class EditorUser extends Component {
 							<p>确认新密码:</p>
 							<FormItem>
 								{getFieldDecorator('confirm_password', {
-									rules: [{
-										required: true, message: '不能为空',
-									}, {
-										validator: this.validateToNextPassword,
-									}],
+									rules: [
+										{ required: true, message: '不能为空', },
+										{ validator: this.checkPassword, },
+										{ max: 16, message: '密码过长' },
+										{ min: 6, message: '密码过短' },
+									],
 								})(
 									<Input type="password" onBlur={this.handleConfirmBlur} placeholder='请再次输入密码' />
 								)}

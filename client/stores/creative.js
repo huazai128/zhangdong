@@ -121,7 +121,7 @@ class Store {
 	@action
 	putArticleId = async(_id,id) => { // 收藏
 		if (!this.user) {
-			message.info('没有登录暂时不能评论');
+			message.info('请先登录!');
 			return false;
 		}
 		const { code, result,message:msg } = await put(`/community/${_id}`, {user_id:this.user._id,is_collect:true});
