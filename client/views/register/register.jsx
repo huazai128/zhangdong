@@ -32,7 +32,8 @@ class Login extends React.Component {
 	}
 
 	changeCheck = (value) => {
-		if (!value) {
+		console.log(value);
+		if (!value.target.checked) {
 			removeStore('remember');
 		}
 	}

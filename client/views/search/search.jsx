@@ -4,6 +4,7 @@ const Search = Input.Search;
 import { inject, observer } from 'mobx-react';
 import { Link } from 'react-router';
 import date from 'js/core/date';
+import { imgRoot } from 'js/api/config';
 import './search.scss';
 
 @inject('creative')
@@ -47,7 +48,7 @@ export default class SearchComponent extends Component {
   						<div className="item flex">
   							<div className="flex-vcenter flex-g-1">
   								<div className="item-img">
-  									<img src={item.userId && item.userId.gravatar} alt="" />
+  									<img src={item.userId && imgRoot + item.userId.gravatar} alt="" />
   								</div>
   								<p>{item.title}</p>
   							</div>

@@ -70,7 +70,7 @@ class ModalForm extends React.Component {
 							>
 								{getFieldDecorator('company', {
 									rules: [
-										{ required: true, message: '不能为空', },
+										{ required: true, message: '不能为空',whitespace: true },
 										{ max: 30, message: '公司名称过长' },
 										{ min: 3, message: '公司名称过短' },
 									],
@@ -88,7 +88,7 @@ class ModalForm extends React.Component {
 							>
 								{getFieldDecorator('scale', {
 									rules: [{
-										required: true, message: '不能为空',
+										required: true, message: '不能为空',whitespace: true
 									}],
 								})(
 									<Input placeholder="请输入公司规模" />
@@ -103,7 +103,7 @@ class ModalForm extends React.Component {
 							>
 								{getFieldDecorator('industry', {
 									rules: [{
-										required: true, message: '不能为空',
+										required: true, message: '不能为空',whitespace: true
 									},
 									{ max: 30, message: '输入文字过长' },
 									{ min: 3, message: '输入文字过短' },
@@ -121,7 +121,7 @@ class ModalForm extends React.Component {
 							>
 								{getFieldDecorator('name', {
 									rules: [{
-										required: true, message: '不能为空',
+										required: true, message: '不能为空',whitespace: true
 									},
 									{ max: 30, message: '输入文字过长' },
 									{ min: 2, message: '输入文字过短' },
@@ -139,7 +139,7 @@ class ModalForm extends React.Component {
 							>
 								{getFieldDecorator('phone', {
 									rules: [{
-										required: true, message: '不能为空',
+										required: true, message: '不能为空',whitespace: true
 									},
 									{ pattern: /^((1[3-8][0-9])+\d{8})$/, message: '请填写正确的手机号码' },
 									],
@@ -156,7 +156,7 @@ class ModalForm extends React.Component {
 							>
 								{getFieldDecorator('email', {
 									rules: [{
-										required: true, message: '不能为空',
+										required: true, message: '不能为空',whitespace: true
 									},
 									{ pattern: /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/, message: '请填写正确的邮箱！' }
 									],

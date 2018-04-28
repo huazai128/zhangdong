@@ -69,7 +69,7 @@ class FormComponent extends Component {
 								>
 									{getFieldDecorator('mold', {
 										rules: [{
-											required: true, message: '不能为空',
+											required: true, message: '不能为空',whitespace: true
 										}],
 									})(
 										<Select defaultValue="0" placeholder="请选择测试类型">
@@ -87,7 +87,7 @@ class FormComponent extends Component {
 								>
 									{getFieldDecorator('company', {
 										rules: [{
-											required: true, message: '不能为空',
+											required: true, message: '不能为空',whitespace: true
 										},
 										{ max: 30, message: '输入文字过长' },
 										{ min: 3, message: '输入文字过短' },
@@ -105,7 +105,7 @@ class FormComponent extends Component {
 								>
 									{getFieldDecorator('name', {
 										rules: [{
-											required: true, message: '不能为空',
+											required: true, message: '不能为空',whitespace: true
 										},
 										{ max: 30, message: '输入文字过长' },
 										{ min: 2, message: '输入文字过短' },
@@ -123,7 +123,7 @@ class FormComponent extends Component {
 								>
 									{getFieldDecorator('job', {
 										rules: [{
-											required: true, message: '不能为空',
+											required: true, message: '不能为空',whitespace: true
 										},
 										{ max: 30, message: '输入文字过长' },
 										{ min: 1, message: '输入文字过短' },
@@ -157,7 +157,7 @@ class FormComponent extends Component {
 								>
 									{getFieldDecorator('email', {
 										rules: [{
-											required: true, message: '不能为空',
+											required: true, message: '不能为空',whitespace: true
 										},
 										{ pattern: /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/, message: '请填写正确的邮箱！' }
 										],
@@ -174,7 +174,7 @@ class FormComponent extends Component {
 								>
 									{getFieldDecorator('qq', {
 										rules: [{
-											required: true, message: '不能为空',
+											required: true, message: '不能为空',whitespace: true
 										},
 										{ pattern: /^[1-9][0-9]{4,10}$/gim,message:'请输入正确的QQ' },
 										{ max: 12, message: '输入文字过长' },
@@ -193,7 +193,7 @@ class FormComponent extends Component {
 								>
 									{getFieldDecorator('content', {
 										rules: [{
-											required: true, message: '不能为空',
+											required: true, message: '不能为空',whitespace: true
 										},
 										{ max: 100, message: '输入文字过长' },
 										{ min: 3, message: '输入文字过短' },

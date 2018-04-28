@@ -110,7 +110,7 @@ export default class Personal extends React.Component {
 												{Object.is(item.process, 3) && (<p className='secondP yiP'>结果交付</p>)}
 											</div>
 											<div className="bottomContent">
-												{item.mold ? '兼容测试' : '功能测试'}.条件1.条件2.{date(item.create_at)}申请 </div>
+												{date(item.create_at)}申请 </div>
 										</div>
 									</Link>
 								))}

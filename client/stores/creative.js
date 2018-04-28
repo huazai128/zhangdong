@@ -36,6 +36,8 @@ class Store {
 
 	@action
 	getInit = () => {
+		this._query.state = 1;
+		delete this.parmas.keywords;
 		this.change();
 	}
 
@@ -85,7 +87,7 @@ class Store {
 	getDetailId = async (id) => {
 		const { code, result } = await get(`/community/${id}`);
 		runInAction(() => {
-			if(this.user){
+			if (this.user) {
 				let arr = result.c_user.filter((item) => Object.is(item, this.user._id));
 				!arr.length && (result.c_state = false);
 				arr.length && (result.c_state = true);
@@ -119,14 +121,14 @@ class Store {
 	}
 
 	@action
-	putArticleId = async(_id,id) => { // 收藏
+	putArticleId = async (_id, id) => { // 收藏
 		if (!this.user) {
 			message.info('请先登录!');
 			return false;
 		}
-		const { code, result,message:msg } = await put(`/community/${_id}`, {user_id:this.user._id,is_collect:true});
+		const { code, result, message: msg } = await put(`/community/${_id}`, { user_id: this.user._id, is_collect: true });
 		runInAction(() => {
-			if(code){
+			if (code) {
 				this.getDetailId(id);
 				message.success(msg);
 			}

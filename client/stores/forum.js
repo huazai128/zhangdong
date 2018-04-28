@@ -59,6 +59,7 @@ class Store {
 	@action
 	changeTag = (e) => {
 		let idx = Number(e);
+		this._query.page = 1;
 		this.idx = idx;
 		if (Object.is(Number(idx), 1)) {
 			this.getLists();

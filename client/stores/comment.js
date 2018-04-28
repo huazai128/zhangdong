@@ -3,10 +3,7 @@ import { get, post, put } from 'js/api/fetch';
 import { message } from 'antd';
 
 class Store {
-
-
 	constructor() { }
-
 	_query = {
 		page: 1,
 		pre_page: 10,
@@ -14,7 +11,6 @@ class Store {
 		c_userId: this.user ? this.user._id : ''
 	}
 	id = '';
-
 	@observable comments = [];
 	@observable pagination = {
 		current_page: 1,
@@ -98,7 +94,7 @@ class Store {
 	@action
 	changeComment = (page) => {
 		this._query.page = page;
-		this.getComments();
+		this.getComments(this.id);
 	}
 }
 const store = new Store();

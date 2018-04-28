@@ -18,6 +18,7 @@ export default class Receipt extends React.Component {
 		const { id } = this.props.params;
 		this.store.getApplyId(id);
 	}
+
 	render() {
 		const { detail } = this.store;
 		return (
@@ -41,7 +42,7 @@ export default class Receipt extends React.Component {
 								<div><i></i>测试类型：{detail.mold === 0 ? '功能测试' : '兼容测试'}</div>
 								<div><i></i>职位：*****</div>
 								<div><i></i>邮箱：*******</div>
-								<div><i></i>申请时间：{moment(detail.create_at).format('YYYY-MM-DD hh:mm:ss')}</div>
+								<div><i></i>申请时间：{moment(detail.create_at).format('YYYY-MM-DD')}</div>
 							</div>
 						</div>
 						{Object.is(detail.style, 0) && (<div className="apply-content"><i></i>咨询内容：{detail.content}</div>)}

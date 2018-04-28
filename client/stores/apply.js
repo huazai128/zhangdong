@@ -13,7 +13,12 @@ class Store {
 	@observable lists;
 	@observable detail = {};
 	@observable idx = '1';
-	@observable files = [];
+	@observable index = 0;
+	@observable files = [
+		{ url: '', state: false, _id: '', process: 1, open: true },
+		{ url: '', state: false, _id: '', process: 2, },
+		{ url: '', state: false, _id: '', process: 3, },
+	];
 	@observable id = '';
 
 	@computed
@@ -28,7 +33,7 @@ class Store {
 	// 获取众测平台数据
 	@action
 	getPlatformLists = async () => {
-		const { code, result, message:msg } = await get('apply', this.query);
+		const { code, result, message: msg } = await get('apply', this.query);
 		runInAction(() => {
 			if (code) {
 				this.lists = result;
@@ -54,10 +59,13 @@ class Store {
 
 	@action
 	getFiles = async (id) => {
-		const { code, result,message:msg } = await get('image', { apply_id: id, p_type: true });
+		this.getInitData();
+		const { code, result, message: msg } = await get('image', { apply_id: id, p_type: true });
 		runInAction(() => {
 			if (code) {
-				this.files = result.data;
+				this.files = [...result.data.slice(0, 3), ...this.files.slice(result.data.length, 3)];
+				this.index = this.files.filter((item) => Object.is(item.state,1)).length;
+				console.log(this.index);
 			} else {
 				message.error(msg);
 			}
@@ -66,7 +74,7 @@ class Store {
 
 	@action
 	stateOver = async (id) => {
-		const { code, result,message:msg } = await put(`image/${id}`, { state: 1, apply_id: this.id, process: 3 });
+		const { code, result, message: msg } = await put(`image/${id}`, { state: 1, apply_id: this.id, process: 3 });
 		runInAction(() => {
 			if (code) {
 				message.success('修改成功');
@@ -75,6 +83,14 @@ class Store {
 				message.error(msg);
 			}
 		});
+	}
+
+	getInitData = () => {
+		this.files = [
+			{ url: '', state: false, _id: '', process: 1, open: true },
+			{ url: '', state: false, _id: '', process: 2, },
+			{ url: '', state: false, _id: '', process: 3, },
+		];
 	}
 
 }

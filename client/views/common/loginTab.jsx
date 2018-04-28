@@ -38,7 +38,7 @@ class LoginTab extends React.Component {
 				this.store.addUser(Object.assign(values, obj), (code) => {
 					if (code) {
 						this.setState({
-							isModal:true,
+							isModal: true,
 						});
 					}
 				});
@@ -73,7 +73,7 @@ class LoginTab extends React.Component {
 
 	showModal = () => {
 		this.setState({
-			isModal:false,
+			isModal: false,
 		});
 		hashHistory.push('/creative');
 	}
@@ -106,7 +106,7 @@ class LoginTab extends React.Component {
 							<FormItem hasFeedback>
 								{getFieldDecorator('email', {
 									rules: [
-										{ required: true, message: '不能为空' },
+										{ required: true, message: '不能为空', whitespace: true },
 										{ type: 'email', message: '请输入正确的邮箱' },
 									],
 								})(
@@ -117,7 +117,7 @@ class LoginTab extends React.Component {
 							<FormItem hasFeedback>
 								{getFieldDecorator('password', {
 									rules: [{
-										required: true, message: '不能为空',
+										required: true, message: '不能为空', whitespace: true
 									},
 									{
 										validator: this.checkConfirm,
@@ -134,7 +134,7 @@ class LoginTab extends React.Component {
 							<FormItem hasFeedback>
 								{getFieldDecorator('confirm', {
 									rules: [{
-										required: true, message: '不能为空',
+										required: true, message: '不能为空', whitespace: true
 									},
 									{
 										validator: this.checkPassword,
@@ -161,7 +161,7 @@ class LoginTab extends React.Component {
 							<FormItem hasFeedback>
 								{getFieldDecorator('iphone', {
 									rules: [
-										{ required: true, message: '不能为空' },
+										{ required: true, message: '不能为空', whitespace: true },
 										{ pattern: /^1[3|4|5|7|8]\d{9}$/, message: '请输入正确的手机号码' }
 									],
 								})(
@@ -172,7 +172,7 @@ class LoginTab extends React.Component {
 						<div className="itemContent">
 							<FormItem hasFeedback>
 								{getFieldDecorator('job', {
-									rules: [{ required: true, message: '不能为空' }],
+									rules: [{ required: true, message: '不能为空', whitespace: true }],
 								})(
 									<Input placeholder='职位' />
 								)}
@@ -181,7 +181,7 @@ class LoginTab extends React.Component {
 						<div className="itemContent">
 							<FormItem hasFeedback>
 								{getFieldDecorator('record', {
-									rules: [{ required: true, message: '不能为空' }],
+									rules: [{ required: true, message: '不能为空', whitespace: true }],
 								})(
 									<Input placeholder='测试资历' />
 								)}
@@ -191,7 +191,7 @@ class LoginTab extends React.Component {
 							<FormItem hasFeedback>
 								<div className='flex'>
 									{getFieldDecorator('vcode', {
-										rules: [{ required: true, message: '不能为空' }],
+										rules: [{ required: true, message: '不能为空', whitespace: true }],
 									})(
 										<Input placeholder='验证码' />
 									)}
@@ -216,7 +216,7 @@ class LoginTab extends React.Component {
 							<FormItem hasFeedback>
 								{getFieldDecorator('card', {
 									rules: [
-										{ required: true, message: '不能为空' },
+										{ required: true, message: '不能为空', whitespace: true },
 										{ pattern: /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/, message: '请填写正确的身份证！' }
 									],
 								})(
@@ -236,7 +236,7 @@ class LoginTab extends React.Component {
 						<div className="tan-box">
 							<p>提示：测试者用户在审核通过后才能进行登录使用哦，请浏览和了解社区。</p>
 							<div className="flex-center">
-								<Button className="btn" onClick={ () => { this.showModal(); } }>我知道了</Button>
+								<Button className="btn" onClick={() => { this.showModal(); }}>我知道了</Button>
 							</div>
 						</div>
 					</div>

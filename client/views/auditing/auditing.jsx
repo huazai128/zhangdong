@@ -18,7 +18,6 @@ export default class Auditing extends React.Component {
 		const { id } = this.props.params;
 		this.store.getApplyId(id);
 	}
-
 	render() {
 		const { detail, files, getFiles, id } = this.store;
 		const props = {
@@ -67,7 +66,7 @@ export default class Auditing extends React.Component {
 								<div><i></i>测试类型：{detail.mold === 0 ? '功能测试' : '兼容测试'}</div>
 								<div><i></i>职位：{detail.job}</div>
 								<div><i></i>邮箱：{detail.email}</div>
-								<div><i></i>申请时间：{moment(detail.create_at).format('YYYY-MM-DD hh:mm:ss')}</div>
+								<div><i></i>申请时间：{moment(detail.create_at).format('YYYY-MM-DD')}</div>
 							</div>
 						</div>
 						{Object.is(detail.style, 0) && (<div className="apply-content"><i></i>咨询内容：{detail.content}</div>)}
@@ -97,44 +96,29 @@ export default class Auditing extends React.Component {
 										</li>
 										{files && !!files.length && files.map((item, index) => (
 											<li>
-												{Object.is(index, 0) && (
-													<div className="flex">
-														<div className="xian"></div>
-														<div className='btnContent'>
-															<div className={`rect  ${(detail.process >= 0 && !Object.is(item.state, -1)) ? 'phoneOne' : 'phoneThree'}`}></div>
-															<div>确认需求</div>
+												<div className="flex">
+													<div className="xian"></div>
+													<div className='btnContent'>
+														<div className={`rect  ${(Object.is(item.state, 1) || Object.is(item.state, -1)) ? 'phoneOne' : 'phoneThree'}`}></div>
+														<div>
+															{Object.is(index, 0) && '确认需求'}
+															{Object.is(index, 1) && '技术测试'}
+															{Object.is(index, 2) && '结果交付'}
 														</div>
 													</div>
-												)}
-												{Object.is(index, 1) && (
-													<div className="flex">
-														<div className="xian"></div>
-														<div className='btnContent'>
-															<div className={`rect  ${(detail.process >= 1 && !Object.is(item.state, -1)) ? 'phoneOne' : 'phoneThree'}`}></div>
-															<div>技术测试</div>
-														</div>
-													</div>
-												)}
-												{Object.is(index, 2) && (
-													<div className="flex">
-														<div className="xian"></div>
-														<div className='btnContent'>
-															<div className={`rect  ${(detail.process >= 2 && !Object.is(item.state, -1)) ? 'phoneOne' : 'phoneThree'}`}></div>
-															<div>结果交付</div>
-														</div>
-													</div>
-												)}
-												<div className="flex jc-end">
+												</div>
+												<div className="btn-right">
 													{Object.is(item.state, 1) && <p className='treat'>已完成</p>}
 													{Object.is(item.state, -1) && <p className='bad'>已取消</p>}
-													{Object.is(index, 2) && Object.is(item.state, 0) && <div><Button className="btn-green" onClick={() => { this.store.stateOver(item._id); }}>确认完成</Button></div>}
-													{item.url && Object.is(detail.style, 0) && <a href={imgRoot + item.p_url} className="btn-blue">下载文件</a>}
-													{(Object.is(detail.style, 1) && <Upload action={`${imgRoot}/image?process=${item.process}&id=${item._id}`} {...props} >
-														<Button className="btn-file">{item.url ? '重新上传' : '上传文件'}</Button>
-													</Upload>)}
-													{Object.is(detail.style, 1) && <a href={imgRoot + item.p_url} className="url">{item.url}</a>}
+													{Object.is(this.store.index - 1, 2) && Object.is(item.state, 0) && <div><Button className="btn-green" onClick={() => { this.store.stateOver(item._id); }}>确认完成</Button></div>}
+													{item.url && Object.is(detail.style, 0) && <a target="_blank" href={imgRoot + item.p_url} download={item.url} className="btn-blue" >下载文件</a>}
+													{(Object.is(detail.style, 1) && !(Object.is(item.state, 0)) && <div className="file-box">
+														<Upload action={`${imgRoot}/image?process=${item.process}&id=${item._id}&state=${ item.state }`} {...props} >
+															<Button className="btn-file">{(item.url && item.p_url) ? '重新上传' : '上传文件'}</Button>
+														</Upload>
+													</div>)}
+													{Object.is(detail.style, 1) &&  (Object.is(item.state, 1)) && <a target="_blank" href={imgRoot + item.p_url} download={item.url} className="url">{item.url}</a>}
 												</div>
-
 											</li>
 										))}
 									</ul>

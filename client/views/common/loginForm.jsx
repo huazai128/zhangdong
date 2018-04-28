@@ -57,7 +57,7 @@ class LoginOne extends React.Component {
 					<div className="item">
 						<FormItem hasFeedback>
 							{getFieldDecorator('username', {
-								rules: [{ required: true, message: '不能为空' }],
+								rules: [{ required: true, message: '不能为空',whitespace: true }],
 							})(
 								<Input className='use flex-center' placeholder="用户名" />)}
 						</FormItem>
@@ -66,7 +66,7 @@ class LoginOne extends React.Component {
 						<FormItem hasFeedback>
 							{getFieldDecorator('email', {
 								rules: [
-									{ required: true, message: '不能为空' },
+									{ required: true, message: '不能为空',whitespace: true },
 									{ type: 'email', message: '请输入正确的邮箱' }
 								],
 							})(
@@ -77,7 +77,7 @@ class LoginOne extends React.Component {
 						<FormItem hasFeedback>
 							{getFieldDecorator('password', {
 								rules: [{
-									required: true, message: '不能为空',
+									required: true, message: '不能为空',whitespace: true
 								}, {
 									validator: this.checkConfirm,
 								},
@@ -93,7 +93,7 @@ class LoginOne extends React.Component {
 						<FormItem hasFeedback>
 							{getFieldDecorator('confirm', {
 								rules: [{
-									required: true, message: '不能为空',
+									required: true, message: '不能为空',whitespace: true
 								}, {
 									validator: this.checkPassword,
 								},
@@ -110,7 +110,7 @@ class LoginOne extends React.Component {
 						<FormItem hasFeedback>
 							{getFieldDecorator('name', {
 								rules: [{
-									required: true, message: '不能为空',
+									required: true, message: '不能为空',whitespace: true
 								}],
 							})(
 								<Input onBlur={this.handleConfirmBlur} placeholder='请输入真实姓名' />
